@@ -1,2 +1,2 @@
 # ignore .vim plugin folder
-./vim/pack/rac/start/*
+./common/vim/pack/rac/start/*

@@ -1,7 +1,6 @@
 " vim customization. Override for specific filetypes as desired.
 
 "-------Global-----------------------------------------------------------------
-
 map <F6> :setlocal spell! spelllang=en_us<CR>
 
 " Off by default locally if .vimrc is present, but just in case.
@@ -38,4 +37,4 @@ set showmatch " Highlight bracket pairs
 colorscheme industry
 set mouse=a
 source ~/.vim/ftplugin/default.vim
-
+setlocal nospell
