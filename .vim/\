@@ -1,0 +1,32 @@
+"-------Global-----------------------------------------------------------------
+
+" Off by default locally if .vimrc is present, but just in case.
+set nocompatible
+filetype plugin indent on
+
+" Enable filetype detection
+filetype plugin on
+
+" - hlsearch sets search to highlight hits (so you can find them), and the
+"   command below remaps esc+esc to clear highlighting when you're done.
+set hlsearch
+nnoremap <esc><esc> :silent! nohls<cr>
+
+" set cursorline
+" sets horizontal highlight on the line your cursor is on
+" This seems to slow <WSL> significantly
+
+" colorscheme changes the default colorscheme from a list of presets.
+colorscheme industry
+" Turn off horrible sounds
+set visualbell
+
+" Autoremove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+
+"-------- Extra ---------------------------------------------------------------
+
+set mouse=a
+
+source ~/.vim/ftplugin/default.vim

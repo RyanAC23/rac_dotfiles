@@ -1,0 +1,9 @@
+# color [item class] [text color] [background] [extra modifiers]
+color listnormal        magenta default
+color listfocus         black yellow standout bold
+color listnormal_unread cyan default bold
+color listfocus_unread  black yellow standout bold
+color info              default cyan bold # color7 color8
+color article           color15 default
+
+reload-time             60 # Defaults to 60 mins

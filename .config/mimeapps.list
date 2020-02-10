@@ -1,0 +1,32 @@
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+inode/directory=foobar2000_foobar2000.desktop
+text/plain=pluma.desktop
+image/bmp=eom.desktop
+image/gif=eom.desktop
+image/jpeg=eom.desktop
+image/png=eom.desktop
+image/tiff=eom.desktop
+application/pdf=atril.desktop
+video/webm=google-chrome.desktop
+application/x-extension-PDT=vim.desktop
+video/x-matroska=mpv.desktop
+x-content/audio-cdda=asunder.desktop
+
+[Added Associations]
+inode/directory=caja-folder-handler.desktop;foobar2000_foobar2000.desktop;
+text/plain=pluma.desktop;
+image/bmp=eom.desktop;
+image/gif=eom.desktop;
+image/jpeg=eom.desktop;
+image/png=eom.desktop;
+image/tiff=eom.desktop;
+application/pdf=atril.desktop;
+video/webm=google-chrome.desktop;
+application/x-extension-PDT=vim.desktop;
+video/x-matroska=mpv.desktop;
+x-content/audio-cdda=asunder.desktop;

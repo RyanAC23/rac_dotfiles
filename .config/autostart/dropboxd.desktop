@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/ryan/.dropbox-dist/dropboxd
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=Dropbox
+Name=Dropbox
+Comment[en_US]=Please work
+Comment=Please work
+X-MATE-Autostart-Delay=0

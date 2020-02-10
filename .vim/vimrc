@@ -1,0 +1,41 @@
+" vim customization. Override for specific filetypes as desired.
+
+"-------Global-----------------------------------------------------------------
+
+map <F6> :setlocal spell! spelllang=en_us<CR>
+
+" Off by default locally if .vimrc is present, but just in case.
+set nocompatible
+filetype plugin indent on
+
+" Enable filetype detection
+filetype plugin on
+
+" - hlsearch sets search to highlight hits (so you can find them), and the
+"   command below remaps esc+esc to clear highlighting when you're done.
+set hlsearch
+nnoremap <esc><esc> :silent! nohls<cr>
+
+" Turn off horrible sounds
+set visualbell
+
+" Show line numbers
+setlocal nu
+
+" Change tab to spaces, and specify the number of spaces.
+" Override this for specific filetypes if you need.
+setlocal expandtab
+setlocal tabstop=4
+" idem, for indents
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal autoindent
+" Autoremove trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+set showmatch " Highlight bracket pairs
+
+"-------- Extra ---------------------------------------------------------------
+colorscheme industry
+set mouse=a
+source ~/.vim/ftplugin/default.vim
+
