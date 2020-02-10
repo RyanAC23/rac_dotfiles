@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# GDR [0] - Screen
+tmux new -s GDR -d
+tmux rename-window -t GDR explorer
+
+# GDR [1] - Entrain
+tmux new-window -t GDR
+tmux rename-window -t GDR entrain
+tmux send-keys -t GDR 'cd ~/wsl-repos/nuclear-hydrodynamics-fork/GDR/' C-m
+tmux split-window -h -t GDR
+tmux send-keys -t GDR 'cd ~/wsl-repos/nuclear-hydrodynamics-fork/GDR/' C-m
+
+# GDR [2] - code
+tmux new-window -t GDR
+tmux rename-window -t GDR code
+tmux send-keys -t GDR 'cd ~/wsl-repos/nuclear-hydrodynamics-fork/' C-m
+tmux send-keys -t GDR 'code rac_work.code-workspace' C-m
+
+# Writing Screen
+tmux new -s writing -d
+tmux rename-window writing base
+
+# mccarthy project
+tmux new-window -t writing
+tmux rename-window -t writing mccarthy
+tmux send-keys -t writing 'cd ~/Dropbox/writing/McCarthy/mcannotated' C-m
+
+# Jupyter Server
+tmux new -s Jupyter -d
+tmux rename-window Jupyter server
+tmux send-keys -t Jupyter 'j' C-m
+
+# Website
+tmux new -s blog -d
+tmux rename-window blog blog
+tmux send-keys -t blog '. activate blog' C-m
+tmux send-keys -t blog 'cd wsl-repos/forbes_group_website' C-m
+
+# console
+tmux new -s console -d
+tmux rename-window console console
+tmux send-keys -t console 'neofetch' C-m
+
+# Final Attach
+tmux select-window -t console:0
+tmux attach -t console
