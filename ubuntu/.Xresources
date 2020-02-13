@@ -1,0 +1,67 @@
+! URxvt settings
+URxvt.termName:                screen-256color
+URxvt*geometry:                120x35
+URxvt.depth:                   32
+URxvt.background:              [95]#000000
+URxvt.foreground:              white
+URxvt.cursorColor:             #55dd55
+URxvt.highlightColor:          #33bb33
+URxvt.scrollBar:               false
+URxvt.mouseWheelScrollPage:    true
+URxvt.cursorBlink:             true
+URxvt.saveLines:               3000
+!URxvt.font:                    xft:terminus:size=12
+URxvt.font:                    xft:vl gothic:size=12
+URvt.fontbold:                 xft:vl gothic bold:size=12
+URxvt.fading:                  33
+URxvt.letterSpace:             +2
+URxvt.perl-ext-common: resize-font,matcher,url-select
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.button: 0
+URxvt.keysym.C-Down:    resize-font:smaller
+URxvt.keysym.C-Up:      resize-font:bigger
+
+Xft.dpi:          96
+Xft.antialias:    true
+Xft.hinting:      full
+
+!xterm.metaSendsEscape: true
+
+! Color Theme
+! special
+*.foreground:   #c0c5ce
+*.background:   #2b303b
+*.cursorColor:  #c0c5ce
+
+! black
+*.color0:       #2b303b
+*.color8:       #65737e
+
+! red
+*.color1:       #bf616a
+*.color9:       #bf616a
+
+! green
+*.color2:       #a3be8c
+*.color10:      #a3be8c
+
+! yellow
+*.color3:       #ebcb8b
+*.color11:      #ebcb8b
+
+! blue
+*.color4:       #8fa1b3
+*.color12:      #8fa1b3
+
+! magenta
+*.color5:       #b48ead
+*.color13:      #b48ead
+
+! cyan
+*.color6:       #96b5b4
+*.color14:      #96b5b4
+
+! white
+*.color7:       #c0c5ce
+*.color15:      #eff1f5
