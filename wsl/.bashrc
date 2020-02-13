@@ -146,7 +146,8 @@ shopt -s autocd
 
 # Autostart tmux
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-	tmux attach -t default || tmux new -s default
+    env-tmux
+#	tmux attach -t default || tmux new -s default
 #	tmux send-keys -t default 'neofetch' C-m
 fi
 
