@@ -1,0 +1,51 @@
+#!/bin/bash
+# This script generates a new LaTeX document from a template.
+# You must supply a filename [name].tex
+# Options are [format]
+#             (1) article
+#             (2) paper
+#             (3) book
+
+# $# gives the number of arguments passed.
+
+
+scriptdir=$(echo $(dirname $0));                # Stores the dir containing this script
+templdir=$(echo "$scriptdir/tex-template");
+
+echo
+
+# Check for tex-template in the script dir, and clone if necessary.
+if [ ! -d $scriptdir/tex-template ]; then
+    echo "Cloning tex-template to" $templdir;
+    git clone git@bitbucket.org:racorbin/tex-template.git $templdir;
+    echo "tex-template repository created in" $templdir;
+    echo
+fi
+
+# End script if no filename is given.
+case $# in
+    1) filename=$1;;
+    0) echo "No argument given.";
+       echo "Run this script again with the tex document name as an argument.";
+       echo "> $ neuftex <article type> <filename>"
+       echo "Article types are <book>, <paper>, <article>"
+       echo
+       exit;;
+esac
+
+# Make the new document folder
+here=$(pwd)
+if [ ! -d $here/$filename ]; then
+    echo "Creating a new directory at $here/$filename"
+    #echo "$templdir/book"
+    #echo "$here/$filename"
+    cp -r $templdir/book $here/$filename
+    rm $here/$filename/*.pdf
+    mv $here/$filename/template.tex $here/$filename/$filename.tex
+    echo
+else
+    echo "Directory already exists! Exiting..."
+    echo
+    exit
+fi
+
