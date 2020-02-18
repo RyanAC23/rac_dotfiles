@@ -38,3 +38,8 @@ colorscheme industry
 set mouse=a
 source ~/.vim/ftplugin/default.vim
 setlocal nospell
+
+"Source extra functions
+so $HOME/.vim/pack/rac/french.vim
+nm <leader>f :call FrToggle()<CR>
+
