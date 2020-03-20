@@ -154,3 +154,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Get rid of terrible directory highlighting
+LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
