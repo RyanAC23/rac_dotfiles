@@ -10,7 +10,7 @@
   enabled_plugins = LaunchpadBugURLHandler,
   always_split_with_profile = True
 [keybindings]
-  new_tab = <Primary>t
+  new_tab = <Primary><Super>t
   go_up = Disabled
   go_down = Disabled
   go_left = Disabled
@@ -22,6 +22,7 @@
     background_type = transparent
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
+    scrollbar_position = hidden
     scroll_background = False
 [layouts]
   [[default]]
