@@ -1,2 +1,3 @@
 # ignore .vim plugin folder
 ./common/vim/pack/rac/start/*
+./common/scripts/tex-template/*
