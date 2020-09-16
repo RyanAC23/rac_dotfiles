@@ -1,0 +1,69 @@
+#+STARTUP: showall hidestars
+
+* Things I need major modes for and workflow for:
+** DONE html
+*** TODO preview html command
+** TODO latex
+  - AUCTeX
+  - latex-preview-pane
+  - reftex
+** DONE tramp w/ sshx
+*** DONE tramp cocalc issue
+
+* Features I'd like
+** DONE move temp files to external folder, and don't keep them
+** DONE print init.el load time
+** DONE auto delete trailing whitespace
+** DONE emacs homepage
+*** TODO daily todo + calendar
+*** TODO limited RSS
+*** TODO (JOCKO) [ELFEED]
+*** TODO header image
+*** TODO randomized quote
+** TODO c/c++
+** TODO python
+
+* Semiorthogonal TODO
+** DONE make Dropbox directory for shared files
+*** TODO secure bitbucket repo for those shared files
+** TODO add .emacs.d/ directory to dotfiles repo
+** DONE add my links to a file
+*** DONE make links open in browser
+*** DONE export links page as html locally
+*** DONE bookmark this link in browser
+*** DONE prettify the links pages with css
+
+* Zamansky videos to return to
+** DONE 10 - init files [ORG]
+** DONE 12 - jedi [PYTHON]
+** TODO 13 - yasnippet [PYTHON]
+** DONE 23 - capture [ORG]
+** DONE 24 - links [ORG]
+** TODO 27 - virtualenvwrapper [PYTHON]
+
+* Hints
+** Keys
+   - shift+left/right : toggle todo/done
+   - alt+left/right : change asterisk level
+   - alt+up/down : move asterisk group up/down
+   - tab : expand/fold section
+** Other things
+   - C-x 5 2 : external frames, same emacs
+** Timers
+*** Start a timer
+   C-c C-x .
+*** Pause timer
+   C-c C-x ,
+*** Stop timer
+    C-u C-c C-x ,
+*** Print timestamp
+** Links
+     - [[https://ryanac23.github.io/][Ryan's super cool website]]
+     - C-c C-l : create links
+     - C-c C-o : open current link
+
+* Zoom Meetings and PWs
+** 135 Labs
+*** 5d960p
+** Classical Fields
+*** 9n308n

@@ -1,0 +1,24 @@
+#+REVEAL-THEME: sky
+#+TITLE: Ryan's Sample Presentation
+#+AUTHOR: Ryan
+
+* Slide 1
+  This is how you create a slide.
+
+* Slide 2
+  You can create subslides as well.
+** subslide 1
+   Subslide content.
+** subslide 2
+   Subslide 2 content.
+* Slide 3
+  This will be insanely useful if it can be rolled together with
+  LaTex.
+* Slide 4
+  Code snippet test:
+
+  #+BEGIN_SRC python
+  def f(x):
+      return x**2
+      print(f(3))
+  #+END_SRC

@@ -1,0 +1,315 @@
+#+STARTUP: overview
+#+PROPERTY: header-args :comments yes :results silent
+
+* Behavior
+#+BEGIN_SRC emacs-lisp
+;; Behavior -------------------------------------------------------------
+;; enable common lisp syntax
+(require 'cl-lib)
+
+;; Disable the default splash screen.
+(setq inhibit-splash-screen t)
+
+;; Be able to type 'y' instead of 'yes'
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Set text mode and autofill by default
+(setq default-major-mode 'text-mode)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;; highlight current line in GUI mode only
+;;(when window-system (add-hook 'prog-mode-hook 'hl-line-mode))
+
+;; delete trailing whitespace when saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; reroute backups and control history
+(defvar --backup-directory (concat user-emacs-directory "backups"))
+(if (not (file-exists-p --backup-directory))
+        (make-directory --backup-directory t))
+(setq backup-directory-alist `(("." . ,--backup-directory)))
+(setq make-backup-files t          ; backup of a file the first time it is saved.
+      backup-by-copying t          ; don't clobber symlinks
+      version-control t            ; version numbers for backup files
+      delete-old-versions t        ; delete excess backup files silently
+      delete-by-moving-to-trash t
+      kept-old-versions 6          ; oldest versions to keep when a new numbered backup is made (default: 2)
+      kept-new-versions 9          ; newest versions to keep when a new numbered backup is made (default: 2)
+      auto-save-default t          ; auto-save every buffer that visits a file
+      auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
+      auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
+      )
+#+END_SRC
+** Config Reload
+For reloading your configuration file when editing on the fly.
+#+BEGIN_SRC emacs-lisp
+  (defun config-reload ()
+    "Reloads ~/.emacs.d/racinit.org when run."
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/racinit.org")))
+  (global-set-key (kbd "<f5>") 'config-reload)
+#+END_SRC
+
+** Rainbow Mode
+In Rainbow Mode, when emacs encounters a hexadecimal code resembling a
+color, it will highlight it in the appropriate color. Useful for web
+development.
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+    :ensure t
+    :init
+      (add-hook 'prog-mode-hook 'rainbow-mode))
+#+END_SRC
+
+* Searching
+#+BEGIN_SRC emacs-lisp
+;; Searching -----------------------------------------------------------
+;; flexible pattern matching
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+;(ido-mode 1)
+
+;; counsel is a requirement for swiper
+(use-package counsel
+  :ensure t
+  :bind(("M-y" . counsel-yank-pop)
+	:map ivy-minibuffer-map
+	("M-y" . ivy-next-line)))
+
+;; swiper is an improved search with intelligent pattern matching.
+;; this makes ido-mode unecessary. Many of these rebindings are
+;; probably unecessary as well.
+(use-package swiper
+  :ensure try
+  :bind (("C-s" . swiper)
+	 ("C-r" . swiper)
+	 ("C-c C-r" . ivy-resume)
+	 ("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file))
+  :config
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+#+END_SRC
+
+* Autocompletion
+#+BEGIN_SRC emacs-lisp
+;; Autocompletion ----------------------------------------------------------
+;; We'll try company-mode for now. The old standard autocomplete was the
+;; smartly named auto-complete, but only company is being actively developed.
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3)
+  :init
+  (progn
+    (global-company-mode t)))
+
+;; C/C++ intellisense
+;; may need clang compiler installed for this to work
+;; (use-package company-irony
+;;  :ensure t
+;;  :config
+;;  (require 'company)
+;;  (add-to-list 'company-backends 'company-irony))
+
+;; (use-package irony
+;;  :ensure t
+;;  :config
+;;  (add-hook 'c++-mode-hook 'irony-mode)
+;;  (add-hook 'c-mode-hook 'irony-mode)
+;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+;; (with-eval-after-load 'company
+;;  (add-hook 'c++-mode-hook 'company-mode)
+;;  (add-hook 'c-mode-hook 'company-mode))
+#+END_SRC
+
+* Navigation
+#+BEGIN_SRC emacs-lisp
+;; Navigation -------------------------------------------------------------
+;; better buffer.
+(defalias 'list-buffers 'ibuffer)
+;; Don't show filter groups if there are no filters in the group
+(setq ibuffer-show-empty-filter-groups nil)
+;; Don't ask for confirmation to delete unmodified buffers
+(setq ibuffer-expert t)
+;; Make ibuffer sort buffers
+;; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+
+;; tabs
+(use-package tabbar
+  :ensure t
+  :config
+  (tabbar-mode -1))
+
+;; move between windows with shift+[arrow]
+;; note: this will not work in org mode!
+(windmove-default-keybindings)
+
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode))
+#+END_SRC
+
+* Org Mode
+#+BEGIN_SRC emacs-lisp
+;; Org-mode ------------------------------------------------------------
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;; reveal.js presentations
+(use-package ox-reveal
+  :ensure ox-reveal)
+;; We need to tell ox-reveal where to find the js file is.
+;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
+(setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+(setq org-reveal-mathjax t)
+;; enable syntax highlighting
+(use-package htmlize
+  :ensure t)
+#+END_SRC
+
+* Web Development
+#+BEGIN_SRC emacs-lisp
+;; Web Development ---------------------------------------------------
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-engines-alist
+	'(("django" . "\\.html\\'")))
+  (setq web-mode-ac-sources-alist
+	'(("css" . (ac-source-css-property))
+	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+  (setq web-mode-enable-auto-closing t)
+  (setq web-mode-enable-auto-quoting t)
+  (setq web-mode-enable-current-column-highlight t)
+  (setq web-mode-enable-current-element-highlight t))
+
+(use-package emmet-mode
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
+)
+#+END_SRC
+
+* Theme and Appearance
+#+BEGIN_SRC emacs-lisp
+;; Theme and Appearance ----------------------------------------------
+;; free up space by killing the toolbar
+(tool-bar-mode -1)
+;; Display clock and system load average
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+
+;; load a default theme.
+(load-theme 'deeper-blue t)
+
+;; Set transparency, and map transparency toggle to C-c t
+;; from https://www.emacswiki.org/emacs/TransparentEmacs
+(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
+(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+
+(defun toggle-transparency ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(95 . 50) '(100 . 100)))))
+ (global-set-key (kbd "C-c t") 'toggle-transparency)
+#+END_SRC
+
+** Modeline
+#+BEGIN_SRC emacs-lisp
+  (use-package spaceline
+    :ensure t
+    :config
+    (require 'spaceline-config)
+    (setq powerline-default-separator (quote arrow))
+  (spaceline-spacemacs-theme))
+#+END_SRC
+** diminish - hide minor modes from line
+#+BEGIN_SRC emacs-lisp
+  (use-package diminish
+    :ensure t
+    :init
+    (diminish 'ivy-mode)
+    (diminish 'undo-tree-mode)
+    (diminish 'org-src-mode)
+    (diminish 'which-key-mode)
+    (diminish 'eldoc-mode)
+    (diminish 'rainbow-mode))
+#+END_SRC
+* Load Time Function (Broken)
+#+BEGIN_SRC emacs-lisp
+;; Load Time Function (Broken) ---------------------------------------------
+;; (defvar *emacs-load-start* (current-time))
+;; (message "My .emacs loaded in %ds"
+;;          (destructuring-bind (hi lo) (subseq (current-time) 0 2)
+;;            (- (+ hi lo) (+ (first *emacs-load-start*)
+;;                            (second *emacs-load-start*)))))
+(use-package esup
+  :ensure t
+  :config
+  (setq esup-insignificant-time 0.001))
+#+END_SRC
+
+* Org Links Mode
+#+BEGIN_SRC emacs-lisp
+;; Org links mode [test] ---------------------------------------------------
+(global-set-key (kbd "C-c c")
+		'org-capture)
+(setq org-capture-templates
+      '(("l" "Links" entry (file+headline "~/Dropbox/share/orgfiles/web-bookmarks.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t)
+	("w" "Links-Work" entry (file+headline "~/Dropbox/share/orgfiles/links-work.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t)))
+
+;; (defadvice org-capture-finalize
+;; (after delete-capture-frame activate)
+;; "Advise capture-finalize to close the frame"
+;; (if (equal "capture" (frame-parameter nil 'name))
+;; (delete-frame)))
+
+;; (defadvice org-capture-destroy
+;; (after delete-capture-frame activate)
+;; "Advise capture-destroy to close the frame"
+;; (if (equal "capture" (frame-parameter nil 'name))
+;; (delete-frame)))
+
+;; (use-package noflet
+;; :ensure t )
+;; (defun make-capture-frame ()
+;; "Create a new frame and run org-capture."
+;; (interactive)
+;; (make-frame '((name . "capture")))
+;; (select-frame-by-name "capture")
+;; (delete-other-windows)
+;; (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+;; (org-capture))
+#+END_SRC
+* Dashboard / Homescreen
+#+BEGIN_SRC emacs-lisp
+(use-package dashboard
+    :ensure t
+    :config
+      (dashboard-setup-startup-hook)
+      ;;(setq dashboard-startup-banner "~/.emacsd/img/dashlogo.png")
+      (setq dashboard-items '((recents . 5)
+                              (projects . 5)))
+      (setq dashboard-banner-logo-title "Ryan's emacs"))
+#+END_SRC

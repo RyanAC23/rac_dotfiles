@@ -1,3 +1,5 @@
 # ignore .vim plugin folder
 ./common/vim/pack/rac/start/*
 ./common/scripts/tex-template/*
+./common/scripts/tex-template/
+./ubuntu/.emacs.d/elpa/
