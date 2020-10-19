@@ -13,8 +13,8 @@
  (rear-context-string . "9-13 Sun 21:34>\n")
  (position . 455))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/share/orgfiles/web-bookmarks.org")
- (front-context-string . "**  [[http://www")
+ (filename . "~/Dropbox/share/rac-orgfiles/web-bookmarks.org")
+ (front-context-string . "**  [[https://ww")
  (rear-context-string . ".setup\n\n* Links\n")
  (position . 70))
 )

@@ -3,3 +3,4 @@
 /common/scripts/tex-template/*
 /common/scripts/tex-template/
 /ubuntu/.emacs.d/elpa/*
+/ubuntu/.emacs.d/backups/*

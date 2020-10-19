@@ -18,6 +18,9 @@
 ;; delete trailing whitespace when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; enable word wrap mode globally
+(global-visual-line-mode)
+
 ;; reroute backups and control history
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
@@ -53,6 +56,12 @@ For reloading your configuration file when editing on the fly.
   (global-set-key (kbd "<f5>") 'config-reload)
 #+END_SRC
 
+
+* SSH / TRAMP
+** Tramp
+#+BEGIN_SRC emacs-lisp
+(setq tramp-verbose 10)
+#+END_SRC
 * Searching
 #+BEGIN_SRC emacs-lisp
 ;; Searching -----------------------------------------------------------
@@ -143,8 +152,6 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 * Dashboard / Homescreen
 #+BEGIN_SRC emacs-lisp
-    (turn-on-page-break-lines-mode)
-
       (use-package projectile
 	:ensure t
 	:init
@@ -166,15 +173,18 @@ For reloading your configuration file when editing on the fly.
 	  :ensure t
 	  :config
 	    (dashboard-setup-startup-hook)
-	    ;;(setq dashboard-startup-banner "~/.emacsd/img/dashlogo.png")
+	    (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/1343226050310.gif")
 	    (setq dashboard-items '((recents . 5)
 				    (projects . 5)
+				    (bookmarks . 5)
+				    (agenda . 5)
 				    (registers . 5)))
-	    (setq dashboard-center-content t)
+		;; centering looks awful with multiple windows.
+		;;(setq dashboard-center-content t)
 	    (setq dashboard-set-file-icons t)
 	    (setq dashboard-set-heading-icons t)
 	    (setq dashboard-footer-messages nil)
-	    (setq dashboard-banner-logo-title "week old emacs"))
+	    (setq dashboard-banner-logo-title "\"Ah priest. What can I ask of you that you've not already given?\""))
 #+END_SRC
 
 * Org Mode
@@ -198,50 +208,110 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 * Org Links Mode
 #+BEGIN_SRC emacs-lisp
-;; Org links mode [test] ---------------------------------------------------
-(global-set-key (kbd "C-c c")
-		'org-capture)
-(setq org-capture-templates
-      '(("l" "Links" entry (file+headline "~/Dropbox/share/orgfiles/web-bookmarks.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)
-	("w" "Links-Work" entry (file+headline "~/Dropbox/share/orgfiles/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)))
+  ;; Org links mode [test] ---------------------------------------------------
+  (global-set-key (kbd "C-c c")
+		  'org-capture)
+  (setq org-capture-templates
+	'(("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
+	   "* %? %^L %^g \n%T" :prepend t)
+	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
+	   "* %? %^L %^g \n%T" :prepend t)))
 
-;; (defadvice org-capture-finalize
-;; (after delete-capture-frame activate)
-;; "Advise capture-finalize to close the frame"
-;; (if (equal "capture" (frame-parameter nil 'name))
-;; (delete-frame)))
+  (defadvice org-capture-finalize
+  (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+  (delete-frame)))
 
-;; (defadvice org-capture-destroy
-;; (after delete-capture-frame activate)
-;; "Advise capture-destroy to close the frame"
-;; (if (equal "capture" (frame-parameter nil 'name))
-;; (delete-frame)))
+  (defadvice org-capture-destroy
+  (after delete-capture-frame activate)
+  "Advise capture-destroy to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+  (delete-frame)))
 
-;; (use-package noflet
-;; :ensure t )
-;; (defun make-capture-frame ()
-;; "Create a new frame and run org-capture."
-;; (interactive)
-;; (make-frame '((name . "capture")))
-;; (select-frame-by-name "capture")
-;; (delete-other-windows)
-;; (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-;; (org-capture))
+  (use-package noflet
+  :ensure t )
+  (defun make-capture-frame ()
+  "Create a new frame and run org-capture."
+  (interactive)
+  (make-frame '((name . "capture")))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+  (org-capture)))
+
+#+END_SRC
+
+* DONE C / C++
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+    (use-package flycheck
+      :ensure t
+      :config
+      (add-hook 'c-mode-hook 'flycheck-mode)
+      (add-hook 'c++-mode-hook 'flycheck-mode)
+  )
+#+END_SRC
+
+** Yasnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :config
+    (add-hook 'c-mode-hook 'yas-minor-mode)
+    (add-hook 'c++-mode-hook 'yas-minor-mode)
+)
+
+  (use-package yasnippet-snippets
+    :ensure t)
+#+END_SRC
+
+* TODO Python
+* TODO LaTeX
+** Auctex / latexmk
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package auctex
+  ;;     :ensure t)
+ (use-package auctex-latexmk
+      :ensure t)
+#+END_SRC
+* Web Development
+#+BEGIN_SRC emacs-lisp
+  ;; Web Development ---------------------------------------------------
+  (use-package web-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (setq web-mode-engines-alist
+	  '(("django" . "\\.html\\'")))
+    (setq web-mode-ac-sources-alist
+	  '(("css" . (ac-source-css-property))
+	    ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+    (setq web-mode-enable-auto-closing t)
+    (setq web-mode-enable-auto-quoting t)
+    (setq web-mode-enable-current-column-highlight t)
+    (setq web-mode-enable-current-element-highlight t))
+
+  (use-package emmet-mode
+    :ensure t
+    :config
+    (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+    (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+    (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
+  )
 #+END_SRC
 * Elfeed (RSS Reader)
 #+BEGIN_SRC emacs-lisp
 
   (use-package elfeed
     :ensure t)
-  (setq elfeed-db-directory "~/Dropbox/share/orgfiles/elfeeddb")
+  (setq elfeed-db-directory "~/Dropbox/share/rac-orgfiles/elfeeddb")
 
   (use-package elfeed-org
     :ensure t
     :config
     (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/share/orgfiles/elfeed.org")))
+    (setq rmh-elfeed-org-files (list "~/Dropbox/share/rac-orgfiles/elfeed.org")))
 
 ;;functions to support syncing .elfeed between machines
 ;;makes sure elfeed reads index from disk before launching
@@ -259,32 +329,6 @@ For reloading your configuration file when editing on the fly.
 (elfeed-db-save)
 (quit-window))
 
-#+END_SRC
-
-* Web Development
-#+BEGIN_SRC emacs-lisp
-;; Web Development ---------------------------------------------------
-(use-package web-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-engines-alist
-	'(("django" . "\\.html\\'")))
-  (setq web-mode-ac-sources-alist
-	'(("css" . (ac-source-css-property))
-	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-  (setq web-mode-enable-auto-closing t)
-  (setq web-mode-enable-auto-quoting t)
-  (setq web-mode-enable-current-column-highlight t)
-  (setq web-mode-enable-current-element-highlight t))
-
-(use-package emmet-mode
-  :ensure t
-  :config
-  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
-)
 #+END_SRC
 
 * Theme and Appearance

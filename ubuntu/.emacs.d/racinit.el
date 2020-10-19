@@ -1,4 +1,4 @@
-;; [[file:~/.emacs.d/racinit.org::*Behavior][Behavior:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Behavior][Behavior:1]]
 ;; Behavior -------------------------------------------------------------
 ;; enable common lisp syntax
 (require 'cl-lib)
@@ -11,6 +11,9 @@
 
 ;; delete trailing whitespace when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; enable word wrap mode globally
+(global-visual-line-mode)
 
 ;; reroute backups and control history
 (defvar --backup-directory (concat user-emacs-directory "backups"))
@@ -30,7 +33,7 @@
       )
 ;; Behavior:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -38,7 +41,7 @@
 (prefer-coding-system 'utf-8)
 ;; UTF-8 Encoding:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Config%20Reload][Config Reload:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Config%20Reload][Config Reload:1]]
 (defun config-reload ()
   "Reloads ~/.emacs.d/racinit.org when run."
   (interactive)
@@ -46,7 +49,11 @@
 (global-set-key (kbd "<f5>") 'config-reload)
 ;; Config Reload:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Searching][Searching:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Tramp][Tramp:1]]
+(setq tramp-verbose 10)
+;; Tramp:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; Searching -----------------------------------------------------------
 ;; flexible pattern matching
 ;(setq ido-enable-flex-matching t)
@@ -78,7 +85,7 @@
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 ;; Searching:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Autocompletion][Autocompletion:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Autocompletion][Autocompletion:1]]
 ;; Autocompletion ----------------------------------------------------------
 ;; We'll try company-mode for now. The old standard autocomplete was the
 ;; smartly named auto-complete, but only company is being actively developed.
@@ -111,7 +118,7 @@
 ;;  (add-hook 'c-mode-hook 'company-mode))
 ;; Autocompletion:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Navigation][Navigation:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Navigation][Navigation:1]]
 ;; Navigation -------------------------------------------------------------
 ;; better buffer.
 (defalias 'list-buffers 'ibuffer)
@@ -132,10 +139,8 @@
   (global-undo-tree-mode))
 ;; Navigation:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
-(turn-on-page-break-lines-mode)
-
-    (use-package projectile
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
+(use-package projectile
       :ensure t
       :init
       (projectile-mode 1))
@@ -156,18 +161,21 @@
 	:ensure t
 	:config
 	  (dashboard-setup-startup-hook)
-	  ;;(setq dashboard-startup-banner "~/.emacsd/img/dashlogo.png")
+	  (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/1343226050310.gif")
 	  (setq dashboard-items '((recents . 5)
 				  (projects . 5)
+				  (bookmarks . 5)
+				  (agenda . 5)
 				  (registers . 5)))
-	  (setq dashboard-center-content t)
+	      ;; centering looks awful with multiple windows.
+	      ;;(setq dashboard-center-content t)
 	  (setq dashboard-set-file-icons t)
 	  (setq dashboard-set-heading-icons t)
 	  (setq dashboard-footer-messages nil)
-	  (setq dashboard-banner-logo-title "week old emacs"))
+	  (setq dashboard-banner-logo-title "\"Ah priest. What can I ask of you that you've not already given?\""))
 ;; Dashboard / Homescreen:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
 ;; Org-mode ------------------------------------------------------------
 (use-package org-bullets
   :ensure t
@@ -186,69 +194,69 @@
   :ensure t)
 ;; Org Mode:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
 ;; Org links mode [test] ---------------------------------------------------
 (global-set-key (kbd "C-c c")
 		'org-capture)
 (setq org-capture-templates
-      '(("l" "Links" entry (file+headline "~/Dropbox/share/orgfiles/web-bookmarks.org" "Links")
+      '(("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
 	 "* %? %^L %^g \n%T" :prepend t)
-	("w" "Links-Work" entry (file+headline "~/Dropbox/share/orgfiles/links-work.org" "Links")
+	("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
 	 "* %? %^L %^g \n%T" :prepend t)))
 
-;; (defadvice org-capture-finalize
-;; (after delete-capture-frame activate)
-;; "Advise capture-finalize to close the frame"
-;; (if (equal "capture" (frame-parameter nil 'name))
-;; (delete-frame)))
+(defadvice org-capture-finalize
+(after delete-capture-frame activate)
+"Advise capture-finalize to close the frame"
+(if (equal "capture" (frame-parameter nil 'name))
+(delete-frame)))
 
-;; (defadvice org-capture-destroy
-;; (after delete-capture-frame activate)
-;; "Advise capture-destroy to close the frame"
-;; (if (equal "capture" (frame-parameter nil 'name))
-;; (delete-frame)))
+(defadvice org-capture-destroy
+(after delete-capture-frame activate)
+"Advise capture-destroy to close the frame"
+(if (equal "capture" (frame-parameter nil 'name))
+(delete-frame)))
 
-;; (use-package noflet
-;; :ensure t )
-;; (defun make-capture-frame ()
-;; "Create a new frame and run org-capture."
-;; (interactive)
-;; (make-frame '((name . "capture")))
-;; (select-frame-by-name "capture")
-;; (delete-other-windows)
-;; (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-;; (org-capture))
+(use-package noflet
+:ensure t )
+(defun make-capture-frame ()
+"Create a new frame and run org-capture."
+(interactive)
+(make-frame '((name . "capture")))
+(select-frame-by-name "capture")
+(delete-other-windows)
+(noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+(org-capture)))
 ;; Org Links Mode:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Elfeed%20(RSS%20Reader)][Elfeed (RSS Reader):1]]
-(use-package elfeed
-    :ensure t)
-  (setq elfeed-db-directory "~/Dropbox/share/orgfiles/elfeeddb")
-
-  (use-package elfeed-org
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
+(use-package flycheck
     :ensure t
     :config
-    (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/share/orgfiles/elfeed.org")))
+    (add-hook 'c-mode-hook 'flycheck-mode)
+    (add-hook 'c++-mode-hook 'flycheck-mode)
+)
+;; Flycheck:1 ends here
 
-;;functions to support syncing .elfeed between machines
-;;makes sure elfeed reads index from disk before launching
-(defun bjm/elfeed-load-db-and-open ()
-"Wrapper to load the elfeed db from disk before opening"
-(interactive)
-(elfeed-db-load)
-(elfeed)
-(elfeed-search-update--force))
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
+(use-package yasnippet
+    :ensure t
+    :config
+    (add-hook 'c-mode-hook 'yas-minor-mode)
+    (add-hook 'c++-mode-hook 'yas-minor-mode)
+)
 
-;;write to disk when quiting
-(defun bjm/elfeed-save-db-and-bury ()
-"Wrapper to save the elfeed db to disk before burying buffer"
-(interactive)
-(elfeed-db-save)
-(quit-window))
-;; Elfeed (RSS Reader):1 ends here
+  (use-package yasnippet-snippets
+    :ensure t)
+;; Yasnippet:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
+;; (use-package auctex
+ ;;     :ensure t)
+(use-package auctex-latexmk
+     :ensure t)
+;; Auctex / latexmk:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
 ;; Web Development ---------------------------------------------------
 (use-package web-mode
   :ensure t
@@ -273,7 +281,35 @@
 )
 ;; Web Development:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Elfeed%20(RSS%20Reader)][Elfeed (RSS Reader):1]]
+(use-package elfeed
+    :ensure t)
+  (setq elfeed-db-directory "~/Dropbox/share/rac-orgfiles/elfeeddb")
+
+  (use-package elfeed-org
+    :ensure t
+    :config
+    (elfeed-org)
+    (setq rmh-elfeed-org-files (list "~/Dropbox/share/rac-orgfiles/elfeed.org")))
+
+;;functions to support syncing .elfeed between machines
+;;makes sure elfeed reads index from disk before launching
+(defun bjm/elfeed-load-db-and-open ()
+"Wrapper to load the elfeed db from disk before opening"
+(interactive)
+(elfeed-db-load)
+(elfeed)
+(elfeed-search-update--force))
+
+;;write to disk when quiting
+(defun bjm/elfeed-save-db-and-bury ()
+"Wrapper to save the elfeed db to disk before burying buffer"
+(interactive)
+(elfeed-db-save)
+(quit-window))
+;; Elfeed (RSS Reader):1 ends here
+
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
 ;; Theme and Appearance ----------------------------------------------
 ;; free up space by killing the toolbar
 (tool-bar-mode -1)
@@ -303,7 +339,7 @@
  (global-set-key (kbd "C-c t") 'toggle-transparency)
 ;; Theme and Appearance:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*Modeline][Modeline:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Modeline][Modeline:1]]
 (use-package spaceline
   :ensure t
   :config
@@ -312,7 +348,7 @@
 (spaceline-spacemacs-theme))
 ;; Modeline:1 ends here
 
-;; [[file:~/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
+;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
 (use-package diminish
   :ensure t
   :init

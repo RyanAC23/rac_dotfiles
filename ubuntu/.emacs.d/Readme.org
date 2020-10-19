@@ -2,40 +2,41 @@
 
 * Things I need major modes for and workflow for:
 ** DONE html
-*** TODO preview html command
+*** DONE preview html command
 ** TODO latex
   - AUCTeX
   - latex-preview-pane
   - reftex
 ** DONE tramp w/ sshx
-*** DONE tramp cocalc issue
+*** TODO tramp cocalc issue
 
 * Features I'd like
 ** DONE move temp files to external folder, and don't keep them
 ** DONE print init.el load time
 ** DONE auto delete trailing whitespace
 ** DONE emacs homepage
-*** TODO daily todo + calendar
+*** DONE daily todo + calendar
 *** DONE limited RSS
-*** TODO header image
+*** DONE header image
 *** TODO randomized quote
-** TODO c/c++
+** DONE c/c++
 ** TODO python
-
-* Semiorthogonal TODO
-** DONE make Dropbox directory for shared files
-*** TODO secure bitbucket repo for those shared files
-** TODO add .emacs.d/ directory to dotfiles repo
-** DONE add my links to a file
-*** DONE make links open in browser
-*** DONE export links page as html locally
-*** DONE bookmark this link in browser
-*** DONE prettify the links pages with css
+** Make color theme "Millenium Silver" - FFVIII&IX
 
 * Zamansky videos to return to
 ** TODO 12 - jedi [PYTHON]
-** TODO 13 - yasnippet [PYTHON]
+** DONE 13 - yasnippet [PYTHON]
 ** TODO 27 - virtualenvwrapper [PYTHON]
+
+* Semiorthogonal TODO
+** DONE make Dropbox directory for shared files
+** DONE secure bitbucket repo for those shared files
+** DONE add .emacs.d/ directory to dotfiles repo
+** DONE add my links to a file
+** DONE make links open in browser
+** DONE export links page as html locally
+** DONE bookmark this link in browser
+** DONE prettify the links pages with css
 
 * Hints
 ** Keys
@@ -54,22 +55,26 @@
     C-u C-c C-x ,
 *** Print timestamp
 ** Links
-     - [[https://ryanac23.github.io/][Ryan's super cool website]]
      - C-c C-l : create links
      - C-c C-o : open current link
      - C-u C-c . : print date and time
+
 * Zoom Meetings and PWs
 ** 135 Labs
 *** 5d960p
 ** Classical Fields
 *** 9n308n
 
-
-* Astro Lab 2 Notes
-** Take observations for lab 03 FIRST
-** Remember to read the background - There are questions for grading in the background this week!
-** Reminder that videos should be watched before lab time with me, so that you are prepared and can get straight to asking questions.
-** Start Lab 02 - Give list of required cities
+** TALUS Thursday Lunch
+* Astronomy Fall 2020
+** Astro 138 Grading
+** Astro 135 Lab Grading
+*** M-Z for each section
+** Astro Lab 2 Notes
+*** Take observations for lab 03 FIRST
+*** Remember to read the background - There are questions for grading in the background this week!
+*** Reminder that videos should be watched before lab time with me, so that you are prepared and can get straight to asking questions.
+*** Start Lab 02 - Give list of required cities
 *** Procedure A
 **** Fairbanks, US
 **** Pullman, US
@@ -81,4 +86,15 @@
 **** Fairbanks, US
 **** Pullman, US
 **** Key West, US
-** Ignore this nonsense about lining up the sun with the horizon by eye. Look at the altitude data. When it's 0.00, you're on the horizon (Degrees above the horizon)
+*** Ignore this nonsense about lining up the sun with the horizon by eye. Look at the altitude data. When it's 0.00, you're on the horizon (Degrees above the horizon)
+** Astro Lab 3 Notes
+*** Take measurements from lab 06 procedure B
+
+** Astro Lab 4 Notes
+*** Spring 2018 asteroid data is the only one that works with afterglow 2
+*** sample directory > astro101 > lab 4 parallax > spring 2018
+*** submit liberally
+
+
+** Grade 138 HMWK 4
+** Grade 135 Lab 2 and 3
