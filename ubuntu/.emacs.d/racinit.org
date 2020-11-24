@@ -37,7 +37,16 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
+
+;; Start in server mode to open files in the server instance with the bash command
+;; >>$ 'emacsclient [file]'
+(server-start)
+
+;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 #+END_SRC
+
 ** UTF-8 Encoding
 #+BEGIN_SRC emacs-lisp
   (setq locale-coding-system 'utf-8)
@@ -184,7 +193,8 @@ For reloading your configuration file when editing on the fly.
 	    (setq dashboard-set-file-icons t)
 	    (setq dashboard-set-heading-icons t)
 	    (setq dashboard-footer-messages nil)
-	    (setq dashboard-banner-logo-title "\"Ah priest. What can I ask of you that you've not already given?\""))
+	    (load-file "~/.emacs.d/dashboard_quotes.el")
+	    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 #+END_SRC
 
 * Org Mode
@@ -212,10 +222,14 @@ For reloading your configuration file when editing on the fly.
   (global-set-key (kbd "C-c c")
 		  'org-capture)
   (setq org-capture-templates
-	'(("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
+	'(
+	  ("t" "To Do" entry (file+headline "~/Dropbox/share/rac-orgfiles/todo-list.org" "Execute")
+	  "* %?\n%T" :prepend t)
+	  ("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
 	   "* %? %^L %^g \n%T" :prepend t)
 	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
-	   "* %? %^L %^g \n%T" :prepend t)))
+	   "* %? %^L %^g \n%T" :prepend t)
+))
 
   (defadvice org-capture-finalize
   (after delete-capture-frame activate)

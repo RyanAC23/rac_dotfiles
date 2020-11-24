@@ -8,10 +8,10 @@
   - latex-preview-pane
   - reftex
 ** DONE tramp w/ sshx
-*** TODO tramp cocalc issue
+*** DONE tramp cocalc issue
 
 * Features I'd like
-** DONE move temp files to external folder, and don't keep them
+** TODO move temp files to external folder, and don't keep them
 ** DONE print init.el load time
 ** DONE auto delete trailing whitespace
 ** DONE emacs homepage
@@ -21,7 +21,7 @@
 *** TODO randomized quote
 ** DONE c/c++
 ** TODO python
-** Make color theme "Millenium Silver" - FFVIII&IX
+** TODO Make color theme "Millenium Silver" - FFVIII&IX
 
 * Zamansky videos to return to
 ** TODO 12 - jedi [PYTHON]
@@ -96,5 +96,19 @@
 *** submit liberally
 
 
-** Grade 138 HMWK 4
-** Grade 135 Lab 2 and 3
+** DONE Grade 138 HMWK 4
+** DONE Grade 135 Lab 2 and 3
+** Grade hmwk 07
+** Grade lab 04, 05
+* Rest of Semester:
+** start lab 6
+** week off
+** start lab 7
+** lab 6 due nov 13
+** lab 7 due dec 4
+* this week first thing is to have the students enter observations for lab 7
+** Make sure duration is 2 seconds!!!
+** Debate on shape of milky way
+*** Diameter of galaxy - 10 or 100 kpc?
+*** Location of solar system - center, or off to the side?
+*** Size of universe - only our galaxy, or are other galaxies far away?

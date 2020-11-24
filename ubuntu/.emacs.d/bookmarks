@@ -14,7 +14,7 @@
  (position . 455))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/share/rac-orgfiles/web-bookmarks.org")
- (front-context-string . "**  [[https://ww")
+ (front-context-string . "**  [[https://ne")
  (rear-context-string . ".setup\n\n* Links\n")
  (position . 70))
 )

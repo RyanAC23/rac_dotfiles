@@ -31,6 +31,14 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
+
+;; Start in server mode to open files in the server instance with the bash command
+;; >>$ 'emacsclient [file]'
+(server-start)
+
+;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 ;; Behavior:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
@@ -172,7 +180,8 @@
 	  (setq dashboard-set-file-icons t)
 	  (setq dashboard-set-heading-icons t)
 	  (setq dashboard-footer-messages nil)
-	  (setq dashboard-banner-logo-title "\"Ah priest. What can I ask of you that you've not already given?\""))
+	  (load-file "~/.emacs.d/dashboard_quotes.el")
+	  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 ;; Dashboard / Homescreen:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
@@ -196,36 +205,40 @@
 
 ;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
 ;; Org links mode [test] ---------------------------------------------------
-(global-set-key (kbd "C-c c")
-		'org-capture)
-(setq org-capture-templates
-      '(("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)
-	("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)))
+  (global-set-key (kbd "C-c c")
+		  'org-capture)
+  (setq org-capture-templates
+	'(
+	  ("t" "To Do" entry (file+headline "~/Dropbox/share/rac-orgfiles/todo-list.org" "Execute")
+	  "* %?\n%T" :prepend t)
+	  ("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
+	   "* %? %^L %^g \n%T" :prepend t)
+	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
+	   "* %? %^L %^g \n%T" :prepend t)
+))
 
-(defadvice org-capture-finalize
-(after delete-capture-frame activate)
-"Advise capture-finalize to close the frame"
-(if (equal "capture" (frame-parameter nil 'name))
-(delete-frame)))
+  (defadvice org-capture-finalize
+  (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+  (delete-frame)))
 
-(defadvice org-capture-destroy
-(after delete-capture-frame activate)
-"Advise capture-destroy to close the frame"
-(if (equal "capture" (frame-parameter nil 'name))
-(delete-frame)))
+  (defadvice org-capture-destroy
+  (after delete-capture-frame activate)
+  "Advise capture-destroy to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+  (delete-frame)))
 
-(use-package noflet
-:ensure t )
-(defun make-capture-frame ()
-"Create a new frame and run org-capture."
-(interactive)
-(make-frame '((name . "capture")))
-(select-frame-by-name "capture")
-(delete-other-windows)
-(noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-(org-capture)))
+  (use-package noflet
+  :ensure t )
+  (defun make-capture-frame ()
+  "Create a new frame and run org-capture."
+  (interactive)
+  (make-frame '((name . "capture")))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+  (org-capture)))
 ;; Org Links Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/ubuntu/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
