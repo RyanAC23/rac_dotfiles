@@ -137,7 +137,9 @@ fi
 export PATH="~/.vim/pack/rac/start/vim-live-latex-preview/bin:$PATH"
 
 # Add conda env quickstart command
-source ~/.config/.environment_site
+if [ -f ~/.config/.environment_site ]; then
+    source ~/.config/.environment_site
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
