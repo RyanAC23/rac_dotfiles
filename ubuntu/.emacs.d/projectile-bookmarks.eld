@@ -1,1 +1,1 @@
-("~/repos/rac_dotfiles/" "~/Dropbox/share/rac-orgfiles/" "~/research/nuclear-hydrodynamics-fork/")
+("~/repos/rac_dotfiles/" "~/Dropbox/share/rac-orgfiles/")
