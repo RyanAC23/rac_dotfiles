@@ -4,3 +4,8 @@
 /common/scripts/tex-template/
 /ubuntu/.emacs.d/elpa/*
 /ubuntu/.emacs.d/backups/*
+
+#*
+#*#
+/ubuntu/.emacs.d/projectile-bookmarks.eld
+/ubuntu/.emacs.d/auto-save-list/*
