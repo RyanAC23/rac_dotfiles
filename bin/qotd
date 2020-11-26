@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# keep the quotes file in the same directory as this script
+scriptdir=$(echo $(dirname $0))
+
+echo
+echo "-----------------------------------------------------------------------"
+shuf $scriptdir/quotes -n 1
+echo "-----------------------------------------------------------------------"
+echo

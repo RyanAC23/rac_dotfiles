@@ -1,0 +1,52 @@
+name: _nedf
+channels:
+  - defaults
+  - conda-forge
+  #- ioam
+dependencies:
+  - python=3
+
+  - ipykernel
+  - ipython
+  - notebook
+  #- numpy   # covered by scipy 
+  - scipy
+  - matplotlib
+  - uncertainties
+
+  #- holoviews
+  #- datashader
+  #- paramnb
+
+  # Performance
+  - pyfftw
+  - numexpr
+  #- cython
+  #- numba
+    
+  - pytest
+  - pytest-flake8
+  - pytest-cov
+  - pylint
+  - mock
+
+  #- anaconda>=5.2.0
+  #UnsatisfiableError: The following specifications were found to be in conflict:
+  # - anaconda=5.2.0
+  # - flake8[version='>=3.5']
+
+  - pip
+  - pip:
+    - mmf_setup
+    - persist
+    #- mmfutils>=0.4.14
+    - hg+ssh://hg@bitbucket.org/mforbes/mmfutils-fork@0.4.14
+    #- pytimeode>=0.10.0
+    - hg+ssh://hg@bitbucket.org/mforbes/pytimeode@0.10.0
+    - git+https://github.com/pelson/ipy_client_usage.git
+
+    - scikits.bvp1lg
+
+    # We want to remove these as dependencies...
+    #- hg+ssh://hg@bitbucket.org/mforbes/pymmf
+    #- hg+ssh://hg@bitbucket.org/mforbes/research-coupled_bec    

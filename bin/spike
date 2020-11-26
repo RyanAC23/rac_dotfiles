@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+echo "Please wait..."
+echo " "
+sleep 2s
+echo "#####################################"
+echo "##### Spike has been sent! ##########"
+echo "#####################################"
+sleep 2s
+echo "Hacking complete."
