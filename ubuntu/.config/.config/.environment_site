@@ -1,0 +1,28 @@
+# ~/.environment_site which is sourced by ~/.bashrc
+#...
+
+# New way of activating conda: Use your install location of activating conda:
+# Use your install location
+. /home/ryan/data/apps/miniconda/etc/profile.d/conda.sh
+conda activate          # Optional - activates the base environment.
+
+function j {
+    if [ -f './jupyter_notebook_config.py' ]; then
+        CONFIG_FLAG="--config=./jupyter_notebook_config.py"
+    elif [ -f "$(hg root)/jupyter_notebook_config.py" ]; then
+        CONFIG_FLAG="--config=$(hg root)/jupyter_notebook_config.py"
+    else
+       CONFIG_FLAG=""
+    fi
+    #echo "jupyter notebook --browser=Chrome ${CONFIG_FLAG} $*"
+    #jupyter notebook --browser=Chrome "${CONFIG_FLAG}" "$*"
+    echo "conda activate"
+    conda deactivate
+    conda deactivate
+    conda activate
+    echo "conda activate jupyter"
+    conda activate jupyter
+    echo "jupyter notebook ${CONFIG_FLAG} $*"
+    jupyter notebook "${CONFIG_FLAG}" "$*"
+    conda deactivate
+}

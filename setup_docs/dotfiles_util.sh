@@ -1,7 +1,7 @@
 #!/bin/sh
 # install emacs, urxvt, and tmux to get up and running
 
-## Check functions 
+## Check functions
 # repos directory
 Repo_Dir_Check(){
 	if [ ! -d ~/repos ]; then
@@ -17,7 +17,7 @@ Dotfiles_Repo_Check(){
     		git clone git@github.com:RyanAC23/rac_dotfiles.git ~/repos/rac_dotfiles
 		echo "Dotfiles repo created in ~/repos/rac_dotfiles."
 	else
-		echo "rac_dotfiles already exists. Are you trying to update? If so, navigate to the repository and update it with git pull and try again."
+		echo "Note: rac_dotfiles already exists. Are you trying to update? If so, navigate to the repository and update it with git pull and try again."
 	fi
 	}
 
@@ -29,19 +29,19 @@ Create_Dotfile_Symlinks(){
 		echo "Symlinking .emacs.d directory."
     	   	ln -s ~/repos/rac_dotfiles/ubuntu/.emacs.d ~/.emacs.d
 	else
-		echo ".emacs.d directory already present. No symlink created."
+		echo "Note: .emacs.d directory already present. No symlink created."
 	fi
 	if [ ! -d ~/bin ]; then
     		echo "symlinking personal scripts."
 		ln -s ~/repos/rac_dotfiles/common/scripts ~/bin
 	else
-		echo "Error: ~/bin already exists."
+		echo "Note: ~/bin already exists."
 	fi
 	if [ ! -d ~/.urxvt ]; then
 		echo "symlinking .urxvt config."
 		ln -s ~/repos/rac_dotfiles/ubuntu/.urxvt ~/.urxvt
 	else
-		echo "Error: ~/.urxvt already exists."
+		echo "Note: ~/.urxvt already exists."
 	fi
 }
 
@@ -49,15 +49,17 @@ Copy_Config_Files(){
 	echo "Warning: this will overwrite any previous files you had in ~/. Proceed? (y/n): "
 	read PROCEED
 	case $PROCEED in
-		y)
-			cp ~/repos/rac_dotfiles/ubuntu/{.bash_aliases,.bashrc,.tmux.conf,.Xresources} ~/
-			echo "combining backup .config folders to live ~/.config folder.
-			"
-			cp -rt ~/repos/rac_dotfiles/ubuntu/.config ~/.config
+	    y)
+		ROOT_DOTFILES=".bash_aliases .bashrc .tmux.conf .Xresources"
+		for i in $ROOT_DOTFILES; do
+		    rsync -ahu ~/repos/rac_dotfiles/ubuntu/$i ~/
+		done
+		echo "combining backup .config folders to live ~/.config folder."
+		rsync -au ~/repos/rac_dotfiles/ubuntu/.config ~/.config
 			;;
-		n) echo "Skipping dotfile copy."
+	    n) echo "Skipping dotfile copy."
 			;;
-		*) echo "Invalid input. Skipping."
+	    *) echo "Error: Invalid input. Skipping."
 			;;
 	esac
 }

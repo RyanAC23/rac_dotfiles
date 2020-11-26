@@ -1,0 +1,10 @@
+﻿<settings>
+  <setting name="ruler-metric" type="System.Int32">0</setting>
+  <setting name="window-maximized" type="System.Boolean">True</setting>
+  <setting name="ruler-shown" type="System.Boolean">False</setting>
+  <setting name="toolbar-shown" type="System.Boolean">True</setting>
+  <setting name="pixel-grid-shown" type="System.Boolean">False</setting>
+  <setting name="last-dialog-directory" type="System.String">/home/ryan/Downloads</setting>
+  <setting name="default-image-type" type="System.String">png</setting>
+  <setting name="jpg-quality" type="System.Int32">85</setting>
+</settings>
