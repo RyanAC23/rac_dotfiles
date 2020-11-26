@@ -1,6 +1,0 @@
-* Goals:
-** TODO Script to run and install files to system
-*** TODO This should check for existing files and ask if you want to update each
-** TODO This should also install all relevant apt packages
-** TODO copy scripts to a script directory
-** TODO run the scripts you want

@@ -1,11 +1,13 @@
-# ignore .vim plugin folder
-/common/vim/pack/rac/start/*
-/common/scripts/tex-template/*
-/common/scripts/tex-template/
-/ubuntu/.emacs.d/elpa/*
-/ubuntu/.emacs.d/backups/*
+# tex repo
+/bin/tex-template/*
+/bin/tex-template/
 
-#*
-#*#
-/ubuntu/.emacs.d/projectile-bookmarks.eld
-/ubuntu/.emacs.d/auto-save-list/*
+# emacs non-essentials
+/.emacs.d/elpa/*
+/.emacs.d/backups/*
+/.emacs.d/projectile-bookmarks.eld
+/.emacs.d/auto-save-list/*
+
+# emacs backups
+.\#*
+.\#*\#
