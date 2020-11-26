@@ -1,9 +1,0 @@
-#!/bin/sh
-# functions used throughout my setup files.
-
-# Multi-package installer
-# Note: this is stupid! It rebuilds dependencies for every package.
-# Find a way to make this perform better, after getting it to _work_.
-
-PACKAGE_INSTALLER(){
-    
