@@ -12,7 +12,7 @@
 ** subslide 2
    Subslide 2 content.
 * Slide 3
-  This will be insanely useful if it can be rolled together with
+  This will be useful if it can be rolled together with
   LaTex.
 * Slide 4
   Code snippet test:
