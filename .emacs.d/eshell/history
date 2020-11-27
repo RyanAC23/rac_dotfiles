@@ -1,7 +1,0 @@
-ls
-find-file recentf 
-cd /ssh:cocalc-ForbesGroup:
-cd /ssh:cocalc-ForbesGroup
-cd /ssh:cocalc-ForbesGroup/
-cd /ssh:cocalc-ForbesGroup:
-exit
