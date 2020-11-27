@@ -1,0 +1,10 @@
+#package name,function
+nomacs,"Image viewer. The default with Mate (eom) has problems."
+guayadeque,"Music player. Be sure to add the repository before installing."
+mpv,"Video player."
+texlive-full,"TeX. If you're in a rush, save this one for later - it's large."
+stellarium,"Planetarium software. Very accurate and free."
+screenkey,"Displays in large text what you are typing. For screen sharing sessions."
+virtualbox,"Virtual machine software."
+asunder,"CD ripper. Used on my desktop every few visits to the thrift store."
+krita,"Image editor. Pinta is useless and GIMP has an unecessary curve."
