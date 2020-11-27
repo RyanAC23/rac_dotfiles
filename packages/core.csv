@@ -14,3 +14,5 @@ tmux,"Terminal multiplexer. I use this to have multiple terminals in a clean env
 rxvt-unicode,"w3m compatible terminal emulator."
 ranger,"A convenient w3m compatible file browser I use from time to time in the terminal."
 neofetch,"Displays customized stats and a splash screen in your terminal."
+tree,"Displays tree structure of files and directories."
+ncdu,"NCurses Disk Usage - file navigator showing folder sizes."
