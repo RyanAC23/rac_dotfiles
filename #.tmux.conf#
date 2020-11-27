@@ -19,8 +19,8 @@ bind r source-file ~/.tmux.conf
 
 # Emacs style bindings #
 # switch windows using left/right for previous/next
-bind Left previous-window
-bind Right next-window
+bind -n Left previous-window
+bind -n Right next-window
 
 # switch panes using Shift-arrow without prefix
 bind -n S-Left select-pane -L
