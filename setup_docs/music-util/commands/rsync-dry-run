@@ -1,2 +1,0 @@
-rsync --dry-run --itemize-changes --out-format="%i|%n|" --relative --recursive --update --delete --perms --owner --group --times --links --safe-links --super --one-file-system --devices /home/joe /srv/backupsimple/backup/localhost
-

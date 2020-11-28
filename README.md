@@ -15,6 +15,7 @@
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Package List](#packages)
+- [Bugs](#bugs)
 - [To Do](#todo)
 
 ## About <a name = "about"></a>
@@ -63,10 +64,13 @@ Packages are divided into two sets, called core and full. The core list contains
 | [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 
+## Bugs <a name = "bugs"></a>
+(2020-11-28)
+
+	- .csv files must end with new line or the last package will be missed by the installer. Maybe this is expected.
+
 ## To Do <a name = "todo"></a>
 (2020-11-27)
-
-	- There is currently an indexing bug in the package install loop which causes the final package in the .csv file to be missed.
 
 	- Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
 
