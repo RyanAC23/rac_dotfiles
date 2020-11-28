@@ -22,10 +22,10 @@ InstallFromList(){
 	 echo "Installing package $n/$number_of_packages."
 	 case "$tag" in
 	       "g") add-apt-repository ppa:anonbeat/guayadeque
-		    apt install $package --dry-run
+		    apt install -y $package
 		    echo "This worked."
 		    ;;
-	         *) apt install $package --dry-run
+	         *) apt install -y $package
 		    echo "This worked."
 		    ;;
 	 esac
