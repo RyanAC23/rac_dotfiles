@@ -68,7 +68,7 @@ Packages are divided into two sets, called core and full. The core list contains
 
 	     - Most of the packages need links and short descriptions still, but it's 01:06:00.
 
-	     - Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo.
+	     - Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
 
 	     - Move music_util to private, new repo and forget about it for a while.
 
