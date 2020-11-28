@@ -68,10 +68,3 @@ Packages are divided into two sets, called core and full. The core list contains
 (2020-11-28)
 
 	- .csv files must end with new line or the last package will be missed by the installer. Maybe this is expected.
-
-## To Do <a name = "todo"></a>
-(2020-11-27)
-
-	- Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
-
-	- Remove redundant files and ensure you have all the main dotfiles you'd like for now.

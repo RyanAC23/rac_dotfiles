@@ -16,3 +16,4 @@
 ,neofetch,"Displays customized stats and a splash screen in your terminal."
 ,tree,"Displays tree structure of files and directories."
 ,ncdu,"NCurses Disk Usage - file navigator showing folder sizes."
+,vim,"Lightweight text editor."
