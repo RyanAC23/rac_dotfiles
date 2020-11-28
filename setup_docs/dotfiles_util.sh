@@ -27,19 +27,30 @@ Dotfiles_Repo_Check(){
 Create_Dotfile_Symlinks(){
 	if [ ! -d ~/.emacs.d ]; then
 		echo "Symlinking .emacs.d directory."
-    	   	ln -s ~/repos/rac_dotfiles/ubuntu/.emacs.d ~/.emacs.d
+    	   	ln -s ~/repos/rac_dotfiles/.emacs.d ~/.emacs.d
 	else
-		echo "Note: .emacs.d directory already present. No symlink created."
+	    echo "Note: .emacs.d directory already present."
+	    read -p "Remove existing folder and symlink from repo? (y/n): " SYMLINK
+	    case $SYMLINK in
+		y) rm -rf $HOME/.emacs.d
+		   echo "Symlinking .emacs.d directory."
+    	   	   ln -s ~/repos/rac_dotfiles/.emacs.d ~/.emacs.d
+		   ;;
+		n) echo "Not symlinking .emacs.d directory. "
+		   ;;
+		*) echo "Invalid choice. Not symlinking."
+		   ;;
+	    esac
 	fi
 	if [ ! -d ~/bin ]; then
     		echo "symlinking personal scripts."
-		ln -s ~/repos/rac_dotfiles/common/scripts ~/bin
+		ln -s ~/repos/rac_dotfiles/bin ~/bin
 	else
 		echo "Note: ~/bin already exists."
 	fi
 	if [ ! -d ~/.urxvt ]; then
 		echo "symlinking .urxvt config."
-		ln -s ~/repos/rac_dotfiles/ubuntu/.urxvt ~/.urxvt
+		ln -s ~/repos/rac_dotfiles/.urxvt ~/.urxvt
 	else
 		echo "Note: ~/.urxvt already exists."
 	fi
@@ -52,10 +63,10 @@ Copy_Config_Files(){
 	    y)
 		ROOT_DOTFILES=".bash_aliases .bashrc .tmux.conf .Xresources"
 		for i in $ROOT_DOTFILES; do
-		    rsync -ahu ~/repos/rac_dotfiles/ubuntu/$i ~/
+		    rsync -ahu ~/repos/rac_dotfiles/$i ~/
 		done
 		echo "combining backup .config folders to live ~/.config folder."
-		rsync -au ~/repos/rac_dotfiles/ubuntu/.config ~/.config
+		rsync -au ~/repos/rac_dotfiles/.config ~/.config
 			;;
 	    n) echo "Skipping dotfile copy."
 			;;
