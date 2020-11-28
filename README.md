@@ -52,7 +52,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [neofetch](https://github.com/dylanaraps/neofetch)         | System information tool                              |                                                |
 | [tree](https://linux.die.net/man/1/tree)                   | List contents of directories in tree format          |                                                |
 | [ncdu](https://dev.yorhel.nl/ncdu)                         | NCurses Disk Usage disk analyzer                     |                                                |
-|------------------------------------------------------------|------------------------------------------------------|------------------------------------------------|
+|                                                            |                                                      |                                                |
 | [nomacs](https://nomacs.org/)                              | Image viewer                                         | eom is awful                                   |
 | [guayadeque](https://www.guayadeque.org/)                  | Audio player                                         |                                                |
 | [mpv](https://mpv.io/)                                     | Cross platform media player                          |                                                |
@@ -60,11 +60,12 @@ Packages are divided into two sets, called core and full. The core list contains
 | [stellarium](http://stellarium.org/)                       | Open source planetarium software                     |                                                |
 | [screenkey](https://gitlab.com/screenkey/screenkey)        | Key screencast tool                                  |                                                |
 | [virtualbox](https://www.virtualbox.org/)                  | Cross platform virtualization                        |                                                |
-| [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thriftstore                   |
+| [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 
 ## To Do <a name = "todo"></a>
 (2020-11-27)
+
 	- There is currently an indexing bug in the package install loop which causes the final package in the .csv file to be missed.
 
 	- Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
