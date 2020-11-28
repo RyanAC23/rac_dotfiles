@@ -1,4 +1,4 @@
-#package name,function
+#tags,package name,function
 ,xclip,"Allows you to cat output to the clipboard. Used to get initial SSH public key quickly."
 ,git,"Get git version control system. Required to clone the repositories containing my dotfiles."
 ,mercurial,"Get mercurial version control system. I use this for work often."

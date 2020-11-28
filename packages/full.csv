@@ -1,4 +1,4 @@
-#package name,function
+#tags,package name,function
 ,nomacs,"Image viewer. The default with Mate (eom) has problems."
 g,guayadeque,"Music player. Be sure to add the repository before installing."
 ,mpv,"Video player."
