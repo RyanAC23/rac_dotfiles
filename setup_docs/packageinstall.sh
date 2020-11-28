@@ -1,12 +1,19 @@
 #!/bin/sh
 
-[ -z "$core_packages" ] && core_packages="$HOME/repos/rac_dotfiles/packages/core.csv"
-[ -z "$full_packages" ] && full_packages="$HOME/repos/rac_dotfiles/packages/full.csv"
+USER=ryan
+[ -z "$core_packages" ] && core_packages="/home/$USER/repos/rac_dotfiles/packages/core.csv"
+[ -z "$full_packages" ] && full_packages="/home/$USER/repos/rac_dotfiles/packages/full.csv"
 
 ##### Functions #####
 
 InstallFromList(){
-     [ -f "$package_todo" ] && sed '/^#/d' $package_todo > /tmp/pack.csv
+     echo "InstallFromList flag. $package_todo"
+     if [ -f $package_todo ]; then
+	 sed '/^#/d' $package_todo > /tmp/pack.csv
+     else
+	 echo "Package .csv file not found."
+	 exit 1
+     fi
      number_of_packages=$(wc -l < /tmp/pack.csv)
      echo "$number_of_packages packages to install."
      n=0
@@ -16,8 +23,10 @@ InstallFromList(){
 	 case "$tag" in
 	       "g") add-apt-repository ppa:anonbeat/guayadeque
 		    apt install $package --dry-run
+		    echo "This worked."
 		    ;;
 	         *) apt install $package --dry-run
+		    echo "This worked."
 		    ;;
 	 esac
      done < /tmp/pack.csv ;
@@ -25,12 +34,14 @@ InstallFromList(){
 
 CoreInstaller(){
     package_todo=$core_packages
+#    echo "core installer flag. $package_todo"
     InstallFromList
 }
 
 FullInstaller(){
     CoreInstaller
     package_todo=$full_packages
+#    echo "full installer flag. $package_todo"
     InstallFromList
 }
 
@@ -54,10 +65,12 @@ Initializer(){
        echo "To run this program with any useful results, you must be root."
        exit 1
     else
-	read -p "Upgrading apt packages before installing new ones. Are you sure? (y/n): " CHECK
+	read -p "Upgrading apt packages before installing new ones. Are you sure? (y/n/q): " CHECK
         case $CHECK in
 	    y) apt upgrade ;;
-	    n) exit 1      ;;
+	    n) :           ;;
+	    q) echo "Exiting."
+	       exit 1             ;;
 	    *) echo "Invalid option."
 	       Initializer ;;
 	esac
@@ -70,13 +83,18 @@ CleanupTool(){
 }
 
 Finalizer(){
-    read -p "Main routine complete. Clean up? (y/n): " CLEANUP
+    read -p "Main routine complete. Clean up? (y/n/q): " CLEANUP
     case $CLEANUP in
 	y) CleanupTool ;;
 	n) :           ;;
+	q) echo "Exiting."
+	   exit 1             ;;
 	*) echo "Invalid choice."
 	   Finalizer   ;;
     esac
+    if [ -f "/tmp/pack.csv" ]; then
+	rm "/tmp/pack.csv"
+    fi
     echo "Install script complete."
     echo
 }
