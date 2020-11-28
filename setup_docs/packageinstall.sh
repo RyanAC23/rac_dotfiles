@@ -22,12 +22,8 @@ InstallFromList(){
 	 echo "Installing package $n/$number_of_packages."
 	 case "$tag" in
 	       "g") add-apt-repository ppa:anonbeat/guayadeque
-		    apt install -y $package
-		    echo "This worked."
-		    ;;
-	         *) apt install -y $package
-		    echo "This worked."
-		    ;;
+		    apt install -y $package   ;;
+	         *) apt install -y $package   ;;
 	 esac
      done < /tmp/pack.csv ;
 }
