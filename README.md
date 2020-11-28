@@ -31,45 +31,44 @@ code block
 ## Package List <a name = "packages"></a>
 Packages are divided into two sets, called core and full. The core list contains lighter and more essential packages, and the full list contains more intensive ones (including resource hog texlive-full) so that I can choose to skip them until later. Both tables are combined into one below.
 
-| Packages                                                  | Description                                          | Notes                                          |
-| ----------------------------------------------------------|------------------------------------------------------|------------------------------------------------|
-| [emacs](https://www.gnu.org/software/emacs/)              | The extensible, customizable text editor             | .emacs.d symlinked to $HOME                    |
-| [git](https://git-scm.com/)                               | fast distributed version control system              |                                                |
-| [ranger](http://ranger.github.io/)                        | Simple console file manager                          |                                                |
-| [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) | Unicode enabled rxvt-clone terminal emulator (urxvt) | .urxvt symlinked to $HOME                      |
-| [w3m](http://w3m.sourceforge.net/)                        | text-based web browser                               | Installed as a dependency for urxvt and ranger |
-| [xclip](https://github.com/astrand/xclip)                 | Command line interface to the X11 clipboard          |                                                |
-| [mercurial]                                               |                                                      |                                                |
-| [libx11-dev]                                              |                                                      |                                                |
-| [libxft-dev]                                              |                                                      |                                                |
-| [ffmpeg]                                                  |                                                      |                                                |
-| [pavucontrol]                                             |                                                      |                                                |
-| [gfortran]                                                |                                                      |                                                |
-| [gcc]                                                     |                                                      |                                                |
-| [tmux]                                                    |                                                      |                                                |
-| [rxvt-unicode]                                            |                                                      |                                                |
-| [ranger]                                                  |                                                      |                                                |
-| [neofetch]                                                |                                                      |                                                |
-| [tree]                                                    |                                                      |                                                |
-| [ncdu]                                                    |                                                      |                                                |
-|-----------------------------------------------------------|------------------------------------------------------|------------------------------------------------|
-| [nomacs]                                                  |                                                      |                                                |
-| [guayadeque]                                              |                                                      |                                                |
-| [mpv]                                                     |                                                      |                                                |
-| [texlive-full]                                            |                                                      |                                                |
-| [stellarium]                                              |                                                      |                                                |
-| [screenkey]                                               |                                                      |                                                |
-| [virtualbox]                                              |                                                      |                                                |
-| [asunder]                                                 |                                                      |                                                |
-| [krita]                                                   |                                                      |                                                |
+| Packages                                                   | Description                                          | Notes                                          |
+| -----------------------------------------------------------|------------------------------------------------------|------------------------------------------------|
+| [emacs](https://www.gnu.org/software/emacs/)               | Extensible, customizable text editor                 | .emacs.d symlinked to $HOME                    |
+| [git](https://git-scm.com/)                                | Fast distributed version control system              |                                                |
+| [ranger](http://ranger.github.io/)                         | Simple console file manager                          |                                                |
+| [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)  | Unicode enabled rxvt-clone terminal emulator (urxvt) | .urxvt symlinked to $HOME                      |
+| [w3m](http://w3m.sourceforge.net/)                         | text-based web browser                               | Installed as a dependency for urxvt and ranger |
+| [xclip](https://github.com/astrand/xclip)                  | Command line interface to the X11 clipboard          |                                                |
+| [mercurial](https://www.mercurial-scm.org)                 | Distributed source control management tool           |                                                |
+| [libx11-dev](https://packages.ubuntu.com/xenial/libx11-dev) | Dependencies                                        |                                                |
+| [libxft-dev](https://packages.ubuntu.com/xenial/libxft-dev) | Dependencies                                        |                                                |
+| [ffmpeg](https://ffmpeg.org/)                              | Cross platform audio and video editor                |                                                |
+| [pavucontrol](https://freedesktop.org/software/pulseaudio/pavucontrol/) | Volume mixer                            |                                                |
+| [gfortran](https://gcc.gnu.org/wiki/GFortran)              | GNU Fortran compiler                                 |                                                |
+| [gcc](https://gcc.gnu.org/)                                | GNU Compiler Collection, C/C++                       |                                                |
+| [tmux](https://github.com/tmux/tmux)                       | Terminal multiplexer                                 |                                                |
+| [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) | Terminal emulator with unicode support         | Perl extensions in .urxvt semi-essential       |
+| [RANGER](https://github.com/ranger/ranger)                 | Console file manager with vi-like bindings           |                                                |
+| [neofetch](https://github.com/dylanaraps/neofetch)         | System information tool                              |                                                |
+| [tree](https://linux.die.net/man/1/tree)                   | List contents of directories in tree format          |                                                |
+| [ncdu](https://dev.yorhel.nl/ncdu)                         | NCurses Disk Usage disk analyzer                     |                                                |
+|------------------------------------------------------------|------------------------------------------------------|------------------------------------------------|
+| [nomacs](https://nomacs.org/)                              | Image viewer                                         | eom is awful                                   |
+| [guayadeque](https://www.guayadeque.org/)                  | Audio player                                         |                                                |
+| [mpv](https://mpv.io/)                                     | Cross platform media player                          |                                                |
+| [texlive-full](https://tug.org/texlive/)                   | TeX document production system                       | THE killer of a quick install                  |
+| [stellarium](http://stellarium.org/)                       | Open source planetarium software                     |                                                |
+| [screenkey](https://gitlab.com/screenkey/screenkey)        | Key screencast tool                                  |                                                |
+| [virtualbox](https://www.virtualbox.org/)                  | Cross platform virtualization                        |                                                |
+| [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thriftstore                   |
+| [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 
 ## To Do <a name = "todo"></a>
-(2020-11-27) - There is currently an indexing bug in the package install loop which causes the final package in the .csv file to be missed.
+(2020-11-27)
+	- There is currently an indexing bug in the package install loop which causes the final package in the .csv file to be missed.
 
-	     - Most of the packages need links and short descriptions still, but it's 01:06:00.
+	- Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
 
-	     - Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo. You can Google where the shortcut keys (C+S+t terminal, etc) to find this.
+	- Move music_util to private, new repo and forget about it for a while.
 
-	     - Move music_util to private, new repo and forget about it for a while.
-
-	     - Remove redundant files and ensure you have all the main dotfiles you'd like for now.
+	- Remove redundant files and ensure you have all the main dotfiles you'd like for now.
