@@ -66,7 +66,7 @@ Copy_Config_Files(){
 		    rsync -ahu ~/repos/rac_dotfiles/$i ~/
 		done
 		echo "combining backup .config folders to live ~/.config folder."
-		rsync -au ~/repos/rac_dotfiles/.config ~/.config
+		rsync -au ~/repos/rac_dotfiles/.config/ ~/.config
 			;;
 	    n) echo "Skipping dotfile copy."
 			;;
