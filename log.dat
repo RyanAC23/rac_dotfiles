@@ -1,0 +1,444 @@
+[H[JRunning Ryan's package intaller for a fresh Ubuntu system.
+Installing packages from /packages/*.csv; do you want to do a full install?
+InstallFromList flag. /home/ryan/repos/rac_dotfiles/packages/core.csv
+17 packages to install.
+Installing package 1/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+xclip is already the newest version (0.13-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 2/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 3/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+mercurial is already the newest version (5.3.1-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 4/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+emacs is already the newest version (1:26.3+1-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 5/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libx11-dev is already the newest version (2:1.6.9-2ubuntu1.1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 6/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libxft-dev is already the newest version (2.3.3-0ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 7/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+w3m is already the newest version (0.5.3-37).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 8/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ffmpeg is already the newest version (7:4.2.4-1ubuntu0.1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 9/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+pavucontrol is already the newest version (4.0-1build1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 10/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gfortran is already the newest version (4:9.3.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 11/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 12/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+tmux is already the newest version (3.0a-2ubuntu0.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 13/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+rxvt-unicode is already the newest version (9.22-6build3).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 14/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ranger is already the newest version (1.9.3-1build1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 15/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+neofetch is already the newest version (7.0.0-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 16/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+tree is already the newest version (1.8.0-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 17/17.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ncdu is already the newest version (1.14.1-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+InstallFromList flag. /home/ryan/repos/rac_dotfiles/packages/full.csv
+9 packages to install.
+Installing package 1/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libexiv2-27 libmng2 libopencv-core4.2 libopencv-imgproc4.2 libqt5concurrent5
+  libqt5svg5 libquazip5-1 libraw19 libtbb2 nomacs-l10n
+  qt5-image-formats-plugins
+Suggested packages:
+  exiv2 libquazip-doc
+The following NEW packages will be installed:
+  libexiv2-27 libmng2 libopencv-core4.2 libopencv-imgproc4.2 libqt5concurrent5
+  libqt5svg5 libquazip5-1 libraw19 libtbb2 nomacs nomacs-l10n
+  qt5-image-formats-plugins
+0 upgraded, 12 newly installed, 0 to remove and 0 not upgraded.
+Inst libqt5svg5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libmng2 (2.0.3+dfsg-3 Ubuntu:20.04/focal [amd64])
+Inst qt5-image-formats-plugins (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libexiv2-27 (0.27.2-8ubuntu2 Ubuntu:20.04/focal [amd64])
+Inst libtbb2 (2020.1-2 Ubuntu:20.04/focal [amd64])
+Inst libopencv-core4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libopencv-imgproc4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libqt5concurrent5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libquazip5-1 (0.7.6-6build1 Ubuntu:20.04/focal [amd64])
+Inst libraw19 (0.19.5-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst nomacs (3.12.0+dfsg-3 Ubuntu:20.04/focal [amd64])
+Inst nomacs-l10n (3.12.0+dfsg-3 Ubuntu:20.04/focal [all])
+Conf libqt5svg5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libmng2 (2.0.3+dfsg-3 Ubuntu:20.04/focal [amd64])
+Conf qt5-image-formats-plugins (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libexiv2-27 (0.27.2-8ubuntu2 Ubuntu:20.04/focal [amd64])
+Conf libtbb2 (2020.1-2 Ubuntu:20.04/focal [amd64])
+Conf libopencv-core4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libopencv-imgproc4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libqt5concurrent5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libquazip5-1 (0.7.6-6build1 Ubuntu:20.04/focal [amd64])
+Conf libraw19 (0.19.5-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf nomacs (3.12.0+dfsg-3 Ubuntu:20.04/focal [amd64])
+Conf nomacs-l10n (3.12.0+dfsg-3 Ubuntu:20.04/focal [all])
+Installing package 2/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+guayadeque is already the newest version (0.4.6.r2155.eaa8597~focal-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 3/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+mpv is already the newest version (0.32.0-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 4/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+texlive-full is already the newest version (2019.20200218-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 5/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+stellarium is already the newest version (0.19.3-1build1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 6/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+screenkey is already the newest version (0.10-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 7/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+virtualbox is already the newest version (6.1.10-dfsg-1~ubuntu1.20.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 8/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+asunder is already the newest version (2.9.5-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing package 9/9.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  gdal-data krita-data krita-gmic kwayland-data kwayland-integration libaec0
+  libarmadillo9 libarpack2 libblas3 libcfitsio8 libcharls2 libdap25
+  libdapclient6v5 libde265-0 libepsilon1 libexiv2-27 libfam0 libfreexl1
+  libfyba0 libgdal26 libgdcm3.0 libgeos-3.8.0 libgeos-c1v5 libgeotiff5
+  libgmic1 libgraphicsmagick++-q16-12 libgraphicsmagick-q16-3 libhdf4-0-alt
+  libhdf5-103 libheif1 libkf5archive5 libkf5completion-data libkf5completion5
+  libkf5config-bin libkf5config-data libkf5configcore5 libkf5configgui5
+  libkf5coreaddons-data libkf5coreaddons5 libkf5crash5 libkf5guiaddons5
+  libkf5i18n-data libkf5i18n5 libkf5idletime5 libkf5itemviews-data
+  libkf5itemviews5 libkf5waylandclient5 libkf5widgetsaddons-data
+  libkf5widgetsaddons5 libkf5windowsystem-data libkf5windowsystem5 libkmlbase1
+  libkmldom1 libkmlengine1 liblapack3 libminizip1 libnetcdf15 libodbc1
+  libogdi4.1 libopencolorio1v5 libopencv-core4.2 libopencv-imgcodecs4.2
+  libopencv-imgproc4.2 libopencv-videoio4.2 libproj15 libqhull7
+  libqt5concurrent5 libqt5designer5 libqt5help5 libqt5multimediaquick5
+  libqt5qml5 libqt5quick5 libqt5quickwidgets5 libqt5sql5 libqt5sql5-sqlite
+  libqt5svg5 libqt5test5 libqt5waylandcompositor5 libquazip5-1 libraw19
+  libsocket++1 libspatialite7 libsuperlu5 libsz2 libtbb2 libtinyxml2.6.2v5
+  liburiparser1 libxcb-res0 libxerces-c3.2 libyaml-cpp0.6 odbcinst
+  odbcinst1debian2 proj-bin proj-data python3-pyqt5 python3-sip
+  qml-module-qtmultimedia qml-module-qtquick2 qtwayland5
+Suggested packages:
+  krita-l10n exiv2 fam geotiff-bin gdal-bin libgeotiff-epsg graphicsmagick-dbg
+  libhdf4-doc libhdf4-alt-dev hdf4-tools libmyodbc odbc-postgresql tdsodbc
+  unixodbc-bin ogdi-bin qt5-qmltooling-plugins libquazip-doc python3-pyqt5-dbg
+The following NEW packages will be installed:
+  gdal-data krita krita-data krita-gmic kwayland-data kwayland-integration
+  libaec0 libarmadillo9 libarpack2 libblas3 libcfitsio8 libcharls2 libdap25
+  libdapclient6v5 libde265-0 libepsilon1 libexiv2-27 libfam0 libfreexl1
+  libfyba0 libgdal26 libgdcm3.0 libgeos-3.8.0 libgeos-c1v5 libgeotiff5
+  libgmic1 libgraphicsmagick++-q16-12 libgraphicsmagick-q16-3 libhdf4-0-alt
+  libhdf5-103 libheif1 libkf5archive5 libkf5completion-data libkf5completion5
+  libkf5config-bin libkf5config-data libkf5configcore5 libkf5configgui5
+  libkf5coreaddons-data libkf5coreaddons5 libkf5crash5 libkf5guiaddons5
+  libkf5i18n-data libkf5i18n5 libkf5idletime5 libkf5itemviews-data
+  libkf5itemviews5 libkf5waylandclient5 libkf5widgetsaddons-data
+  libkf5widgetsaddons5 libkf5windowsystem-data libkf5windowsystem5 libkmlbase1
+  libkmldom1 libkmlengine1 liblapack3 libminizip1 libnetcdf15 libodbc1
+  libogdi4.1 libopencolorio1v5 libopencv-core4.2 libopencv-imgcodecs4.2
+  libopencv-imgproc4.2 libopencv-videoio4.2 libproj15 libqhull7
+  libqt5concurrent5 libqt5designer5 libqt5help5 libqt5multimediaquick5
+  libqt5qml5 libqt5quick5 libqt5quickwidgets5 libqt5sql5 libqt5sql5-sqlite
+  libqt5svg5 libqt5test5 libqt5waylandcompositor5 libquazip5-1 libraw19
+  libsocket++1 libspatialite7 libsuperlu5 libsz2 libtbb2 libtinyxml2.6.2v5
+  liburiparser1 libxcb-res0 libxerces-c3.2 libyaml-cpp0.6 odbcinst
+  odbcinst1debian2 proj-bin proj-data python3-pyqt5 python3-sip
+  qml-module-qtmultimedia qml-module-qtquick2 qtwayland5
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Inst libqt5svg5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst gdal-data (3.0.4+dfsg-1build3 Ubuntu:20.04/focal [all])
+Inst krita-data (1:4.2.9+dfsg-1 Ubuntu:20.04/focal [all])
+Inst libexiv2-27 (0.27.2-8ubuntu2 Ubuntu:20.04/focal [amd64])
+Inst libde265-0 (1.0.4-1build1 Ubuntu:20.04/focal [amd64])
+Inst libheif1 (1.6.1-1build1 Ubuntu:20.04/focal [amd64])
+Inst libkf5archive5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5completion-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libkf5config-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libkf5configcore5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5configgui5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5widgetsaddons-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libkf5widgetsaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5completion5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5coreaddons-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libfam0 (2.7.0-17.3build2 Ubuntu:20.04/focal [amd64])
+Inst libkf5coreaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5windowsystem-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libxcb-res0 (1.14-2 Ubuntu:20.04/focal [amd64])
+Inst libkf5windowsystem5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5crash5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5guiaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5i18n-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libqt5qml5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5i18n5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5itemviews-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libkf5itemviews5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libtinyxml2.6.2v5 (2.6.2-4build1 Ubuntu:20.04/focal [amd64])
+Inst libyaml-cpp0.6 (0.6.2-4ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libopencolorio1v5 (1.1.1~dfsg0-6 Ubuntu:20.04/focal [amd64])
+Inst libqt5concurrent5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5quick5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5quickwidgets5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libquazip5-1 (0.7.6-6build1 Ubuntu:20.04/focal [amd64])
+Inst libraw19 (0.19.5-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst krita (1:4.2.9+dfsg-1 Ubuntu:20.04/focal [amd64])
+Inst libgraphicsmagick-q16-3 (1.4+really1.3.35-1 Ubuntu:20.04/focal [amd64])
+Inst libgraphicsmagick++-q16-12 (1.4+really1.3.35-1 Ubuntu:20.04/focal [amd64])
+Inst libtbb2 (2020.1-2 Ubuntu:20.04/focal [amd64])
+Inst libopencv-core4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libopencv-imgproc4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libblas3 (3.9.0-1build1 Ubuntu:20.04/focal [amd64])
+Inst liblapack3 (3.9.0-1build1 Ubuntu:20.04/focal [amd64])
+Inst libarpack2 (3.7.0-3 Ubuntu:20.04/focal [amd64])
+Inst libsuperlu5 (5.2.1+dfsg1-4 Ubuntu:20.04/focal [amd64])
+Inst libarmadillo9 (1:9.800.4+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Inst libcfitsio8 (3.470-3 Ubuntu:20.04/focal [amd64])
+Inst libcharls2 (2.0.0+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Inst libdap25 (3.20.5-1 Ubuntu:20.04/focal [amd64])
+Inst libdapclient6v5 (3.20.5-1 Ubuntu:20.04/focal [amd64])
+Inst libepsilon1 (0.9.2+dfsg-4 Ubuntu:20.04/focal [amd64])
+Inst libfreexl1 (1.0.5-3 Ubuntu:20.04/focal [amd64])
+Inst libfyba0 (4.1.1-6build1 Ubuntu:20.04/focal [amd64])
+Inst libgeos-3.8.0 (3.8.0-1build1 Ubuntu:20.04/focal [amd64])
+Inst libgeos-c1v5 (3.8.0-1build1 Ubuntu:20.04/focal [amd64])
+Inst proj-data (6.3.1-1 Ubuntu:20.04/focal [all])
+Inst libproj15 (6.3.1-1 Ubuntu:20.04/focal [amd64])
+Inst libgeotiff5 (1.5.1-2 Ubuntu:20.04/focal [amd64])
+Inst libhdf4-0-alt (4.2.14-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libaec0 (1.0.4-1 Ubuntu:20.04/focal [amd64])
+Inst libsz2 (1.0.4-1 Ubuntu:20.04/focal [amd64])
+Inst libhdf5-103 (1.10.4+repack-11ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libminizip1 (1.1-8build1 Ubuntu:20.04/focal [amd64])
+Inst liburiparser1 (0.9.3-2 Ubuntu:20.04/focal [amd64])
+Inst libkmlbase1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Inst libkmldom1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Inst libkmlengine1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Inst libnetcdf15 (1:4.7.3-1 Ubuntu:20.04/focal [amd64])
+Inst libodbc1 (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64])
+Inst libogdi4.1 (4.1.0+ds-1build1 Ubuntu:20.04/focal [amd64])
+Inst libqhull7 (2015.2-4 Ubuntu:20.04/focal [amd64])
+Inst libspatialite7 (4.3.0a-6build1 Ubuntu:20.04/focal [amd64])
+Inst libxerces-c3.2 (3.2.2+debian-1build3 Ubuntu:20.04/focal [amd64])
+Inst odbcinst (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64]) []
+Inst odbcinst1debian2 (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64])
+Inst libgdal26 (3.0.4+dfsg-1build3 Ubuntu:20.04/focal [amd64])
+Inst libsocket++1 (1.12.13-10build1 Ubuntu:20.04/focal [amd64])
+Inst libgdcm3.0 (3.0.5-1.1ubuntu2 Ubuntu:20.04/focal [amd64])
+Inst libopencv-imgcodecs4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libopencv-videoio4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Inst libgmic1 (2.4.5-1.1 Ubuntu:20.04/focal [amd64])
+Inst krita-gmic (2.4.5-1.1 Ubuntu:20.04/focal [amd64])
+Inst kwayland-data (4:5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Inst libqt5waylandcompositor5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst qtwayland5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5idletime5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5waylandclient5 (4:5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst kwayland-integration (4:5.18.4.1-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libkf5config-bin (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5designer5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5sql5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5help5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5multimediaquick5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5sql5-sqlite (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst libqt5test5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst python3-sip (4.19.21+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Inst python3-pyqt5 (5.14.1+dfsg-3build1 Ubuntu:20.04/focal [amd64])
+Inst qml-module-qtquick2 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst qml-module-qtmultimedia (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Inst proj-bin (6.3.1-1 Ubuntu:20.04/focal [amd64])
+Conf libqt5svg5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf gdal-data (3.0.4+dfsg-1build3 Ubuntu:20.04/focal [all])
+Conf krita-data (1:4.2.9+dfsg-1 Ubuntu:20.04/focal [all])
+Conf libexiv2-27 (0.27.2-8ubuntu2 Ubuntu:20.04/focal [amd64])
+Conf libde265-0 (1.0.4-1build1 Ubuntu:20.04/focal [amd64])
+Conf libheif1 (1.6.1-1build1 Ubuntu:20.04/focal [amd64])
+Conf libkf5archive5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5completion-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libkf5config-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libkf5configcore5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5configgui5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5widgetsaddons-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libkf5widgetsaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5completion5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5coreaddons-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libfam0 (2.7.0-17.3build2 Ubuntu:20.04/focal [amd64])
+Conf libkf5coreaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5windowsystem-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libxcb-res0 (1.14-2 Ubuntu:20.04/focal [amd64])
+Conf libkf5windowsystem5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5crash5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5guiaddons5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5i18n-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libqt5qml5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5i18n5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5itemviews-data (5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libkf5itemviews5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libtinyxml2.6.2v5 (2.6.2-4build1 Ubuntu:20.04/focal [amd64])
+Conf libyaml-cpp0.6 (0.6.2-4ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libopencolorio1v5 (1.1.1~dfsg0-6 Ubuntu:20.04/focal [amd64])
+Conf libqt5concurrent5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5quick5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5quickwidgets5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libquazip5-1 (0.7.6-6build1 Ubuntu:20.04/focal [amd64])
+Conf libraw19 (0.19.5-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf krita (1:4.2.9+dfsg-1 Ubuntu:20.04/focal [amd64])
+Conf libgraphicsmagick-q16-3 (1.4+really1.3.35-1 Ubuntu:20.04/focal [amd64])
+Conf libgraphicsmagick++-q16-12 (1.4+really1.3.35-1 Ubuntu:20.04/focal [amd64])
+Conf libtbb2 (2020.1-2 Ubuntu:20.04/focal [amd64])
+Conf libopencv-core4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libopencv-imgproc4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libblas3 (3.9.0-1build1 Ubuntu:20.04/focal [amd64])
+Conf liblapack3 (3.9.0-1build1 Ubuntu:20.04/focal [amd64])
+Conf libarpack2 (3.7.0-3 Ubuntu:20.04/focal [amd64])
+Conf libsuperlu5 (5.2.1+dfsg1-4 Ubuntu:20.04/focal [amd64])
+Conf libarmadillo9 (1:9.800.4+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Conf libcfitsio8 (3.470-3 Ubuntu:20.04/focal [amd64])
+Conf libcharls2 (2.0.0+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Conf libdap25 (3.20.5-1 Ubuntu:20.04/focal [amd64])
+Conf libdapclient6v5 (3.20.5-1 Ubuntu:20.04/focal [amd64])
+Conf libepsilon1 (0.9.2+dfsg-4 Ubuntu:20.04/focal [amd64])
+Conf libfreexl1 (1.0.5-3 Ubuntu:20.04/focal [amd64])
+Conf libfyba0 (4.1.1-6build1 Ubuntu:20.04/focal [amd64])
+Conf libgeos-3.8.0 (3.8.0-1build1 Ubuntu:20.04/focal [amd64])
+Conf libgeos-c1v5 (3.8.0-1build1 Ubuntu:20.04/focal [amd64])
+Conf proj-data (6.3.1-1 Ubuntu:20.04/focal [all])
+Conf libproj15 (6.3.1-1 Ubuntu:20.04/focal [amd64])
+Conf libgeotiff5 (1.5.1-2 Ubuntu:20.04/focal [amd64])
+Conf libhdf4-0-alt (4.2.14-1ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libaec0 (1.0.4-1 Ubuntu:20.04/focal [amd64])
+Conf libsz2 (1.0.4-1 Ubuntu:20.04/focal [amd64])
+Conf libhdf5-103 (1.10.4+repack-11ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libminizip1 (1.1-8build1 Ubuntu:20.04/focal [amd64])
+Conf liburiparser1 (0.9.3-2 Ubuntu:20.04/focal [amd64])
+Conf libkmlbase1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Conf libkmldom1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Conf libkmlengine1 (1.3.0-8build1 Ubuntu:20.04/focal [amd64])
+Conf libnetcdf15 (1:4.7.3-1 Ubuntu:20.04/focal [amd64])
+Conf libodbc1 (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64])
+Conf libogdi4.1 (4.1.0+ds-1build1 Ubuntu:20.04/focal [amd64])
+Conf libqhull7 (2015.2-4 Ubuntu:20.04/focal [amd64])
+Conf libspatialite7 (4.3.0a-6build1 Ubuntu:20.04/focal [amd64])
+Conf libxerces-c3.2 (3.2.2+debian-1build3 Ubuntu:20.04/focal [amd64])
+Conf odbcinst (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64])
+Conf odbcinst1debian2 (2.3.6-0.1build1 Ubuntu:20.04/focal [amd64])
+Conf libgdal26 (3.0.4+dfsg-1build3 Ubuntu:20.04/focal [amd64])
+Conf libsocket++1 (1.12.13-10build1 Ubuntu:20.04/focal [amd64])
+Conf libgdcm3.0 (3.0.5-1.1ubuntu2 Ubuntu:20.04/focal [amd64])
+Conf libopencv-imgcodecs4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libopencv-videoio4.2 (4.2.0+dfsg-5 Ubuntu:20.04/focal [amd64])
+Conf libgmic1 (2.4.5-1.1 Ubuntu:20.04/focal [amd64])
+Conf krita-gmic (2.4.5-1.1 Ubuntu:20.04/focal [amd64])
+Conf kwayland-data (4:5.68.0-0ubuntu1 Ubuntu:20.04/focal [all])
+Conf libqt5waylandcompositor5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf qtwayland5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5idletime5 (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5waylandclient5 (4:5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf kwayland-integration (4:5.18.4.1-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libkf5config-bin (5.68.0-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5designer5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5sql5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5help5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5multimediaquick5 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5sql5-sqlite (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf libqt5test5 (5.12.8+dfsg-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf python3-sip (4.19.21+dfsg-1build1 Ubuntu:20.04/focal [amd64])
+Conf python3-pyqt5 (5.14.1+dfsg-3build1 Ubuntu:20.04/focal [amd64])
+Conf qml-module-qtquick2 (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf qml-module-qtmultimedia (5.12.8-0ubuntu1 Ubuntu:20.04/focal [amd64])
+Conf proj-bin (6.3.1-1 Ubuntu:20.04/focal [amd64])
+Install script complete.
+

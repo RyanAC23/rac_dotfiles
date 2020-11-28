@@ -21,9 +21,11 @@ InstallFromList(){
 	 n=$((n+1))
 	 echo "Installing package $n/$number_of_packages."
 	 case "$tag" in
-	       "g") add-apt-repository ppa:anonbeat/guayadeque
-		    apt install -y $package   ;;
-	         *) apt install -y $package   ;;
+	       "g") if ! grep -q "^deb .*anonbeat/guayadeque" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+	       	       add-apt-repository ppa:anonbeat/guayadeque
+		    fi
+		    apt install -y $package  ;;
+	         *) apt install -y $package  ;;
 	 esac
      done < /tmp/pack.csv ;
 }
