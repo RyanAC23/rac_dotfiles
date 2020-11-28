@@ -66,3 +66,4 @@ Packages are divided into two sets, called core and full. The core list contains
 ## To Do <a name = "todo"></a>
 (2020-11-27) - There is currently an indexing bug in the package install loop which causes the final package in the .csv file to be missed.
 	     - Most of the packages need links and short descriptions still, but it's 01:06:00.
+	     - Ubuntu-Mate toolbars and customization are missing. Find out which files these are and make sure they're in the repo.
