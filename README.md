@@ -55,6 +55,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [tree](https://linux.die.net/man/1/tree)                   | List contents of directories in tree format          |                                                |
 | [ncdu](https://dev.yorhel.nl/ncdu)                         | NCurses Disk Usage disk analyzer                     |                                                |
 | [vim](https://www.vim.org/)                                | Lightweight text editor.                             | For occasional use with programs               |
+| [numlockx](http://manpages.ubuntu.com/manpages/trusty/man1/numlockx.1.html) | Control the state of numlock  | For startup numlock option on desktop with numpad    |
 | [nomacs](https://nomacs.org/)                              | Image viewer                                         | eom is awful                                   |
 | [guayadeque](https://www.guayadeque.org/)                  | Audio player                                         |                                                |
 | [mpv](https://mpv.io/)                                     | Cross platform media player                          |                                                |
@@ -88,9 +89,9 @@ Packages are divided into two sets, called core and full. The core list contains
 
 (2020-11-28)
 
-	- Add dotfiles explanations
-	- Add Dropbox setup
-	- Add Conda setup
-	- Make one config folder symlink routine
-	- Turn off bluetooth controller by default
-	- Add numlockx to package list
+- [ ] Add dotfiles explanations
+- [ ] Add Dropbox setup
+- [ ] Add Conda setup
+- [ ] Make one config folder symlink routine
+- [ ] Turn off bluetooth controller by default
+- [x] Add numlockx to package list
