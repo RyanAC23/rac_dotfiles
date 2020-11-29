@@ -62,10 +62,21 @@ GitRepoGetter(){
     fi
 }
 
-GitSetter1(){
+GitSetter(){
     echo "Initializing global git settings."
-    [ ! `git config user.email` ] && git config --global user.email || git config user.email
-    [ ! `git config user.name` ] && git config --global user.name || git config user.name
+    read -p "Set your global git settings now? (y/n): " GITSET
+    case $GITSET in
+	y) git config --global user.email
+	   git config --global user.name
+	   git config --global core.editor "emacs -nw -Q"
+	   ;;
+	n) echo "Not configuring global git settings."
+	   ;;
+	*) GitSetter
+	   ;;
+    esac
+    # [ ! `git config user.email` ] && git config --global user.email || git config user.email
+    # [ ! `git config user.name` ] && git config --global user.name || git config user.name
 }
 
 ##### Main Routine #####
@@ -75,4 +86,4 @@ sshUtil
 
 GitRepoGetter
 
-GitSetter1
+GitSetter
