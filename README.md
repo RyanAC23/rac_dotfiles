@@ -65,6 +65,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 | [gparted](https://gparted.org/)                            | GUI partition manager                                |                                                |
+| Chrome                                                     | Web Browser                                          | I know...                                      |
 
 ## Dotfiles List <a name = "dotfiles"></a>
 | File name | Program | Description |
@@ -83,6 +84,7 @@ Packages are divided into two sets, called core and full. The core list contains
 
 (2020-11-28)
 
-- Add dotfiles explanations
-- Add Dropbox setup
-- Add Conda setup
+	- Add dotfiles explanations
+	- Add Dropbox setup
+	- Add Conda setup
+	- Make one config folder symlink routine
