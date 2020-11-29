@@ -66,9 +66,23 @@ GitSetter(){
     echo "Initializing global git settings."
     read -p "Set your global git settings now? (y/n): " GITSET
     case $GITSET in
-	y) git config --global user.email
-	   git config --global user.name
-	   git config --global core.editor "emacs -nw -Q"
+	y) read -p "email: " EMAIL_VAL
+	   read -p "username: " USER_VAL
+	   echo "email: $EMAIL_VAL
+	   	  user: $USER_VAL"
+	   read -p "Is this ok? (y/n): " CONFIRM_VAL
+	   case $CONFIRM_VAL in
+	       y) git config --global user.email $EMAIL_VAL
+		  git config --global user.name $USER_VAL
+		  echo "Setting emacs as default git editor."
+		  git config --global core.editor "emacs -nw -Q"
+		  ;;
+	       n) GitSetter
+		  ;;
+	       *) echo "Invalid option."
+		  GitSetter
+		  ;;
+	   esac
 	   ;;
 	n) echo "Not configuring global git settings."
 	   ;;
@@ -80,10 +94,10 @@ GitSetter(){
 }
 
 ##### Main Routine #####
-Initializer
+#Initializer
 
-sshUtil
+#sshUtil
 
-GitRepoGetter
+#GitRepoGetter
 
 GitSetter
