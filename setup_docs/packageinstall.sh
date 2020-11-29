@@ -41,6 +41,7 @@ FullInstaller(){
     package_todo=$full_packages
 #    echo "full installer flag. $package_todo"
     InstallFromList
+    ExtraInstall
 }
 
 InstallMainRoutine(){
@@ -76,6 +77,23 @@ Initializer(){
 	*) echo "Invalid option."
 	   Initializer ;;
     esac
+}
+
+ChromeGet(){
+    echo "Grabbing Chrome from the internet."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P /tmp/
+    sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+    rm /tmp/google-chrome-stable_current_amd64.deb
+}
+
+CondaInstall(){
+    echo "Conda Install Not Implemented"
+}
+
+ExtraInstall(){
+echo "Installing extra things that can't be gotten through the apt manager."
+    ChromeGet
+    CondaInstall
 }
 
 CleanupTool(){
