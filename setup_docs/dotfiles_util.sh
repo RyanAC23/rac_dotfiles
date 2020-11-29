@@ -42,6 +42,8 @@ Create_Dotfile_Symlinks(){
 		   ;;
 	    esac
 	fi
+	# The three (or four) operations here should really be a loop over an array
+	# containing the four folders to symlink....
 	if [ ! -d ~/bin ]; then
     		echo "symlinking personal scripts."
 		ln -s ~/repos/rac_dotfiles/bin ~/bin
@@ -54,25 +56,32 @@ Create_Dotfile_Symlinks(){
 	else
 		echo "Note: ~/.urxvt already exists."
 	fi
+	if [ ! -d ~/.guayadeque ]; then
+		echo "symlinking .guayadeque config."
+		ln -s ~/repos/rac_dotfiles/.guayadeque ~/.guayadeque
+	else
+		echo "Note: ~/.guayadeque already exists."
+	fi
 }
 
 Copy_Config_Files(){
-	echo "Warning: this will overwrite any previous files you had in ~/. Proceed? (y/n): "
-	read PROCEED
-	case $PROCEED in
-	    y)
-		ROOT_DOTFILES=".bash_aliases .bashrc .tmux.conf .Xresources"
-		for i in $ROOT_DOTFILES; do
-		    rsync -ahu ~/repos/rac_dotfiles/$i ~/
-		done
-		echo "combining backup .config folders to live ~/.config folder."
-		rsync -au ~/repos/rac_dotfiles/.config/ ~/.config
-			;;
-	    n) echo "Skipping dotfile copy."
-			;;
-	    *) echo "Error: Invalid input. Skipping."
-			;;
-	esac
+    echo "Copying dotfiles and config folders to `$HOME`."
+    echo "Warning: this will overwrite any previous files you had in ~/. Proceed? (y/n): "
+    read PROCEED
+    case $PROCEED in
+	y)
+	    ROOT_DOTFILES=".bash_aliases .bashrc .tmux.conf .Xresources"
+	    for i in $ROOT_DOTFILES; do
+		rsync -ahu ~/repos/rac_dotfiles/$i ~/
+	    done
+	    echo "combining backup .config folders to live ~/.config folder."
+	    rsync -au ~/repos/rac_dotfiles/.config/ ~/.config
+	    ;;
+	n) echo "Skipping dotfile copy."
+	   ;;
+	*) echo "Error: Invalid input. Skipping."
+	   ;;
+    esac
 }
 
 ##### main program #####
