@@ -82,6 +82,6 @@ Packages are divided into two sets, called core and full. The core list contains
 
 (2020-11-28)
 
-	- Add dotfiles explanations
-	- Add Dropbox setup
-	- Add Conda setup
+- Add dotfiles explanations
+- Add Dropbox setup
+- Add Conda setup
