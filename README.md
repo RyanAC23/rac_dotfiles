@@ -92,3 +92,4 @@ Packages are divided into two sets, called core and full. The core list contains
 	- Add Dropbox setup
 	- Add Conda setup
 	- Make one config folder symlink routine
+	- Turn off bluetooth controller by default
