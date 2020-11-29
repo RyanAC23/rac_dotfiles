@@ -56,23 +56,26 @@ InstallMainRoutine(){
     esac
 }
 
+CheckIfRoot(){
+    if [ `whoami` != root ]; then
+	echo "To run this program with useful results, you must be root."
+	exit 1
+    fi
+}
+
 Initializer(){
     clear
     echo "Running Ryan's package intaller for a fresh Ubuntu system."
-    if [ `whoami` != root ]; then
-       echo "To run this program with any useful results, you must be root."
-       exit 1
-    else
-	read -p "Upgrading apt packages before installing new ones. Are you sure? (y/n/q): " CHECK
-        case $CHECK in
-	    y) apt upgrade ;;
-	    n) :           ;;
-	    q) echo "Exiting."
-	       exit 1             ;;
-	    *) echo "Invalid option."
-	       Initializer ;;
-	esac
-    fi
+    CheckIfRoot
+    read -p "Upgrading apt packages before installing new ones. Are you sure? (y/n/q): " CHECK
+    case $CHECK in
+	y) apt upgrade ;;
+	n) :           ;;
+	q) echo "Exiting."
+	   exit 1             ;;
+	*) echo "Invalid option."
+	   Initializer ;;
+    esac
 }
 
 CleanupTool(){

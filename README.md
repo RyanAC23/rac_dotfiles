@@ -1,15 +1,9 @@
 # rac_dotfiles
-<h3 align="center">dotfiles</h3>
+<h3 align="center">D-Clips</h3>
 
 <div align="center">
 
 </div>
-
----
-
-<p align="center"> My personal dotfiles.
-    <br>
-</p>
 
 ## Table of Contents
 - [About](#about)
@@ -18,12 +12,14 @@
 - [Bugs](#bugs)
 - [To Do](#todo)
 
-## About <a name = "about"></a>
+---
 
+## About <a name = "about"></a>
+My personal dotfiles, and scripts I use to quickly reinstall. Options for both a quick install and full install are present, differing only in the number of packages installed.<br>
 
 ## Getting Started <a name = "getting_started"></a>
 
-### Ubuntu Mate
+
 
 ```
 code block
