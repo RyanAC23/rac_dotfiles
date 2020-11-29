@@ -1,0 +1,2217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config version="1">
+  <collections>
+    <collection>
+      <UniqueId value="5E5197E6"/>
+      <Type value="0"/>
+      <Name value="FLAC Collection"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1594584482"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-] [FLAC]/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5E519807"/>
+      <Type value="0"/>
+      <Name value="Music - All"/>
+      <UpdateOnStart value="1"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1606588315"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/"/>
+        <Path1 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5EB7E9B3"/>
+      <Type value="0"/>
+      <Name value="szs"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1590688722"/>
+      <paths>
+        <Path0 value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/Japaneese... stuff/Anime/Sayonara, Zetsubou Sensei/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5ECE5A2F"/>
+      <Type value="0"/>
+      <Name value="iMA$"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1590689057"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2005-2013] 1st Vision [Console Games]/"/>
+        <Path1 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2005-2014] Drama &amp; Cover Albums/"/>
+        <Path2 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2006-2010] DJCD &amp; Eternal Prism/"/>
+        <Path3 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2006-2016] Radio &amp; Station!!!/"/>
+        <Path4 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2007-2008] Xenoglossia [Animation]/"/>
+        <Path5 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2009-2011] Dearly Stars [Console Games]/"/>
+        <Path6 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2010-2017] 2nd Vision [Console Games]/"/>
+        <Path7 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2011-2014] 2nd Vision [Animation]/"/>
+        <Path8 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2011-2014] Puchimasu! [Animation]/"/>
+        <Path9 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2014-2015] M@STERS OF IDOL WORLD!!/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5ECF8ABC"/>
+      <Type value="0"/>
+      <Name value="Cinderella Girls"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1590688797"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2012-2020] THE iDOLM@STER Cinderella Girls/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5ECF8AC1"/>
+      <Type value="0"/>
+      <Name value="Million Live!"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1590688702"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/iDOLM@STER/[2013-2019] THE iDOLM@STER Million Live!/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5EE370B9"/>
+      <Type value="0"/>
+      <Name value="Neptunia"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1592471003"/>
+      <paths>
+        <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-] [FLAC]/Game OST/Hyperdimension Neptunia/"/>
+        <Path1 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/Game OST/Hyperdimension Neptunia/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5EEA6A08"/>
+      <Type value="0"/>
+      <Name value="dev"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1592471090"/>
+      <paths>
+        <Path0 value="/media/ryan/My Passport/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/"/>
+        <Path1 value="/media/ryan/My Passport/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/"/>
+        <Path2 value="/media/ryan/My Passport/00 - MASTER DATA - DOCS [2004-]/Music [2017-] [FLAC]/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5F956ACB"/>
+      <Type value="0"/>
+      <Name value="K-On!"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1603656618"/>
+      <paths>
+        <Path0 value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/Japaneese... stuff/Anime/K-On!/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="5FBE9045"/>
+      <Type value="0"/>
+      <Name value="Vocaloid"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1606421490"/>
+      <paths>
+        <Path0 value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/"/>
+        <Path1 value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/Japaneese... stuff/Vocaloid/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
+      <UniqueId value="Jamendo"/>
+      <Type value="1"/>
+      <Name value="Jamendo"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="-1"/>
+      <paths/>
+      <covers/>
+    </collection>
+    <collection>
+      <UniqueId value="Magnatune"/>
+      <Type value="2"/>
+      <Name value="Magnatune"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="-1"/>
+      <paths/>
+      <covers/>
+    </collection>
+  </collections>
+  <searchlinks>
+    <links>
+      <Link0 value="http://www.google.com/search?q={text}"/>
+      <Link1 value="http://news.google.es/nwshp?hl={lang}&amp;tab=wn&amp;q={text}"/>
+      <Link2 value="http://images.google.com/images?q={text}"/>
+      <Link3 value="http://www.wikipedia.org/search-redirect.php?search={text}&amp;language={lang}"/>
+      <Link4 value="http://www.youtube.com/results?search_type=&amp;search_query={text}"/>
+    </links>
+    <names>
+      <Name0 value="Google"/>
+      <Name1 value="Google News"/>
+      <Name2 value="Google Images"/>
+      <Name3 value="Wikipedia"/>
+      <Name4 value="YouTube"/>
+    </names>
+  </searchlinks>
+  <commands>
+    <execs>
+      <Exec0 value="nautilus {bp}"/>
+      <Exec1 value="brasero -a {tp}"/>
+      <Exec2 value="brasero {tp}"/>
+      <Exec3 value="gnome-terminal --working-directory={bp}"/>
+      <Exec4 value="gimp {bc}"/>
+      <Exec5 value="soundconverter {tp}"/>
+    </execs>
+    <names>
+      <Name0 value="Browse in Nautilus"/>
+      <Name1 value="Burn as AudioCD using Brasero"/>
+      <Name2 value="Burn as DataCD using Brasero"/>
+      <Name3 value="Open Terminal in directory"/>
+      <Name4 value="Edit cover using GIMP"/>
+      <Name5 value="SoundConverter"/>
+    </names>
+  </commands>
+  <copyto>
+    <options>
+      <Option0 value="Default:{g}/{A}/{b}/{n} - {a} - {t}:0:0:0:"/>
+      <Option1 value="To mp3:{g}/{A}/{b}/{n} - {a} - {t}:1:0:0:"/>
+    </options>
+  </copyto>
+  <searchfilters>
+    <Filter0 value="(cd1)"/>
+    <Filter1 value="(cd2)"/>
+    <Filter2 value="(cd3)"/>
+    <Filter3 value="(cd4)"/>
+    <Filter4 value="cd1"/>
+    <Filter5 value="cd2"/>
+    <Filter6 value="cd3"/>
+    <Filter7 value="cd4"/>
+  </searchfilters>
+  <general>
+    <LastUpdate value=""/>
+    <PlayerCurVol value="50"/>
+    <PlayerVolumeVisible value="1"/>
+    <PlayerPlayMode value="1"/>
+    <ShowRevTime value="0"/>
+    <ShowCloseConfirm value="0"/>
+    <CoverSearchEngine value="0"/>
+    <EmbedToFiles value="0"/>
+    <Language value="0"/>
+    <ShowSplashScreen value="1"/>
+    <StartMinimized value="0"/>
+    <LoadDefaultLayouts value="0"/>
+    <ShowTaskBarIcon value="1"/>
+    <CloseToTaskBar value="0"/>
+    <SoundMenuIntegration value="0"/>
+    <DefaultActionEnqueue value="0"/>
+    <DropFilesClearPlaylist value="0"/>
+    <InstantTextSearchEnabled value="1"/>
+    <TextSearchEnterRelax value="0"/>
+    <CoverFrame value="1"/>
+    <SaveCurrentTrackPos value="0"/>
+    <MinSavePlayPosLength value="10"/>
+    <RndPlayOnEmptyPlayList value="0"/>
+    <RndModeOnEmptyPlayList value="0"/>
+    <ReplayGainMode value="0"/>
+    <ReplayGainPreAmp value="6"/>
+    <ShowNotifications value="1"/>
+  </general>
+  <mainwindow>
+    <positions>
+      <PosX value="0"/>
+      <PosY value="0"/>
+      <Width value="1920"/>
+      <Height value="1079"/>
+    </positions>
+    <VisiblePanels value="67"/>
+    <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2098172;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=195862;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=332;floath=516|name=PlayerPanel;caption=;state=1020;dir=4;layer=0;row=1;pos=0;prop=122068;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=83;floaty=746;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=332|"/>
+    <NotebookLayout value="c81005305ee3d4e50009d95300000002=01[5EE370B9],02[5ECF8AC1],09[5E5197E6],04[5E519807],08[5EB7E9B3],+05[5FBE9045],06[5F956ACB],07[5ECE5A2F],03[5ECF8ABC]|f84c3ae05ee986301d68da6e00000003=*00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=f84c3ae05ee986301d68da6e00000003;caption=;state=2098172;dir=2;layer=1;row=0;pos=0;prop=100000;bestw=793;besth=502;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(2,1,0)=457|"/>
+    <ShowFullScreen value="0"/>
+    <ShowStatusBar value="1"/>
+    <notebook>
+      <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing:  8 / 105    ( 08:12:41 );state=2099196;dir=4;layer=0;row=1;pos=1;prop=195862;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=302;floath=515|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=122068;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=83;floaty=746;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=302|"/>
+    </notebook>
+    <ShowCaptions value="1"/>
+  </mainwindow>
+  <radios>
+    <VisiblePanels value="3"/>
+    <LastLayout value="layout2|name=RadioTextSearch;caption=Text Search;state=2099196;dir=1;layer=2;row=0;pos=0;prop=100000;bestw=111;besth=26;minw=60;minh=26;maxw=-1;maxh=26;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=RadioGenres;caption=Genres;state=2099196;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=220;besth=60;minw=60;minh=60;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=RadioStations;caption=Stations;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,2,0)=48|dock_size(4,1,0)=179|dock_size(5,0,0)=52|"/>
+    <StationsOrder value="0"/>
+    <StationsOrderDesc value="0"/>
+    <columns>
+      <ids>
+        <id0 value="0"/>
+        <id1 value="1"/>
+        <id2 value="2"/>
+        <id3 value="3"/>
+        <id4 value="4"/>
+      </ids>
+      <widths>
+        <width0 value="80"/>
+        <width1 value="80"/>
+        <width2 value="80"/>
+        <width3 value="80"/>
+        <width4 value="80"/>
+      </widths>
+      <shows>
+        <show0 value="1"/>
+        <show1 value="1"/>
+        <show2 value="1"/>
+        <show3 value="1"/>
+        <show4 value="1"/>
+      </shows>
+    </columns>
+  </radios>
+  <lastfm>
+    <ShowArtistInfo value="1"/>
+    <ShowAlbums value="1"/>
+    <ShowTopTracks value="1"/>
+    <ShowArtists value="1"/>
+    <ShowTracks value="1"/>
+    <ShowEvents value="1"/>
+    <FollowPlayer value="1"/>
+    <ShowLongBioText value="0"/>
+    <SubmitEnabled value="0"/>
+    <UserName value=""/>
+  </lastfm>
+  <lyrics>
+    <FollowPlayer value="1"/>
+    <Font value="Ubuntu 11"/>
+    <TextAlign value="1"/>
+  </lyrics>
+  <podcasts>
+    <VisiblePanels value="3"/>
+    <LastLayout value="layout2|name=PodcastsChannels;caption=Channels;state=2099196;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PodcastsItems;caption=Podcasts;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PodcastsDetails;caption=Details;state=2099196;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=100;besth=132;minw=100;minh=100;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,0,0)=181|dock_size(5,0,0)=52|dock_size(3,0,0)=479|"/>
+    <columns>
+      <ids>
+        <id0 value="0"/>
+        <id1 value="1"/>
+        <id2 value="2"/>
+        <id3 value="3"/>
+        <id4 value="4"/>
+        <id5 value="5"/>
+        <id6 value="6"/>
+        <id7 value="7"/>
+        <id8 value="8"/>
+        <id9 value="9"/>
+      </ids>
+      <widths>
+        <width0 value="80"/>
+        <width1 value="80"/>
+        <width2 value="80"/>
+        <width3 value="80"/>
+        <width4 value="80"/>
+        <width5 value="80"/>
+        <width6 value="80"/>
+        <width7 value="80"/>
+        <width8 value="80"/>
+        <width9 value="80"/>
+      </widths>
+      <shows>
+        <show0 value="1"/>
+        <show1 value="1"/>
+        <show2 value="1"/>
+        <show3 value="1"/>
+        <show4 value="1"/>
+        <show5 value="1"/>
+        <show6 value="1"/>
+        <show7 value="1"/>
+        <show8 value="1"/>
+        <show9 value="1"/>
+      </shows>
+    </columns>
+    <Order value="0"/>
+    <OrderDesc value="0"/>
+  </podcasts>
+  <mediaviewers>
+    <mediaviewer_5E499699>
+      <ViewMode value="-1"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="0"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="80"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5E499699>
+    <mediaviewer_5E5197E6>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="2"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="317"/>
+            <width2 value="153"/>
+            <width3 value="101"/>
+            <width4 value="139"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="1"/>
+    </mediaviewer_5E5197E6>
+    <mediaviewer_5E519807>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+        <Sort value="5"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="466"/>
+            <width2 value="272"/>
+            <width3 value="55"/>
+            <width4 value="227"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="1"/>
+      <playlists>
+        <VisiblePanels value="0"/>
+        <LastLayout value="layout2|name=PlayListNames;caption=Playlists;state=2044;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=350;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PlayListTracks;caption=Playlists;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,0,0)=186|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="-1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="80"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </playlists>
+    </mediaviewer_5E519807>
+    <mediaviewer_5ECE5A2F>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="1"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="537"/>
+            <width2 value="299"/>
+            <width3 value="138"/>
+            <width4 value="371"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5ECE5A2F>
+    <mediaviewer_5ECE5A28>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="2"/>
+        <TracksOrderDesc value="1"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="535"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5ECE5A28>
+    <mediaviewer_5ECF8ABC>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="514"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5ECF8ABC>
+    <mediaviewer_5ECF8AC1>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="3"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="312"/>
+            <width2 value="315"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5ECF8AC1>
+    <mediaviewer_5EB7E9B3>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="1"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="359"/>
+            <width2 value="174"/>
+            <width3 value="80"/>
+            <width4 value="361"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5EB7E9B3>
+    <mediaviewer_5EE36E44>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="397"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="139"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5EE36E44>
+    <mediaviewer_5EE370B9>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="4"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="386"/>
+            <width2 value="200"/>
+            <width3 value="99"/>
+            <width4 value="557"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5EE370B9>
+    <mediaviewer_5EEA6A08>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="3"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="269"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="138"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5EEA6A08>
+    <mediaviewer_5F956ACB>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="407"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+    </mediaviewer_5F956ACB>
+    <mediaviewer_5FBE9045>
+      <ViewMode value="0"/>
+      <albumbrowser>
+        <Filter value="0"/>
+      </albumbrowser>
+      <library>
+        <VisiblePanels value="28"/>
+        <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="305"/>
+            <width2 value="215"/>
+            <width3 value="137"/>
+            <width4 value="358"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </library>
+      <AlbumsOrder value="0"/>
+      <playlists>
+        <VisiblePanels value="0"/>
+        <LastLayout value="layout2|name=PlayListNames;caption=Playlists;state=2044;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=350;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=PlayListTracks;caption=Playlists;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,0,0)=186|dock_size(5,0,0)=52|"/>
+        <TracksOrder value="-1"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="80"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </playlists>
+      <treeview>
+        <VisiblePanels value="0"/>
+        <LastLayout value="layout2|name=TreeViewFilters;caption=Tree;state=2044;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=350;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TreeViewTracks;caption=PlayList;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(4,0,0)=186|dock_size(5,0,0)=52|"/>
+        <sortings>
+          <Filter0 value="Genres,Artists,Albums:2:3:6"/>
+          <Filter1 value="Genres,Year,Artists,Albums:2:7:3:6"/>
+        </sortings>
+        <TreeViewFilter value="0"/>
+        <TracksOrder value="0"/>
+        <TracksOrderDesc value="0"/>
+        <columns>
+          <ids>
+            <id0 value="0"/>
+            <id1 value="1"/>
+            <id2 value="2"/>
+            <id3 value="3"/>
+            <id4 value="4"/>
+            <id5 value="5"/>
+            <id6 value="6"/>
+            <id7 value="7"/>
+            <id8 value="8"/>
+            <id9 value="9"/>
+            <id10 value="10"/>
+            <id11 value="11"/>
+            <id12 value="12"/>
+            <id13 value="13"/>
+            <id14 value="14"/>
+            <id15 value="15"/>
+            <id16 value="16"/>
+            <id17 value="17"/>
+          </ids>
+          <widths>
+            <width0 value="80"/>
+            <width1 value="80"/>
+            <width2 value="80"/>
+            <width3 value="80"/>
+            <width4 value="80"/>
+            <width5 value="80"/>
+            <width6 value="80"/>
+            <width7 value="80"/>
+            <width8 value="80"/>
+            <width9 value="80"/>
+            <width10 value="80"/>
+            <width11 value="80"/>
+            <width12 value="80"/>
+            <width13 value="80"/>
+            <width14 value="80"/>
+            <width15 value="80"/>
+            <width16 value="80"/>
+            <width17 value="80"/>
+          </widths>
+          <shows>
+            <show0 value="1"/>
+            <show1 value="1"/>
+            <show2 value="1"/>
+            <show3 value="1"/>
+            <show4 value="1"/>
+            <show5 value="1"/>
+            <show6 value="1"/>
+            <show7 value="1"/>
+            <show8 value="1"/>
+            <show9 value="1"/>
+            <show10 value="1"/>
+            <show11 value="1"/>
+            <show12 value="1"/>
+            <show13 value="1"/>
+            <show14 value="1"/>
+            <show15 value="1"/>
+            <show16 value="1"/>
+            <show17 value="1"/>
+          </shows>
+        </columns>
+      </treeview>
+    </mediaviewer_5FBE9045>
+  </mediaviewers>
+  <playback>
+    <PlayListAllowFilter value="5"/>
+    <PlayListDenyFilter value="0"/>
+    <DelTracksPlayed value="0"/>
+    <SilenceDetector value="0"/>
+    <SilenceLevel value="-65"/>
+    <SilenceAtEnd value="1"/>
+    <SilenceEndTime value="45"/>
+    <MinTracksToPlay value="4"/>
+    <NumTracksToAdd value="3"/>
+    <MaxTracksPlayed value="20"/>
+    <SmartFilterArtists value="20"/>
+    <SmartFilterTracks value="100"/>
+    <OutputDevice value="0"/>
+    <OutputDeviceName value=""/>
+  </playback>
+  <playlist>
+    <nowplaying>
+      <Count value="34"/>
+      <CurItem value="3"/>
+      <tracks>
+        <track>
+          <Type value="0"/>
+          <Name value="LOST YOU -WAHIKO REMIX-"/>
+          <Artist value="-SEPIA- feat. 初音ミク"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value=""/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/LOST YOU - WAHIKO REMIX-.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="501000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="紫苑 -shion- (Original Mix)"/>
+          <Artist value="Aerial Flow"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value=""/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/紫苑 -shion- (Original Mix).mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="601000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Reminice - Aerial Flow Remix"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value=""/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Reminice - Aerial Flow Remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="543000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Cold Leaf"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value=""/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Cold Leaf.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="616000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Song For Eternal 3rd (Remix) [DEMO 80%]"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Song For Eternal 3rd (Remix) [DEMO 80%].mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="611000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="aerial_flow_endless world"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/aerial_flow_endless world.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="428000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="shain"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/shain.wav"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="593000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Electric Angel / Aerial Flow Remix -Instruments-"/>
+          <Artist value="YASUO"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/yasuo_electric_angel_aerialflowrmx_inst.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="579000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="HARU / Aerial Flow Remix"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/HARU - Aerial Flow Remix [粒子P].mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="632000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="mikuru396_melody_aerial_flow_remix"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/mikuru396_melody_aerial_flow_remix.wav"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="456000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Here Bereaved - Aerial Flow Remix  (Rework版）_aerialflow_201304091858"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Here Bereaved - Aerial Flow Remix  (Rework版）_aerialflow_201304091858.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="550000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="kazu_k_lost_word_aerialflow_remix"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/kazu_k_lost_word_aerialflow_remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="523000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="yasuo_electric_angel_aerial_flow_remix_2014ver(1)"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/yasuo_electric_angel_aerial_flow_remix_2014ver(1).mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="616000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Not Is Destination"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Not Is Destination.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="195000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Not Is Destination (Euphoric Remix)"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Not Is Destination ／ Euphoric Remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="526000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Rank1 - Breathing (Wahiko edit ft.Hatsune Miku)"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Rank1 - Breathing (Wahiko edit ft.Hatsune Miku).m4a"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="348000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="demo10_15"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/demo10_15.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="199000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="sion_original_mix"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/sion_original_mix.wav"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="601000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="cold_leaf"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/cold_leaf.wav"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="616000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Not Is Destination (Aerial Flow Remix)"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Not Is Destination ／ Aerial Flow Remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="539000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="demo_12_08"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/demo_12_08.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="436000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Wahiko_Lespedeza_Aerial_Flow_Remix"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Wahiko_Lespedeza_Aerial_Flow_Remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="440000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Memory"/>
+          <Artist value="Aerial Flow feat. HATSUNE MIKU"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Aerial Flow feat. Hatsune Miku - Memory.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="564000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="wahiko_Lespedeza"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/wahiko_Lespedeza.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="394000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Y84wgVu8TVs7.128.mp3"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Y84wgVu8TVs7.128.mp3.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="92000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="0409here bereaved_rmx"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/0409here bereaved_rmx.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="550000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="3_hours"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/3_hours.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="313000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Song For Eternal 3rd (Remix) [DEMO]"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/Song For Eternal 3rd (Remix) [DEMO 33%].mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="199000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="reminice_aerialflow_rmx"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/reminice_aerialflow_rmx.wav"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="543000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Electric Angel / Aerial Flow Remix"/>
+          <Artist value="粒子P"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/YASUO - ELECTRIC ANGEL  Aerial Flow Remix.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="581000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="cold_leaf_inst"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/cold_leaf_inst.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="616000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="えれくとりっくえんじぇぅ_Aerial_Flow_Remix_2016_Remake"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/えれくとりっくえんじぇぅ_Aerial_Flow_Remix_2016_Remake.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="563000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="here bereaved_aerialflow_rmx"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/here bereaved_aerialflow_rmx.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="553000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="04_05"/>
+          <Artist value="Unknown"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Aerial Flow"/>
+          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/"/>
+          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/Aerial Flow/04_05.mp3"/>
+          <Number value="0"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="180000"/>
+        </track>
+      </tracks>
+    </nowplaying>
+    <SaveOnClose value="1"/>
+  </playlist>
+  <equalizer>
+    <Band0 value="0"/>
+    <Band1 value="0"/>
+    <Band2 value="0"/>
+    <Band3 value="0"/>
+    <Band4 value="0"/>
+    <Band5 value="0"/>
+    <Band6 value="0"/>
+    <Band7 value="0"/>
+    <Band8 value="0"/>
+    <Band9 value="0"/>
+  </equalizer>
+  <crossfader>
+    <ForceGapless value="0"/>
+    <FadeOutTime value="0"/>
+    <FadeInTime value="0"/>
+    <FadeInVolStar value="80"/>
+    <FadeInVolTriger value="50"/>
+  </crossfader>
+  <preferences>
+    <PosX value="322"/>
+    <PosY value="296"/>
+    <Width value="1278"/>
+    <Height value="530"/>
+    <LastPage value="1"/>
+  </preferences>
+  <mainsources>
+    <LocalMusic value="1"/>
+    <OnlineMusic value="1"/>
+    <PortableDevices value="1"/>
+    <ContextExpanded value="1"/>
+  </mainsources>
+  <librefm>
+    <SubmitEnabled value="0"/>
+    <UserName value=""/>
+  </librefm>
+  <record>
+    <Enabled value="0"/>
+    <Path value="/home/ryan/Recordings"/>
+    <Format value="0"/>
+    <Quality value="2"/>
+    <Split value="0"/>
+    <DeleteTracks value="0"/>
+    <DeleteTime value="50"/>
+  </record>
+  <positions>
+    <TrackEditSashPos value="391"/>
+    <TrackEditPosX value="271"/>
+    <TrackEditPosY value="319"/>
+    <TrackEditWidth value="1377"/>
+    <TrackEditHeight value="440"/>
+    <import_files>
+      <position>
+        <PosX value="720"/>
+        <PosY value="369"/>
+        <Width value="480"/>
+        <Height value="340"/>
+      </position>
+    </import_files>
+    <LabelEditSashPos value="177"/>
+    <LabelEditPosX value="398"/>
+    <LabelEditWidth value="500"/>
+    <LabelEditHeight value="300"/>
+  </positions>
+  <audiocd>
+    <columns>
+      <ids>
+        <id0 value="0"/>
+        <id1 value="1"/>
+        <id2 value="2"/>
+        <id3 value="3"/>
+        <id4 value="4"/>
+        <id5 value="5"/>
+        <id6 value="6"/>
+        <id7 value="7"/>
+        <id8 value="8"/>
+        <id9 value="9"/>
+      </ids>
+      <widths>
+        <width0 value="80"/>
+        <width1 value="626"/>
+        <width2 value="201"/>
+        <width3 value="80"/>
+        <width4 value="80"/>
+        <width5 value="80"/>
+        <width6 value="80"/>
+        <width7 value="80"/>
+        <width8 value="80"/>
+        <width9 value="80"/>
+      </widths>
+      <shows>
+        <show0 value="1"/>
+        <show1 value="1"/>
+        <show2 value="1"/>
+        <show3 value="1"/>
+        <show4 value="1"/>
+        <show5 value="1"/>
+        <show6 value="1"/>
+        <show7 value="1"/>
+        <show8 value="1"/>
+        <show9 value="1"/>
+      </shows>
+    </columns>
+    <Order value="0"/>
+    <OrderDesc value="0"/>
+  </audiocd>
+</config>
