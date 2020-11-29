@@ -94,9 +94,15 @@ Copy_Config_Files(){
 }
 
 SetBackgrounds(){
-    sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
-    wget https://www.dropbox.com/s/m19gngd5sbostw2/laptop_wall.png -P $HOME/.config/backgrounds/
-    wget https://www.dropbox.com/s/4j1eieeepv6brga/desktop_wall.jpg -P $HOME/.config/backgrounds/
+    if [ ! -f "/usr/share/backgrounds/ubuntu-mate-common/login.png" ]; then    
+	sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
+    fi
+    if [ ! -f "$HOME/.config/backgrounds/laptop_wall.png" ]; then
+	    wget https://www.dropbox.com/s/m19gngd5sbostw2/laptop_wall.png -P $HOME/.config/backgrounds/
+    fi
+    if [ ! -f "$HOME/.config/backgrounds/desktop_wall.jpg" ]; then
+	    wget https://www.dropbox.com/s/4j1eieeepv6brga/desktop_wall.jpg -P $HOME/.config/backgrounds/
+    fi
 }
 
 ##### main program #####
