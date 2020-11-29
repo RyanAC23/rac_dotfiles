@@ -11,8 +11,8 @@
 /.emacs.d/tramp
 /.emacs.d/ido.last
 
-./.guayadeque/cache.db
-./.guayadeque/Collections
+/.guayadeque/cache.db
+/.guayadeque/Collections
 
 # emacs backups
 .\#*
