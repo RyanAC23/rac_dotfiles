@@ -7,7 +7,6 @@
 
 ## Table of Contents
 - [About](#about)
-- [Getting Started](#getting_started)
 - [Package List](#packages)
 - [Bugs](#bugs)
 - [To Do](#todo)
@@ -17,13 +16,18 @@
 ## About <a name = "about"></a>
 My personal dotfiles, and scripts I use to quickly reinstall. Options for both a quick install and full install are present, differing only in the number of packages installed.<br>
 
-## Getting Started <a name = "getting_started"></a>
-
-
+Obviously on a new system git probably won't be installed, and ssh won't be set up. You'll have to set up one or both.
+Grab the initial setup file from the below public repo:
+```
+wget RyanAC23.github.io/compute/files/dclip-setup.sh
+```
+Run this script (you may need to change permissions) and you should have this full repository on your machine. Run the two scripts
 
 ```
-code block
+sudo ./packageinstall.sh
+./dotfiles_util.sh
 ```
+After this, restart your computer. This should be it.
 
 ## Package List <a name = "packages"></a>
 Packages are divided into two sets, called core and full. The core list contains lighter and more essential packages, and the full list contains more intensive ones (including resource hog texlive-full) so that I can choose to skip them until later. Both tables are combined into one below.
