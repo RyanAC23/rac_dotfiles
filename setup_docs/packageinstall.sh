@@ -25,7 +25,6 @@ InstallFromList(){
 	       	       add-apt-repository ppa:anonbeat/guayadeque
 		    fi
 		    apt install -y $package  ;;
-	       "s") echo "Skipping $package for dev install." ;;
 	         *) apt install -y $package  ;;
 	 esac
      done < /tmp/pack.csv ;
