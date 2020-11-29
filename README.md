@@ -76,11 +76,12 @@ Packages are divided into two sets, called core and full. The core list contains
 ## Bugs <a name = "bugs"></a>
 (2020-11-28)
 
-	- .csv files must end with new line or the last package will be missed by the installer.
+- .csv files must end with newline or the installer will miss the last package.
 
 ## To Do <a name = "todo"></a>
 
 (2020-11-28)
+
 	- Add dotfiles explanations
 	- Add Dropbox setup
 	- Add Conda setup
