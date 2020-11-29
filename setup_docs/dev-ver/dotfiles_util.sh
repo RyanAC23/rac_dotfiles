@@ -1,6 +1,15 @@
 #!/bin/sh
 # install emacs, urxvt, and tmux to get up and running
 
+CheckIfRoot(){
+    if [ `whoami` != root ]; then
+	echo "Welcome `whoami`."
+    else
+	echo "Please rerun this script as user and not root."
+	exit 1
+    fi
+}
+
 ## Check functions
 # repos directory
 Repo_Dir_Check(){
@@ -85,10 +94,13 @@ Copy_Config_Files(){
 }
 
 SetBackgrounds(){
-    sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
+    wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
+    wget https://www.dropbox.com/s/m19gngd5sbostw2/laptop_wall.png -P $HOME/.config/backgrounds/
+    wget https://www.dropbox.com/s/4j1eieeepv6brga/desktop_wall.jpg -P $HOME/.config/backgrounds/
 }
 
 ##### main program #####
+CheckIfRoot
 
 Repo_Dir_Check
 

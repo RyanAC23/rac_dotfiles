@@ -88,12 +88,12 @@ Packages are divided into two sets, called core and full. The core list contains
 
 ## To Do <a name = "todo"></a>
 
-- [ ] Add wallpaper copy/set from Dropbox public link
+- [x] Add wallpaper copy/set from Dropbox public link
   ```
-  sudo cp [dropbox]/pictures/backgrounds/login.png /usr/share/backgrounds/ubuntu-mate-common/
+  sudo cp [dropbox]/login.png /usr/share/backgrounds/ubuntu-mate-common/
   ```
 - [ ] Add dotfiles explanations
-- [ ] Add Dropbox setup
+- [x] Add Dropbox setup
 - [ ] Add Conda setup
 - [ ] Make one config folder symlink routine
 - [x] Turn off bluetooth controller by default
