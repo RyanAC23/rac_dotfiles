@@ -56,9 +56,9 @@ GitRepoGetter(){
 	git clone git@github.com:RyanAC23/rac_dotfiles.git $HOME/repos/rac_dotfiles
     fi
     if [ -f $HOME/repos/rac_dotfiles/setup_docs/packageinstall.sh ]; then
-    echo "dotfiles repo present. Be sure to run PackageInstall.sh as root, and
-    to run DotfilesSetter.sh second.
-    (The order might not actually matter.)"
+    echo "dotfiles repo present. Be sure to run PackageInstall.sh
+    	 as root, and to run DotfilesSetter.sh second.
+    	 (The order might not actually matter.)"
     fi
 }
 
@@ -94,10 +94,10 @@ GitSetter(){
 }
 
 ##### Main Routine #####
-#Initializer
+Initializer
 
-#sshUtil
+sshUtil
 
-#GitRepoGetter
+GitRepoGetter
 
 GitSetter
