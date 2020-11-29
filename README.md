@@ -76,6 +76,10 @@ Packages are divided into two sets, called core and full. The core list contains
 | | |
 
 ## Bugs <a name = "bugs"></a>
+(2020-11-29)
+
+- possible bug with dconf file not copying with rclone command. Try on VM and see if this is reproducible on another machine.
+
 (2020-11-28)
 
 - .csv files must end with newline or the installer will miss the last package.
