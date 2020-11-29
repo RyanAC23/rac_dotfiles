@@ -64,6 +64,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [virtualbox](https://www.virtualbox.org/)                  | Cross platform virtualization                        |                                                |
 | [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
+| [gparted](https://gparted.org/)                            | GUI partition manager                                |                                                |
 
 ## Dotfiles List <a name = "dotfiles"></a>
 | File name | Program | Description |
