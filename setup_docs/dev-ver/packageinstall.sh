@@ -87,6 +87,12 @@ ChromeGet(){
     rm /tmp/google-chrome-stable_current_amd64.deb
 }
 
+DropboxGet(){
+    echo "Grabbing Dropbox from the internet."
+    cd ~ && wget -O "https://www/dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    ~/.dropbox-dist/dropboxd
+}
+
 CondaInstall(){
     echo "Conda Install Not Implemented"
 }
@@ -94,6 +100,7 @@ CondaInstall(){
 ExtraInstall(){
 echo "Installing extra things that can't be gotten through the apt manager."
     ChromeGet
+    DropboxGet
     CondaInstall
 }
 
