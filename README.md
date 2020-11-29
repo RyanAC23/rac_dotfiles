@@ -93,3 +93,4 @@ Packages are divided into two sets, called core and full. The core list contains
 	- Add Conda setup
 	- Make one config folder symlink routine
 	- Turn off bluetooth controller by default
+	- Add numlockx to package list
