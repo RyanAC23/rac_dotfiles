@@ -10,6 +10,7 @@
 /.emacs.d/recentf
 /.emacs.d/tramp
 /.emacs.d/ido.last
+/.emacs.d/session.*
 
 /.guayadeque/cache.db
 /.guayadeque/Collections

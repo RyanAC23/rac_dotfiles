@@ -89,8 +89,8 @@ ChromeGet(){
 
 DropboxGet(){
     echo "Grabbing Dropbox from the internet."
-    cd ~ && wget -O "https://www/dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-    ~/.dropbox-dist/dropboxd
+    #cd /home/$USER/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    sudo -u $USER bash /home/$USER/.dropbox-dist/dropboxd
 }
 
 CondaInstall(){

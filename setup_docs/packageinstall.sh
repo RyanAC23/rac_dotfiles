@@ -25,6 +25,7 @@ InstallFromList(){
 	       	       add-apt-repository ppa:anonbeat/guayadeque
 		    fi
 		    apt install -y $package  ;;
+	       "s") echo "Skipping $package for dev install." ;;
 	         *) apt install -y $package  ;;
 	 esac
      done < /tmp/pack.csv ;
@@ -86,6 +87,12 @@ ChromeGet(){
     rm /tmp/google-chrome-stable_current_amd64.deb
 }
 
+DropboxGet(){
+    echo "Grabbing Dropbox from the internet."
+    #cd /home/$USER/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    sudo -u $USER bash /home/$USER/.dropbox-dist/dropboxd
+}
+
 CondaInstall(){
     echo "Conda Install Not Implemented"
 }
@@ -93,6 +100,7 @@ CondaInstall(){
 ExtraInstall(){
 echo "Installing extra things that can't be gotten through the apt manager."
     ChromeGet
+    DropboxGet
     CondaInstall
 }
 

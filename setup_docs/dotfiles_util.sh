@@ -84,6 +84,10 @@ Copy_Config_Files(){
     esac
 }
 
+SetBackgrounds(){
+    sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
+}
+
 ##### main program #####
 
 Repo_Dir_Check
@@ -93,6 +97,8 @@ Dotfiles_Repo_Check
 Create_Dotfile_Symlinks
 
 Copy_Config_Files
+
+SetBackgrounds
 
 echo "Dotfile util complete."
 echo
