@@ -8,6 +8,7 @@
 ## Table of Contents
 - [About](#about)
 - [Package List](#packages)
+- [Dotfiles List](#dotfiles)
 - [Bugs](#bugs)
 - [To Do](#todo)
 
@@ -64,14 +65,22 @@ Packages are divided into two sets, called core and full. The core list contains
 | [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 
+## Dotfiles List <a name = "dotfiles"></a>
+| File name | Program | Description |
+|-----------|---------|-------------|
+| | |
+| | |
+| | |
+| | |
+
 ## Bugs <a name = "bugs"></a>
 (2020-11-28)
 
-	- .csv files must end with new line or the last package will be missed by the installer. Maybe this is expected.
+	- .csv files must end with new line or the last package will be missed by the installer.
 
 ## To Do <a name = "todo"></a>
 
 (2020-11-28)
-
+	- Add dotfiles explanations
 	- Add Dropbox setup
 	- Add Conda setup
