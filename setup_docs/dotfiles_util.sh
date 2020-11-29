@@ -65,7 +65,7 @@ Create_Dotfile_Symlinks(){
 }
 
 Copy_Config_Files(){
-    echo "Copying dotfiles and config folders to `$HOME`."
+    echo "Copying dotfiles and config folders to $HOME."
     echo "Warning: this will overwrite any previous files you had in ~/. Proceed? (y/n): "
     read PROCEED
     case $PROCEED in
