@@ -54,7 +54,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [neofetch](https://github.com/dylanaraps/neofetch)         | System information tool                              |                                                |
 | [tree](https://linux.die.net/man/1/tree)                   | List contents of directories in tree format          |                                                |
 | [ncdu](https://dev.yorhel.nl/ncdu)                         | NCurses Disk Usage disk analyzer                     |                                                |
-|                                                            |                                                      |                                                |
+| [vim](https://www.vim.org/)                                | Lightweight text editor.                             | For occasional use with programs               |
 | [nomacs](https://nomacs.org/)                              | Image viewer                                         | eom is awful                                   |
 | [guayadeque](https://www.guayadeque.org/)                  | Audio player                                         |                                                |
 | [mpv](https://mpv.io/)                                     | Cross platform media player                          |                                                |
