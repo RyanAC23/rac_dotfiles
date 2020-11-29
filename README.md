@@ -80,19 +80,21 @@ Packages are divided into two sets, called core and full. The core list contains
 ## Bugs <a name = "bugs"></a>
 (2020-11-29)
 
-- possible bug with dconf file not copying with rclone command. Try on VM and see if this is reproducible on another machine.
+- [x] possible bug with dconf file not copying with rsync command. Try on VM and see if this is reproducible on another machine.
 
 (2020-11-28)
 
-- .csv files must end with newline or the installer will miss the last package.
+- [ ] .csv files must end with newline or the installer will miss the last package.
 
 ## To Do <a name = "todo"></a>
 
-(2020-11-28)
-
+- [ ] Add wallpaper copy/set from Dropbox public link
+  ```
+  sudo cp [dropbox]/pictures/backgrounds/login.png /usr/share/backgrounds/ubuntu-mate-common/
+  ```
 - [ ] Add dotfiles explanations
 - [ ] Add Dropbox setup
 - [ ] Add Conda setup
 - [ ] Make one config folder symlink routine
-- [ ] Turn off bluetooth controller by default
+- [x] Turn off bluetooth controller by default
 - [x] Add numlockx to package list
