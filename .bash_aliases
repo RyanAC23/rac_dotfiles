@@ -1,4 +1,4 @@
-zalias v='vim'
+alias v='vim'
 alias cn='clear ; neofetch'
 alias reload='source ~/.bashrc'
 
