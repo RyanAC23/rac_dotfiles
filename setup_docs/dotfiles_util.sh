@@ -94,8 +94,10 @@ Copy_Config_Files(){
 }
 
 SetBackgrounds(){
-    if [ ! -f "/usr/share/backgrounds/ubuntu-mate-common/login.png" ]; then    
+    if [ ! -f "/usr/share/backgrounds/ubuntu-mate-common/login.png" ]; then
 	sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
+	cp -r $HOME/repos/rac_dotfiles/etc/lightdm/ /tmp/lightdm
+	sudo cp -r /tmp/lightdm/slick-greeter.conf /etc/lightdm/
     fi
     if [ ! -f "$HOME/.config/backgrounds/laptop_wall.png" ]; then
 	    wget https://www.dropbox.com/s/m19gngd5sbostw2/laptop_wall.png -P $HOME/.config/backgrounds/
