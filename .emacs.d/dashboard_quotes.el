@@ -7,8 +7,8 @@
      ;; Nabokov
      "\"Don't be too certain of learning the past from the lips of the present.\" - RLSK"
      "\"These connections are a little too easy, and thus probably fake.\" - Nabokov, Gogol"
-     "\"I doubt whether you can give your telephone number without giving something of yourself.\" - Nabokov, Gogol"
-     "\"If parallel lines do not meet it is not because they cannot, but because they have other things to do.\" - Nabokov, Gogol"
+    "\"I doubt whether you can give your telephone number without giving something of yourself.\" - Nabokov, Gogol"
+    "\"If parallel lines do not meet it is not because they cannot, but because they have other things to do.\" - Nabokov, Gogol"
      ;; Shakespeare
      "\"They have been at a great feast of languages, and stolen the scraps.\" - Love's Labour Lost"
      "\"If we imagine no worse of them than they of themselves, they may pass for excellent men.\" - Midsummer Night's Dream"
@@ -27,6 +27,4 @@
      "\"The enemy always has a vote.\" - Jocko"
      "\"Do you think the company senior executives want you to fail?\" - Jocko"
      "\"Anything you can't carry 24 hrs/day is gone on the next chopper.\""
-     "\"The progenitor of Ares is the first dude that was so scary that him showing up to battle automatically made the enemy flee.\""
-     "\"Men with rot in their hearts and resentment instead of inspiration cannot create beauty.\""
 ))

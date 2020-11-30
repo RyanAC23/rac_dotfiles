@@ -169,7 +169,7 @@
 	:ensure t
 	:config
 	  (dashboard-setup-startup-hook)
-	  (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/1343226050310.gif")
+	  (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/banners/banner.gif")
 	  (setq dashboard-items '((recents . 5)
 				  (projects . 5)
 				  (bookmarks . 5)

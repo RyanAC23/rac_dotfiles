@@ -33,6 +33,13 @@ setlocal autoindent
 autocmd BufWritePre * %s/\s\+$//e
 set showmatch " Highlight bracket pairs
 
+" Disable backups
+set nobackup
+set nowb
+set noswapfile
+set nomodeline " CVE-2019-12735
+
+
 "-------- Extra ---------------------------------------------------------------
 colorscheme industry
 set mouse=a
