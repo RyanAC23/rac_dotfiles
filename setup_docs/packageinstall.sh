@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 USER=ryan
@@ -88,7 +89,7 @@ ChromeGet(){
 
 DropboxGet(){
     echo "Grabbing Dropbox from the internet."
-    #cd /home/$USER/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    cd /home/$USER/ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     sudo -u $USER bash /home/$USER/.dropbox-dist/dropboxd
 }
 
