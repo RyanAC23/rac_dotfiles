@@ -70,9 +70,9 @@ Packages are divided into two sets, called core and full. The core list contains
 | [gstreamer1.0-plugins-bad](https://packages.debian.org/sid/gstreamer1.0-plugins-bad) | Audio codecs               | For straggling .m4a files                      |
 
 ## Dotfiles List <a name = "dotfiles"></a>
-| File name | Program | Description |
+| file / directory name | Program | Description |
 |-----------|---------|-------------|
-| | |
+| bin       | contains dumb scripts  |
 | | |
 | | |
 | | |

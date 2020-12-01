@@ -29,3 +29,4 @@ EmacsFileSpecified(){
 }
 
 alias e='EmacsFileSpecified'
+alias el='emacs -nw -Q -load ~/.emacs.d/light_init.el'
