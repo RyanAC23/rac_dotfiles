@@ -70,12 +70,27 @@ Packages are divided into two sets, called core and full. The core list contains
 | [gstreamer1.0-plugins-bad](https://packages.debian.org/sid/gstreamer1.0-plugins-bad) | Audio codecs               | For straggling .m4a files                      |
 
 ## Dotfiles List <a name = "dotfiles"></a>
-| file / directory name | Program | Description |
-|-----------|---------|-------------|
-| bin       | contains dumb scripts  |
-| | |
-| | |
-| | |
+| file / directory name               | Description                                                                       |
+|-------------------------------------|-----------------------------------------------------------------------------------|
+| /bin                                | Contains dumb scripts                                                             |
+| /conda-envs                         | Conda environments to install                                                     |
+| /etc/lightdm/slick-greeter.conf     | For setting the login background and numlock                                      |
+| /packages                           | .csv lists of packages used by install scripts                                    |
+| /setup_docs                         | The scripts for installing a new setup                                            |
+| /.emacs.d                           | emacs config folder to be symlinked to $HOME. Main file is racinit.org            |
+| /.urxvt                             | rxvt-unicode functionality scripts                                                |
+| /.vim                               | vim configurations. This could be vetted.                                         |
+| /.guayadeque                        | guayadeque music player config. .gitignore passes its (massive) database          |
+| .bashrc                             | executed on login to a new shell                                                  |
+| .bash_aliases                       | Contains useful aliases; sourced by .bashrc                                       |
+| .tmux.conf                          | Key bindings and behavior for tmux. Made to be sort of emacs-like                 |
+| .Xresources                         | .urxvt display settings and bindings. Source with xrdb                            |
+| /.config                            | Folder with config for nicer packages that didn't want to clutter $HOME           |
+| /.config/autostart                  | Turns off blueman by default. When do you use bluetooth?                          |
+| /.config/dconf                      | Main display and toolbar settings for Ubuntu-Mate.                                |
+| /.config/neofetch                   | My settings for what info neofetch displays, plus a custom ascii logo.            |
+| /.config/ranger                     | Minor settings telling ranger to preview images and use emacs.                    |
+| /.config/.environment_site          | Command for quickly running a jupyter server. Could be merged with .bash_aliases. |
 
 ## Bugs <a name = "bugs"></a>
 (2020-11-29)
@@ -92,7 +107,7 @@ Packages are divided into two sets, called core and full. The core list contains
   ```
   sudo cp [dropbox]/login.png /usr/share/backgrounds/ubuntu-mate-common/
   ```
-- [ ] Add dotfiles explanations
+- [x] Add dotfiles explanations
 - [x] Add Dropbox setup
 - [ ] Add Conda setup
 - [ ] Make one config folder symlink routine
