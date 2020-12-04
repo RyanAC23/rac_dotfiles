@@ -45,7 +45,17 @@
 ;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+;; Enable parenthesis matching mode
+;; https://melpa.org/#/mic-paren
+(use-package mic-paren
+    :ensure t)
+;;(paren-activate)
+(add-hook 'c-mode-common-hook
+    (function (lambda ()
+        (paren-toggle-open-paren-context 1))))
 #+END_SRC
+
 
 ** UTF-8 Encoding
 #+BEGIN_SRC emacs-lisp

@@ -39,6 +39,15 @@
 ;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+;; Enable parenthesis matching mode
+;; https://melpa.org/#/mic-paren
+(use-package mic-paren
+    :ensure t)
+;;(paren-activate)
+(add-hook 'c-mode-common-hook
+    (function (lambda ()
+        (paren-toggle-open-paren-context 1))))
 ;; Behavior:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
@@ -302,34 +311,6 @@
   (if (file-directory-p "~/Dropbox/share/orgpages/")
     (load "~/Dropbox/share/orgpages/pages.el"))
 ;; Website:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Elfeed%20(RSS%20Reader)][Elfeed (RSS Reader):1]]
-(use-package elfeed
-    :ensure t)
-  (setq elfeed-db-directory "~/Dropbox/share/N23emacs/elfeeddb")
-
-  (use-package elfeed-org
-    :ensure t
-    :config
-    (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/share/N23emacs/elfeed.org")))
-
-;;functions to support syncing .elfeed between machines
-;;makes sure elfeed reads index from disk before launching
-(defun bjm/elfeed-load-db-and-open ()
-"Wrapper to load the elfeed db from disk before opening"
-(interactive)
-(elfeed-db-load)
-(elfeed)
-(elfeed-search-update--force))
-
-;;write to disk when quiting
-(defun bjm/elfeed-save-db-and-bury ()
-"Wrapper to save the elfeed db to disk before burying buffer"
-(interactive)
-(elfeed-db-save)
-(quit-window))
-;; Elfeed (RSS Reader):1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
 ;; Theme and Appearance ----------------------------------------------

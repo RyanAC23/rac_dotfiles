@@ -1,33 +1,33 @@
 
 # Table of Contents
 
-1.  [Behavior](#org93bb8f9)
-    1.  [UTF-8 Encoding](#orgfc4c142)
-    2.  [Config Reload](#orgada4547)
-2.  [SSH / TRAMP](#org923ee5a)
-    1.  [Tramp](#org8841049)
-3.  [Searching](#org1b4a32d)
-4.  [Autocompletion](#org39c6ed3)
-5.  [Navigation](#org24fbc41)
-6.  [Dashboard / Homescreen](#orge96d2e9)
-7.  [Org Mode](#org9f6ed7b)
-8.  [Org Links Mode](#org34c5861)
-9.  [C / C++](#orgcf89e76)
-    1.  [Flycheck](#orgefbc309)
-    2.  [Yasnippet](#orgd023368)
-10. [Python](#org37c29d7)
-11. [LaTeX](#org6218e45)
-    1.  [Auctex / latexmk](#org7a692bc)
-12. [Web Development](#org7e1f140)
-13. [Website](#orgd321d5a)
-14. [Elfeed (RSS Reader)](#org7d6d6bb)
-15. [Theme and Appearance](#orge3a989a)
-    1.  [Modeline](#orgf0afc02)
-    2.  [diminish - hide minor modes from line](#orgd07232a)
+1.  [Behavior](#orge221292)
+    1.  [UTF-8 Encoding](#org0ee20db)
+    2.  [Config Reload](#org8a330f7)
+2.  [SSH / TRAMP](#org421ee46)
+    1.  [Tramp](#org1fb7390)
+3.  [Searching](#orgc2b0dae)
+4.  [Autocompletion](#org3b5d7dc)
+5.  [Navigation](#org3d57dd4)
+6.  [Dashboard / Homescreen](#orgf0d0d8c)
+7.  [Org Mode](#org9d69274)
+8.  [Org Links Mode](#orge3c33d5)
+9.  [C / C++](#org6040d32)
+    1.  [Flycheck](#org0382b8c)
+    2.  [Yasnippet](#orgc589d3f)
+10. [Python](#org8051036)
+11. [LaTeX](#org499e04b)
+    1.  [Auctex / latexmk](#org8155321)
+12. [Web Development](#org4bc2796)
+13. [Website](#org620cf86)
+14. [Elfeed (RSS Reader)](#orgbfebfcf)
+15. [Theme and Appearance](#org09c40af)
+    1.  [Modeline](#orgb5664c6)
+    2.  [diminish - hide minor modes from line](#org85b900a)
 
 
 
-<a id="org93bb8f9"></a>
+<a id="orge221292"></a>
 
 # Behavior
 
@@ -72,8 +72,14 @@
     (when (version<= "26.0.50" emacs-version )
       (global-display-line-numbers-mode))
 
+    ;; Enable parenthesis matching mode
+    ;; https://melpa.org/#/mic-paren
+    (use-package mic-paren
+        :ensure t)
+    (paren-activate)
 
-<a id="orgfc4c142"></a>
+
+<a id="org0ee20db"></a>
 
 ## UTF-8 Encoding
 
@@ -84,7 +90,7 @@
     (prefer-coding-system 'utf-8)
 
 
-<a id="orgada4547"></a>
+<a id="org8a330f7"></a>
 
 ## Config Reload
 
@@ -97,19 +103,19 @@ For reloading your configuration file when editing on the fly.
     (global-set-key (kbd "<f5>") 'config-reload)
 
 
-<a id="org923ee5a"></a>
+<a id="org421ee46"></a>
 
 # SSH / TRAMP
 
 
-<a id="org8841049"></a>
+<a id="org1fb7390"></a>
 
 ## Tramp
 
     (setq tramp-verbose 10)
 
 
-<a id="org1b4a32d"></a>
+<a id="orgc2b0dae"></a>
 
 # Searching
 
@@ -144,7 +150,7 @@ For reloading your configuration file when editing on the fly.
         (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
 
-<a id="org39c6ed3"></a>
+<a id="org3b5d7dc"></a>
 
 # Autocompletion
 
@@ -180,7 +186,7 @@ For reloading your configuration file when editing on the fly.
     ;;  (add-hook 'c-mode-hook 'company-mode))
 
 
-<a id="org24fbc41"></a>
+<a id="org3d57dd4"></a>
 
 # Navigation
 
@@ -204,7 +210,7 @@ For reloading your configuration file when editing on the fly.
       (global-undo-tree-mode))
 
 
-<a id="orge96d2e9"></a>
+<a id="orgf0d0d8c"></a>
 
 # Dashboard / Homescreen
 
@@ -244,7 +250,7 @@ For reloading your configuration file when editing on the fly.
     	  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 
 
-<a id="org9f6ed7b"></a>
+<a id="org9d69274"></a>
 
 # Org Mode
 
@@ -269,7 +275,7 @@ For reloading your configuration file when editing on the fly.
     (require 'ox-md)
 
 
-<a id="org34c5861"></a>
+<a id="orge3c33d5"></a>
 
 # Org Links Mode
 
@@ -310,12 +316,12 @@ For reloading your configuration file when editing on the fly.
       (org-capture)))
 
 
-<a id="orgcf89e76"></a>
+<a id="org6040d32"></a>
 
 # DONE C / C++
 
 
-<a id="orgefbc309"></a>
+<a id="org0382b8c"></a>
 
 ## Flycheck
 
@@ -327,7 +333,7 @@ For reloading your configuration file when editing on the fly.
     )
 
 
-<a id="orgd023368"></a>
+<a id="orgc589d3f"></a>
 
 ## Yasnippet
 
@@ -342,17 +348,17 @@ For reloading your configuration file when editing on the fly.
         :ensure t)
 
 
-<a id="org37c29d7"></a>
+<a id="org8051036"></a>
 
 # TODO Python
 
 
-<a id="org6218e45"></a>
+<a id="org499e04b"></a>
 
 # TODO LaTeX
 
 
-<a id="org7a692bc"></a>
+<a id="org8155321"></a>
 
 ## Auctex / latexmk
 
@@ -362,7 +368,7 @@ For reloading your configuration file when editing on the fly.
          :ensure t)
 
 
-<a id="org7e1f140"></a>
+<a id="org4bc2796"></a>
 
 # TODO Web Development
 
@@ -390,7 +396,7 @@ For reloading your configuration file when editing on the fly.
     )
 
 
-<a id="orgd321d5a"></a>
+<a id="org620cf86"></a>
 
 # Website
 
@@ -399,12 +405,12 @@ For reloading your configuration file when editing on the fly.
         (load "~/Dropbox/share/orgpages/pages.el"))
 
 
-<a id="org7d6d6bb"></a>
+<a id="orgbfebfcf"></a>
 
 # Elfeed (RSS Reader)
 
 
-<a id="orge3a989a"></a>
+<a id="org09c40af"></a>
 
 # Theme and Appearance
 
@@ -437,7 +443,7 @@ For reloading your configuration file when editing on the fly.
      (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 
-<a id="orgf0afc02"></a>
+<a id="orgb5664c6"></a>
 
 ## Modeline
 
@@ -449,7 +455,7 @@ For reloading your configuration file when editing on the fly.
     (spaceline-spacemacs-theme))
 
 
-<a id="orgd07232a"></a>
+<a id="org85b900a"></a>
 
 ## diminish - hide minor modes from line
 
