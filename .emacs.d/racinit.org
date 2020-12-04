@@ -65,7 +65,6 @@ For reloading your configuration file when editing on the fly.
   (global-set-key (kbd "<f5>") 'config-reload)
 #+END_SRC
 
-
 * SSH / TRAMP
 ** Tramp
 #+BEGIN_SRC emacs-lisp
@@ -182,7 +181,7 @@ For reloading your configuration file when editing on the fly.
 	  :ensure t
 	  :config
 	    (dashboard-setup-startup-hook)
-	    (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/banners/banner.gif")
+	    (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
 	    (setq dashboard-items '((recents . 5)
 				    (projects . 5)
 				    (bookmarks . 5)
@@ -215,6 +214,10 @@ For reloading your configuration file when editing on the fly.
 ;; enable syntax highlighting
 (use-package htmlize
   :ensure t)
+
+;; Add markdown export support
+(require 'ox-md)
+
 #+END_SRC
 * Org Links Mode
 #+BEGIN_SRC emacs-lisp
@@ -223,11 +226,11 @@ For reloading your configuration file when editing on the fly.
 		  'org-capture)
   (setq org-capture-templates
 	'(
-	  ("t" "To Do" entry (file+headline "~/Dropbox/share/rac-orgfiles/todo-list.org" "Execute")
+	  ("t" "To Do" entry (file+headline "~/Dropbox/share/N23emacs/todo-list.org" "Execute")
 	  "* %?\n%T" :prepend t)
-	  ("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
+	  ("l" "Links" entry (file+headline "~/Dropbox/share/N23emacs/web-bookmarks.org" "Links")
 	   "* %? %^L %^g \n%T" :prepend t)
-	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
+	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/N23emacs/links-work.org" "Links")
 	   "* %? %^L %^g \n%T" :prepend t)
 ))
 
@@ -289,7 +292,7 @@ For reloading your configuration file when editing on the fly.
  (use-package auctex-latexmk
       :ensure t)
 #+END_SRC
-* Web Development
+* TODO Web Development
 #+BEGIN_SRC emacs-lisp
   ;; Web Development ---------------------------------------------------
   (use-package web-mode
@@ -314,36 +317,42 @@ For reloading your configuration file when editing on the fly.
     (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
   )
 #+END_SRC
-* Elfeed (RSS Reader)
+* Website
 #+BEGIN_SRC emacs-lisp
-
-  (use-package elfeed
-    :ensure t)
-  (setq elfeed-db-directory "~/Dropbox/share/rac-orgfiles/elfeeddb")
-
-  (use-package elfeed-org
-    :ensure t
-    :config
-    (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/share/rac-orgfiles/elfeed.org")))
-
-;;functions to support syncing .elfeed between machines
-;;makes sure elfeed reads index from disk before launching
-(defun bjm/elfeed-load-db-and-open ()
-"Wrapper to load the elfeed db from disk before opening"
-(interactive)
-(elfeed-db-load)
-(elfeed)
-(elfeed-search-update--force))
-
-;;write to disk when quiting
-(defun bjm/elfeed-save-db-and-bury ()
-"Wrapper to save the elfeed db to disk before burying buffer"
-(interactive)
-(elfeed-db-save)
-(quit-window))
-
+;; If folders exist, load projects file
+  (if (file-directory-p "~/Dropbox/share/orgpages/")
+    (load "~/Dropbox/share/orgpages/pages.el"))
 #+END_SRC
+* Elfeed (RSS Reader)
+# #+BEGIN_SRC emacs-lisp
+
+#   (use-package elfeed
+#     :ensure t)
+#   (setq elfeed-db-directory "~/Dropbox/share/N23emacs/elfeeddb")
+
+#   (use-package elfeed-org
+#     :ensure t
+#     :config
+#     (elfeed-org)
+#     (setq rmh-elfeed-org-files (list "~/Dropbox/share/N23emacs/elfeed.org")))
+
+# ;;functions to support syncing .elfeed between machines
+# ;;makes sure elfeed reads index from disk before launching
+# (defun bjm/elfeed-load-db-and-open ()
+# "Wrapper to load the elfeed db from disk before opening"
+# (interactive)
+# (elfeed-db-load)
+# (elfeed)
+# (elfeed-search-update--force))
+
+# ;;write to disk when quiting
+# (defun bjm/elfeed-save-db-and-bury ()
+# "Wrapper to save the elfeed db to disk before burying buffer"
+# (interactive)
+# (elfeed-db-save)
+# (quit-window))
+
+# #+END_SRC
 
 * Theme and Appearance
 #+BEGIN_SRC emacs-lisp

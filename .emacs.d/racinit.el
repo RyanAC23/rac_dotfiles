@@ -169,7 +169,7 @@
 	:ensure t
 	:config
 	  (dashboard-setup-startup-hook)
-	  (setq dashboard-startup-banner "~/Dropbox/share/rac-orgfiles/banners/banner.gif")
+	  (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
 	  (setq dashboard-items '((recents . 5)
 				  (projects . 5)
 				  (bookmarks . 5)
@@ -201,6 +201,9 @@
 ;; enable syntax highlighting
 (use-package htmlize
   :ensure t)
+
+;; Add markdown export support
+(require 'ox-md)
 ;; Org Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
@@ -209,11 +212,11 @@
 		  'org-capture)
   (setq org-capture-templates
 	'(
-	  ("t" "To Do" entry (file+headline "~/Dropbox/share/rac-orgfiles/todo-list.org" "Execute")
+	  ("t" "To Do" entry (file+headline "~/Dropbox/share/N23emacs/todo-list.org" "Execute")
 	  "* %?\n%T" :prepend t)
-	  ("l" "Links" entry (file+headline "~/Dropbox/share/rac-orgfiles/web-bookmarks.org" "Links")
+	  ("l" "Links" entry (file+headline "~/Dropbox/share/N23emacs/web-bookmarks.org" "Links")
 	   "* %? %^L %^g \n%T" :prepend t)
-	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/rac-orgfiles/links-work.org" "Links")
+	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/N23emacs/links-work.org" "Links")
 	   "* %? %^L %^g \n%T" :prepend t)
 ))
 
@@ -294,16 +297,22 @@
 )
 ;; Web Development:1 ends here
 
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
+;; If folders exist, load projects file
+  (if (file-directory-p "~/Dropbox/share/orgpages/")
+    (load "~/Dropbox/share/orgpages/pages.el"))
+;; Website:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Elfeed%20(RSS%20Reader)][Elfeed (RSS Reader):1]]
 (use-package elfeed
     :ensure t)
-  (setq elfeed-db-directory "~/Dropbox/share/rac-orgfiles/elfeeddb")
+  (setq elfeed-db-directory "~/Dropbox/share/N23emacs/elfeeddb")
 
   (use-package elfeed-org
     :ensure t
     :config
     (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/share/rac-orgfiles/elfeed.org")))
+    (setq rmh-elfeed-org-files (list "~/Dropbox/share/N23emacs/elfeed.org")))
 
 ;;functions to support syncing .elfeed between machines
 ;;makes sure elfeed reads index from disk before launching
