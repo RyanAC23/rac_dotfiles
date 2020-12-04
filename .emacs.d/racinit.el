@@ -43,11 +43,11 @@
 ;; Enable parenthesis matching mode
 ;; https://melpa.org/#/mic-paren
 (use-package mic-paren
-    :ensure t)
-;;(paren-activate)
-(add-hook 'c-mode-common-hook
-    (function (lambda ()
-        (paren-toggle-open-paren-context 1))))
+    :ensure t
+    :config
+    ;;(paren-activate)
+    (add-hook 'c-mode-common-hook 'paren-activate)
+)
 ;; Behavior:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
