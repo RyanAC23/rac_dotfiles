@@ -68,7 +68,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [gparted](https://gparted.org/)                            | GUI partition manager                                |                                                |
 | Chrome                                                     | Web Browser                                          | I know...                                      |
 | [gstreamer1.0-plugins-bad](https://packages.debian.org/sid/gstreamer1.0-plugins-bad) | Audio codecs               | For straggling .m4a files                      |
-
+| [Transmission](https://transmissionbt.com/download/)       | Torrent client                                       |                                                |
 ## Dotfiles List <a name = "dotfiles"></a>
 | file / directory name               | Description                                                                       |
 |-------------------------------------|-----------------------------------------------------------------------------------|
