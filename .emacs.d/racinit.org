@@ -333,37 +333,6 @@ For reloading your configuration file when editing on the fly.
   (if (file-directory-p "~/Dropbox/share/orgpages/")
     (load "~/Dropbox/share/orgpages/pages.el"))
 #+END_SRC
-* Elfeed (RSS Reader)
-# #+BEGIN_SRC emacs-lisp
-
-#   (use-package elfeed
-#     :ensure t)
-#   (setq elfeed-db-directory "~/Dropbox/share/N23emacs/elfeeddb")
-
-#   (use-package elfeed-org
-#     :ensure t
-#     :config
-#     (elfeed-org)
-#     (setq rmh-elfeed-org-files (list "~/Dropbox/share/N23emacs/elfeed.org")))
-
-# ;;functions to support syncing .elfeed between machines
-# ;;makes sure elfeed reads index from disk before launching
-# (defun bjm/elfeed-load-db-and-open ()
-# "Wrapper to load the elfeed db from disk before opening"
-# (interactive)
-# (elfeed-db-load)
-# (elfeed)
-# (elfeed-search-update--force))
-
-# ;;write to disk when quiting
-# (defun bjm/elfeed-save-db-and-bury ()
-# "Wrapper to save the elfeed db to disk before burying buffer"
-# (interactive)
-# (elfeed-db-save)
-# (quit-window))
-
-# #+END_SRC
-
 * Theme and Appearance
 #+BEGIN_SRC emacs-lisp
 ;; Theme and Appearance ----------------------------------------------
