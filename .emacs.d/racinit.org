@@ -371,13 +371,13 @@ For reloading your configuration file when editing on the fly.
 * Website
 
 #+BEGIN_SRC emacs-lisp
-;; If folders exist, load projects file
-;; org test pages
-(if (file-directory-p "~/Dropbox/share/orgpages/")
-    (load "~/Dropbox/share/orgpages/pages.el"))
-;; geocities website
-(if (file-directory-p "~/repos/RyanAC23.github.io/")
-    (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
+  ;; If folders exist, load projects file
+  ;; org test pages
+  (if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
+      (load "~/Dropbox/share/orgpages/pages.el"))
+  ;; geocities website
+  (if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
+      (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 #+END_SRC
 
 * Theme and Appearance

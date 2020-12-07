@@ -366,12 +366,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (display-time-mode 1)
 
 ;; load a default theme.
+;; https://emacsfodder.github.io/emacs-theme-editor/
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'neptune)
-;;(load-theme './themes/neptune-theme.el)
-;;(use-package lavender-theme
-;;(use-package lavenderless-theme
-;;    :ensure t)
+(load-theme 'neptune t)
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs

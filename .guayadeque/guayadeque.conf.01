@@ -30,7 +30,7 @@
       <ScanEmbeddedCovers value="1"/>
       <EmbeddMetadata value="0"/>
       <DefaultCopyAction value=""/>
-      <LastUpdate value="1606706450"/>
+      <LastUpdate value="1607317521"/>
       <paths>
         <Path0 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/"/>
         <Path1 value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/"/>
@@ -206,6 +206,25 @@
       </covers>
     </collection>
     <collection>
+      <UniqueId value="5FCB5D6A"/>
+      <Type value="0"/>
+      <Name value="annie lynn mae"/>
+      <UpdateOnStart value="0"/>
+      <ScanPlaylists value="1"/>
+      <ScanFollowSymLinks value="0"/>
+      <ScanEmbeddedCovers value="1"/>
+      <EmbeddMetadata value="0"/>
+      <DefaultCopyAction value=""/>
+      <LastUpdate value="1607192163"/>
+      <paths>
+        <Path0 value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/"/>
+      </paths>
+      <covers>
+        <Cover0 value="cover"/>
+        <Cover1 value="front"/>
+      </covers>
+    </collection>
+    <collection>
       <UniqueId value="Jamendo"/>
       <Type value="1"/>
       <Name value="Jamendo"/>
@@ -286,7 +305,7 @@
   </searchfilters>
   <general>
     <LastUpdate value=""/>
-    <PlayerCurVol value="50"/>
+    <PlayerCurVol value="100"/>
     <PlayerVolumeVisible value="1"/>
     <PlayerPlayMode value="1"/>
     <ShowRevTime value="0"/>
@@ -294,7 +313,7 @@
     <CoverSearchEngine value="0"/>
     <EmbedToFiles value="0"/>
     <Language value="0"/>
-    <ShowSplashScreen value="1"/>
+    <ShowSplashScreen value="0"/>
     <StartMinimized value="0"/>
     <LoadDefaultLayouts value="0"/>
     <ShowTaskBarIcon value="1"/>
@@ -304,7 +323,7 @@
     <DropFilesClearPlaylist value="0"/>
     <InstantTextSearchEnabled value="1"/>
     <TextSearchEnterRelax value="0"/>
-    <CoverFrame value="1"/>
+    <CoverFrame value="0"/>
     <SaveCurrentTrackPos value="0"/>
     <MinSavePlayPosLength value="10"/>
     <RndPlayOnEmptyPlayList value="0"/>
@@ -321,8 +340,8 @@
       <Height value="1079"/>
     </positions>
     <VisiblePanels value="67"/>
-    <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2098172;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=195862;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=332;floath=510|name=PlayerPanel;caption=;state=1020;dir=4;layer=0;row=1;pos=0;prop=122068;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=83;floaty=746;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=332|"/>
-    <NotebookLayout value="c81005305ee3d4e50009d95300000002=01[5EE370B9],02[5ECF8AC1],09[5E5197E6],04[5E519807],08[5EB7E9B3],*05[5FBE9045],06[5F956ACB],07[5ECE5A2F],03[5ECF8ABC]|f84c3ae05ee986301d68da6e00000003=+00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=f84c3ae05ee986301d68da6e00000003;caption=;state=2098172;dir=2;layer=1;row=0;pos=0;prop=100000;bestw=793;besth=502;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(2,1,0)=457|"/>
+    <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=242867;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=332;floath=638|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=75063;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=10;floaty=63;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=332|"/>
+    <NotebookLayout value="c81005305ee3d4e50009d95300000002=01[5EE370B9],02[5ECF8AC1],09[5FBE9045],*04[5E519807],08[5F956ACB],05[5E5197E6],06[5EB7E9B3],07[5ECE5A2F],03[5ECF8ABC]|f84c3ae05ee986301d68da6e00000003=+00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=f84c3ae05ee986301d68da6e00000003;caption=;state=2098172;dir=2;layer=1;row=0;pos=0;prop=100000;bestw=793;besth=502;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(2,1,0)=468|"/>
     <ShowFullScreen value="0"/>
     <ShowStatusBar value="1"/>
     <notebook>
@@ -580,7 +599,7 @@
       <library>
         <VisiblePanels value="28"/>
         <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
-        <TracksOrder value="1"/>
+        <TracksOrder value="2"/>
         <TracksOrderDesc value="0"/>
         <columns>
           <ids>
@@ -1173,7 +1192,7 @@
       <library>
         <VisiblePanels value="28"/>
         <Layout value="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
-        <TracksOrder value="4"/>
+        <TracksOrder value="2"/>
         <TracksOrderDesc value="0"/>
         <columns>
           <ids>
@@ -1625,190 +1644,106 @@
   </playback>
   <playlist>
     <nowplaying>
-      <Count value="13"/>
-      <CurItem value="6"/>
+      <Count value="7"/>
+      <CurItem value="0"/>
       <tracks>
         <track>
           <Type value="1"/>
-          <Name value="restoration"/>
-          <Artist value="いぬマシン"/>
+          <Name value="Now Loading!!!!"/>
+          <Artist value="fourfolium"/>
           <AlbumArtist value=""/>
-          <Composer value="いぬマシン"/>
-          <Album value="いぬマシン"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/restoration.m4a"/>
-          <Number value="0"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="592000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="Acrossgust"/>
-          <Artist value="鼻そうめんP"/>
-          <AlbumArtist value="Various Artists"/>
           <Composer value=""/>
-          <Album value="HI-TRANCE AIRLINE"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/HI-TRANCE AIRLINE/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/HI-TRANCE AIRLINE/01.Acrossgust.mp3"/>
+          <Album value="NEW GAME! ED Single - Now Loading!!!!"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/01 - Now Loading!!!!.flac"/>
           <Number value="1"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="488000"/>
+          <Length value="253000"/>
         </track>
         <track>
           <Type value="1"/>
-          <Name value="Packaged"/>
-          <Artist value="kz (livetune)"/>
-          <AlbumArtist value="ビクターエンタテインメント"/>
+          <Name value="Hosshii no!"/>
+          <Artist value="fourfolium"/>
+          <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Re:package"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2007/Re Package/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2007/Re Package/02. Packaged.MP3"/>
+          <Album value="NEW GAME! ED Single - Now Loading!!!!"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/02 - Hosshii no!.flac"/>
           <Number value="2"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="296000"/>
+          <Length value="210000"/>
         </track>
         <track>
           <Type value="1"/>
-          <Name value="Melody..."/>
-          <Artist value="mikuru396"/>
-          <AlbumArtist value="-"/>
+          <Name value="Now Loading!!!! (instrumental)"/>
+          <Artist value="fourfolium"/>
+          <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="初音ミク -Project DIVA Arcade- Original Song Collection Vol.2"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/03. Melody....mp3"/>
+          <Album value="NEW GAME! ED Single - Now Loading!!!!"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/03 - Now Loading!!!! (instrumental).flac"/>
           <Number value="3"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="203000"/>
+          <Length value="252000"/>
         </track>
         <track>
           <Type value="1"/>
-          <Name value="サイハテ"/>
-          <Artist value="小林オニキス"/>
+          <Name value="Hosshii no! (instrumental)"/>
+          <Artist value="fourfolium"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Hatsune Miku -Project DIVA- OST DISC 2"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/初音ミク -Project DIVA- Original Song Collection/CD2/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/初音ミク -Project DIVA- Original Song Collection/CD2/17.サイハテ.mp3"/>
-          <Number value="17"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="163000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="あなたの歌姫"/>
-          <Artist value="azuma"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Hatsune Miku -Project DIVA- OST DISC 2"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/初音ミク -Project DIVA- Original Song Collection/CD2/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2009/初音ミク -Project DIVA- Original Song Collection/CD2/06.あなたの歌姫.mp3"/>
-          <Number value="6"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="212000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="メテオ"/>
-          <Artist value="じょん"/>
-          <AlbumArtist value="NAPPY MANT"/>
-          <Composer value=""/>
-          <Album value="meteor"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/meteor/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/meteor/11. メテオ.mp3"/>
-          <Number value="11"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="516000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="迷的サイバネティックス"/>
-          <Artist value="otetsu"/>
-          <AlbumArtist value="-"/>
-          <Composer value=""/>
-          <Album value="初音ミク -Project DIVA Arcade- Original Song Collection Vol.2"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/05. 迷的サイバネティックス.mp3"/>
-          <Number value="5"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="199000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="ヤキイモ"/>
-          <Artist value="Bumpyうるし"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="VOCALOID2 MAXI Single Vol. 1 ～みっくみくCDにしてやんよ～"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2007/VOCALOID2 MAXI Single Vol. 1 ～みっくみくCDにしてやんよ～/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2007/VOCALOID2 MAXI Single Vol. 1 ～みっくみくCDにしてやんよ～/05. ヤキイモ.mp3"/>
-          <Number value="5"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="178000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="ほしをつくるひと"/>
-          <Artist value="MazoP"/>
-          <AlbumArtist value="-"/>
-          <Composer value=""/>
-          <Album value="初音ミク -Project DIVA Arcade- Original Song Collection Vol.2"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA Arcade- Original Song Collection Vol.2/12. ほしをつくるひと.mp3"/>
-          <Number value="12"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="160000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="トリノコシティ"/>
-          <Artist value="40mP feat. 初音ミク"/>
-          <AlbumArtist value="Sony Music Entertainment Japan"/>
-          <Composer value=""/>
-          <Album value="初音ミク-Project DIVA-F Complete Collection"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2013/初音ミク -Project DIVA-F Complete Collection/CD1/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2013/初音ミク -Project DIVA-F Complete Collection/CD1/10. トリノコシティ.mp3"/>
-          <Number value="10"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="205000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="歌に形はないけれど"/>
-          <Artist value="doriko feat. 初音ミク"/>
-          <AlbumArtist value="ソニー・ミュージックダイレクト"/>
-          <Composer value=""/>
-          <Album value="初音ミク -Project DIVA- extend Complete Collection"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA- extend Complete Collection/CD1/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2011/初音ミク -Project DIVA- extend Complete Collection/CD1/09. 歌に形はないけれど.mp3"/>
-          <Number value="9"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="329000"/>
-        </track>
-        <track>
-          <Type value="1"/>
-          <Name value="Hands"/>
-          <Artist value="とくP"/>
-          <AlbumArtist value="Various Artists"/>
-          <Composer value=""/>
-          <Album value="EX：P2 ～Ex：Producers2～"/>
-          <Path value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2010/EX P2 ~Ex Producers2~/"/>
-          <FileName value="/home/ryan/share/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Vocaloid/VOCALOID-UTAU Discography/2010/EX P2 ~Ex Producers2~/04.Hands.mp3"/>
+          <Album value="NEW GAME! ED Single - Now Loading!!!!"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/NEW GAME!/NEW GAME!/NEW GAME! ED Single - Now Loading!!!!/04 - Hosshii no! (instrumental).flac"/>
           <Number value="4"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="261000"/>
+          <Length value="208000"/>
+        </track>
+        <track>
+          <Type value="1"/>
+          <Name value="Toki wo Kizamu Uta"/>
+          <Artist value="Lia"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Toki wo Kizamu Uta / TORCH"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Clannad Music Collection/Soundtracks, Image Albums, Arrange Albums and Singles/Toki wo Kizamu Uta - TORCH Single/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Clannad Music Collection/Soundtracks, Image Albums, Arrange Albums and Singles/Toki wo Kizamu Uta - TORCH Single/01 Toki wo Kizamu Uta.flac"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="291000"/>
+        </track>
+        <track>
+          <Type value="1"/>
+          <Name value="Snow halation"/>
+          <Artist value="μ's"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="ラブライブ！ μ's Best Album Best Live! collection"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/Japaneese... stuff/Anime/Love Live!/Love Live! μ's Best Album Best Live! collection/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /OLD MUSIC [2004-2017]/Japaneese... stuff/Anime/Love Live!/Love Live! μ's Best Album Best Live! collection/03. Snow halation.mp3"/>
+          <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="256000"/>
+        </track>
+        <track>
+          <Type value="1"/>
+          <Name value="I'll Believe"/>
+          <Artist value="Altima"/>
+          <AlbumArtist value="I'll Believe"/>
+          <Composer value="Satoshi Yaginuma / Maon Kurosaki, Motsu"/>
+          <Album value="I'll Believe"/>
+          <Path value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Shakugan No Shana/02 - Singles/2011 - Altima - I´ll Believe/"/>
+          <FileName value="/media/ryan/shared-docs/Documents/2020.02.14 - MASTER DOCS /Music [2017-]/JP/Shakugan No Shana/02 - Singles/2011 - Altima - I´ll Believe/01 - I'll Believe.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="343000"/>
         </track>
       </tracks>
     </nowplaying>
@@ -1834,8 +1769,8 @@
     <FadeInVolTriger value="50"/>
   </crossfader>
   <preferences>
-    <PosX value="321"/>
-    <PosY value="274"/>
+    <PosX value="322"/>
+    <PosY value="299"/>
     <Width value="1278"/>
     <Height value="530"/>
     <LastPage value="1"/>
@@ -1861,7 +1796,7 @@
   </record>
   <positions>
     <TrackEditSashPos value="391"/>
-    <TrackEditPosX value="271"/>
+    <TrackEditPosX value="542"/>
     <TrackEditPosY value="319"/>
     <TrackEditWidth value="1377"/>
     <TrackEditHeight value="440"/>
@@ -1874,7 +1809,7 @@
       </position>
     </import_files>
     <LabelEditSashPos value="177"/>
-    <LabelEditPosX value="398"/>
+    <LabelEditPosX value="389"/>
     <LabelEditWidth value="500"/>
     <LabelEditHeight value="300"/>
   </positions>
