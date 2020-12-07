@@ -350,10 +350,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
 ;; If folders exist, load projects file
 ;; org test pages
-(if (file-directory-p "~/Dropbox/share/orgpages/")
+(if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
     (load "~/Dropbox/share/orgpages/pages.el"))
 ;; geocities website
-(if (file-directory-p "~/repos/RyanAC23.github.io/")
+(if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
     (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 ;; Website:1 ends here
 

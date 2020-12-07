@@ -6,7 +6,7 @@
 
 (deftheme neptune "DOCSTRING for neptune")
   (custom-theme-set-faces 'neptune
-   '(default ((t (:foreground "#6dc7ff" :background "#29222e" ))))
+   '(default ((t (:foreground "#ffb3f5" :background "#29222e" ))))
    '(cursor ((t (:background "#9d70b1" ))))
    '(fringe ((t (:background "#29222e" ))))
    '(mode-line ((t (:foreground "#1a012c" :background "#838383" ))))
@@ -16,9 +16,9 @@
    '(font-lock-comment-face ((t (:foreground "#8d8d8d" ))))
    '(font-lock-function-name-face ((t (:foreground "#ffffff" ))))
    '(font-lock-keyword-face ((t (:foreground "#6fd3aa" ))))
-   '(font-lock-string-face ((t (:foreground "#ffb3f5" ))))
-   '(font-lock-type-face ((t (:foreground "#ac58ff" ))))
-   '(font-lock-constant-face ((t (:foreground "#df37f1" ))))
+   '(font-lock-string-face ((t (:foreground "#8dbeff" ))))
+   '(font-lock-type-face ((t (:foreground "#75c3ff" ))))
+   '(font-lock-constant-face ((t (:foreground "#f595ff" ))))
    '(font-lock-variable-name-face ((t (:foreground "#5596c9" ))))
    '(minibuffer-prompt ((t (:foreground "#ffffff" :bold t ))))
    '(font-lock-warning-face ((t (:foreground "red" :bold t ))))
