@@ -119,8 +119,7 @@ fi
 #######################
 # Extra Customization #
 #######################
-# Enable vi mode in terminal
-set -o vi
+
 # Enable optional shell feature autocd
 shopt -s autocd
 
@@ -133,8 +132,6 @@ fi
 if [ -d "~/bin" ] ; then
     export PATH="$~/bin:$PATH"
 fi
-
-export PATH="~/.vim/pack/rac/start/vim-live-latex-preview/bin:$PATH"
 
 # Add conda env quickstart command
 if [ -f ~/.config/.environment_site ]; then
