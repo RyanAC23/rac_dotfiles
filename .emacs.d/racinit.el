@@ -50,6 +50,39 @@
 )
 ;; Behavior:1 ends here
 
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Insert%20timestamp][Insert timestamp:1]]
+;; ====================
+;; insert date and time
+
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%a %H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+       (interactive)
+       (insert "==========\n")
+;       (insert (let () (comment-start)))
+       (insert (format-time-string current-date-time-format (current-time)))
+       (insert "\n")
+       )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       (insert "\n")
+       )
+
+(global-set-key "\C-x\C-d" 'insert-current-date-time)
+(global-set-key "\C-x\C-t" 'insert-current-time)
+;; Insert timestamp:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -136,25 +169,30 @@
 ;; Autocompletion:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
+;; move between windows with shift+[arrow]
+(windmove-default-keybindings)
+;; Navigation:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*iBuffer][iBuffer:1]]
 ;; Navigation -------------------------------------------------------------
 ;; better buffer.
 (defalias 'list-buffers 'ibuffer)
 ;; Don't show filter groups if there are no filters in the group
 (setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-sorting-mode major-mode)
 ;; Don't ask for confirmation to delete unmodified buffers
 (setq ibuffer-expert t)
 ;; Make ibuffer sort buffers
 ;; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-
-;; move between windows with shift+[arrow]
-;; note: this will not work in org mode!
-(windmove-default-keybindings)
+(use-package ibuffer-vc
+  :ensure t
+  :init (ibuffer-vc-set-filter-groups-by-vc-root))
 
 (use-package undo-tree
   :ensure t
   :init
   (global-undo-tree-mode))
-;; Navigation:1 ends here
+;; iBuffer:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
@@ -255,10 +293,12 @@
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
 (use-package flycheck
-    :ensure t
-    :config
-    (add-hook 'c-mode-hook 'flycheck-mode)
-    (add-hook 'c++-mode-hook 'flycheck-mode)
+	:ensure t
+	:config
+	(add-hook 'c-mode-hook 'flycheck-mode)
+	(add-hook 'c-mode-hook '(setq flycheck-gcc-language-standard "gnu99"))
+	(add-hook 'c++-mode-hook 'flycheck-mode)
+	(add-hook 'python-mode-hook 'flycheck-mode)
 )
 ;; Flycheck:1 ends here
 
@@ -308,8 +348,12 @@
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
 ;; If folders exist, load projects file
-  (if (file-directory-p "~/Dropbox/share/orgpages/")
+;; org test pages
+(if (file-directory-p "~/Dropbox/share/orgpages/")
     (load "~/Dropbox/share/orgpages/pages.el"))
+;; geocities website
+(if (file-directory-p "~/repos/RyanAC23.github.io/")
+    (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 ;; Website:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
@@ -321,7 +365,11 @@
 (display-time-mode 1)
 
 ;; load a default theme.
-(load-theme 'deeper-blue t)
+;;(load-theme 'deeper-blue t)
+
+;;(use-package lavender-theme
+(use-package lavenderless-theme
+    :ensure t)
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs
