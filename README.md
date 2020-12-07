@@ -105,6 +105,12 @@ Packages are divided into two sets, called core and full. The core list contains
 
 - [x] possible bug with dconf file not copying with rsync command. Try on VM and see if this is reproducible on another machine.
 
+
+==========
+Mon Dec 07 13:23:03 PST 2020
+- [ ] Should create a small new script to check for changes between config files, and to sync them
+
+==========
 (2020-11-28)
 
 - [ ] .csv files must end with newline or the installer will miss the last package.
