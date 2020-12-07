@@ -5,55 +5,56 @@
 * Behavior
 
 #+BEGIN_SRC emacs-lisp
-;; Behavior -------------------------------------------------------------
-;; enable common lisp syntax
-(require 'cl-lib)
+  ;; Behavior -------------------------------------------------------------
+  ;; enable common lisp syntax
+  (require 'cl-lib)
 
-;; Disable the default splash screen.
-(setq inhibit-splash-screen t)
+  ;; Disable the default splash screen.
+  (setq inhibit-splash-screen t)
 
-;; Be able to type 'y' instead of 'yes'
-(fset 'yes-or-no-p 'y-or-n-p)
+  ;; Be able to type 'y' instead of 'yes'
+  (fset 'yes-or-no-p 'y-or-n-p)
 
-;; delete trailing whitespace when saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+  ;; delete trailing whitespace when saving
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; enable word wrap mode globally
-(global-visual-line-mode)
+  ;; enable word wrap mode globally
+  (global-visual-line-mode)
 
-;; reroute backups and control history
-(defvar --backup-directory (concat user-emacs-directory "backups"))
-(if (not (file-exists-p --backup-directory))
-        (make-directory --backup-directory t))
-(setq backup-directory-alist `(("." . ,--backup-directory)))
-(setq make-backup-files t          ; backup of a file the first time it is saved.
-      backup-by-copying t          ; don't clobber symlinks
-      version-control t            ; version numbers for backup files
-      delete-old-versions t        ; delete excess backup files silently
-      delete-by-moving-to-trash t
-      kept-old-versions 6          ; oldest versions to keep when a new numbered backup is made (default: 2)
-      kept-new-versions 9          ; newest versions to keep when a new numbered backup is made (default: 2)
-      auto-save-default t          ; auto-save every buffer that visits a file
-      auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
-      )
+  ;; reroute backups and control history
+  (defvar --backup-directory (concat user-emacs-directory "backups"))
+  (if (not (file-exists-p --backup-directory))
+	  (make-directory --backup-directory t))
+  (setq backup-directory-alist `(("." . ,--backup-directory)))
+  (setq make-backup-files t          ; backup of a file the first time it is saved.
+	backup-by-copying t          ; don't clobber symlinks
+	version-control t            ; version numbers for backup files
+	delete-old-versions t        ; delete excess backup files silently
+	delete-by-moving-to-trash t
+	kept-old-versions 6          ; oldest versions to keep when a new numbered backup is made (default: 2)
+	kept-new-versions 9          ; newest versions to keep when a new numbered backup is made (default: 2)
+	auto-save-default t          ; auto-save every buffer that visits a file
+	auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
+	auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
+	)
 
-;; Start in server mode to open files in the server instance with the bash command
-;; >>$ 'emacsclient [file]'
-(server-start)
+  ;; Start in server mode to open files in the server instance with the bash command
+  ;; >>$ 'emacsclient [file]'
+  (server-start)
 
-;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+  ;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
+  (when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
 
-;; Enable parenthesis matching mode
-;; https://melpa.org/#/mic-paren
-(use-package mic-paren
-    :ensure t
-    :config
-    ;;(paren-activate)
-    (add-hook 'c-mode-common-hook 'paren-activate)
-)
+  ;; Enable parenthesis matching mode
+  ;; https://melpa.org/#/mic-paren
+  (use-package mic-paren
+      :ensure t
+      :config
+      ;;(paren-activate)
+      (add-hook 'c-mode-common-hook 'paren-activate)
+      (add-hook 'python-mode-hook   'paren-activate)
+  )
 #+END_SRC
 ** Insert timestamp
 #+BEGIN_SRC emacs-lisp
@@ -368,6 +369,7 @@ For reloading your configuration file when editing on the fly.
   )
 #+END_SRC
 * Website
+
 #+BEGIN_SRC emacs-lisp
 ;; If folders exist, load projects file
 ;; org test pages
@@ -377,7 +379,9 @@ For reloading your configuration file when editing on the fly.
 (if (file-directory-p "~/repos/RyanAC23.github.io/")
     (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 #+END_SRC
+
 * Theme and Appearance
+
 #+BEGIN_SRC emacs-lisp
 ;; Theme and Appearance ----------------------------------------------
 ;; free up space by killing the toolbar
@@ -387,11 +391,9 @@ For reloading your configuration file when editing on the fly.
 (display-time-mode 1)
 
 ;; load a default theme.
-;;(load-theme 'deeper-blue t)
-
-;;(use-package lavender-theme
-(use-package lavenderless-theme
-    :ensure t)
+;; https://emacsfodder.github.io/emacs-theme-editor/
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'neptune t)
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs

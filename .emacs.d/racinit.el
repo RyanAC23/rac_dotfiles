@@ -18,7 +18,7 @@
 ;; reroute backups and control history
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
-        (make-directory --backup-directory t))
+	(make-directory --backup-directory t))
 (setq backup-directory-alist `(("." . ,--backup-directory)))
 (setq make-backup-files t          ; backup of a file the first time it is saved.
       backup-by-copying t          ; don't clobber symlinks
@@ -47,6 +47,7 @@
     :config
     ;;(paren-activate)
     (add-hook 'c-mode-common-hook 'paren-activate)
+    (add-hook 'python-mode-hook   'paren-activate)
 )
 ;; Behavior:1 ends here
 
@@ -365,11 +366,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 (display-time-mode 1)
 
 ;; load a default theme.
-;;(load-theme 'deeper-blue t)
-
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'neptune)
+;;(load-theme './themes/neptune-theme.el)
 ;;(use-package lavender-theme
-(use-package lavenderless-theme
-    :ensure t)
+;;(use-package lavenderless-theme
+;;    :ensure t)
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs

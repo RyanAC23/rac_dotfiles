@@ -92,6 +92,14 @@ Packages are divided into two sets, called core and full. The core list contains
 | /.config/ranger                     | Minor settings telling ranger to preview images and use emacs.                    |
 | /.config/.environment_site          | Command for quickly running a jupyter server. Could be merged with .bash_aliases. |
 
+## Other Packages:
+- Wireshark
+- Lynx
+- MC
+- Terminator
+- Chirp
+- vscode
+- xscreensaver, xscreensaver-data-extra, xscreensaver-gl-extra
 ## Bugs <a name = "bugs"></a>
 (2020-11-29)
 
@@ -100,9 +108,10 @@ Packages are divided into two sets, called core and full. The core list contains
 (2020-11-28)
 
 - [ ] .csv files must end with newline or the installer will miss the last package.
-
+- [ ] emacs install download fonts requires confirmation; have this autoconfirm
 ## To Do <a name = "todo"></a>
-
+- [ ] Add .gitignore global
+- [ ] Try mocp music player
 - [x] Add wallpaper copy/set from Dropbox public link
   ```
   sudo cp [dropbox]/login.png /usr/share/backgrounds/ubuntu-mate-common/
@@ -110,6 +119,9 @@ Packages are divided into two sets, called core and full. The core list contains
 - [x] Add dotfiles explanations
 - [x] Add Dropbox setup
 - [ ] Add Conda setup
+- [ ] Add Conda environment install
 - [ ] Make one config folder symlink routine
 - [x] Turn off bluetooth controller by default
 - [x] Add numlockx to package list
+- [ ] Batch picture downloader
+- [ ] Private ssh keys to private repo
