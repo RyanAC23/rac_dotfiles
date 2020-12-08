@@ -140,14 +140,14 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Autocompletion ----------------------------------------------------------
 ;; We'll try company-mode for now. The old standard autocomplete was the
 ;; smartly named auto-complete, but only company is being actively developed.
-(use-package company
-  :ensure t
-  :config
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 3)
-  :init
-  (progn
-    (global-company-mode t)))
+;; (use-package company
+;;   :ensure t
+;;   :config
+;;   (setq company-idle-delay 0)
+;;   (setq company-minimum-prefix-length 3)
+;;   :init
+;;   (progn
+;;     (global-company-mode t)))
 
 ;; C/C++ intellisense
 ;; may need clang compiler installed for this to work
@@ -218,7 +218,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 	:config
 	  (dashboard-setup-startup-hook)
 	  (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
-	  (setq dashboard-items '((recents . 5)
+	  (setq dashboard-items '((recents . 15)
 				  (projects . 5)
 				  (bookmarks . 5)
 				  (agenda . 5)
@@ -294,13 +294,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
 (use-package flycheck
-	:ensure t
-	:config
-	(add-hook 'c-mode-hook 'flycheck-mode)
-	(add-hook 'c-mode-hook '(setq flycheck-gcc-language-standard "gnu99"))
-	(add-hook 'c++-mode-hook 'flycheck-mode)
-	(add-hook 'python-mode-hook 'flycheck-mode)
-)
+  :ensure t
+  :config
+    (add-hook 'c-mode-hook 'flycheck-mode)
+    (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+    (add-hook 'c++-mode-hook 'flycheck-mode)
+    )
 ;; Flycheck:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
@@ -309,6 +308,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     :config
     (add-hook 'c-mode-hook 'yas-minor-mode)
     (add-hook 'c++-mode-hook 'yas-minor-mode)
+    (add-hook 'python-mode-hook 'yas-minor-mode)
 )
 
   (use-package yasnippet-snippets
