@@ -18,3 +18,4 @@
 ,ncdu,"NCurses Disk Usage - file navigator showing folder sizes."
 ,vim,"Lightweight text editor."
 ,numlockx,"Needed to activate numlock on startup"
+,curl,"Transfer data to and from servers"

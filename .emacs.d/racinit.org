@@ -318,6 +318,7 @@ For reloading your configuration file when editing on the fly.
       (add-hook 'c-mode-hook 'flycheck-mode)
       (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
       (add-hook 'c++-mode-hook 'flycheck-mode)
+      (add-hook 'python-mode-hook 'flycheck-mode)
       )
 
 #+END_SRC
