@@ -40,9 +40,10 @@ dependencies:
     - mmf_setup
     - persist
     #- mmfutils>=0.4.14
-    - hg+ssh://hg@bitbucket.org/mforbes/mmfutils-fork@0.4.14
+    # Bitbucket needs to be changed to the heptapod server
+    #- hg+ssh://hg@bitbucket.org/mforbes/mmfutils-fork@0.4.14
     #- pytimeode>=0.10.0
-    - hg+ssh://hg@bitbucket.org/mforbes/pytimeode@0.10.0
+    #- hg+ssh://hg@bitbucket.org/mforbes/pytimeode@0.10.0
     - git+https://github.com/pelson/ipy_client_usage.git
 
     - scikits.bvp1lg
