@@ -384,6 +384,8 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 
 * Theme and Appearance
+[[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your
+custom color profile if running in a GUI.
 
 #+BEGIN_SRC emacs-lisp
 ;; Theme and Appearance ----------------------------------------------
@@ -396,7 +398,6 @@ For reloading your configuration file when editing on the fly.
 ;; load a default theme.
 ;; https://emacsfodder.github.io/emacs-theme-editor/
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'neptune t)
 (if (display-graphic-p)
     (load-theme 'neptune t))
 

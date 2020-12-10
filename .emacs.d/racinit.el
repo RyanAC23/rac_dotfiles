@@ -369,7 +369,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; load a default theme.
 ;; https://emacsfodder.github.io/emacs-theme-editor/
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'neptune t)
 (if (display-graphic-p)
     (load-theme 'neptune t))
 
