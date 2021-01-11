@@ -1,4 +1,4 @@
-# rac_dotfiles
+2# rac_dotfiles
 <h3 align="center">D-Clips</h3>
 
 <div align="center">
@@ -101,6 +101,11 @@ Packages are divided into two sets, called core and full. The core list contains
 - vscode
 - xscreensaver, xscreensaver-data-extra, xscreensaver-gl-extra
 ## Bugs <a name = "bugs"></a>
+(2021-01-10)
+- Dropbox will hang if run from the script. Move this to the end or find a way to close the Dropbox session after installing that won't kill the install script.
+- Chrome reinstalls every time you run the full script, even if already present.
+- .config/dconf does not copy properly. Change ~rsync~ to ~cp -r~ command.
+
 (2020-11-29)
 
 - [x] possible bug with dconf file not copying with rsync command. Try on VM and see if this is reproducible on another machine.
