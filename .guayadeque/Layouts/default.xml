@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout name="default" version="1.0">
-  <mainwindow posx="0" posy="0" width="1920" height="1079" state="0" panels="67" layout="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=195862;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=302;floath=515|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=122068;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=83;floaty=746;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=302|" tabslayout="817463b05e4a07190005614500000002=+01[5E5197E6],02[5E519807],03[5ECE5A2F],04[5ECF8ABC],05[5ECF8AC1],06[5EB7E9B3]|3f3c41405ed5f657082c80f200000003=*00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=817463b05e4a07190005614500000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=3f3c41405ed5f657082c80f200000003;caption=;state=2098172;dir=2;layer=0;row=1;pos=0;prop=100000;bestw=805;besth=502;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(2,0,1)=502|"/>
+  <mainwindow posx="1919" posy="-2" width="1280" height="1024" state="2" panels="67" layout="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=243880;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=319;floath=606|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=74050;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=10;floaty=63;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=319|" tabslayout="c81005305ee3d4e50009d95300000002=01[5EE370B9],02[5ECF8AC1],*04[5E519807],10[601DC614],07[5F956ACB],05[6001F728],06[5FBE9045],08[5ECE5A2F],09[5E5197E6],03[5ECF8ABC]|ba55bbb0602329cd48bbdba000000004=+00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ba55bbb0602329cd48bbdba000000004;caption=;state=2098172;dir=4;layer=1;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(4,1,0)=387|"/>
   <mediaviewer name="FLAC Collection" id="5E5197E6" mode="0">
     <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
       <columns>
         <column id="0" pos="0" width="80" enabled="1"/>
         <column id="1" pos="1" width="317" enabled="1"/>
-        <column id="2" pos="2" width="80" enabled="1"/>
-        <column id="3" pos="3" width="80" enabled="1"/>
+        <column id="2" pos="2" width="153" enabled="1"/>
+        <column id="3" pos="3" width="101" enabled="1"/>
         <column id="4" pos="4" width="139" enabled="1"/>
         <column id="5" pos="5" width="80" enabled="1"/>
         <column id="6" pos="6" width="80" enabled="1"/>
@@ -25,14 +25,14 @@
       </columns>
     </library>
   </mediaviewer>
-  <mediaviewer name="Music - All" id="5E519807" mode="0">
+  <mediaviewer name="Neptunia" id="5EE370B9" mode="0">
     <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
       <columns>
         <column id="0" pos="0" width="80" enabled="1"/>
-        <column id="1" pos="1" width="466" enabled="1"/>
-        <column id="2" pos="2" width="80" enabled="1"/>
-        <column id="3" pos="3" width="80" enabled="1"/>
-        <column id="4" pos="4" width="281" enabled="1"/>
+        <column id="1" pos="1" width="386" enabled="1"/>
+        <column id="2" pos="2" width="200" enabled="1"/>
+        <column id="3" pos="3" width="99" enabled="1"/>
+        <column id="4" pos="4" width="557" enabled="1"/>
         <column id="5" pos="5" width="80" enabled="1"/>
         <column id="6" pos="6" width="80" enabled="1"/>
         <column id="7" pos="7" width="80" enabled="1"/>
@@ -49,14 +49,14 @@
       </columns>
     </library>
   </mediaviewer>
-  <mediaviewer name="iMA$" id="5ECE5A2F" mode="0">
+  <mediaviewer name="Million Live!" id="5ECF8AC1" mode="0">
     <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
       <columns>
         <column id="0" pos="0" width="80" enabled="1"/>
-        <column id="1" pos="1" width="537" enabled="1"/>
-        <column id="2" pos="2" width="299" enabled="1"/>
-        <column id="3" pos="3" width="138" enabled="1"/>
-        <column id="4" pos="4" width="371" enabled="1"/>
+        <column id="1" pos="1" width="312" enabled="1"/>
+        <column id="2" pos="2" width="315" enabled="1"/>
+        <column id="3" pos="3" width="80" enabled="1"/>
+        <column id="4" pos="4" width="80" enabled="1"/>
         <column id="5" pos="5" width="80" enabled="1"/>
         <column id="6" pos="6" width="80" enabled="1"/>
         <column id="7" pos="7" width="80" enabled="1"/>
@@ -97,11 +97,35 @@
       </columns>
     </library>
   </mediaviewer>
-  <mediaviewer name="Million Live!" id="5ECF8AC1" mode="0">
+  <mediaviewer name="Music - All" id="5E519807" mode="0">
+    <library panels="24" layout="layout2|name=Genres;caption=Genres;state=2099198;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=0;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=1;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
+      <columns>
+        <column id="0" pos="0" width="80" enabled="1"/>
+        <column id="1" pos="1" width="455" enabled="1"/>
+        <column id="2" pos="2" width="272" enabled="1"/>
+        <column id="3" pos="3" width="55" enabled="1"/>
+        <column id="4" pos="4" width="227" enabled="1"/>
+        <column id="5" pos="5" width="80" enabled="1"/>
+        <column id="6" pos="6" width="80" enabled="1"/>
+        <column id="7" pos="7" width="80" enabled="1"/>
+        <column id="8" pos="8" width="80" enabled="1"/>
+        <column id="9" pos="9" width="80" enabled="1"/>
+        <column id="10" pos="10" width="80" enabled="1"/>
+        <column id="11" pos="11" width="80" enabled="1"/>
+        <column id="12" pos="12" width="80" enabled="1"/>
+        <column id="13" pos="13" width="80" enabled="1"/>
+        <column id="14" pos="14" width="80" enabled="1"/>
+        <column id="15" pos="15" width="80" enabled="1"/>
+        <column id="16" pos="16" width="80" enabled="1"/>
+        <column id="17" pos="17" width="80" enabled="1"/>
+      </columns>
+    </library>
+  </mediaviewer>
+  <mediaviewer name="SZS" id="601DC614" mode="0">
     <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
       <columns>
         <column id="0" pos="0" width="80" enabled="1"/>
-        <column id="1" pos="1" width="80" enabled="1"/>
+        <column id="1" pos="1" width="220" enabled="1"/>
         <column id="2" pos="2" width="80" enabled="1"/>
         <column id="3" pos="3" width="80" enabled="1"/>
         <column id="4" pos="4" width="80" enabled="1"/>
@@ -121,11 +145,35 @@
       </columns>
     </library>
   </mediaviewer>
-  <mediaviewer name="szs" id="5EB7E9B3" mode="0">
+  <mediaviewer name="iMA$" id="5ECE5A2F" mode="0">
     <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
       <columns>
         <column id="0" pos="0" width="80" enabled="1"/>
-        <column id="1" pos="1" width="80" enabled="1"/>
+        <column id="1" pos="1" width="537" enabled="1"/>
+        <column id="2" pos="2" width="299" enabled="1"/>
+        <column id="3" pos="3" width="138" enabled="1"/>
+        <column id="4" pos="4" width="371" enabled="1"/>
+        <column id="5" pos="5" width="80" enabled="1"/>
+        <column id="6" pos="6" width="80" enabled="1"/>
+        <column id="7" pos="7" width="80" enabled="1"/>
+        <column id="8" pos="8" width="80" enabled="1"/>
+        <column id="9" pos="9" width="80" enabled="1"/>
+        <column id="10" pos="10" width="80" enabled="1"/>
+        <column id="11" pos="11" width="80" enabled="1"/>
+        <column id="12" pos="12" width="80" enabled="1"/>
+        <column id="13" pos="13" width="80" enabled="1"/>
+        <column id="14" pos="14" width="80" enabled="1"/>
+        <column id="15" pos="15" width="80" enabled="1"/>
+        <column id="16" pos="16" width="80" enabled="1"/>
+        <column id="17" pos="17" width="80" enabled="1"/>
+      </columns>
+    </library>
+  </mediaviewer>
+  <mediaviewer name="K-On!" id="5F956ACB" mode="0">
+    <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
+      <columns>
+        <column id="0" pos="0" width="80" enabled="1"/>
+        <column id="1" pos="1" width="407" enabled="1"/>
         <column id="2" pos="2" width="80" enabled="1"/>
         <column id="3" pos="3" width="80" enabled="1"/>
         <column id="4" pos="4" width="80" enabled="1"/>
@@ -142,6 +190,54 @@
         <column id="15" pos="15" width="80" enabled="1"/>
         <column id="16" pos="16" width="80" enabled="1"/>
         <column id="17" pos="17" width="80" enabled="1"/>
+      </columns>
+    </library>
+  </mediaviewer>
+  <mediaviewer name="Vocaloid" id="5FBE9045" mode="0">
+    <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
+      <columns>
+        <column id="0" pos="0" width="80" enabled="1"/>
+        <column id="1" pos="1" width="305" enabled="1"/>
+        <column id="2" pos="2" width="215" enabled="1"/>
+        <column id="3" pos="3" width="137" enabled="1"/>
+        <column id="4" pos="4" width="358" enabled="1"/>
+        <column id="5" pos="5" width="80" enabled="1"/>
+        <column id="6" pos="6" width="80" enabled="1"/>
+        <column id="7" pos="7" width="80" enabled="1"/>
+        <column id="8" pos="8" width="80" enabled="1"/>
+        <column id="9" pos="9" width="80" enabled="1"/>
+        <column id="10" pos="10" width="80" enabled="1"/>
+        <column id="11" pos="11" width="80" enabled="1"/>
+        <column id="12" pos="12" width="80" enabled="1"/>
+        <column id="13" pos="13" width="80" enabled="1"/>
+        <column id="14" pos="14" width="80" enabled="1"/>
+        <column id="15" pos="15" width="80" enabled="1"/>
+        <column id="16" pos="16" width="80" enabled="1"/>
+        <column id="17" pos="17" width="80" enabled="1"/>
+      </columns>
+    </library>
+  </mediaviewer>
+  <mediaviewer name="New Game!" id="6001F728" mode="0">
+    <library panels="28" layout="layout2|name=Genres;caption=Genres;state=2099196;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=1;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=2;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|">
+      <columns>
+        <column id="0" pos="0" width="80" enabled="1"/>
+        <column id="1" pos="1" width="288" enabled="1"/>
+        <column id="2" pos="2" width="165" enabled="1"/>
+        <column id="3" pos="3" width="142" enabled="1"/>
+        <column id="4" pos="4" width="253" enabled="1"/>
+        <column id="5" pos="5" width="80" enabled="0"/>
+        <column id="6" pos="6" width="80" enabled="0"/>
+        <column id="7" pos="7" width="80" enabled="1"/>
+        <column id="8" pos="8" width="80" enabled="1"/>
+        <column id="9" pos="9" width="80" enabled="1"/>
+        <column id="10" pos="10" width="80" enabled="1"/>
+        <column id="11" pos="11" width="80" enabled="0"/>
+        <column id="12" pos="12" width="80" enabled="0"/>
+        <column id="13" pos="13" width="80" enabled="0"/>
+        <column id="14" pos="14" width="80" enabled="0"/>
+        <column id="15" pos="15" width="80" enabled="1"/>
+        <column id="16" pos="16" width="80" enabled="0"/>
+        <column id="17" pos="17" width="80" enabled="0"/>
       </columns>
     </library>
   </mediaviewer>

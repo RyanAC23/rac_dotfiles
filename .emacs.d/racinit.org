@@ -383,7 +383,7 @@ For reloading your configuration file when editing on the fly.
       (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 #+END_SRC
 
-* Theme and Appearance
+* COMMENT Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your
 custom color profile if running in a GUI.
 
@@ -419,18 +419,18 @@ custom color profile if running in a GUI.
           '(95 . 50) '(100 . 100)))))
  (global-set-key (kbd "C-c t") 'toggle-transparency)
 
-;; Treemacs sidebar file viewer
-(use-package treemacs
-  :ensure t
-  :init
-  :config
-  (progn
-    (setq
-      treemacs-width    25)
-))
-(add-hook 'c-mode-hook 'treemacs)
-(add-hook 'c++-mode-hook 'treemacs)
-(add-hook 'python-mode-hook 'treemacs)
+;; ;; Treemacs sidebar file viewer
+;; (use-package treemacs
+;;   :ensure t
+;;   :init
+;;   :config
+;;   (progn
+;;     (setq
+;;       treemacs-width    25)
+;; ))
+;; (add-hook 'c-mode-hook 'treemacs)
+;; (add-hook 'c++-mode-hook 'treemacs)
+;; (add-hook 'python-mode-hook 'treemacs)
 #+END_SRC
 
 ** Modeline
