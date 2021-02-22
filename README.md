@@ -100,11 +100,20 @@ Packages are divided into two sets, called core and full. The core list contains
 - Chirp
 - vscode
 - xscreensaver, xscreensaver-data-extra, xscreensaver-gl-extra
+
+
+
+## Updates
+
+=========
+Mon Feb 08 2020
+- Added libreoffice and gnuplot to installer.
+
+
 ## Bugs <a name = "bugs"></a>
 (2020-11-29)
 
 - [x] possible bug with dconf file not copying with rsync command. Try on VM and see if this is reproducible on another machine.
-
 
 ==========
 Mon Dec 07 13:23:03 PST 2020
