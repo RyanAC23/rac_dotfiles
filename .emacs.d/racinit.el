@@ -330,6 +330,14 @@ Uses `current-date-time-format' for the formatting the date/time."
     :ensure t)
 ;; Yasnippet:1 ends here
 
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Python][Python:1]]
+(use-package blacken
+      :ensure t
+      :init
+      )
+(add-hook 'python-mode-hook 'blacken)
+;; Python:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
 ;; (use-package auctex
  ;;     :ensure t)
@@ -402,20 +410,20 @@ Uses `current-date-time-format' for the formatting the date/time."
                      ((numberp (cadr alpha)) (cadr alpha)))
                100)
           '(95 . 50) '(100 . 100)))))
- (global-set-key (kbd "C-c t") 'toggle-transparency)
+(global-set-key (kbd "C-c t") 'toggle-transparency)
 
-;; Treemacs sidebar file viewer
-(use-package treemacs
-  :ensure t
-  :init
-  :config
-  (progn
-    (setq
-      treemacs-width    25)
-))
-(add-hook 'c-mode-hook 'treemacs)
-(add-hook 'c++-mode-hook 'treemacs)
-(add-hook 'python-mode-hook 'treemacs)
+;; ;; Treemacs sidebar file viewer
+;; (use-package treemacs
+;;   :ensure t
+;;   :init
+;;   :config
+;;   (progn
+;;     (setq
+;;       treemacs-width    25)
+;; ))
+;; (add-hook 'c-mode-hook 'treemacs)
+;; (add-hook 'c++-mode-hook 'treemacs)
+;; (add-hook 'python-mode-hook 'treemacs)
 ;; Theme and Appearance:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]

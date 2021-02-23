@@ -355,6 +355,15 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 
 * TODO Python
+
+#+BEGIN_SRC emacs-lisp
+    (use-package blacken
+      :ensure t
+      :init
+      )
+(add-hook 'python-mode-hook 'blacken)
+#+END_SRC
+
 * TODO LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
@@ -400,7 +409,7 @@ For reloading your configuration file when editing on the fly.
       (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 #+END_SRC
 
-* COMMENT Theme and Appearance
+* Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your
 custom color profile if running in a GUI.
 
@@ -434,7 +443,7 @@ custom color profile if running in a GUI.
                      ((numberp (cadr alpha)) (cadr alpha)))
                100)
           '(95 . 50) '(100 . 100)))))
- (global-set-key (kbd "C-c t") 'toggle-transparency)
+(global-set-key (kbd "C-c t") 'toggle-transparency)
 
 ;; ;; Treemacs sidebar file viewer
 ;; (use-package treemacs
@@ -448,6 +457,7 @@ custom color profile if running in a GUI.
 ;; (add-hook 'c-mode-hook 'treemacs)
 ;; (add-hook 'c++-mode-hook 'treemacs)
 ;; (add-hook 'python-mode-hook 'treemacs)
+
 #+END_SRC
 
 ** Modeline
