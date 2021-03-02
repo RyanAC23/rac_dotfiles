@@ -357,11 +357,12 @@ For reloading your configuration file when editing on the fly.
 * TODO Python
 
 #+BEGIN_SRC emacs-lisp
-    (use-package blacken
-      :ensure t
-      :init
-      )
-(add-hook 'python-mode-hook 'blacken)
+(use-package blacken
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook 'blacken-mode)
+)
+
 #+END_SRC
 
 * TODO LaTeX

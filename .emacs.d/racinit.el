@@ -332,10 +332,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Python][Python:1]]
 (use-package blacken
-      :ensure t
-      :init
-      )
-(add-hook 'python-mode-hook 'blacken)
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook 'blacken-mode)
+)
 ;; Python:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]

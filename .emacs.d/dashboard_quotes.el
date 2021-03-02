@@ -9,9 +9,11 @@
      "\"These connections are a little too easy, and thus probably fake.\" - Nabokov, Gogol"
     "\"I doubt whether you can give your telephone number without giving something of yourself.\" - Nabokov, Gogol"
     "\"If parallel lines do not meet it is not because they cannot, but because they have other things to do.\" - Nabokov, Gogol"
+    "\"A writer is lost when he grows interested in such questions as \"what is art?\" and \"What is an artist's duty?\" - Nabokov, Gogol"
     ;; Dostoyevsky
     ;; Others
     "\"It is no fun to pay with a hangover for the feasting of others.\" - Lermontov"
+    "\"But we cannot begin again. In this respect things are as they are, and will almost certainly get worse.\" - Frank Kermode, \"Not Entitled\""
     ;; Shakespeare
      "\"They have been at a great feast of languages, and stolen the scraps.\" - Love's Labour Lost"
      "\"If we imagine no worse of them than they of themselves, they may pass for excellent men.\" - Midsummer Night's Dream"
