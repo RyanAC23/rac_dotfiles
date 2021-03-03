@@ -172,11 +172,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
 ;; move between windows with shift+[arrow]
     (windmove-default-keybindings)
-
-    (use-package undo-tree
-      :ensure t
-      :init
-      (global-undo-tree-mode))
 ;; Navigation:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*iBuffer][iBuffer:1]]
@@ -318,27 +313,60 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Flycheck:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
-(use-package yasnippet
-    :ensure t
-    :config
-    (add-hook 'c-mode-hook 'yas-minor-mode)
-    (add-hook 'c++-mode-hook 'yas-minor-mode)
-    ;;(add-hook 'python-mode-hook 'yas-minor-mode)
-)
+;; Yasnippet gives you quick completion of common code snippets,
+;; such as loops and preprocessor instructions.
 
-  (use-package yasnippet-snippets
-    :ensure t)
+(use-package yasnippet
+  :ensure t
+  :config
+  (add-hook 'c-mode-hook 'yas-minor-mode)
+  (add-hook 'c++-mode-hook 'yas-minor-mode)
+  ;;(add-hook 'python-mode-hook 'yas-minor-mode)
+)
+(use-package yasnippet-snippets
+  :ensure t)
 ;; Yasnippet:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Python][Python:1]]
-;; Run black when saving a .py file.
-;; You must have black installed in your environment
-;; for this to work.
 (use-package blacken
-    :ensure t
-    :config
-    (add-hook 'python-mode-hook 'blacken-mode)
-)
+      :ensure t
+      :config
+      (add-hook 'python-mode-hook 'blacken-mode)
+  )
+
+  ;; Selective Display: Uses the function keys to hide indentation.
+  (defun indent-show-all ()
+    (interactive)
+    (set-selective-display nil)
+    (condition-case nil (hs-show-all) (error nil))
+    (show-all))
+  (defun python-remap-fs ()
+    (global-set-key [f1] 'indent-show-all)
+    (global-set-key [f2] (lambda () (interactive) (set-selective-display
+						 standard-indent)))
+    (global-set-key [f3] (lambda () (interactive) (set-selective-display
+						 (* 2 standard-indent))))
+    (global-set-key [f4] (lambda () (interactive) (set-selective-display
+						 (* 3 standard-indent))))
+    (global-set-key [f5] (lambda () (interactive) (set-selective-display
+						 (* 4 standard-indent))))
+    (global-set-key [f6] (lambda () (interactive) (set-selective-display
+						 (* 5 standard-indent))))
+    (global-set-key [f7] (lambda () (interactive) (set-selective-display
+						 nil)))
+  )
+
+;; (defun python-tab-loop ()
+;;   (setq res (loop for i in '(2 3 4 5 6) do
+;; 	(print (format
+;; 		"(global-set-key [f%01d] (lambda () (interactive)
+;;                 (set-selective-display (* %01d standard-indent))))" i i))))
+;;   (res ret)
+;;   )
+
+;; (python-tab-loop)
+
+(add-hook 'python-mode-hook 'python-remap-fs)
 ;; Python:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
@@ -348,7 +376,7 @@ Uses `current-date-time-format' for the formatting the date/time."
      :ensure t)
 ;; Auctex / latexmk:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
 ;; Web Development ---------------------------------------------------
 (use-package web-mode
   :ensure t
@@ -371,7 +399,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
 )
-;; Web Development:1 ends here
+;; Website:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
 ;; If folders exist, load projects file
