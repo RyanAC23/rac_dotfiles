@@ -30,7 +30,7 @@
       <ScanEmbeddedCovers value="1"/>
       <EmbeddMetadata value="0"/>
       <DefaultCopyAction value=""/>
-      <LastUpdate value="1614666665"/>
+      <LastUpdate value="1613524338"/>
       <paths>
         <Path0 value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/"/>
         <Path1 value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/"/>
@@ -313,14 +313,14 @@
   </general>
   <mainwindow>
     <positions>
-      <PosX value="1920"/>
-      <PosY value="0"/>
+      <PosX value="1919"/>
+      <PosY value="-2"/>
       <Width value="1280"/>
       <Height value="1024"/>
     </positions>
-    <VisiblePanels value="3"/>
-    <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=243880;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=319;floath=604|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=74050;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=10;floaty=63;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=319|"/>
-    <NotebookLayout value="c81005305ee3d4e50009d95300000002=00[5EE370B9],01[5ECF8AC1],*03[5E519807],09[5E5197E6],06[5FBE9045],04[601DC614],05[6001F728],07[5F956ACB],08[5ECE5A2F],02[5ECF8ABC]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=477;besth=469;minw=477;minh=469;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|"/>
+    <VisiblePanels value="67"/>
+    <LastLayout value="layout2|name=PlayerFilters;caption=Filters;state=2099196;dir=4;layer=0;row=1;pos=2;prop=44139;bestw=138;besth=63;minw=50;minh=50;maxw=-1;maxh=-1;floatx=81;floaty=863;floatw=146;floath=87|name=PlayerPlayList;caption=Now Playing;state=2099196;dir=4;layer=0;row=1;pos=1;prop=243880;bestw=100;besth=100;minw=100;minh=100;maxw=-1;maxh=-1;floatx=81;floaty=534;floatw=319;floath=606|name=PlayerPanel;caption=;state=2044;dir=4;layer=0;row=1;pos=0;prop=74050;bestw=356;besth=177;minw=100;minh=100;maxw=-1;maxh=-1;floatx=10;floaty=63;floatw=364;floath=201|name=PlayerSelector;caption=;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=20;besth=20;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=22|dock_size(4,0,1)=319|"/>
+    <NotebookLayout value="c81005305ee3d4e50009d95300000002=01[5EE370B9],02[5ECF8AC1],*04[5E519807],10[601DC614],07[5F956ACB],05[6001F728],06[5FBE9045],08[5ECE5A2F],09[5E5197E6],03[5ECF8ABC]|baa45a9060245a6864bbca1100000003=+00[Lyrics]@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=180;besth=180;minw=180;minh=180;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=c81005305ee3d4e50009d95300000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=baa45a9060245a6864bbca1100000003;caption=;state=2098172;dir=2;layer=0;row=1;pos=0;prop=100000;bestw=478;besth=471;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=20|dock_size(2,0,1)=136|"/>
     <ShowFullScreen value="0"/>
     <ShowStatusBar value="1"/>
     <notebook>
@@ -578,8 +578,8 @@
       <library>
         <VisiblePanels value="24"/>
         <Layout value="layout2|name=Genres;caption=Genres;state=2099198;dir=1;layer=0;row=1;pos=0;prop=113793;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Labels;caption=Labels;state=2099198;dir=1;layer=0;row=1;pos=0;prop=66995;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Artists;caption=Artists;state=2099196;dir=1;layer=0;row=1;pos=0;prop=80788;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Albums;caption=Albums;state=2099196;dir=1;layer=0;row=1;pos=1;prop=138424;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Years;caption=Years;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Ratings;caption=Ratings;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Plays;caption=Plays;state=2099198;dir=1;layer=0;row=2;pos=2;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Composers;caption=Composers;state=2099198;dir=1;layer=0;row=2;pos=1;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=AlbumArtists;caption=Album Artists;state=2099198;dir=1;layer=0;row=2;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Tracks;caption=Tracks;state=768;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=50;besth=50;minw=50;minh=50;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,0,1)=190|dock_size(5,0,0)=52|"/>
-        <TracksOrder value="0"/>
-        <TracksOrderDesc value="0"/>
+        <TracksOrder value="4"/>
+        <TracksOrderDesc value="1"/>
         <columns>
           <ids>
             <id0 value="0"/>
@@ -1848,354 +1848,522 @@
   </playback>
   <playlist>
     <nowplaying>
-      <Count value="27"/>
-      <CurItem value="20"/>
+      <Count value="79"/>
+      <CurItem value="55"/>
       <tracks>
         <track>
           <Type value="0"/>
-          <Name value="Du Hast"/>
-          <Artist value="Rammstein"/>
+          <Name value="Killing Strangers"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="The Matrix (OST)"/>
+          <Album value="The Pale Emperor"/>
           <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix (OST)/12 - Rammstein - Du Hast.mp3"/>
-          <Number value="12"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="234000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="last resort"/>
-          <Artist value="Papa Roach"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Z-the other ones"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/Rock/Z-the other ones/Papa Roach - Last Resort.mp3"/>
-          <Number value="0"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="202000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Here Without You"/>
-          <Artist value="3 Doors Down"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="The Greatest Hits"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/3 Doors Down/3 Doors Down - The Greatest Hits/03 - 3 Doors Down - Here Without You.mp3"/>
-          <Number value="3"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="235000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Headstrong"/>
-          <Artist value="Trapt"/>
-          <AlbumArtist value="Trapt"/>
-          <Composer value="Christopher Brown/Peter Charell/Simon Ormandy"/>
-          <Album value="unreleased"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/Rock/Z-the other ones/Trapt - Headstrong.mp3"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/01 - Marilyn Manson - Killing Strangers.mp3"/>
           <Number value="1"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="285000"/>
+          <Length value="336000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Smooth Criminal"/>
-          <Artist value="Alien Ant Farm"/>
-          <AlbumArtist value="Alien Ant Farm"/>
-          <Composer value="Michael Jackson"/>
-          <Album value="Anthology"/>
+          <Name value="Coma White"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
           <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/Rock/Z-the other ones/Alien Ant Farm - Smooth Criminal.mp3"/>
-          <Number value="12"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="208000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Wake Up"/>
-          <Artist value="Rage Against The Machine"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="The Matrix (OST)"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix (OST)/13 - Rage Against The Machine - Wake Up.mp3"/>
-          <Number value="13"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="363000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Blurry"/>
-          <Artist value="Puddle of Mudd"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Come Clean"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Puddle of Mudd/Puddle of Mudd - Come Clean/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Puddle of Mudd/Puddle of Mudd - Come Clean/05 - Puddle of Mudd - Blurry.mp3"/>
-          <Number value="5"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="303000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Californication"/>
-          <Artist value="Red Hot Chili Peppers"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Californication"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Red Hot Chili Peppers/Red Hot Chili Peppers - Californication/06 - Red Hot Chili Peppers - Californication.mp3"/>
-          <Number value="6"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="321000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="One Last Breath"/>
-          <Artist value="Creed"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Greatest Hits"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Creed/Creed - Greatest Hits/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Creed/Creed - Greatest Hits/09 - Creed - One Last Breath.mp3"/>
-          <Number value="9"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="239000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Judith"/>
-          <Artist value="A Perfect Circle"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Mer De Noms"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/A Perfect Circle/A Perfect Circle - Mer De Noms/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/A Perfect Circle/A Perfect Circle - Mer De Noms/04 - A Perfect Circle - Judith.mp3"/>
-          <Number value="4"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="247000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="The Pretender"/>
-          <Artist value="Foo Fighters"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Greatest Hits"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Foo Fighters/Foo Fighters - Greatest Hits/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Foo Fighters/Foo Fighters - Greatest Hits/04 - Foo Fighters - The Pretender.mp3"/>
-          <Number value="4"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="267000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Gasoline"/>
-          <Artist value="Audioslave"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Audioslave"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Audioslave/Audioslave - Audioslave/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Audioslave/Audioslave - Audioslave/03 - Audioslave - Gasoline.mp3"/>
-          <Number value="3"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="279000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Alive"/>
-          <Artist value="Pearl Jam"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Ten"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Pearl Jam/Pearl Jam - Ten/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Pearl Jam/Pearl Jam - Ten/03 - Pearl Jam - Alive.mp3"/>
-          <Number value="3"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="341000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Plush"/>
-          <Artist value="Stone Temple Pilots"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Core"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Stone Temple Pilots/Stone Temple Pilots - Core/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Stone Temple Pilots/Stone Temple Pilots - Core/09 - Stone Temple Pilots - Plush.mp3"/>
-          <Number value="9"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="313000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Man In The Box"/>
-          <Artist value="Alice In Chains"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Facelift"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Alice In Chains/Alice In Chains - Facelift/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Alice In Chains/Alice In Chains - Facelift/02 - Alice In Chains - Man In The Box.mp3"/>
-          <Number value="2"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="286000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="You Know My Name"/>
-          <Artist value="Chris Cornell"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Carry On"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Chris Cornell/Chris Cornell - Carry On/14 - Chris Cornell - You Know My Name.mp3"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/14 - Marilyn Manson - Coma White.mp3"/>
           <Number value="14"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="240000"/>
+          <Length value="338000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Smells Like Teen Spirit"/>
-          <Artist value="Nirvana"/>
+          <Name value="Rock'n'Roll Nigger"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="From The Muddy Banks Of The Wishkah"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Nirvana/Nirvana - From The Muddy Banks Of The Wishkah/05 - Nirvana - Smells Like Teen Spirit.mp3"/>
-          <Number value="5"/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/15 - Marilyn Manson - Rock'n'Roll Nigger.mp3"/>
+          <Number value="15"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="287000"/>
+          <Length value="211000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Hunger Strike"/>
-          <Artist value="Temple of the Dog"/>
+          <Name value="Fall Of The House Of Death"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Temple of the Dog (25th Anniversary Edition) (Disc One)"/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/13 - Marilyn Manson - Fall Of The House Of Death.mp3"/>
+          <Number value="13"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="270000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Irresponsible Hate Anthem"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
           <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Temple of the Dog/Temple of the Dog (25th Anniversary Edition)/03 - Temple of the Dog - Hunger Strike.mp3"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/01 - Marilyn Manson - Irresponsible Hate Anthem.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="257000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Hands of Small Children"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/01 - Marilyn Manson - The Hands of Small Children.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="95000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Slave Only Dreams To Be King"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/06 - Marilyn Manson - Slave Only Dreams To Be King.mp3"/>
+          <Number value="6"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="320000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Tourniquet"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/11 - Marilyn Manson - Tourniquet.mp3"/>
+          <Number value="11"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="284000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Sweet Dreams (Are Made of This)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value=""/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/06 - Marilyn Manson - Sweet Dreams (Are Made of This).mp3"/>
+          <Number value="6"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="293000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Shitty Chicken Gang Bang"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/03 - Marilyn Manson - Shitty Chicken Gang Bang.mp3"/>
           <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="79000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Scabs, Guns and Peanut Butter"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/11 - Marilyn Manson - Scabs, Guns and Peanut Butter.mp3"/>
+          <Number value="11"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="61000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Kiddie Grinder (Remix)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/04 - Marilyn Manson - Kiddie Grinder (Remix).mp3"/>
+          <Number value="4"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="263000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Reflecting God"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value=""/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/17 - Marilyn Manson - The Reflecting God.mp3"/>
+          <Number value="17"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="336000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Wormboy"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/08 - Marilyn Manson - Wormboy.mp3"/>
+          <Number value="8"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="236000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Mechanical Animals"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value=""/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/03 - Marilyn Manson - Mechanical Animals.mp3"/>
+          <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="273000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Hidden Track"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/16 - Marilyn Manson - Hidden Track.mp3"/>
+          <Number value="16"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="499000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="I Put a Spell on You"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/09 - Marilyn Manson - I Put a Spell on You.mp3"/>
+          <Number value="9"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="216000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Great Big White World"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/01 - Marilyn Manson - Great Big White World.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="301000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Personal Jesus"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/02 - Marilyn Manson - Personal Jesus.mp3"/>
+          <Number value="2"/>
           <Rating value="-1"/>
           <Offset value="0"/>
           <Length value="246000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Iris"/>
-          <Artist value="Goo Goo Dolls"/>
-          <AlbumArtist value="Various Artists"/>
+          <Name value="Mister Superstar"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="City Of Angels"/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/09 - Marilyn Manson - Mister Superstar.mp3"/>
+          <Number value="9"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="304000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Man That You Fear"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/16 - Marilyn Manson - Man That You Fear.mp3"/>
+          <Number value="16"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="370000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Nobodies"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/14 - Marilyn Manson - The Nobodies.mp3"/>
+          <Number value="14"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="215000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Last Day On Earth"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/13 - Marilyn Manson - The Last Day On Earth.mp3"/>
+          <Number value="13"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="301000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Little Horn"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/05 - Marilyn Manson - Little Horn.mp3"/>
+          <Number value="5"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="163000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="New Model No. 15"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/10 - Marilyn Manson - New Model No. 15.mp3"/>
+          <Number value="10"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="220000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Birds Of Hell Awaiting"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/08 - Marilyn Manson - Birds Of Hell Awaiting.mp3"/>
+          <Number value="8"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="305000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Reflecting God"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/15 - Marilyn Manson - The Reflecting God.mp3"/>
+          <Number value="15"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="336000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="This Is The New Shit"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
           <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/OLD MUSIC [2004-2017]/Rock/Z-the other ones/Iris.mp3"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/07 - Marilyn Manson - This Is The New Shit.mp3"/>
           <Number value="7"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="291000"/>
+          <Length value="260000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Black Hole Sun"/>
-          <Artist value="Soundgarden"/>
+          <Name value="Sympathy for the Parents"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Superunknown (20th Anniversary Remaster)"/>
-          <Path value=""/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Soundgarden/Soundgarden - Superunknown (20th Anniversary Remaster)/07 - Soundgarden - Black Hole Sun.mp3"/>
-          <Number value="7"/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/05 - Marilyn Manson - Sympathy for the Parents.mp3"/>
+          <Number value="5"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="318000"/>
+          <Length value="60000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Promises"/>
-          <Artist value="The Cranberries"/>
+          <Name value="The Speed Of Pain"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Bury The Hatchet"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/The Cranberries/The Cranberries - Bury The Hatchet/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/The Cranberries/The Cranberries - Bury The Hatchet/03 - The Cranberries - Promises.mp3"/>
-          <Number value="3"/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/06 - Marilyn Manson - The Speed Of Pain.mp3"/>
+          <Number value="6"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="327000"/>
+          <Length value="330000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Touch Me I'm Sick"/>
-          <Artist value="Mudhoney"/>
+          <Name value="Long Hard Road Out Of Hell"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Superfuzz Bigmuff (Deluxe Edition)"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Mudhoney/Mudhoney - Superfuzz Bigmuff (Deluxe Edition)/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Mudhoney/Mudhoney - Superfuzz Bigmuff (Deluxe Edition)/01 - Mudhoney - Touch Me I'm Sick.mp3"/>
-          <Number value="1"/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/15 - Marilyn Manson - Long Hard Road Out Of Hell.mp3"/>
+          <Number value="15"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="152000"/>
+          <Length value="261000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="One Headlight"/>
-          <Artist value="The Wallflowers"/>
+          <Name value="This Is the New Shit"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Bringing Down The Horse"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/The Wallflowers/The Wallflowers - Bringing Down The Horse/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/The Wallflowers/The Wallflowers - Bringing Down The Horse/01 - The Wallflowers - One Headlight.mp3"/>
-          <Number value="1"/>
-          <Rating value="-1"/>
-          <Offset value="0"/>
-          <Length value="312000"/>
-        </track>
-        <track>
-          <Type value="0"/>
-          <Name value="Inside Out"/>
-          <Artist value="Eve 6"/>
-          <AlbumArtist value=""/>
-          <Composer value=""/>
-          <Album value="Eve 6"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Eve 6/Eve 6 - Eve 6/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Eve 6/Eve 6 - Eve 6/02 - Eve 6 - Inside Out.mp3"/>
+          <Album value="The Matrix Reloaded (Disc One)"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix Reloaded (Disc One)/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix Reloaded (Disc One)/02 - Marilyn Manson - This Is the New Shit.mp3"/>
           <Number value="2"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="219000"/>
+          <Length value="260000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="I Think I'm Paranoid"/>
-          <Artist value="Garbage"/>
+          <Name value="May Cause Discoloration of the Urine or Feces"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Version 2.0"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Garbage/Garbage - Version 2.0/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Garbage/Garbage - Version 2.0/02 - Garbage - I Think I'm Paranoid.mp3"/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/10 - Marilyn Manson - May Cause Discoloration of the Urine or Feces.mp3"/>
+          <Number value="10"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="239000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="I Don't Like The Drugs (But The Drugs Like Me)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/09 - Marilyn Manson - I Don't Like The Drugs (But The Drugs Like Me).mp3"/>
+          <Number value="9"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="303000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Dope Show"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/06 - Marilyn Manson - The Dope Show.mp3"/>
+          <Number value="6"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="220000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Odds Of Even"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/10 - Marilyn Manson - Odds Of Even.mp3"/>
+          <Number value="10"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="472000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Beautiful People"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/02 - Marilyn Manson - The Beautiful People.mp3"/>
           <Number value="2"/>
           <Rating value="-1"/>
           <Offset value="0"/>
@@ -2203,31 +2371,591 @@
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Forgiven"/>
-          <Artist value="Alanis Morissette"/>
+          <Name value="Kinderfeld"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="Jagged Little Pill"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Pop/Alanis Morissette/Alanis Morissette - Jagged Little Pill/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Pop/Alanis Morissette/Alanis Morissette - Jagged Little Pill/06 - Alanis Morissette - Forgiven.mp3"/>
-          <Number value="6"/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/11 - Marilyn Manson - Kinderfeld.mp3"/>
+          <Number value="11"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="300000"/>
+          <Length value="291000"/>
         </track>
         <track>
           <Type value="0"/>
-          <Name value="Karma Police"/>
-          <Artist value="Radiohead"/>
+          <Name value="Fuck Frankie"/>
+          <Artist value="Marilyn Manson"/>
           <AlbumArtist value=""/>
           <Composer value=""/>
-          <Album value="OK Computer"/>
-          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Radiohead/Radiohead - OK Computer/"/>
-          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Radiohead/Radiohead - OK Computer/06 - Radiohead - Karma Police.mp3"/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/08 - Marilyn Manson - Fuck Frankie.mp3"/>
+          <Number value="8"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="108000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Minister"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/99 - Marilyn Manson - Minister.mp3"/>
+          <Number value="99"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="98000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Cupid Carries A Gun"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/09 - Marilyn Manson - Cupid Carries A Gun.mp3"/>
+          <Number value="9"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="299000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Lunchbox"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/10 - Marilyn Manson - Lunchbox.mp3"/>
+          <Number value="10"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="275000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Dope Show"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/02 - Marilyn Manson - The Dope Show.mp3"/>
+          <Number value="2"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="226000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Day 3"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/11 - Marilyn Manson - Day 3.mp3"/>
+          <Number value="11"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="253000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="I Want To Disappear"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/08 - Marilyn Manson - I Want To Disappear.mp3"/>
+          <Number value="8"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="176000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Dancing With the One-legged..."/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/14 - Marilyn Manson - Dancing With the One-legged....mp3"/>
+          <Number value="14"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="45000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Fated, Faithful, Fatal"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/12 - Marilyn Manson - Fated, Faithful, Fatal.mp3"/>
+          <Number value="12"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="283000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Dance of the Dope Hats (Remix)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/12 - Marilyn Manson - Dance of the Dope Hats (Remix).mp3"/>
+          <Number value="12"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="280000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Tourniquet"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/04 - Marilyn Manson - Tourniquet.mp3"/>
+          <Number value="4"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="269000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Warship My Wreck"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/05 - Marilyn Manson - Warship My Wreck.mp3"/>
+          <Number value="5"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="357000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Deformography"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/07 - Marilyn Manson - Deformography.mp3"/>
+          <Number value="7"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="271000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="mOBSCENE"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/03 - Marilyn Manson - mOBSCENE.mp3"/>
+          <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="206000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Love Song"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/01 - Marilyn Manson - The Love Song.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="185000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Minute of Decay"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/14 - Marilyn Manson - Minute of Decay.mp3"/>
+          <Number value="14"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="284000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="1996"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value=""/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/13 - Marilyn Manson - 1996.mp3"/>
+          <Number value="13"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="241000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Third Day Of A Seven Day Binge"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/03 - Marilyn Manson - Third Day Of A Seven Day Binge.mp3"/>
+          <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="266000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Posthuman"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/07 - Marilyn Manson - Posthuman.mp3"/>
+          <Number value="7"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="257000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Cryptorchid"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/06 - Marilyn Manson - Cryptorchid.mp3"/>
           <Number value="6"/>
           <Rating value="-1"/>
           <Offset value="0"/>
-          <Length value="261000"/>
+          <Length value="164000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Dried Up, Tied and Dead to the World"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/03 - Marilyn Manson - Dried Up, Tied and Dead to the World.mp3"/>
+          <Number value="3"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="255000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Rock Is Dead"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/04 - Marilyn Manson - Rock Is Dead.mp3"/>
+          <Number value="4"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="189000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="User Friendly"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/11 - Marilyn Manson - User Friendly.mp3"/>
+          <Number value="11"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="257000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Disposable Teens"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/08 - Marilyn Manson - Disposable Teens.mp3"/>
+          <Number value="8"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="184000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Rock Is Dead"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Matrix (OST)"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix (OST)/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Soundtracks/The Matrix/The Matrix (OST)/01 - Marilyn Manson - Rock Is Dead.mp3"/>
+          <Number value="1"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="190000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Fundamentally Loathsome"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/12 - Marilyn Manson - Fundamentally Loathsome.mp3"/>
+          <Number value="12"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="289000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Antichrist Superstar"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/12 - Marilyn Manson - Antichrist Superstar.mp3"/>
+          <Number value="12"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="314000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Angel With the Scabbed Wings"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Antichrist Superstar"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Antichrist Superstar/10 - Marilyn Manson - Angel With the Scabbed Wings.mp3"/>
+          <Number value="10"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="231000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Get Your Gunn"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/13 - Marilyn Manson - Get Your Gunn.mp3"/>
+          <Number value="13"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="198000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Tainted Love"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/05 - Marilyn Manson - Tainted Love.mp3"/>
+          <Number value="5"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="200000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Disassociative"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Mechanical Animals"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Mechanical Animals/05 - Marilyn Manson - Disassociative.mp3"/>
+          <Number value="5"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="290000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Devil Beneath My Feet"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/07 - Marilyn Manson - The Devil Beneath My Feet.mp3"/>
+          <Number value="7"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="256000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="White Trash (Remixed by Tony F. Wiggins)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/13 - Marilyn Manson - White Trash (Remixed by Tony F. Wiggins).mp3"/>
+          <Number value="13"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="167000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Mephistopheles Of Los Angeles"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/04 - Marilyn Manson - The Mephistopheles Of Los Angeles.mp3"/>
+          <Number value="4"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="297000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Rock Is Dead"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/12 - Marilyn Manson - Rock Is Dead.mp3"/>
+          <Number value="12"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="189000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Everlasting Cocksucker (Remix)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/07 - Marilyn Manson - Everlasting Cocksucker (Remix).mp3"/>
+          <Number value="7"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="313000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Deep Six"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="The Pale Emperor"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - The Pale Emperor/02 - Marilyn Manson - Deep Six.mp3"/>
+          <Number value="2"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="302000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Sweet Dreams (are made of this)"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/09 - Marilyn Manson - Sweet Dreams (are made of this).mp3"/>
+          <Number value="9"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="291000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Fight Song"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/04 - Marilyn Manson - The Fight Song.mp3"/>
+          <Number value="4"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="177000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="The Beautiful People"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Lest We Forget: The Best Of"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Lest We Forget The Best Of/16 - Marilyn Manson - The Beautiful People.mp3"/>
+          <Number value="16"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="222000"/>
+        </track>
+        <track>
+          <Type value="0"/>
+          <Name value="Diary of a Dope Fiend"/>
+          <Artist value="Marilyn Manson"/>
+          <AlbumArtist value=""/>
+          <Composer value=""/>
+          <Album value="Smells Like Children [EP]"/>
+          <Path value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/"/>
+          <FileName value="/media/ryan/Hirasawa/00 - MASTER DATA - DOCS [2004-]/Music [2017-]/Rock/Marilyn Manson/Marilyn Manson - Smells Like Children [EP]/02 - Marilyn Manson - Diary of a Dope Fiend.mp3"/>
+          <Number value="2"/>
+          <Rating value="-1"/>
+          <Offset value="0"/>
+          <Length value="355000"/>
         </track>
       </tracks>
     </nowplaying>
@@ -2253,11 +2981,11 @@
     <FadeInVolTriger value="50"/>
   </crossfader>
   <preferences>
-    <PosX value="393"/>
-    <PosY value="57"/>
+    <PosX value="1920"/>
+    <PosY value="161"/>
     <Width value="1280"/>
     <Height value="751"/>
-    <LastPage value="14"/>
+    <LastPage value="6"/>
   </preferences>
   <mainsources>
     <LocalMusic value="1"/>
@@ -2286,8 +3014,8 @@
     <TrackEditHeight value="440"/>
     <import_files>
       <position>
-        <PosX value="2320"/>
-        <PosY value="342"/>
+        <PosX value="720"/>
+        <PosY value="369"/>
         <Width value="480"/>
         <Height value="340"/>
       </position>

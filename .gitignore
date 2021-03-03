@@ -14,6 +14,7 @@
 
 /.guayadeque/cache.db
 /.guayadeque/Collections
+/.guayadeque/guayadeque.con*
 
 # emacs backups
 .\#*
