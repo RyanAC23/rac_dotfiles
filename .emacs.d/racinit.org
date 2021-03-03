@@ -357,12 +357,14 @@ For reloading your configuration file when editing on the fly.
 * TODO Python
 
 #+BEGIN_SRC emacs-lisp
+;; Run black when saving a .py file.
+;; You must have black installed in your environment
+;; for this to work.
 (use-package blacken
     :ensure t
     :config
     (add-hook 'python-mode-hook 'blacken-mode)
 )
-
 #+END_SRC
 
 * TODO LaTeX

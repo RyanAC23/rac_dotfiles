@@ -331,6 +331,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Yasnippet:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Python][Python:1]]
+;; Run black when saving a .py file.
+;; You must have black installed in your environment
+;; for this to work.
 (use-package blacken
     :ensure t
     :config
