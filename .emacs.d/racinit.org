@@ -146,7 +146,7 @@ For reloading your configuration file when editing on the fly.
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 #+END_SRC
 
-* Autocompletion
+* TODO Autocompletion
 #+BEGIN_SRC emacs-lisp
 
 
@@ -325,7 +325,7 @@ For reloading your configuration file when editing on the fly.
 
 #+END_SRC
 
-* DONE C / C++
+* TODO C / C++
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
 
@@ -342,26 +342,64 @@ For reloading your configuration file when editing on the fly.
 
 ** Yasnippet
 #+BEGIN_SRC emacs-lisp
+  ;; Yasnippet gives you quick completion of common code snippets,
+  ;; such as loops and preprocessor instructions.
+
   (use-package yasnippet
     :ensure t
     :config
     (add-hook 'c-mode-hook 'yas-minor-mode)
     (add-hook 'c++-mode-hook 'yas-minor-mode)
     ;;(add-hook 'python-mode-hook 'yas-minor-mode)
-)
-
+  )
   (use-package yasnippet-snippets
     :ensure t)
+
 #+END_SRC
 
+** TODO Autocomplete
 * TODO Python
 
 #+BEGIN_SRC emacs-lisp
-(use-package blacken
-    :ensure t
-    :config
-    (add-hook 'python-mode-hook 'blacken-mode)
-)
+    (use-package blacken
+	:ensure t
+	:config
+	(add-hook 'python-mode-hook 'blacken-mode)
+    )
+
+    ;; Selective Display: Uses the function keys to hide indentation.
+    (defun indent-show-all ()
+      (interactive)
+      (set-selective-display nil)
+      (condition-case nil (hs-show-all) (error nil))
+      (show-all))
+    (defun python-remap-fs ()
+      (global-set-key [f1] 'indent-show-all)
+      (global-set-key [f2] (lambda () (interactive) (set-selective-display
+						   standard-indent)))
+      (global-set-key [f3] (lambda () (interactive) (set-selective-display
+						   (* 2 standard-indent))))
+      (global-set-key [f4] (lambda () (interactive) (set-selective-display
+						   (* 3 standard-indent))))
+      (global-set-key [f5] (lambda () (interactive) (set-selective-display
+						   (* 4 standard-indent))))
+      (global-set-key [f6] (lambda () (interactive) (set-selective-display
+						   (* 5 standard-indent))))
+      (global-set-key [f7] (lambda () (interactive) (set-selective-display
+						   nil)))
+    )
+
+  ;; (defun python-tab-loop ()
+  ;;   (setq res (loop for i in '(2 3 4 5 6) do
+  ;; 	(print (format
+  ;; 		"(global-set-key [f%01d] (lambda () (interactive)
+  ;;                 (set-selective-display (* %01d standard-indent))))" i i))))
+  ;;   (res ret)
+  ;;   )
+
+  ;; (python-tab-loop)
+
+  (add-hook 'python-mode-hook 'python-remap-fs)
 
 #+END_SRC
 
@@ -373,7 +411,7 @@ For reloading your configuration file when editing on the fly.
  (use-package auctex-latexmk
       :ensure t)
 #+END_SRC
-* TODO Web Development
+* TODO Website
 #+BEGIN_SRC emacs-lisp
   ;; Web Development ---------------------------------------------------
   (use-package web-mode
