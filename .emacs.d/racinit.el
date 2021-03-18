@@ -143,12 +143,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; smartly named auto-complete, but only company is being actively developed.
  (use-package company
    :ensure t
-   :config
-   (setq company-idle-delay 0)
-   (setq company-minimum-prefix-length 3)
+   :init
+   (add-hook 'emacs-lisp-mode-hook 'company-mode)
+   (add-hook 'org-mode-hook 'company-mode)
+   (add-hook 'c++-mode-hook 'company-mode)
    (add-hook 'c-mode-hook 'company-mode))
-
-
 
 ;; C/C++ intellisense
 ;; may need clang compiler installed for this to work
@@ -164,10 +163,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;  (add-hook 'c++-mode-hook 'irony-mode)
 ;;  (add-hook 'c-mode-hook 'irony-mode)
 ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
-;; (with-eval-after-load 'company
-;;  (add-hook 'c++-mode-hook 'company-mode)
-;;  (add-hook 'c-mode-hook 'company-mode))
 ;; Autocompletion:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]

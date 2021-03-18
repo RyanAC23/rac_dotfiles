@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored-marker"
+(("racinit.org"
+ (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
+ (front-context-string)
+ (rear-context-string . "re t)\n#+END_SRC\n")
+ (position . 16269))
+("org-capture-last-stored-marker"
  (filename . "~/Dropbox/share/orgfiles/web-bookmarks.org")
  (front-context-string . "**  [[http://www")
  (rear-context-string . "9-13 Sun 21:34>\n")
