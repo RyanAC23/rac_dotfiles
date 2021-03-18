@@ -427,8 +427,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs
-(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+;;(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
+;;(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
 
 (defun toggle-transparency ()
    (interactive)

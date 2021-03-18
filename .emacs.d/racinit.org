@@ -114,7 +114,7 @@ For reloading your configuration file when editing on the fly.
 #+BEGIN_SRC emacs-lisp
 (setq tramp-verbose 10)
 #+END_SRC
-* DONE Searching
+* Searching
 #+BEGIN_SRC emacs-lisp
 ;; Searching -----------------------------------------------------------
 ;; flexible pattern matching
@@ -462,8 +462,8 @@ custom color profile if running in a GUI.
 
 ;; Set transparency, and map transparency toggle to C-c t
 ;; from https://www.emacswiki.org/emacs/TransparentEmacs
-(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+;;(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
+;;(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
 
 (defun toggle-transparency ()
    (interactive)
