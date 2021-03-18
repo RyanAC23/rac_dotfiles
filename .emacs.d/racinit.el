@@ -48,6 +48,7 @@
     ;;(paren-activate)
     (add-hook 'c-mode-common-hook 'paren-activate)
     (add-hook 'python-mode-hook   'paren-activate)
+    (add-hook 'org-mode-hook      'paren-activate)
 )
 ;; Behavior:1 ends here
 
@@ -195,6 +196,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 	       ("c/c++" (or
 			 (mode . c-mode)
 			 (mode . c++-mode)))
+	       ("org"
+		         (mode . org-mode))
 	       ("emacs" (or
 			 (name . "^\\*scratch\\*$")
 			 (name . "^\\*Messages\\*$")))))))
@@ -206,39 +209,41 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
-      :ensure t
-      :init
-      (projectile-mode 1))
-  (global-set-key (kbd "C-c p") 'projectile-compile-project)
+  :ensure t
+  :init
+  (projectile-mode 1)
+  :config
+  (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+  )
 
-  (use-package all-the-icons
-    :ensure t)
+(use-package all-the-icons
+  :ensure t)
 ;; add install fonts if not present feature
 (defun install-icon-fonts-checker (dir)
   (if ((file-exists-p dir) nil)
-    (message "Not looking good, champ.")
+      (message "Not looking good, champ.")
     (message "Looks like it's there.")))
 ;; install if not present
 (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
   (all-the-icons-install-fonts))
 
-    (use-package dashboard
-	:ensure t
-	:config
-	  (dashboard-setup-startup-hook)
-	  (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
-	  (setq dashboard-items '((recents . 15)
-				  (projects . 5)
-				  (bookmarks . 5)
-				  (agenda . 5)
-				  (registers . 5)))
-	      ;; centering looks awful with multiple windows.
-	      ;;(setq dashboard-center-content t)
-	  (setq dashboard-set-file-icons t)
-	  (setq dashboard-set-heading-icons t)
-	  (setq dashboard-footer-messages nil)
-	  (load-file "~/.emacs.d/dashboard_quotes.el")
-	  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
+  (setq dashboard-items '((recents . 15)
+			  (projects . 5)
+			  (bookmarks . 5)
+			  (agenda . 5)
+			  (registers . 5)))
+  ;; centering looks awful with multiple frames.
+  ;;(setq dashboard-center-content t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-footer-messages nil)
+  (load-file "~/.emacs.d/dashboard_quotes.el")
+  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 ;; Dashboard / Homescreen:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
@@ -371,9 +376,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
 ;; (use-package auctex
- ;;     :ensure t)
-(use-package auctex-latexmk
-     :ensure t)
+;;       :ensure t)
+;; (use-package auctex-latexmk
+;;      :ensure t)
 ;; Auctex / latexmk:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
@@ -442,19 +447,6 @@ Uses `current-date-time-format' for the formatting the date/time."
                100)
           '(95 . 50) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
-
-;; ;; Treemacs sidebar file viewer
-;; (use-package treemacs
-;;   :ensure t
-;;   :init
-;;   :config
-;;   (progn
-;;     (setq
-;;       treemacs-width    25)
-;; ))
-;; (add-hook 'c-mode-hook 'treemacs)
-;; (add-hook 'c++-mode-hook 'treemacs)
-;; (add-hook 'python-mode-hook 'treemacs)
 ;; Theme and Appearance:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]
@@ -478,3 +470,19 @@ Uses `current-date-time-format' for the formatting the date/time."
   (diminish 'eldoc-mode)
   (diminish 'projectile-mode))
 ;; diminish - hide minor modes from line:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*TestSpace][TestSpace:1]]
+(use-package treemacs
+  :ensure t
+  :defer t
+  :bind
+  (:map global-map
+	([f8] . treemacs))
+  :config
+  (setq treemacs-is-never-other-window t)
+  )
+
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
+;; TestSpace:1 ends here

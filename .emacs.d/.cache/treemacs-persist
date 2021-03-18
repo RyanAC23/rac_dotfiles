@@ -1,8 +1,7 @@
 * Default
-<<<<<<< HEAD
-** NASA_BEC
- - path :: ~/research/NASA_BEC
-=======
-** knr_c
- - path :: ~/repos/C-doodles/knr_c
->>>>>>> 1b5cf6c2f02dd4fb89d097a076e9fb9d1a57cd2a
+** .emacs.d
+ - path :: ~/repos/rac_dotfiles/.emacs.d
+** rpa
+ - path :: ~/research/rpa
+** linear_response
+ - path :: ~/research/linear_response
