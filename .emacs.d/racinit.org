@@ -518,4 +518,5 @@ For new Melpa packages I haven't committed myself to.
   (use-package treemacs-projectile
     :after treemacs projectile
     :ensure t)
+
 #+END_SRC

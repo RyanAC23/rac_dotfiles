@@ -468,16 +468,20 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*TestSpace][TestSpace:1]]
 (use-package treemacs
-  :ensure t
-  :defer t
-  :bind
-  (:map global-map
-	([f8] . treemacs))
-  :config
-  (setq treemacs-is-never-other-window t)
-  )
+    :ensure t
+    :defer t
+    :bind
+    (:map global-map
+	  ([f8] . treemacs))
+    :config
+    (setq treemacs-is-never-other-window t)
+    )
 
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+  (use-package treemacs-projectile
+    :after treemacs projectile
+    :ensure t)
+
+  (use-package treemacs-load-all-the-icons-with-workaround-font "Hermit")
+;;    :after treemacs
+;;    :ensure t)
 ;; TestSpace:1 ends here
