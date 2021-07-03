@@ -1,7 +1,13 @@
 * Default
+** C-doodles
+ - path :: ~/repos/github/C-doodles
+** nuclear-hydrodynamics-fork
+ - path :: ~/repos/heptapod/nuclear-hydrodynamics-fork
+** quantum
+ - path :: ~/repos/bitbucket/physics/quantum
+** rpa
+ - path :: ~/repos/heptapod/rpa
+** website
+ - path :: ~/repos/github/RyanAC23.github.io
 ** .emacs.d
  - path :: ~/repos/rac_dotfiles/.emacs.d
-** rpa
- - path :: ~/research/rpa
-** linear_response
- - path :: ~/research/linear_response

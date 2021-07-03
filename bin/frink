@@ -1,0 +1,7 @@
+#!/bin/sh
+ appname="frink"
+
+ selfpath="/home/ryan/apps/frink/"
+ java -cp $selfpath/frink.jar frink.gui.FrinkStarter --gui
+
+ # many more options can be found at https://frinklang.org/#RunningFrink

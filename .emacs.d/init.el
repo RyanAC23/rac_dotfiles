@@ -41,7 +41,7 @@
     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCkqcY4CAuBFNFho6JgygCnA")))
  '(package-selected-packages
    (quote
-    (treemacs-all-the-icons treemacs-projectile treemacs dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview flycheck yasnippet-snippets yasnippet elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline rainbow-mode projectile ox-reveal org-bullets htmlize esup emmet-mode diminish dashboard counsel company auto-complete all-the-icons)))
+    (tex auctex-latexmk-setup treemacs-all-the-icons treemacs-projectile treemacs dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview flycheck yasnippet-snippets yasnippet elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline rainbow-mode projectile ox-reveal org-bullets htmlize esup emmet-mode diminish dashboard counsel company auto-complete all-the-icons)))
  '(tramp-terminal-type "dumb"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

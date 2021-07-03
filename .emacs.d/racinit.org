@@ -399,11 +399,22 @@ For reloading your configuration file when editing on the fly.
 * TODO LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
-  ;; (use-package auctex
-  ;;       :ensure t)
-  ;; (use-package auctex-latexmk
-  ;;      :ensure t)
+ (use-package tex
+    :ensure auctex
+)
+(use-package auctex-latexmk
+    :ensure t
+)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
 #+END_SRC
+
 * TODO Version Control
 * TODO Website
 #+BEGIN_SRC emacs-lisp
@@ -430,17 +441,17 @@ For reloading your configuration file when editing on the fly.
     (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
   )
 #+END_SRC
-* Website
+** Website
 
-#+BEGIN_SRC emacs-lisp
-  ;; If folders exist, load projects file
-  ;; org test pages
-  (if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
-      (load "~/Dropbox/share/orgpages/pages.el"))
-  ;; geocities website
-  (if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
-      (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
-#+END_SRC
+ #+BEGIN_SRC emacs-lisp
+   ;; If folders exist, load projects file
+   ;; org test pages
+   (if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
+       (load "~/Dropbox/share/orgpages/pages.el"))
+   ;; geocities website
+   (if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
+       (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
+ #+END_SRC
 
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your

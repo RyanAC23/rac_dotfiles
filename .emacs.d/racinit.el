@@ -370,10 +370,20 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Python:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
-;; (use-package auctex
-;;       :ensure t)
-;; (use-package auctex-latexmk
-;;      :ensure t)
+(use-package tex
+    :ensure auctex
+)
+(use-package auctex-latexmk
+    :ensure t
+)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
 ;; Auctex / latexmk:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
@@ -468,20 +478,16 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*TestSpace][TestSpace:1]]
 (use-package treemacs
-    :ensure t
-    :defer t
-    :bind
-    (:map global-map
-	  ([f8] . treemacs))
-    :config
-    (setq treemacs-is-never-other-window t)
-    )
+  :ensure t
+  :defer t
+  :bind
+  (:map global-map
+	([f8] . treemacs))
+  :config
+  (setq treemacs-is-never-other-window t)
+  )
 
-  (use-package treemacs-projectile
-    :after treemacs projectile
-    :ensure t)
-
-  (use-package treemacs-load-all-the-icons-with-workaround-font "Hermit")
-;;    :after treemacs
-;;    :ensure t)
+(use-package treemacs-projectile
+  :after treemacs projectile
+  :ensure t)
 ;; TestSpace:1 ends here
