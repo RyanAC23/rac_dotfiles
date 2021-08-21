@@ -476,7 +476,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   (diminish 'projectile-mode))
 ;; diminish - hide minor modes from line:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*TestSpace][TestSpace:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:1]]
 (use-package treemacs
   :ensure t
   :defer t
@@ -490,4 +490,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package treemacs-projectile
   :after treemacs projectile
   :ensure t)
-;; TestSpace:1 ends here
+;; Test Space:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:2]]
+(use-package elfeed
+    :ensure t
+)
+(global-set-key (kbd "C-x w") 'elfeed)
+;; Test Space:2 ends here

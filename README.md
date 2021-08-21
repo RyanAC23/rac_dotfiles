@@ -105,6 +105,10 @@ Packages are divided into two sets, called core and full. The core list contains
 
 ## Updates
 
+==========
+Sat Aug 21 14:13:28 PDT 2021
+- New quotes.
+
 =========
 Mon Feb 08 2020
 - Added libreoffice and gnuplot to installer.
@@ -127,11 +131,14 @@ Mon Dec 07 13:23:03 PST 2020
 ==========
 (2020-11-28)
 
-- [ ] .csv files must end with newline or the installer will miss the last package.
+- [x] .csv files must end with newline or the installer will miss the last package.
 - [ ] emacs install download fonts requires confirmation; have this autoconfirm
+
+
 ## To Do <a name = "todo"></a>
+- [ ] Make quotes.el an elisp function called at startup rather than a dashboard only function.
 - [ ] Add .gitignore global
-- [ ] Try mocp music player
+- [x] Try mocp music player
 - [x] Add wallpaper copy/set from Dropbox public link
   ```
   sudo cp [dropbox]/login.png /usr/share/backgrounds/ubuntu-mate-common/

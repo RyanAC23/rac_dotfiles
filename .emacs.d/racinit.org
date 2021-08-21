@@ -513,7 +513,7 @@ custom color profile if running in a GUI.
     (diminish 'projectile-mode))
 #+END_SRC
 
-* TestSpace
+* Test Space
 For new Melpa packages I haven't committed myself to.
 #+BEGIN_SRC emacs-lisp
   (use-package treemacs
@@ -530,4 +530,11 @@ For new Melpa packages I haven't committed myself to.
     :after treemacs projectile
     :ensure t)
 
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(use-package elfeed
+    :ensure t
+)
+(global-set-key (kbd "C-x w") 'elfeed)
 #+END_SRC

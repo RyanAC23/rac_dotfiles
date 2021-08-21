@@ -4,17 +4,23 @@
      "\"If God meant to interfere in the degeneracy of mankind would he not have done so by now?\""
      "\"Ah priest. What can I ask of you that you've not already given?\""
      "\"Tobin Smiled. Every man in the company claims to have encountered that sootysouled rascal in some other place.\""
-     ;; Nabokov
+;; Suttree
+     "\"Beyond the flayed man dimly adumbrate ankther figure paled, for his surgeons move about the world even as you and I.\""
+     "\"Death is what the living carry with them. A state of dread, like some uncanny foretaste of a bitter memory. But the dead do not remember and nothingness is not a curse. Far from it.\""
+     "\"It dont say it, but I reckon Lazarus might of wept back when he seen himself back in this vale of tears after he'd done been safe and dead four days.\""
+     "\"For him perhaps it was all done in silence, or ho wwould it sound, the shot that fired the bullet that lay already in his brain? These small enigmas of time and space and death.\""
+     "\"To know what will come is the same as to make it so.\""
+     "\"His work lies all wheres and his hounds tire not. I have seen them in a dream, slaverous and wild and their eyes crazed with ravening for souls in this world. Fly them.\""
+;; Nabokov
      "\"Don't be too certain of learning the past from the lips of the present.\" - RLSK"
      "\"These connections are a little too easy, and thus probably fake.\" - Nabokov, Gogol"
     "\"I doubt whether you can give your telephone number without giving something of yourself.\" - Nabokov, Gogol"
     "\"If parallel lines do not meet it is not because they cannot, but because they have other things to do.\" - Nabokov, Gogol"
     "\"A writer is lost when he grows interested in such questions as \"what is art?\" and \"What is an artist's duty?\" - Nabokov, Gogol"
-    ;; Dostoyevsky
-    ;; Others
+;; Others
     "\"It is no fun to pay with a hangover for the feasting of others.\" - Lermontov"
     "\"But we cannot begin again. In this respect things are as they are, and will almost certainly get worse.\" - Frank Kermode, \"Not Entitled\""
-    ;; Shakespeare
+;; Shakespeare
      "\"They have been at a great feast of languages, and stolen the scraps.\" - Love's Labour Lost"
      "\"If we imagine no worse of them than they of themselves, they may pass for excellent men.\" - Midsummer Night's Dream"
      "\"Dost thou think, because thou art virtuous, there shall be no more cakes and ale?\" - Twelfth Night"
@@ -25,11 +31,10 @@
      "\"I cannot draw a cart nor eat dried oats; if it be a man's work, I'll do it.\" - King Lear"
      "\"The man that did once sell the lion's skin while the beast lived, was killed with hunting him.\" - Henry V"
      "\"Ah, what a sign it is of evil life, where death's approach seems so terrible!\" - 2 Henry VI"
-     ;; people
+;; people
      "\"Be an asset, not a liability.\" - Tim Kennedy"
      "\"All of your excuses are Lies.\" - Jocko"
      "\"If I'm so smart, why am I losing?\" - Jocko"
      "\"The enemy always has a vote.\" - Jocko"
-     "\"Do you think the company senior executives want you to fail?\" - Jocko"
      "\"Anything you can't carry 24 hrs/day is gone on the next chopper.\""
 ))
