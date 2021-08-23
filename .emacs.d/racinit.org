@@ -195,12 +195,8 @@ For reloading your configuration file when editing on the fly.
   (setq ibuffer-sorting-mode major-mode)
   ;; Don't ask for confirmation to delete unmodified buffers
   (setq ibuffer-expert t)
-  ;; Make ibuffer sort buffers
-  ;; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-  (use-package ibuffer-vc
-    :ensure t
-    :init (ibuffer-vc-set-filter-groups-by-vc-root))
 
+  ;; categorize buffers by groups:
   (setq ibuffer-saved-filter-groups
 	(quote (("default"
 		 ("python" (mode . python-mode))
@@ -209,6 +205,10 @@ For reloading your configuration file when editing on the fly.
 			   (mode . c++-mode)))
 		 ("org"
 		           (mode . org-mode))
+		 ("web"
+			   (or
+			   (mode . web-mode)
+			   (mode . css-mode)))
 		 ("emacs" (or
 			   (name . "^\\*scratch\\*$")
 			   (name . "^\\*Messages\\*$")))))))
@@ -416,7 +416,7 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 
 * TODO Version Control
-* TODO Website
+* Website
 #+BEGIN_SRC emacs-lisp
   ;; Web Development ---------------------------------------------------
   (use-package web-mode
@@ -441,18 +441,6 @@ For reloading your configuration file when editing on the fly.
     (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
   )
 #+END_SRC
-** Website
-
- #+BEGIN_SRC emacs-lisp
-   ;; If folders exist, load projects file
-   ;; org test pages
-   (if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
-       (load "~/Dropbox/share/orgpages/pages.el"))
-   ;; geocities website
-   (if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
-       (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
- #+END_SRC
-
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your
 custom color profile if running in a GUI.

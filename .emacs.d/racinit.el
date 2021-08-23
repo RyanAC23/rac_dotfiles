@@ -179,12 +179,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq ibuffer-sorting-mode major-mode)
 ;; Don't ask for confirmation to delete unmodified buffers
 (setq ibuffer-expert t)
-;; Make ibuffer sort buffers
-;; http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-(use-package ibuffer-vc
-  :ensure t
-  :init (ibuffer-vc-set-filter-groups-by-vc-root))
 
+;; categorize buffers by groups:
 (setq ibuffer-saved-filter-groups
       (quote (("default"
 	       ("python" (mode . python-mode))
@@ -193,6 +189,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 			 (mode . c++-mode)))
 	       ("org"
 		         (mode . org-mode))
+	       ("web"
+			 (or
+			 (mode . web-mode)
+			 (mode . css-mode)))
 	       ("emacs" (or
 			 (name . "^\\*scratch\\*$")
 			 (name . "^\\*Messages\\*$")))))))
@@ -409,16 +409,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
 )
-;; Website:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
-;; If folders exist, load projects file
-;; org test pages
-(if (file-exists-p "~/Dropbox/share/orgpages/pages.el")
-    (load "~/Dropbox/share/orgpages/pages.el"))
-;; geocities website
-(if (file-exists-p "~/repos/RyanAC23.github.io/resources/site-init.el")
-    (load "~/repos/RyanAC23.github.io/resources/site-init.el"))
 ;; Website:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
