@@ -12,6 +12,8 @@
 /.emacs.d/ido.last
 /.emacs.d/session.*
 
+/.guayadeque/*
+/.guayadeque/
 /.guayadeque/cache.db
 /.guayadeque/Collections
 /.guayadeque/guayadeque.con*

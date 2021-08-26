@@ -226,7 +226,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/Dropbox/share/N23emacs/banners/banner.gif")
+  (setq dashboard-startup-banner "~/Dropbox/share/emacs/banner/banner.gif")
   (setq dashboard-items '((recents . 15)
 			  (projects . 5)
 			  (bookmarks . 5)
