@@ -386,8 +386,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq reftex-plug-into-AUCTeX t)
 ;; Auctex / latexmk:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
-;; Web Development ---------------------------------------------------
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
 (use-package web-mode
   :ensure t
   :config
@@ -409,6 +408,35 @@ Uses `current-date-time-format' for the formatting the date/time."
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
 )
+;; Web Development:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+
+       ;; ... add all the components here (see below)...
+
+	("org-notes"
+	 :base-directory "~/Dropbox/share/emacs/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :headline-levels 4             ; Just the default for this project.
+	 :auto-preamble t
+	 )
+
+	("org-static"
+	 :base-directory "~/Dropbox/share/emacs/org/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :recursive t
+	 :publishing-function org-publish-attachment
+	 )
+
+	("org" :components ("org-notes" "org-static"))
+      ))
 ;; Website:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
@@ -488,3 +516,15 @@ Uses `current-date-time-format' for the formatting the date/time."
 )
 (global-set-key (kbd "C-x w") 'elfeed)
 ;; Test Space:2 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
+(defun reload-init-file ()
+  (interactive)
+  (load-file user-init-file))
+
+(global-set-key (kbd "C-c r") 'reload-init-file)
+;; Quick Reload init.el:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Rebuild%20Sites][Rebuild Sites:1]]
+(global-set-key (kbd "C-c b") 'org-publish-project)
+;; Rebuild Sites:1 ends here
