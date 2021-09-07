@@ -77,8 +77,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
        (interactive)
+       (insert "- ")
        (insert (format-time-string current-time-format (current-time)))
-       (insert "\n")
+       (insert " ")
        )
 
 (global-set-key "\C-x\C-d" 'insert-current-date-time)
@@ -204,34 +205,34 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
-  :ensure t
-  :init
-  (projectile-mode 1)
-  :config
-  (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
-  )
+   :ensure t
+   :init
+   (projectile-mode 1)
+   :config
+   (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+   )
 
-(use-package all-the-icons
-  :ensure t)
-;; add install fonts if not present feature
-(defun install-icon-fonts-checker (dir)
-  (if ((file-exists-p dir) nil)
-      (message "Not looking good, champ.")
-    (message "Looks like it's there.")))
-;; install if not present
-(unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-  (all-the-icons-install-fonts))
+ (use-package all-the-icons
+   :ensure t)
+ ;; add install fonts if not present feature
+ (defun install-icon-fonts-checker (dir)
+   (if ((file-exists-p dir) nil)
+       (message "Not looking good, champ.")
+     (message "Looks like it's there.")))
+ ;; install if not present
+ (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+   (all-the-icons-install-fonts))
 
 (use-package dashboard
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/Dropbox/share/emacs/banner/banner.gif")
+  (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
   (setq dashboard-items '((recents . 15)
-			  (projects . 5)
-			  (bookmarks . 5)
-			  (agenda . 5)
-			  (registers . 5)))
+			   (projects . 5)
+			   (bookmarks . 5)
+			   (agenda . 5)
+			   (registers . 5)))
   ;; centering looks awful with multiple frames.
   ;;(setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
@@ -264,41 +265,32 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Org Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
-;; Org links mode [test] ---------------------------------------------------
-  (global-set-key (kbd "C-c c")
-		  'org-capture)
-  (setq org-capture-templates
-	'(
-	  ("t" "To Do" entry (file+headline "~/Dropbox/share/N23emacs/todo-list.org" "Execute")
-	  "* %?\n%T" :prepend t)
-	  ("l" "Links" entry (file+headline "~/Dropbox/share/N23emacs/web-bookmarks.org" "Links")
-	   "* %? %^L %^g \n%T" :prepend t)
-	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/N23emacs/links-work.org" "Links")
-	   "* %? %^L %^g \n%T" :prepend t)
-))
+(global-set-key (kbd "C-c c")
+		'org-capture)
 
-  (defadvice org-capture-finalize
-  (after delete-capture-frame activate)
+(defadvice org-capture-finalize
+    (after delete-capture-frame activate)
   "Advise capture-finalize to close the frame"
   (if (equal "capture" (frame-parameter nil 'name))
-  (delete-frame)))
+      (delete-frame)))
 
-  (defadvice org-capture-destroy
-  (after delete-capture-frame activate)
+(defadvice org-capture-destroy
+    (after delete-capture-frame activate)
   "Advise capture-destroy to close the frame"
   (if (equal "capture" (frame-parameter nil 'name))
-  (delete-frame)))
+      (delete-frame)))
 
-  (use-package noflet
+(use-package noflet
   :ensure t )
-  (defun make-capture-frame ()
+
+(defun make-capture-frame ()
   "Create a new frame and run org-capture."
   (interactive)
   (make-frame '((name . "capture")))
   (select-frame-by-name "capture")
   (delete-other-windows)
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-  (org-capture)))
+    (org-capture)))
 ;; Org Links Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
@@ -418,24 +410,24 @@ Uses `current-date-time-format' for the formatting the date/time."
        ;; ... add all the components here (see below)...
 
 	("org-notes"
-	 :base-directory "~/Dropbox/share/emacs/org/"
+	 :base-directory "~/Dropbox/website/org/"
 	 :base-extension "org"
-	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :publishing-directory "~/Dropbox/website/public_html/"
 	 :recursive t
 	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4             ; Just the default for this project.
+	 :headline-levels 4
 	 :auto-preamble t
 	 )
 
 	("org-static"
-	 :base-directory "~/Dropbox/share/emacs/org/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :base-directory "~/Dropbox/website/org/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+	 :publishing-directory "~/Dropbox/website/public_html/"
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
 
-	("org" :components ("org-notes" "org-static"))
+	("RyanAC23-website" :components ("org-notes" "org-static"))
       ))
 ;; Website:1 ends here
 
@@ -495,27 +487,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; diminish - hide minor modes from line:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:1]]
-(use-package treemacs
-  :ensure t
-  :defer t
-  :bind
-  (:map global-map
-	([f8] . treemacs))
-  :config
-  (setq treemacs-is-never-other-window t)
-  )
-
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
-;; Test Space:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:2]]
 (use-package elfeed
     :ensure t
 )
 (global-set-key (kbd "C-x w") 'elfeed)
-;; Test Space:2 ends here
+(setq-default elfeed-search-filter "@2-months-ago")
+;; Test Space:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
 (defun reload-init-file ()

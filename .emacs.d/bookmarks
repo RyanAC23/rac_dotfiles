@@ -2,24 +2,29 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("racinit.org"
+(("hypersonic"
+ (filename . "/ssh:penguinnb:/home/racorbin/repos/heptapod/hypersonic/hypersonic/")
+ (front-context-string . "classical_trajec")
+ (rear-context-string . "62 Aug 30 15:19 ")
+ (position . 325))
+("racinit.org"
  (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
  (front-context-string)
  (rear-context-string . "re t)\n#+END_SRC\n")
  (position . 16269))
 ("org-capture-last-stored-marker"
- (filename . "~/Dropbox/share/orgfiles/web-bookmarks.org")
- (front-context-string . "**  [[http://www")
- (rear-context-string . "9-13 Sun 21:34>\n")
- (position . 455))
+ (filename . "~/Dropbox/website/org/capture/links-general.org")
+ (front-context-string . "**  [[https://ww")
+ (rear-context-string . "9-02 Thu 00:31>\n")
+ (position . 1120))
 ("org-refile-last-stored"
- (filename . "~/Dropbox/share/orgfiles/web-bookmarks.org")
- (front-context-string . "**  [[http://www")
- (rear-context-string . "9-13 Sun 21:34>\n")
- (position . 455))
+ (filename . "~/Dropbox/website/org/capture/links-general.org")
+ (front-context-string . "**  [[https://ww")
+ (rear-context-string . "9-02 Thu 00:31>\n")
+ (position . 1120))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/share/rac-orgfiles/web-bookmarks.org")
- (front-context-string . "**  [[https://ne")
- (rear-context-string . ".setup\n\n* Links\n")
- (position . 70))
+ (filename . "~/Dropbox/website/org/capture/links-general.org")
+ (front-context-string . "**  [[https://ww")
+ (rear-context-string . "p.org\"\n\n* Links\n")
+ (position . 63))
 )

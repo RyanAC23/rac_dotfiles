@@ -5,7 +5,7 @@
      "\"Ah priest. What can I ask of you that you've not already given?\""
      "\"Tobin Smiled. Every man in the company claims to have encountered that sootysouled rascal in some other place.\""
 ;; Suttree
-     "\"Beyond the flayed man dimly adumbrate ankther figure paled, for his surgeons move about the world even as you and I.\""
+     "\"Beyond the flayed man dimly adumbrate another figure paled, for his surgeons move about the world even as you and I.\""
      "\"Death is what the living carry with them. A state of dread, like some uncanny foretaste of a bitter memory. But the dead do not remember and nothingness is not a curse. Far from it.\""
      "\"It dont say it, but I reckon Lazarus might of wept back when he seen himself back in this vale of tears after he'd done been safe and dead four days.\""
      "\"For him perhaps it was all done in silence, or ho wwould it sound, the shot that fired the bullet that lay already in his brain? These small enigmas of time and space and death.\""
@@ -34,7 +34,7 @@
 ;; people
      "\"Be an asset, not a liability.\" - Tim Kennedy"
      "\"All of your excuses are Lies.\" - Jocko"
-     "\"If I'm so smart, why am I losing?\" - Jocko"
+     ;;"\"If I'm so smart, why am I losing?\" - Jocko"
      "\"The enemy always has a vote.\" - Jocko"
-     "\"Anything you can't carry 24 hrs/day is gone on the next chopper.\""
+     ;;"\"Anything you can't carry 24 hrs/day is gone on the next chopper.\""
 ))

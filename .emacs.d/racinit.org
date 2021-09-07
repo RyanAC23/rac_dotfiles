@@ -1,4 +1,3 @@
-\
 #+STARTUP: overview
 #+PROPERTY: header-args :comments yes :results silent
 
@@ -83,8 +82,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (defun insert-current-time ()
   "insert the current time (1-week scope) into the current buffer."
        (interactive)
+       (insert "- ")
        (insert (format-time-string current-time-format (current-time)))
-       (insert "\n")
+       (insert " ")
        )
 
 (global-set-key "\C-x\C-d" 'insert-current-date-time)
@@ -238,23 +238,23 @@ For reloading your configuration file when editing on the fly.
   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
     (all-the-icons-install-fonts))
 
-  (use-package dashboard
-    :ensure t
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/Dropbox/share/emacs/banner/banner.gif")
-    (setq dashboard-items '((recents . 15)
+ (use-package dashboard
+   :ensure t
+   :config
+   (dashboard-setup-startup-hook)
+   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+   (setq dashboard-items '((recents . 15)
 			    (projects . 5)
 			    (bookmarks . 5)
 			    (agenda . 5)
 			    (registers . 5)))
-    ;; centering looks awful with multiple frames.
-    ;;(setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-footer-messages nil)
-    (load-file "~/.emacs.d/dashboard_quotes.el")
-    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+   ;; centering looks awful with multiple frames.
+   ;;(setq dashboard-center-content t)
+   (setq dashboard-set-file-icons t)
+   (setq dashboard-set-heading-icons t)
+   (setq dashboard-footer-messages nil)
+   (load-file "~/.emacs.d/dashboard_quotes.el")
+   (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 #+END_SRC
 
 * Org Mode
@@ -280,43 +280,35 @@ For reloading your configuration file when editing on the fly.
 (require 'ox-md)
 #+END_SRC
 * Org Links Mode
+
+For some reason, org capture links can't be defined in this file. If present here, they aren't loaded. I've moved that code chunk to ~init.el~ instead.
 #+BEGIN_SRC emacs-lisp
-  ;; Org links mode [test] ---------------------------------------------------
   (global-set-key (kbd "C-c c")
 		  'org-capture)
-  (setq org-capture-templates
-	'(
-	  ("t" "To Do" entry (file+headline "~/Dropbox/share/N23emacs/todo-list.org" "Execute")
-	  "* %?\n%T" :prepend t)
-	  ("l" "Links" entry (file+headline "~/Dropbox/share/N23emacs/web-bookmarks.org" "Links")
-	   "* %? %^L %^g \n%T" :prepend t)
-	  ("w" "Links-Work" entry (file+headline "~/Dropbox/share/N23emacs/links-work.org" "Links")
-	   "* %? %^L %^g \n%T" :prepend t)
-))
 
   (defadvice org-capture-finalize
-  (after delete-capture-frame activate)
-  "Advise capture-finalize to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-  (delete-frame)))
+      (after delete-capture-frame activate)
+    "Advise capture-finalize to close the frame"
+    (if (equal "capture" (frame-parameter nil 'name))
+	(delete-frame)))
 
   (defadvice org-capture-destroy
-  (after delete-capture-frame activate)
-  "Advise capture-destroy to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-  (delete-frame)))
+      (after delete-capture-frame activate)
+    "Advise capture-destroy to close the frame"
+    (if (equal "capture" (frame-parameter nil 'name))
+	(delete-frame)))
 
   (use-package noflet
-  :ensure t )
-  (defun make-capture-frame ()
-  "Create a new frame and run org-capture."
-  (interactive)
-  (make-frame '((name . "capture")))
-  (select-frame-by-name "capture")
-  (delete-other-windows)
-  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-  (org-capture)))
+    :ensure t )
 
+  (defun make-capture-frame ()
+    "Create a new frame and run org-capture."
+    (interactive)
+    (make-frame '((name . "capture")))
+    (select-frame-by-name "capture")
+    (delete-other-windows)
+    (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+      (org-capture)))
 #+END_SRC
 
 * TODO C / C++
@@ -449,24 +441,24 @@ For reloading your configuration file when editing on the fly.
        ;; ... add all the components here (see below)...
 
 	("org-notes"
-	 :base-directory "~/Dropbox/share/emacs/org/"
+	 :base-directory "~/Dropbox/website/org/"
 	 :base-extension "org"
-	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :publishing-directory "~/Dropbox/website/public_html/"
 	 :recursive t
 	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4             ; Just the default for this project.
+	 :headline-levels 4
 	 :auto-preamble t
 	 )
 
 	("org-static"
-	 :base-directory "~/Dropbox/share/emacs/org/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/Dropbox/share/emacs/public_html/"
+	 :base-directory "~/Dropbox/website/org/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+	 :publishing-directory "~/Dropbox/website/public_html/"
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
 
-	("org" :components ("org-notes" "org-static"))
+	("RyanAC23-website" :components ("org-notes" "org-static"))
       ))
 #+END_SRC
 * Theme and Appearance
@@ -530,29 +522,14 @@ custom color profile if running in a GUI.
 #+END_SRC
 
 * Test Space
-For new Melpa packages I haven't committed myself to.
-#+BEGIN_SRC emacs-lisp
-  (use-package treemacs
-    :ensure t
-    :defer t
-    :bind
-    (:map global-map
-	  ([f8] . treemacs))
-    :config
-    (setq treemacs-is-never-other-window t)
-    )
-
-  (use-package treemacs-projectile
-    :after treemacs projectile
-    :ensure t)
-
-#+END_SRC
+For Melpa packages I haven't committed myself to.
 
 #+BEGIN_SRC emacs-lisp
 (use-package elfeed
     :ensure t
 )
 (global-set-key (kbd "C-x w") 'elfeed)
+(setq-default elfeed-search-filter "@2-months-ago")
 #+END_SRC
 
 ** Quick Reload init.el
