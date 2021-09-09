@@ -11,6 +11,7 @@
 /.emacs.d/tramp
 /.emacs.d/ido.last
 /.emacs.d/session.*
+/.emacs.d/url/*
 
 /.guayadeque/*
 /.guayadeque/

@@ -48,9 +48,6 @@
  '(custom-safe-themes
    (quote
     ("dc7c3cb936ad634d6837241cc55716ff19074070ec345b87084774f5c96caf3a" "1632b73e6074cb253a6357e18bc04f0acd390ace77bdee0986ceaca78a5ca43c" default)))
- '(elfeed-feeds
-   (quote
-    ("https://alexberenson.substack.com/feed" "https://www.youtube.com/feeds/videos.xml?channel_id=UCkqcY4CAuBFNFho6JgygCnA")))
  '(package-selected-packages
    (quote
     (tex auctex-latexmk-setup treemacs-all-the-icons treemacs-projectile treemacs dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview flycheck yasnippet-snippets yasnippet elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline rainbow-mode projectile ox-reveal org-bullets htmlize esup emmet-mode diminish dashboard counsel company auto-complete all-the-icons)))

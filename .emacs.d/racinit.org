@@ -525,11 +525,20 @@ custom color profile if running in a GUI.
 For Melpa packages I haven't committed myself to.
 
 #+BEGIN_SRC emacs-lisp
-(use-package elfeed
+  (use-package elfeed
     :ensure t
+    )
+  (global-set-key (kbd "C-x w") 'elfeed)
+  (setq-default elfeed-search-filter "@2-months-ago")
+  (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 5 'elfeed-update)))
+
+
+(let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+ (when (file-exists-p elfeed-urls)
+   (load-file elfeed-urls))
 )
-(global-set-key (kbd "C-x w") 'elfeed)
-(setq-default elfeed-search-filter "@2-months-ago")
+
+
 #+END_SRC
 
 ** Quick Reload init.el
@@ -540,6 +549,7 @@ Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchang
   (load-file user-init-file))
 
 (global-set-key (kbd "C-c r") 'reload-init-file)
+
 #+END_SRC
 ** Rebuild Sites
 #+BEGIN_SRC emacs-lisp

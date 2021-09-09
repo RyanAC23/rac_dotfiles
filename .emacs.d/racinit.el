@@ -489,9 +489,16 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:1]]
 (use-package elfeed
     :ensure t
+    )
+  (global-set-key (kbd "C-x w") 'elfeed)
+  (setq-default elfeed-search-filter "@2-months-ago")
+  (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 5 'elfeed-update)))
+
+
+(let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+ (when (file-exists-p elfeed-urls)
+   (load-file elfeed-urls))
 )
-(global-set-key (kbd "C-x w") 'elfeed)
-(setq-default elfeed-search-filter "@2-months-ago")
 ;; Test Space:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
