@@ -36,7 +36,7 @@
 ;; >>$ 'emacsclient [file]'
 (server-start)
 
-;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
+;; Enable line numbers by default.
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
@@ -51,6 +51,19 @@
     (add-hook 'org-mode-hook      'paren-activate)
 )
 ;; Behavior:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
+;; move between windows with shift+[arrow]
+    (windmove-default-keybindings)
+;; Navigation:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
+(defun reload-init-file ()
+  (interactive)
+  (load-file user-init-file))
+
+(global-set-key (kbd "C-c r") 'reload-init-file)
+;; Quick Reload init.el:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Insert%20timestamp][Insert timestamp:1]]
 ;; ====================
@@ -94,13 +107,57 @@ Uses `current-date-time-format' for the formatting the date/time."
 (prefer-coding-system 'utf-8)
 ;; UTF-8 Encoding:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Config%20Reload][Config Reload:1]]
-(defun config-reload ()
-  "Reloads ~/.emacs.d/racinit.org when run."
-  (interactive)
-  (org-babel-load-file (expand-file-name "~/.emacs.d/racinit.org")))
-(global-set-key (kbd "<f5>") 'config-reload)
-;; Config Reload:1 ends here
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Free%20up%20space%20by%20killing%20the%20toolbar][Free up space by killing the toolbar:1]]
+(tool-bar-mode -1)
+;; Free up space by killing the toolbar:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Display%20clock%20and%20system%20load%20average][Display clock and system load average:1]]
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+;; Display clock and system load average:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*load%20a%20default%20theme.][load a default theme.:1]]
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(if (display-graphic-p)
+    (load-theme 'neptune t))
+;; load a default theme.:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Transparency][Transparency:1]]
+(defun toggle-transparency ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(95 . 50) '(100 . 100)))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+;; Transparency:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+  (setq powerline-default-separator (quote arrow))
+(spaceline-spacemacs-theme))
+;; Modeline:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
+(use-package diminish
+  :ensure t
+  :init
+  (diminish 'ivy-mode)
+  (diminish 'page-break-lines-mode)
+  (diminish 'undo-tree-mode)
+  (diminish 'org-src-mode)
+  (diminish 'which-key-mode)
+  (diminish 'eldoc-mode)
+  (diminish 'projectile-mode))
+;; diminish - hide minor modes from line:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Tramp][Tramp:1]]
 (setq tramp-verbose 10)
@@ -108,10 +165,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; Searching -----------------------------------------------------------
-;; flexible pattern matching
-;(setq ido-enable-flex-matching t)
-;(setq ido-everywhere t)
-;(ido-mode 1)
 
 ;; counsel is a requirement for swiper
 (use-package counsel
@@ -166,14 +219,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 ;; Autocompletion:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
-;; move between windows with shift+[arrow]
-    (windmove-default-keybindings)
-;; Navigation:1 ends here
-
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*iBuffer][iBuffer:1]]
 ;; Navigation -------------------------------------------------------------
-;; better buffer.
 (defalias 'list-buffers 'ibuffer)
 ;; Don't show filter groups if there are no filters in the group
 (setq ibuffer-show-empty-filter-groups nil)
@@ -252,7 +299,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; reveal.js presentations
 (use-package ox-reveal
   :ensure ox-reveal)
-;; We need to tell ox-reveal where to find the js file is.
+;; We need to tell ox-reveal where to find the js file.
 ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
 (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
 (setq org-reveal-mathjax t)
@@ -305,9 +352,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Flycheck:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
-;; Yasnippet gives you quick completion of common code snippets,
-;; such as loops and preprocessor instructions.
-
 (use-package yasnippet
   :ensure t
   :config
@@ -319,15 +363,16 @@ Uses `current-date-time-format' for the formatting the date/time."
   :ensure t)
 ;; Yasnippet:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Python][Python:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Blacken%20Hook][Blacken Hook:1]]
 (use-package blacken
-      :ensure t
-      :config
-      (add-hook 'python-mode-hook 'blacken-mode)
-  )
+    :ensure t
+    :config
+    (add-hook 'python-mode-hook 'blacken-mode)
+)
+;; Blacken Hook:1 ends here
 
-  ;; Selective Display: Uses the function keys to hide indentation.
-  (defun indent-show-all ()
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Selective%20Display][Selective Display:1]]
+(defun indent-show-all ()
     (interactive)
     (set-selective-display nil)
     (condition-case nil (hs-show-all) (error nil))
@@ -348,18 +393,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 						 nil)))
   )
 
-;; (defun python-tab-loop ()
-;;   (setq res (loop for i in '(2 3 4 5 6) do
-;; 	(print (format
-;; 		"(global-set-key [f%01d] (lambda () (interactive)
-;;                 (set-selective-display (* %01d standard-indent))))" i i))))
-;;   (res ret)
-;;   )
-
-;; (python-tab-loop)
-
 (add-hook 'python-mode-hook 'python-remap-fs)
-;; Python:1 ends here
+;; Selective Display:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
 (use-package tex
@@ -402,14 +437,15 @@ Uses `current-date-time-format' for the formatting the date/time."
 )
 ;; Web Development:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Website][Website:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Main%20Website%20Export][Main Website Export:1]]
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(
 
-       ;; ... add all the components here (see below)...
+	;; ... add all the components here (see below)...
+	("RyanAC23-website" :components ("website-notes" "website-static"))
 
-	("org-notes"
+	("website-notes"
 	 :base-directory "~/Dropbox/website/org/"
 	 :base-extension "org"
 	 :publishing-directory "~/Dropbox/website/public_html/"
@@ -419,7 +455,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 	 :auto-preamble t
 	 )
 
-	("org-static"
+	("website-static"
 	 :base-directory "~/Dropbox/website/org/"
 	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
 	 :publishing-directory "~/Dropbox/website/public_html/"
@@ -427,66 +463,24 @@ Uses `current-date-time-format' for the formatting the date/time."
 	 :publishing-function org-publish-attachment
 	 )
 
-	("RyanAC23-website" :components ("org-notes" "org-static"))
-      ))
-;; Website:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Theme%20and%20Appearance][Theme and Appearance:1]]
-;; Theme and Appearance ----------------------------------------------
-;; free up space by killing the toolbar
-(tool-bar-mode -1)
-;; Display clock and system load average
-(setq display-time-24hr-format t)
-(display-time-mode 1)
+	))
+;; Main Website Export:1 ends here
 
-;; load a default theme.
-;; https://emacsfodder.github.io/emacs-theme-editor/
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(if (display-graphic-p)
-    (load-theme 'neptune t))
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Rebuild%20Sites][Rebuild Sites:1]]
+(global-set-key (kbd "C-c b") 'org-publish-project)
+;; Rebuild Sites:1 ends here
 
-;; Set transparency, and map transparency toggle to C-c t
-;; from https://www.emacswiki.org/emacs/TransparentEmacs
-;;(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-;;(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Custom%20Commands][Custom Commands:1]]
+(add-to-list 'org-src-lang-modes '("inline-js" . javascript))
+(defvar org-babel-default-header-args:inline-js
+  '((:results . "html")
+    (:exports . "results")))
+(defun org-babel-execute:inline-js (body _params)
+  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
+;; Custom Commands:1 ends here
 
-(defun toggle-transparency ()
-   (interactive)
-   (let ((alpha (frame-parameter nil 'alpha)))
-     (set-frame-parameter
-      nil 'alpha
-      (if (eql (cond ((numberp alpha) alpha)
-                     ((numberp (cdr alpha)) (cdr alpha))
-                     ;; Also handle undocumented (<active> <inactive>) form.
-                     ((numberp (cadr alpha)) (cadr alpha)))
-               100)
-          '(95 . 50) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
-;; Theme and Appearance:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]
-(use-package spaceline
-  :ensure t
-  :config
-  (require 'spaceline-config)
-  (setq powerline-default-separator (quote arrow))
-(spaceline-spacemacs-theme))
-;; Modeline:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
-(use-package diminish
-  :ensure t
-  :init
-  (diminish 'ivy-mode)
-  (diminish 'page-break-lines-mode)
-  (diminish 'undo-tree-mode)
-  (diminish 'org-src-mode)
-  (diminish 'which-key-mode)
-  (diminish 'eldoc-mode)
-  (diminish 'projectile-mode))
-;; diminish - hide minor modes from line:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Test%20Space][Test Space:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*RSS%20-%20Elfeed][RSS - Elfeed:1]]
 (use-package elfeed
     :ensure t
     )
@@ -499,16 +493,4 @@ Uses `current-date-time-format' for the formatting the date/time."
  (when (file-exists-p elfeed-urls)
    (load-file elfeed-urls))
 )
-;; Test Space:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
-(defun reload-init-file ()
-  (interactive)
-  (load-file user-init-file))
-
-(global-set-key (kbd "C-c r") 'reload-init-file)
-;; Quick Reload init.el:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Rebuild%20Sites][Rebuild Sites:1]]
-(global-set-key (kbd "C-c b") 'org-publish-project)
-;; Rebuild Sites:1 ends here
+;; RSS - Elfeed:1 ends here

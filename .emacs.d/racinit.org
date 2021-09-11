@@ -2,25 +2,50 @@
 #+PROPERTY: header-args :comments yes :results silent
 
 * Behavior
+** Common Lisp
+Enable common lisp syntax
+#+BEGIN_SRC emacs-lisp
+  (require 'cl-lib)
+#+END_SRC
+
+** Splash Screen
+Disable the default splash screen.
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-splash-screen t)
+#+END_SRC
+
+** y/n instead of 'yes/no'
+Be able to type 'y' instead of 'yes'
+#+BEGIN_SRC emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** which-key mode
+A nice mode that shows a list of key bindings that follow from inputs you've already entered.
 
 #+BEGIN_SRC emacs-lisp
-  ;; Behavior -------------------------------------------------------------
-  ;; enable common lisp syntax
-  (require 'cl-lib)
+  (use-package which-key
+    :ensure t
+    :diminish which-key-mode
+    :config (which-key-mode))
+#+END_SRC
 
-  ;; Disable the default splash screen.
-  (setq inhibit-splash-screen t)
-
-  ;; Be able to type 'y' instead of 'yes'
-  (fset 'yes-or-no-p 'y-or-n-p)
-
-  ;; delete trailing whitespace when saving
+** No Trailing Whitespace
+Delete trailing whitespace when saving
+#+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+#+END_SRC
 
-  ;; enable word wrap mode globally
+** Word Wrap
+enable word wrap mode globally
+#+BEGIN_SRC emacs-lisp
   (global-visual-line-mode)
+#+END_SRC
 
-  ;; reroute backups and control history
+** Cleaner Directories
+reroute backups and control history
+
+#+BEGIN_SRC emacs-lisp
   (defvar --backup-directory (concat user-emacs-directory "backups"))
   (if (not (file-exists-p --backup-directory))
 	  (make-directory --backup-directory t))
@@ -36,17 +61,25 @@
 	auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
 	auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
 	)
+#+END_SRC
 
-  ;; Start in server mode to open files in the server instance with the bash command
+** Server Mode
+Start in server mode to open files in the server instance with the bash command
+#+BEGIN_SRC emacs-lisp
   ;; >>$ 'emacsclient [file]'
   (server-start)
+#+END_SRC
 
-  ;; Enable line numbers by default. You might want to make this a local hook for certain filetypes.
+** Line Numbers
+Enable line numbers by default.
+#+BEGIN_SRC emacs-lisp
   (when (version<= "26.0.50" emacs-version )
     (global-display-line-numbers-mode))
+#+END_SRC
 
-  ;; Enable parenthesis matching mode
-  ;; https://melpa.org/#/mic-paren
+** Enable parenthesis matching mode
+https://melpa.org/#/mic-paren
+#+BEGIN_SRC emacs-lisp
   (use-package mic-paren
       :ensure t
       :config
@@ -56,6 +89,23 @@
       (add-hook 'org-mode-hook      'paren-activate)
   )
 #+END_SRC
+
+** Navigation
+ #+BEGIN_SRC emacs-lisp
+ ;; move between windows with shift+[arrow]
+     (windmove-default-keybindings)
+ #+END_SRC
+** Quick Reload init.el
+ Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchange.com/questions/35170/is-there-a-key-binding-to-open-the-configuration-file-of-emacs][bookmarks.]]
+ #+BEGIN_SRC emacs-lisp
+ (defun reload-init-file ()
+   (interactive)
+   (load-file user-init-file))
+
+ (global-set-key (kbd "C-c r") 'reload-init-file)
+
+ #+END_SRC
+
 ** Insert timestamp
 #+BEGIN_SRC emacs-lisp
 ;; ====================
@@ -99,14 +149,67 @@ Uses `current-date-time-format' for the formatting the date/time."
   (set-selection-coding-system 'utf-8)
   (prefer-coding-system 'utf-8)
 #+END_SRC
-** Config Reload
-For reloading your configuration file when editing on the fly.
+
+* Theme and Appearance
+[[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
+
+** Free up space by killing the toolbar
 #+BEGIN_SRC emacs-lisp
-  (defun config-reload ()
-    "Reloads ~/.emacs.d/racinit.org when run."
-    (interactive)
-    (org-babel-load-file (expand-file-name "~/.emacs.d/racinit.org")))
-  (global-set-key (kbd "<f5>") 'config-reload)
+(tool-bar-mode -1)
+#+END_SRC
+
+** Display clock and system load average
+#+BEGIN_SRC emacs-lisp
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+#+END_SRC
+
+** load a default theme.
+https://emacsfodder.github.io/emacs-theme-editor/
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(if (display-graphic-p)
+    (load-theme 'neptune t))
+#+END_SRC
+
+** Transparency
+Set transparency, and map transparency toggle to C-c t from https://www.emacswiki.org/emacs/TransparentEmacs
+
+#+BEGIN_SRC emacs-lisp
+(defun toggle-transparency ()
+   (interactive)
+   (let ((alpha (frame-parameter nil 'alpha)))
+     (set-frame-parameter
+      nil 'alpha
+      (if (eql (cond ((numberp alpha) alpha)
+                     ((numberp (cdr alpha)) (cdr alpha))
+                     ;; Also handle undocumented (<active> <inactive>) form.
+                     ((numberp (cadr alpha)) (cadr alpha)))
+               100)
+          '(95 . 50) '(100 . 100)))))
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+#+END_SRC
+
+** Modeline
+#+BEGIN_SRC emacs-lisp
+  (use-package spaceline
+    :ensure t
+    :config
+    (require 'spaceline-config)
+    (setq powerline-default-separator (quote arrow))
+  (spaceline-spacemacs-theme))
+#+END_SRC
+** diminish - hide minor modes from line
+#+BEGIN_SRC emacs-lisp
+  (use-package diminish
+    :ensure t
+    :init
+    (diminish 'ivy-mode)
+    (diminish 'page-break-lines-mode)
+    (diminish 'undo-tree-mode)
+    (diminish 'org-src-mode)
+    (diminish 'eldoc-mode)
+    (diminish 'projectile-mode))
 #+END_SRC
 
 * SSH / TRAMP
@@ -117,10 +220,6 @@ For reloading your configuration file when editing on the fly.
 * Searching
 #+BEGIN_SRC emacs-lisp
 ;; Searching -----------------------------------------------------------
-;; flexible pattern matching
-;(setq ido-enable-flex-matching t)
-;(setq ido-everywhere t)
-;(ido-mode 1)
 
 ;; counsel is a requirement for swiper
 (use-package counsel
@@ -148,6 +247,18 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 
 * TODO Autocompletion
+
+** ISP
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (lsp-enable-which-key-integration t))
+#+END_SRC
+
+** Autocompletion
 #+BEGIN_SRC emacs-lisp
 
   ;; Autocompletion ----------------------------------------------------------
@@ -179,16 +290,9 @@ For reloading your configuration file when editing on the fly.
 
 #+END_SRC
 
-* Navigation
-#+BEGIN_SRC emacs-lisp
-;; move between windows with shift+[arrow]
-    (windmove-default-keybindings)
-#+END_SRC
-
 * iBuffer
 #+BEGIN_SRC emacs-lisp
   ;; Navigation -------------------------------------------------------------
-  ;; better buffer.
   (defalias 'list-buffers 'ibuffer)
   ;; Don't show filter groups if there are no filters in the group
   (setq ibuffer-show-empty-filter-groups nil)
@@ -268,7 +372,7 @@ For reloading your configuration file when editing on the fly.
 ;; reveal.js presentations
 (use-package ox-reveal
   :ensure ox-reveal)
-;; We need to tell ox-reveal where to find the js file is.
+;; We need to tell ox-reveal where to find the js file.
 ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
 (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
 (setq org-reveal-mathjax t)
@@ -281,7 +385,7 @@ For reloading your configuration file when editing on the fly.
 #+END_SRC
 * Org Links Mode
 
-For some reason, org capture links can't be defined in this file. If present here, they aren't loaded. I've moved that code chunk to ~init.el~ instead.
+For some reason, org capture links can't be defined in this file. If present here, they aren't loaded. I've moved that code chunk to [[file:./init.el][~init.el~]] instead.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c c")
 		  'org-capture)
@@ -327,10 +431,9 @@ For some reason, org capture links can't be defined in this file. If present her
 #+END_SRC
 
 ** Yasnippet
-#+BEGIN_SRC emacs-lisp
-  ;; Yasnippet gives you quick completion of common code snippets,
-  ;; such as loops and preprocessor instructions.
+Yasnippet gives you quick completion of common code snippets, such as loops and preprocessor instructions.
 
+#+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :ensure t
     :config
@@ -342,8 +445,9 @@ For some reason, org capture links can't be defined in this file. If present her
     :ensure t)
 
 #+END_SRC
-
 * TODO Python
+** Blacken Hook
+Automatically run blacken on any saved python buffer. The time saved is worth any disagreements I might have about formatting.
 
 #+BEGIN_SRC emacs-lisp
     (use-package blacken
@@ -351,8 +455,12 @@ For some reason, org capture links can't be defined in this file. If present her
 	:config
 	(add-hook 'python-mode-hook 'blacken-mode)
     )
+#+END_SRC
 
-    ;; Selective Display: Uses the function keys to hide indentation.
+** Selective Display
+Uses the function keys to hide indentation.
+
+#+BEGIN_SRC emacs-lisp
     (defun indent-show-all ()
       (interactive)
       (set-selective-display nil)
@@ -374,19 +482,12 @@ For some reason, org capture links can't be defined in this file. If present her
 						   nil)))
     )
 
-  ;; (defun python-tab-loop ()
-  ;;   (setq res (loop for i in '(2 3 4 5 6) do
-  ;; 	(print (format
-  ;; 		"(global-set-key [f%01d] (lambda () (interactive)
-  ;;                 (set-selective-display (* %01d standard-indent))))" i i))))
-  ;;   (res ret)
-  ;;   )
-
-  ;; (python-tab-loop)
-
   (add-hook 'python-mode-hook 'python-remap-fs)
 
 #+END_SRC
+
+** TODO IDE
+Nothing stuck here yet....
 
 * TODO LaTeX
 ** Auctex / latexmk
@@ -407,7 +508,6 @@ For some reason, org capture links can't be defined in this file. If present her
 (setq reftex-plug-into-AUCTeX t)
 #+END_SRC
 
-* TODO Version Control
 * Web Development
 #+BEGIN_SRC emacs-lisp
   (use-package web-mode
@@ -432,98 +532,54 @@ For some reason, org capture links can't be defined in this file. If present her
     (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
   )
 #+END_SRC
-* TODO Website
+* Website
+** Main Website Export
+C-c + b
 #+BEGIN_SRC emacs-lisp
-(require 'ox-publish)
-(setq org-publish-project-alist
-      '(
+  (require 'ox-publish)
+  (setq org-publish-project-alist
+	'(
 
-       ;; ... add all the components here (see below)...
+	  ;; ... add all the components here (see below)...
+	  ("RyanAC23-website" :components ("website-notes" "website-static"))
 
-	("org-notes"
-	 :base-directory "~/Dropbox/website/org/"
-	 :base-extension "org"
-	 :publishing-directory "~/Dropbox/website/public_html/"
-	 :recursive t
-	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4
-	 :auto-preamble t
-	 )
+	  ("website-notes"
+	   :base-directory "~/Dropbox/website/org/"
+	   :base-extension "org"
+	   :publishing-directory "~/Dropbox/website/public_html/"
+	   :recursive t
+	   :publishing-function org-html-publish-to-html
+	   :headline-levels 4
+	   :auto-preamble t
+	   )
 
-	("org-static"
-	 :base-directory "~/Dropbox/website/org/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
-	 :publishing-directory "~/Dropbox/website/public_html/"
-	 :recursive t
-	 :publishing-function org-publish-attachment
-	 )
+	  ("website-static"
+	   :base-directory "~/Dropbox/website/org/"
+	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+	   :publishing-directory "~/Dropbox/website/public_html/"
+	   :recursive t
+	   :publishing-function org-publish-attachment
+	   )
 
-	("RyanAC23-website" :components ("org-notes" "org-static"))
-      ))
+
+	  ))
 #+END_SRC
-* Theme and Appearance
-[[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your
-custom color profile if running in a GUI.
+** Rebuild Sites
+ #+BEGIN_SRC emacs-lisp
+ (global-set-key (kbd "C-c b") 'org-publish-project)
+ #+END_SRC
 
+** Custom Commands
+Export JS directly from a code block [[https://emacs.stackexchange.com/questions/28301/export-javascript-source-block-to-script-tag-in-html-when-exporting-org-file-to][by evaluating]]:
 #+BEGIN_SRC emacs-lisp
-;; Theme and Appearance ----------------------------------------------
-;; free up space by killing the toolbar
-(tool-bar-mode -1)
-;; Display clock and system load average
-(setq display-time-24hr-format t)
-(display-time-mode 1)
-
-;; load a default theme.
-;; https://emacsfodder.github.io/emacs-theme-editor/
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(if (display-graphic-p)
-    (load-theme 'neptune t))
-
-;; Set transparency, and map transparency toggle to C-c t
-;; from https://www.emacswiki.org/emacs/TransparentEmacs
-;;(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-;;(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
-
-(defun toggle-transparency ()
-   (interactive)
-   (let ((alpha (frame-parameter nil 'alpha)))
-     (set-frame-parameter
-      nil 'alpha
-      (if (eql (cond ((numberp alpha) alpha)
-                     ((numberp (cdr alpha)) (cdr alpha))
-                     ;; Also handle undocumented (<active> <inactive>) form.
-                     ((numberp (cadr alpha)) (cadr alpha)))
-               100)
-          '(95 . 50) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
+(add-to-list 'org-src-lang-modes '("inline-js" . javascript))
+(defvar org-babel-default-header-args:inline-js
+  '((:results . "html")
+    (:exports . "results")))
+(defun org-babel-execute:inline-js (body _params)
+  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
 #+END_SRC
-
-** Modeline
-#+BEGIN_SRC emacs-lisp
-  (use-package spaceline
-    :ensure t
-    :config
-    (require 'spaceline-config)
-    (setq powerline-default-separator (quote arrow))
-  (spaceline-spacemacs-theme))
-#+END_SRC
-** diminish - hide minor modes from line
-#+BEGIN_SRC emacs-lisp
-  (use-package diminish
-    :ensure t
-    :init
-    (diminish 'ivy-mode)
-    (diminish 'page-break-lines-mode)
-    (diminish 'undo-tree-mode)
-    (diminish 'org-src-mode)
-    (diminish 'which-key-mode)
-    (diminish 'eldoc-mode)
-    (diminish 'projectile-mode))
-#+END_SRC
-
-* Test Space
-For Melpa packages I haven't committed myself to.
-
+* RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed
     :ensure t
@@ -537,21 +593,7 @@ For Melpa packages I haven't committed myself to.
  (when (file-exists-p elfeed-urls)
    (load-file elfeed-urls))
 )
-
-
 #+END_SRC
 
-** Quick Reload init.el
-Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchange.com/questions/35170/is-there-a-key-binding-to-open-the-configuration-file-of-emacs][bookmarks.]]
-#+BEGIN_SRC emacs-lisp
-(defun reload-init-file ()
-  (interactive)
-  (load-file user-init-file))
-
-(global-set-key (kbd "C-c r") 'reload-init-file)
-
-#+END_SRC
-** Rebuild Sites
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-c b") 'org-publish-project)
-#+END_SRC
+* Test Space
+For Melpa packages I haven't committed myself to.
