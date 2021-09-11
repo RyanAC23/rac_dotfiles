@@ -8,7 +8,7 @@
      "\"Beyond the flayed man dimly adumbrate another figure paled, for his surgeons move about the world even as you and I.\""
      "\"Death is what the living carry with them. A state of dread, like some uncanny foretaste of a bitter memory. But the dead do not remember and nothingness is not a curse. Far from it.\""
      "\"It dont say it, but I reckon Lazarus might of wept back when he seen himself back in this vale of tears after he'd done been safe and dead four days.\""
-     "\"For him perhaps it was all done in silence, or ho wwould it sound, the shot that fired the bullet that lay already in his brain? These small enigmas of time and space and death.\""
+     "\"For him perhaps it was all done in silence, or how would it sound, the shot that fired the bullet that lay already in his brain? These small enigmas of time and space and death.\""
      "\"To know what will come is the same as to make it so.\""
      "\"His work lies all wheres and his hounds tire not. I have seen them in a dream, slaverous and wild and their eyes crazed with ravening for souls in this world. Fly them.\""
 ;; Nabokov

@@ -2,12 +2,6 @@
 (require 'cl-lib)
 ;; Common Lisp:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Visual%20Tweaks][Visual Tweaks:1]]
-(setq inhibit-splash-screen t)
-(scroll-bar-mode -1)
-(menu-bar-mode -1)
-;; Visual Tweaks:1 ends here
-
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*y/n%20instead%20of%20'yes/no'][y/n instead of 'yes/no':1]]
 (fset 'yes-or-no-p 'y-or-n-p)
 ;; y/n instead of 'yes/no':1 ends here
@@ -47,14 +41,12 @@
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Server%20Mode][Server Mode:1]]
 (require 'server)
- (unless (server-running-p)
-   (server-start))
-
-  ;; (if '(server-running-p)
-  ;;      (message "A server already active!")
-  ;;      server-start
-  ;;     )
-;;(server-start)
+(unless (server-running-p)
+  (progn
+    (server-start)
+    (toggle-frame-maximized)
+    )
+)
 ;; Server Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Line%20Numbers][Line Numbers:1]]
@@ -133,9 +125,12 @@ Uses `current-date-time-format' for the formatting the date/time."
   :ensure t)
 ;; Try:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Free%20up%20space%20by%20killing%20the%20toolbar][Free up space by killing the toolbar:1]]
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Visual%20Tweaks][Visual Tweaks:1]]
+(setq inhibit-splash-screen t)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
-;; Free up space by killing the toolbar:1 ends here
+;; Visual Tweaks:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Display%20clock%20and%20system%20load%20average][Display clock and system load average:1]]
 (setq display-time-24hr-format t)
@@ -188,31 +183,36 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; ivy gives intelligent file search with M-x
-(use-package ivy
-  :diminish
-  :config
-  (ivy-mode 1)
+  (use-package ivy
+    :diminish
+    :config
+    (ivy-mode 1)
+  )
+
+  ;; counsel is a requirement for swiper
+  (use-package counsel
+    :ensure t
 )
 
-;; counsel is a requirement for swiper
-(use-package counsel
-  :ensure t
-  :bind(("M-y" . counsel-yank-pop)
-	))
+  ;; swiper is an improved search with intelligent pattern matching.
+  (use-package swiper
+    :ensure t
+    :bind (("C-s" . swiper)
+	   ("C-r" . swiper)
+	   ("C-c C-r" . ivy-resume)
+	   ("M-x" . counsel-M-x)
+	   ("C-x C-f" . counsel-find-file)
+	   ("M-y" . counsel-yank-pop))
+    :config
+    (progn
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-display-style 'fancy)
+      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
-;; swiper is an improved search with intelligent pattern matching.
-(use-package swiper
-  :ensure try
-  :bind (("C-s" . swiper)
-	 ("C-r" . swiper)
-	 ("C-c C-r" . ivy-resume)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file))
-  :config
-  (progn
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+  (use-package ivy-rich
+  :ensure t
+  :init
+  (ivy-rich-mode 1))
 ;; Searching:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*ISP][ISP:1]]
@@ -296,10 +296,10 @@ Uses `current-date-time-format' for the formatting the date/time."
  (use-package all-the-icons
    :ensure t)
  ;; add install fonts if not present feature
- (defun install-icon-fonts-checker (dir)
-   (if ((file-exists-p dir) nil)
-       (message "Not looking good, champ.")
-     (message "Looks like it's there.")))
+ ;; (defun install-icon-fonts-checker (dir)
+ ;;   (if ((file-exists-p dir) nil)
+ ;;       (message "Not looking good, champ.")
+ ;;     (message "Looks like it's there.")))
  ;; install if not present
  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
    (all-the-icons-install-fonts))
