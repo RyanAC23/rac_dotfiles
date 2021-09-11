@@ -1,21 +1,33 @@
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Behavior][Behavior:1]]
-;; Behavior -------------------------------------------------------------
-;; enable common lisp syntax
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Common%20Lisp][Common Lisp:1]]
 (require 'cl-lib)
+;; Common Lisp:1 ends here
 
-;; Disable the default splash screen.
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Visual%20Tweaks][Visual Tweaks:1]]
 (setq inhibit-splash-screen t)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+;; Visual Tweaks:1 ends here
 
-;; Be able to type 'y' instead of 'yes'
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*y/n%20instead%20of%20'yes/no'][y/n instead of 'yes/no':1]]
 (fset 'yes-or-no-p 'y-or-n-p)
+;; y/n instead of 'yes/no':1 ends here
 
-;; delete trailing whitespace when saving
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*which-key%20mode][which-key mode:1]]
+(use-package which-key
+  :ensure t
+  :diminish which-key-mode
+  :config (which-key-mode))
+;; which-key mode:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*No%20Trailing%20Whitespace][No Trailing Whitespace:1]]
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; No Trailing Whitespace:1 ends here
 
-;; enable word wrap mode globally
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Word%20Wrap][Word Wrap:1]]
 (global-visual-line-mode)
+;; Word Wrap:1 ends here
 
-;; reroute backups and control history
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Cleaner%20Directories][Cleaner Directories:1]]
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
 	(make-directory --backup-directory t))
@@ -31,17 +43,26 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
+;; Cleaner Directories:1 ends here
 
-;; Start in server mode to open files in the server instance with the bash command
-;; >>$ 'emacsclient [file]'
-(server-start)
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Server%20Mode][Server Mode:1]]
+(require 'server)
+ (unless (server-running-p)
+   (server-start))
 
-;; Enable line numbers by default.
+  ;; (if '(server-running-p)
+  ;;      (message "A server already active!")
+  ;;      server-start
+  ;;     )
+;;(server-start)
+;; Server Mode:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Line%20Numbers][Line Numbers:1]]
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+;; Line Numbers:1 ends here
 
-;; Enable parenthesis matching mode
-;; https://melpa.org/#/mic-paren
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Enable%20parenthesis%20matching%20mode][Enable parenthesis matching mode:1]]
 (use-package mic-paren
     :ensure t
     :config
@@ -50,7 +71,7 @@
     (add-hook 'python-mode-hook   'paren-activate)
     (add-hook 'org-mode-hook      'paren-activate)
 )
-;; Behavior:1 ends here
+;; Enable parenthesis matching mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
 ;; move between windows with shift+[arrow]
@@ -107,6 +128,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 (prefer-coding-system 'utf-8)
 ;; UTF-8 Encoding:1 ends here
 
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Try][Try:1]]
+(use-package try
+  :ensure t)
+;; Try:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Free%20up%20space%20by%20killing%20the%20toolbar][Free up space by killing the toolbar:1]]
 (tool-bar-mode -1)
 ;; Free up space by killing the toolbar:1 ends here
@@ -150,13 +176,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package diminish
   :ensure t
   :init
-  (diminish 'ivy-mode)
   (diminish 'page-break-lines-mode)
   (diminish 'undo-tree-mode)
   (diminish 'org-src-mode)
-  (diminish 'which-key-mode)
-  (diminish 'eldoc-mode)
-  (diminish 'projectile-mode))
+  (diminish 'eldoc-mode))
 ;; diminish - hide minor modes from line:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Tramp][Tramp:1]]
@@ -164,18 +187,20 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Tramp:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
-;; Searching -----------------------------------------------------------
+;; ivy gives intelligent file search with M-x
+(use-package ivy
+  :diminish
+  :config
+  (ivy-mode 1)
+)
 
 ;; counsel is a requirement for swiper
 (use-package counsel
   :ensure t
   :bind(("M-y" . counsel-yank-pop)
-	:map ivy-minibuffer-map
-	("M-y" . ivy-next-line)))
+	))
 
 ;; swiper is an improved search with intelligent pattern matching.
-;; this makes ido-mode unecessary. Many of these rebindings are
-;; probably unecessary as well.
 (use-package swiper
   :ensure try
   :bind (("C-s" . swiper)
@@ -185,11 +210,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 	 ("C-x C-f" . counsel-find-file))
   :config
   (progn
-    (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
     (setq ivy-display-style 'fancy)
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 ;; Searching:1 ends here
+
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*ISP][ISP:1]]
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+;; ISP:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Autocompletion][Autocompletion:1]]
 ;; Autocompletion ----------------------------------------------------------
@@ -252,6 +285,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
+   :diminish projectile-mode
    :ensure t
    :init
    (projectile-mode 1)

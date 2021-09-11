@@ -8,10 +8,12 @@ Enable common lisp syntax
   (require 'cl-lib)
 #+END_SRC
 
-** Splash Screen
-Disable the default splash screen.
+** Visual Tweaks
+Disable the default splash screen, the visual scrollbars, and the menu bar that you never click.
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-splash-screen t)
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1)
 #+END_SRC
 
 ** y/n instead of 'yes/no'
@@ -66,8 +68,15 @@ reroute backups and control history
 ** Server Mode
 Start in server mode to open files in the server instance with the bash command
 #+BEGIN_SRC emacs-lisp
-  ;; >>$ 'emacsclient [file]'
-  (server-start)
+   (require 'server)
+   (unless (server-running-p)
+     (server-start))
+
+    ;; (if '(server-running-p)
+    ;;      (message "A server already active!")
+    ;;      server-start
+    ;;     )
+  ;;(server-start)
 #+END_SRC
 
 ** Line Numbers
@@ -150,6 +159,13 @@ Uses `current-date-time-format' for the formatting the date/time."
   (prefer-coding-system 'utf-8)
 #+END_SRC
 
+** Try
+Download and give a melpa package a shot without adding it to init.el.
+#+BEGIN_SRC emacs-lisp
+(use-package try
+  :ensure t)
+#+END_SRC
+
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
 
@@ -204,12 +220,10 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
   (use-package diminish
     :ensure t
     :init
-    (diminish 'ivy-mode)
     (diminish 'page-break-lines-mode)
     (diminish 'undo-tree-mode)
     (diminish 'org-src-mode)
-    (diminish 'eldoc-mode)
-    (diminish 'projectile-mode))
+    (diminish 'eldoc-mode))
 #+END_SRC
 
 * SSH / TRAMP
@@ -218,32 +232,35 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 (setq tramp-verbose 10)
 #+END_SRC
 * Searching
+The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give regular expression searches with spaces and suggest completions for commands and other minibuffer actions.
 #+BEGIN_SRC emacs-lisp
-;; Searching -----------------------------------------------------------
 
-;; counsel is a requirement for swiper
-(use-package counsel
-  :ensure t
-  :bind(("M-y" . counsel-yank-pop)
-	:map ivy-minibuffer-map
-	("M-y" . ivy-next-line)))
-
-;; swiper is an improved search with intelligent pattern matching.
-;; this makes ido-mode unecessary. Many of these rebindings are
-;; probably unecessary as well.
-(use-package swiper
-  :ensure try
-  :bind (("C-s" . swiper)
-	 ("C-r" . swiper)
-	 ("C-c C-r" . ivy-resume)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file))
-  :config
-  (progn
+  ;; ivy gives intelligent file search with M-x
+  (use-package ivy
+    :diminish
+    :config
     (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+  )
+
+  ;; counsel is a requirement for swiper
+  (use-package counsel
+    :ensure t
+    :bind(("M-y" . counsel-yank-pop)
+	  ))
+
+  ;; swiper is an improved search with intelligent pattern matching.
+  (use-package swiper
+    :ensure try
+    :bind (("C-s" . swiper)
+	   ("C-r" . swiper)
+	   ("C-c C-r" . ivy-resume)
+	   ("M-x" . counsel-M-x)
+	   ("C-x C-f" . counsel-find-file))
+    :config
+    (progn
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-display-style 'fancy)
+      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 #+END_SRC
 
 * TODO Autocompletion
@@ -324,6 +341,7 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 * Dashboard / Homescreen
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
+    :diminish projectile-mode
     :ensure t
     :init
     (projectile-mode 1)
@@ -596,4 +614,4 @@ Export JS directly from a code block [[https://emacs.stackexchange.com/questions
 #+END_SRC
 
 * Test Space
-For Melpa packages I haven't committed myself to.
+For settings and Melpa packages I haven't committed myself to.
