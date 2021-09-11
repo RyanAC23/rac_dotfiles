@@ -50,7 +50,7 @@
     ("http://ronpaulinstitute.org/archives/peace-and-prosperity/rss.aspx?blogid=5" "https://alexberenson.substack.com/feed" "https://www.youtube.com/feeds/videos.xml?channel_id=UCkqcY4CAuBFNFho6JgygCnA")))
  '(package-selected-packages
    (quote
-    (ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview flycheck yasnippet-snippets yasnippet elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline rainbow-mode projectile ox-reveal org-bullets htmlize esup emmet-mode diminish dashboard counsel company auto-complete all-the-icons)))
+    (magit ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview flycheck yasnippet-snippets yasnippet elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline rainbow-mode projectile ox-reveal org-bullets htmlize esup emmet-mode diminish dashboard counsel company auto-complete all-the-icons)))
  '(tramp-terminal-type "dumb"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

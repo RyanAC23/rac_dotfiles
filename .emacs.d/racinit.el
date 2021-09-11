@@ -181,6 +181,13 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq tramp-verbose 10)
 ;; Tramp:1 ends here
 
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Version%20Control][Version Control:1]]
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  )
+;; Version Control:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; ivy gives intelligent file search with M-x
 (use-package ivy

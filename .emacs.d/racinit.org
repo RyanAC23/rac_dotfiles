@@ -228,6 +228,14 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 #+BEGIN_SRC emacs-lisp
 (setq tramp-verbose 10)
 #+END_SRC
+* Version Control
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+    )
+#+END_SRC
+
 * Searching
 The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give regular expression searches with spaces and suggest completions for commands and other minibuffer actions. ~Ivy-rich~ provides extra information on functions in ivy menus.
 #+BEGIN_SRC emacs-lisp
