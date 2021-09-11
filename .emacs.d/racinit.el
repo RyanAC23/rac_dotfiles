@@ -182,10 +182,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Tramp:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Version%20Control][Version Control:1]]
-(use-package magit
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-  )
+(use-package magit)
 ;; Version Control:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
@@ -321,28 +318,47 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
 ;; Org-mode ------------------------------------------------------------
-  (use-package org
-    :config
-;;    (setq org-ellipsis " .")
-    )
-
-  (use-package org-bullets
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-
-  ;; reveal.js presentations
-  (use-package ox-reveal
-    :ensure ox-reveal)
-  ;; We need to tell ox-reveal where to find the js file.
-  ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-  (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-  (setq org-reveal-mathjax t)
-  ;; enable syntax highlighting
-  (use-package htmlize
+(defun org-mode-setup ()
+  (org-indent-mode)
+  (dolist (face '((org-level-1 . 1.15)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
   )
 
-  ;; Add markdown export support
-  (require 'ox-md)
+
+
+(use-package org
+  :hook (org-mode . org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+  )
+
+(use-package org-bullets
+  :config
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+  )
+
+;; reveal.js presentations
+(use-package ox-reveal
+  :ensure ox-reveal)
+;; We need to tell ox-reveal where to find the js file.
+;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
+(setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+(setq org-reveal-mathjax t)
+;; enable syntax highlighting
+(use-package htmlize
+)
+
+;; Add markdown export support
+(require 'ox-md)
 ;; Org Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]

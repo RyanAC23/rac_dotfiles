@@ -1,5 +1,6 @@
 #+STARTUP: overview
 #+PROPERTY: header-args :comments yes :results silent
+#+OPTIONS: toc:2
 
 * Behavior
 ** Packages
@@ -230,10 +231,7 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 #+END_SRC
 * Version Control
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :custom
-    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
-    )
+  (use-package magit)
 #+END_SRC
 
 * Searching
@@ -378,34 +376,50 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 #+END_SRC
 
-* Org Mode
+* TODO Org Mode
 #+BEGIN_SRC emacs-lisp
-    ;; Org-mode ------------------------------------------------------------
-    (use-package org
-      :config
-  ;;    (setq org-ellipsis " .")
-      )
-
-    (use-package org-bullets
-      :config
-      :hook (org-mode . org-bullets-mode)
-      :custom
-      (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-      )
-
-    ;; reveal.js presentations
-    (use-package ox-reveal
-      :ensure ox-reveal)
-    ;; We need to tell ox-reveal where to find the js file.
-    ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-    (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-    (setq org-reveal-mathjax t)
-    ;; enable syntax highlighting
-    (use-package htmlize
+  ;; Org-mode ------------------------------------------------------------
+  (defun org-mode-setup ()
+    (org-indent-mode)
+    (dolist (face '((org-level-1 . 1.15)
+                    (org-level-2 . 1.1)
+                    (org-level-3 . 1.05)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+      (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
     )
 
-    ;; Add markdown export support
-    (require 'ox-md)
+
+
+  (use-package org
+    :hook (org-mode . org-mode-setup)
+    :config
+    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+    )
+
+  (use-package org-bullets
+    :config
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+    )
+
+  ;; reveal.js presentations
+  (use-package ox-reveal
+    :ensure ox-reveal)
+  ;; We need to tell ox-reveal where to find the js file.
+  ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
+  (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+  (setq org-reveal-mathjax t)
+  ;; enable syntax highlighting
+  (use-package htmlize
+  )
+
+  ;; Add markdown export support
+  (require 'ox-md)
 #+END_SRC
 * Org Links Mode
 
