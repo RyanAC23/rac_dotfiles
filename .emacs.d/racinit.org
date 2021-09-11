@@ -380,24 +380,32 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 
 * Org Mode
 #+BEGIN_SRC emacs-lisp
-;; Org-mode ------------------------------------------------------------
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    ;; Org-mode ------------------------------------------------------------
+    (use-package org
+      :config
+  ;;    (setq org-ellipsis " .")
+      )
 
-;; reveal.js presentations
-(use-package ox-reveal
-  :ensure ox-reveal)
-;; We need to tell ox-reveal where to find the js file.
-;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-(setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-(setq org-reveal-mathjax t)
-;; enable syntax highlighting
-(use-package htmlize
-)
+    (use-package org-bullets
+      :config
+      :hook (org-mode . org-bullets-mode)
+      :custom
+      (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+      )
 
-;; Add markdown export support
-(require 'ox-md)
+    ;; reveal.js presentations
+    (use-package ox-reveal
+      :ensure ox-reveal)
+    ;; We need to tell ox-reveal where to find the js file.
+    ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
+    (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+    (setq org-reveal-mathjax t)
+    ;; enable syntax highlighting
+    (use-package htmlize
+    )
+
+    ;; Add markdown export support
+    (require 'ox-md)
 #+END_SRC
 * Org Links Mode
 

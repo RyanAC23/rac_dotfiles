@@ -321,23 +321,28 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
 ;; Org-mode ------------------------------------------------------------
-(use-package org-bullets
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (use-package org
+    :config
+;;    (setq org-ellipsis " .")
+    )
 
-;; reveal.js presentations
-(use-package ox-reveal
-  :ensure ox-reveal)
-;; We need to tell ox-reveal where to find the js file.
-;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-(setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-(setq org-reveal-mathjax t)
-;; enable syntax highlighting
-(use-package htmlize
-)
+  (use-package org-bullets
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-;; Add markdown export support
-(require 'ox-md)
+  ;; reveal.js presentations
+  (use-package ox-reveal
+    :ensure ox-reveal)
+  ;; We need to tell ox-reveal where to find the js file.
+  ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
+  (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+  (setq org-reveal-mathjax t)
+  ;; enable syntax highlighting
+  (use-package htmlize
+  )
+
+  ;; Add markdown export support
+  (require 'ox-md)
 ;; Org Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
