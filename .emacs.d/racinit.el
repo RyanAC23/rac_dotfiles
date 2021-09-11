@@ -1,3 +1,8 @@
+;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Packages][Packages:1]]
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+;; Packages:1 ends here
+
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Common%20Lisp][Common Lisp:1]]
 (require 'cl-lib)
 ;; Common Lisp:1 ends here
@@ -8,7 +13,6 @@
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*which-key%20mode][which-key mode:1]]
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :config (which-key-mode))
 ;; which-key mode:1 ends here
@@ -56,7 +60,6 @@
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Enable%20parenthesis%20matching%20mode][Enable parenthesis matching mode:1]]
 (use-package mic-paren
-    :ensure t
     :config
     ;;(paren-activate)
     (add-hook 'c-mode-common-hook 'paren-activate)
@@ -121,8 +124,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; UTF-8 Encoding:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Try][Try:1]]
-(use-package try
-  :ensure t)
+(use-package try)
 ;; Try:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Visual%20Tweaks][Visual Tweaks:1]]
@@ -160,7 +162,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]
 (use-package spaceline
-  :ensure t
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator (quote arrow))
@@ -169,7 +170,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
 (use-package diminish
-  :ensure t
   :init
   (diminish 'page-break-lines-mode)
   (diminish 'undo-tree-mode)
@@ -183,53 +183,43 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; ivy gives intelligent file search with M-x
-  (use-package ivy
-    :diminish
-    :config
-    (ivy-mode 1)
-  )
-
-  ;; counsel is a requirement for swiper
-  (use-package counsel
-    :ensure t
+(use-package ivy
+  :diminish
+  :config
+  (ivy-mode 1)
 )
 
-  ;; swiper is an improved search with intelligent pattern matching.
-  (use-package swiper
-    :ensure t
-    :bind (("C-s" . swiper)
-	   ("C-r" . swiper)
-	   ("C-c C-r" . ivy-resume)
-	   ("M-x" . counsel-M-x)
-	   ("C-x C-f" . counsel-find-file)
-	   ("M-y" . counsel-yank-pop))
-    :config
-    (progn
-      (setq ivy-use-virtual-buffers t)
-      (setq ivy-display-style 'fancy)
-      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+;; counsel is a requirement for swiper
+(use-package counsel)
 
-  (use-package ivy-rich
-  :ensure t
-  :init
-  (ivy-rich-mode 1))
-;; Searching:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*ISP][ISP:1]]
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+;; swiper is an improved search with intelligent pattern matching.
+(use-package swiper
+  :bind (("C-s" . swiper)
+	 ("C-r" . swiper)
+	 ("C-c C-r" . ivy-resume)
+	 ("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file)
+	 ("M-y" . counsel-yank-pop)
+	 ("M-n" . (lambda () (interactive) (search-forward (car swiper-history))))
+	 ("M-p" . (lambda () (interactive) (search-backward (car swiper-history))))
+	 )
   :config
-  (lsp-enable-which-key-integration t))
-;; ISP:1 ends here
+  (progn
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+    )
+
+(use-package ivy-rich
+:init
+(ivy-rich-mode 1))
+;; Searching:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Autocompletion][Autocompletion:1]]
 ;; Autocompletion ----------------------------------------------------------
 ;; We'll try company-mode for now. The old standard autocomplete was the
 ;; smartly named auto-complete, but only company is being actively developed.
  (use-package company
-   :ensure t
    :init
    (add-hook 'emacs-lisp-mode-hook 'company-mode)
    (add-hook 'org-mode-hook 'company-mode)
@@ -239,13 +229,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; C/C++ intellisense
 ;; may need clang compiler installed for this to work
 ;; (use-package company-irony
-;;  :ensure t
 ;;  :config
 ;;  (require 'company)
 ;;  (add-to-list 'company-backends 'company-irony))
 
 ;; (use-package irony
-;;  :ensure t
 ;;  :config
 ;;  (add-hook 'c++-mode-hook 'irony-mode)
 ;;  (add-hook 'c-mode-hook 'irony-mode)
@@ -285,48 +273,48 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
-   :diminish projectile-mode
-   :ensure t
-   :init
-   (projectile-mode 1)
-   :config
-   (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
-   )
+     :diminish projectile-mode
+     :config (projectile-mode)
+     :bind-keymap
+     ("C-c p" . projectile-command-map)
+     :custom ((projectile-completion-system 'ivy))
+     :init
+     (when (file-directory-p "~/repos/")
+       (setq projectile-project-search-path '("~/repos/")))
+     )
 
- (use-package all-the-icons
-   :ensure t)
- ;; add install fonts if not present feature
- ;; (defun install-icon-fonts-checker (dir)
- ;;   (if ((file-exists-p dir) nil)
- ;;       (message "Not looking good, champ.")
- ;;     (message "Looks like it's there.")))
- ;; install if not present
- (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-   (all-the-icons-install-fonts))
+   (use-package all-the-icons
+)
+   ;; add install fonts if not present feature
+   ;; (defun install-icon-fonts-checker (dir)
+   ;;   (if ((file-exists-p dir) nil)
+   ;;       (message "Not looking good, champ.")
+   ;;     (message "Looks like it's there.")))
+   ;; install if not present
+   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+     (all-the-icons-install-fonts))
 
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
-  (setq dashboard-items '((recents . 15)
-			   (projects . 5)
-			   (bookmarks . 5)
-			   (agenda . 5)
-			   (registers . 5)))
-  ;; centering looks awful with multiple frames.
-  ;;(setq dashboard-center-content t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-footer-messages nil)
-  (load-file "~/.emacs.d/dashboard_quotes.el")
-  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+  (use-package dashboard
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+    (setq dashboard-items '((recents . 15)
+			     (projects . 5)
+			     (bookmarks . 5)
+			     (agenda . 5)
+			     (registers . 5)))
+    ;; centering looks awful with multiple frames.
+    (setq dashboard-center-content t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-footer-messages nil)
+    (load-file "~/.emacs.d/dashboard_quotes.el")
+    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 ;; Dashboard / Homescreen:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
 ;; Org-mode ------------------------------------------------------------
 (use-package org-bullets
-  :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
@@ -339,7 +327,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq org-reveal-mathjax t)
 ;; enable syntax highlighting
 (use-package htmlize
-  :ensure t)
+)
 
 ;; Add markdown export support
 (require 'ox-md)
@@ -347,36 +335,35 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
 (global-set-key (kbd "C-c c")
-		'org-capture)
+		  'org-capture)
 
-(defadvice org-capture-finalize
-    (after delete-capture-frame activate)
-  "Advise capture-finalize to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
+  (defadvice org-capture-finalize
+      (after delete-capture-frame activate)
+    "Advise capture-finalize to close the frame"
+    (if (equal "capture" (frame-parameter nil 'name))
+	(delete-frame)))
 
-(defadvice org-capture-destroy
-    (after delete-capture-frame activate)
-  "Advise capture-destroy to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
+  (defadvice org-capture-destroy
+      (after delete-capture-frame activate)
+    "Advise capture-destroy to close the frame"
+    (if (equal "capture" (frame-parameter nil 'name))
+	(delete-frame)))
 
-(use-package noflet
-  :ensure t )
+  (use-package noflet
+)
 
-(defun make-capture-frame ()
-  "Create a new frame and run org-capture."
-  (interactive)
-  (make-frame '((name . "capture")))
-  (select-frame-by-name "capture")
-  (delete-other-windows)
-  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-    (org-capture)))
+  (defun make-capture-frame ()
+    "Create a new frame and run org-capture."
+    (interactive)
+    (make-frame '((name . "capture")))
+    (select-frame-by-name "capture")
+    (delete-other-windows)
+    (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+      (org-capture)))
 ;; Org Links Mode:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
 (use-package flycheck
-  :ensure t
   :config
     (add-hook 'c-mode-hook 'flycheck-mode)
     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
@@ -387,19 +374,17 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
 (use-package yasnippet
-  :ensure t
-  :config
-  (add-hook 'c-mode-hook 'yas-minor-mode)
-  (add-hook 'c++-mode-hook 'yas-minor-mode)
-  ;;(add-hook 'python-mode-hook 'yas-minor-mode)
+    :config
+    (add-hook 'c-mode-hook 'yas-minor-mode)
+    (add-hook 'c++-mode-hook 'yas-minor-mode)
+    ;;(add-hook 'python-mode-hook 'yas-minor-mode)
+  )
+  (use-package yasnippet-snippets
 )
-(use-package yasnippet-snippets
-  :ensure t)
 ;; Yasnippet:1 ends here
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Blacken%20Hook][Blacken Hook:1]]
 (use-package blacken
-    :ensure t
     :config
     (add-hook 'python-mode-hook 'blacken-mode)
 )
@@ -435,7 +420,6 @@ Uses `current-date-time-format' for the formatting the date/time."
     :ensure auctex
 )
 (use-package auctex-latexmk
-    :ensure t
 )
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -449,7 +433,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
 (use-package web-mode
-  :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (setq web-mode-engines-alist
@@ -463,7 +446,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq web-mode-enable-current-element-highlight t))
 
 (use-package emmet-mode
-  :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -516,7 +498,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*RSS%20-%20Elfeed][RSS - Elfeed:1]]
 (use-package elfeed
-    :ensure t
     )
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq-default elfeed-search-filter "@2-months-ago")

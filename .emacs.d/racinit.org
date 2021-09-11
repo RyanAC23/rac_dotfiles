@@ -2,6 +2,14 @@
 #+PROPERTY: header-args :comments yes :results silent
 
 * Behavior
+** Packages
+Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
+
+#+BEGIN_SRC emacs-lisp
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+#+END_SRC
+
 ** Common Lisp
 Enable common lisp syntax
 #+BEGIN_SRC emacs-lisp
@@ -19,7 +27,6 @@ A nice mode that shows a list of key bindings that follow from inputs you've alr
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :ensure t
     :diminish which-key-mode
     :config (which-key-mode))
 #+END_SRC
@@ -80,7 +87,6 @@ Enable line numbers by default.
 https://melpa.org/#/mic-paren
 #+BEGIN_SRC emacs-lisp
   (use-package mic-paren
-      :ensure t
       :config
       ;;(paren-activate)
       (add-hook 'c-mode-common-hook 'paren-activate)
@@ -152,8 +158,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ** Try
 Download and give a melpa package a shot without adding it to init.el.
 #+BEGIN_SRC emacs-lisp
-(use-package try
-  :ensure t)
+(use-package try)
 #+END_SRC
 
 * Theme and Appearance
@@ -203,7 +208,6 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 ** Modeline
 #+BEGIN_SRC emacs-lisp
   (use-package spaceline
-    :ensure t
     :config
     (require 'spaceline-config)
     (setq powerline-default-separator (quote arrow))
@@ -212,7 +216,6 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 ** diminish - hide minor modes from line
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
-    :ensure t
     :init
     (diminish 'page-break-lines-mode)
     (diminish 'undo-tree-mode)
@@ -237,43 +240,33 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   )
 
   ;; counsel is a requirement for swiper
-  (use-package counsel
-    :ensure t
-)
+  (use-package counsel)
 
   ;; swiper is an improved search with intelligent pattern matching.
   (use-package swiper
-    :ensure t
     :bind (("C-s" . swiper)
 	   ("C-r" . swiper)
 	   ("C-c C-r" . ivy-resume)
 	   ("M-x" . counsel-M-x)
 	   ("C-x C-f" . counsel-find-file)
-	   ("M-y" . counsel-yank-pop))
+	   ("M-y" . counsel-yank-pop)
+	   ("M-n" . (lambda () (interactive) (search-forward (car swiper-history))))
+	   ("M-p" . (lambda () (interactive) (search-backward (car swiper-history))))
+	   )
     :config
     (progn
       (setq ivy-use-virtual-buffers t)
       (setq ivy-display-style 'fancy)
-      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+      )
 
   (use-package ivy-rich
-  :ensure t
   :init
   (ivy-rich-mode 1))
 
 #+END_SRC
 
 * TODO Autocompletion
-
-** ISP
-#+BEGIN_SRC emacs-lisp
-  (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :config
-    (lsp-enable-which-key-integration t))
-#+END_SRC
 
 ** Autocompletion
 #+BEGIN_SRC emacs-lisp
@@ -282,7 +275,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;; We'll try company-mode for now. The old standard autocomplete was the
   ;; smartly named auto-complete, but only company is being actively developed.
    (use-package company
-     :ensure t
      :init
      (add-hook 'emacs-lisp-mode-hook 'company-mode)
      (add-hook 'org-mode-hook 'company-mode)
@@ -292,13 +284,11 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;; C/C++ intellisense
   ;; may need clang compiler installed for this to work
   ;; (use-package company-irony
-  ;;  :ensure t
   ;;  :config
   ;;  (require 'company)
   ;;  (add-to-list 'company-backends 'company-irony))
 
   ;; (use-package irony
-  ;;  :ensure t
   ;;  :config
   ;;  (add-hook 'c++-mode-hook 'irony-mode)
   ;;  (add-hook 'c-mode-hook 'irony-mode)
@@ -342,15 +332,17 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+BEGIN_SRC emacs-lisp
    (use-package projectile
      :diminish projectile-mode
-     :ensure t
+     :config (projectile-mode)
+     :bind-keymap
+     ("C-c p" . projectile-command-map)
+     :custom ((projectile-completion-system 'ivy))
      :init
-     (projectile-mode 1)
-     :config
-     (define-key projectile-mode-map (kbd "C-x p") 'projectile-command-map)
+     (when (file-directory-p "~/repos/")
+       (setq projectile-project-search-path '("~/repos/")))
      )
 
    (use-package all-the-icons
-     :ensure t)
+)
    ;; add install fonts if not present feature
    ;; (defun install-icon-fonts-checker (dir)
    ;;   (if ((file-exists-p dir) nil)
@@ -361,7 +353,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
      (all-the-icons-install-fonts))
 
   (use-package dashboard
-    :ensure t
     :config
     (dashboard-setup-startup-hook)
     (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
@@ -371,7 +362,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 			     (agenda . 5)
 			     (registers . 5)))
     ;; centering looks awful with multiple frames.
-    ;;(setq dashboard-center-content t)
+    (setq dashboard-center-content t)
     (setq dashboard-set-file-icons t)
     (setq dashboard-set-heading-icons t)
     (setq dashboard-footer-messages nil)
@@ -383,7 +374,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+BEGIN_SRC emacs-lisp
 ;; Org-mode ------------------------------------------------------------
 (use-package org-bullets
-  :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
@@ -396,7 +386,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 (setq org-reveal-mathjax t)
 ;; enable syntax highlighting
 (use-package htmlize
-  :ensure t)
+)
 
 ;; Add markdown export support
 (require 'ox-md)
@@ -421,7 +411,7 @@ For some reason, org capture links can't be defined in this file. If present her
 	(delete-frame)))
 
   (use-package noflet
-    :ensure t )
+)
 
   (defun make-capture-frame ()
     "Create a new frame and run org-capture."
@@ -438,7 +428,6 @@ For some reason, org capture links can't be defined in this file. If present her
 #+BEGIN_SRC emacs-lisp
 
   (use-package flycheck
-    :ensure t
     :config
       (add-hook 'c-mode-hook 'flycheck-mode)
       (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
@@ -453,14 +442,13 @@ Yasnippet gives you quick completion of common code snippets, such as loops and 
 
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-    :ensure t
     :config
     (add-hook 'c-mode-hook 'yas-minor-mode)
     (add-hook 'c++-mode-hook 'yas-minor-mode)
     ;;(add-hook 'python-mode-hook 'yas-minor-mode)
   )
   (use-package yasnippet-snippets
-    :ensure t)
+)
 
 #+END_SRC
 * TODO Python
@@ -469,7 +457,6 @@ Automatically run blacken on any saved python buffer. The time saved is worth an
 
 #+BEGIN_SRC emacs-lisp
     (use-package blacken
-	:ensure t
 	:config
 	(add-hook 'python-mode-hook 'blacken-mode)
     )
@@ -514,7 +501,6 @@ Nothing stuck here yet....
     :ensure auctex
 )
 (use-package auctex-latexmk
-    :ensure t
 )
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -529,7 +515,6 @@ Nothing stuck here yet....
 * Web Development
 #+BEGIN_SRC emacs-lisp
   (use-package web-mode
-    :ensure t
     :config
     (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
     (setq web-mode-engines-alist
@@ -543,7 +528,6 @@ Nothing stuck here yet....
     (setq web-mode-enable-current-element-highlight t))
 
   (use-package emmet-mode
-    :ensure t
     :config
     (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
     (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -600,7 +584,6 @@ Export JS directly from a code block [[https://emacs.stackexchange.com/questions
 * RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed
-    :ensure t
     )
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq-default elfeed-search-filter "@2-months-ago")
