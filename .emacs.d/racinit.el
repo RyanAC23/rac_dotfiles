@@ -1,31 +1,18 @@
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Packages][Packages:1]]
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
-;; Packages:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Common%20Lisp][Common Lisp:1]]
 (require 'cl-lib)
-;; Common Lisp:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*y/n%20instead%20of%20'yes/no'][y/n instead of 'yes/no':1]]
 (fset 'yes-or-no-p 'y-or-n-p)
-;; y/n instead of 'yes/no':1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*which-key%20mode][which-key mode:1]]
 (use-package which-key
   :diminish which-key-mode
   :config (which-key-mode))
-;; which-key mode:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*No%20Trailing%20Whitespace][No Trailing Whitespace:1]]
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; No Trailing Whitespace:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Word%20Wrap][Word Wrap:1]]
 (global-visual-line-mode)
-;; Word Wrap:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Cleaner%20Directories][Cleaner Directories:1]]
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
 	(make-directory --backup-directory t))
@@ -41,9 +28,7 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
-;; Cleaner Directories:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Server%20Mode][Server Mode:1]]
 (require 'server)
 (unless (server-running-p)
   (progn
@@ -51,14 +36,10 @@
     (toggle-frame-maximized)
     )
 )
-;; Server Mode:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Line%20Numbers][Line Numbers:1]]
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
-;; Line Numbers:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Enable%20parenthesis%20matching%20mode][Enable parenthesis matching mode:1]]
 (use-package mic-paren
     :config
     ;;(paren-activate)
@@ -66,22 +47,16 @@
     (add-hook 'python-mode-hook   'paren-activate)
     (add-hook 'org-mode-hook      'paren-activate)
 )
-;; Enable parenthesis matching mode:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Navigation][Navigation:1]]
 ;; move between windows with shift+[arrow]
     (windmove-default-keybindings)
-;; Navigation:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Quick%20Reload%20init.el][Quick Reload init.el:1]]
 (defun reload-init-file ()
   (interactive)
   (load-file user-init-file))
 
 (global-set-key (kbd "C-c r") 'reload-init-file)
-;; Quick Reload init.el:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Insert%20timestamp][Insert timestamp:1]]
 ;; ====================
 ;; insert date and time
 
@@ -113,39 +88,27 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (global-set-key "\C-x\C-d" 'insert-current-date-time)
 (global-set-key "\C-x\C-t" 'insert-current-time)
-;; Insert timestamp:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*UTF-8%20Encoding][UTF-8 Encoding:1]]
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
-;; UTF-8 Encoding:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Try][Try:1]]
 (use-package try)
-;; Try:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Visual%20Tweaks][Visual Tweaks:1]]
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-;; Visual Tweaks:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Display%20clock%20and%20system%20load%20average][Display clock and system load average:1]]
-(setq display-time-24hr-format t)
-(display-time-mode 1)
-;; Display clock and system load average:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*load%20a%20default%20theme.][load a default theme.:1]]
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (if (display-graphic-p)
     (load-theme 'neptune t))
-;; load a default theme.:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Transparency][Transparency:1]]
+(setq display-time-24hr-format t)
+(display-time-mode 1)
+
 (defun toggle-transparency ()
    (interactive)
    (let ((alpha (frame-parameter nil 'alpha)))
@@ -158,34 +121,24 @@ Uses `current-date-time-format' for the formatting the date/time."
                100)
           '(95 . 50) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
-;; Transparency:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Modeline][Modeline:1]]
 (use-package spaceline
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator (quote arrow))
 (spaceline-spacemacs-theme))
-;; Modeline:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*diminish%20-%20hide%20minor%20modes%20from%20line][diminish - hide minor modes from line:1]]
 (use-package diminish
   :init
   (diminish 'page-break-lines-mode)
   (diminish 'undo-tree-mode)
   (diminish 'org-src-mode)
   (diminish 'eldoc-mode))
-;; diminish - hide minor modes from line:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Tramp][Tramp:1]]
 (setq tramp-verbose 10)
-;; Tramp:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Version%20Control][Version Control:1]]
 (use-package magit)
-;; Version Control:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Searching][Searching:1]]
 ;; ivy gives intelligent file search with M-x
 (use-package ivy
   :diminish
@@ -217,10 +170,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package ivy-rich
 :init
 (ivy-rich-mode 1))
-;; Searching:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Autocompletion][Autocompletion:1]]
-;; Autocompletion ----------------------------------------------------------
 ;; We'll try company-mode for now. The old standard autocomplete was the
 ;; smartly named auto-complete, but only company is being actively developed.
  (use-package company
@@ -242,9 +192,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;  (add-hook 'c++-mode-hook 'irony-mode)
 ;;  (add-hook 'c-mode-hook 'irony-mode)
 ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-;; Autocompletion:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*iBuffer][iBuffer:1]]
 ;; Navigation -------------------------------------------------------------
 (defalias 'list-buffers 'ibuffer)
 ;; Don't show filter groups if there are no filters in the group
@@ -273,9 +221,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
 	    (ibuffer-switch-to-saved-filter-groups "default")))
-;; iBuffer:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Dashboard%20/%20Homescreen][Dashboard / Homescreen:1]]
 (use-package projectile
      :diminish projectile-mode
      :config (projectile-mode)
@@ -314,9 +260,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     (setq dashboard-footer-messages nil)
     (load-file "~/.emacs.d/dashboard_quotes.el")
     (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
-;; Dashboard / Homescreen:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Mode][Org Mode:1]]
 ;; Org-mode ------------------------------------------------------------
 (defun org-mode-setup ()
   (org-indent-mode)
@@ -331,8 +275,6 @@ Uses `current-date-time-format' for the formatting the date/time."
     (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
   )
 
-
-
 (use-package org
   :hook (org-mode . org-mode-setup)
   :config
@@ -346,7 +288,15 @@ Uses `current-date-time-format' for the formatting the date/time."
   (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
   )
 
+;; org agenda
+(setq org-agenda-files
+      '("~/Dropbox/emacs/rac-agenda.org"
+      "~/Dropbox/emacs/Birthdays.org"))
+(setq org-log-done 'time)
+
+
 ;; reveal.js presentations
+
 (use-package ox-reveal
   :ensure ox-reveal)
 ;; We need to tell ox-reveal where to find the js file.
@@ -359,9 +309,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; Add markdown export support
 (require 'ox-md)
-;; Org Mode:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Org%20Links%20Mode][Org Links Mode:1]]
 (global-set-key (kbd "C-c c")
 		  'org-capture)
 
@@ -388,9 +336,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     (delete-other-windows)
     (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
       (org-capture)))
-;; Org Links Mode:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Flycheck][Flycheck:1]]
 (use-package flycheck
   :config
     (add-hook 'c-mode-hook 'flycheck-mode)
@@ -398,9 +344,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     (add-hook 'c++-mode-hook 'flycheck-mode)
     ;;(add-hook 'python-mode-hook 'flycheck-mode)
     )
-;; Flycheck:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Yasnippet][Yasnippet:1]]
 (use-package yasnippet
     :config
     (add-hook 'c-mode-hook 'yas-minor-mode)
@@ -409,16 +353,12 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
   (use-package yasnippet-snippets
 )
-;; Yasnippet:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Blacken%20Hook][Blacken Hook:1]]
 (use-package blacken
     :config
     (add-hook 'python-mode-hook 'blacken-mode)
 )
-;; Blacken Hook:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Selective%20Display][Selective Display:1]]
 (defun indent-show-all ()
     (interactive)
     (set-selective-display nil)
@@ -441,9 +381,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 (add-hook 'python-mode-hook 'python-remap-fs)
-;; Selective Display:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Auctex%20/%20latexmk][Auctex / latexmk:1]]
 (use-package tex
     :ensure auctex
 )
@@ -457,9 +395,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
-;; Auctex / latexmk:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Web%20Development][Web Development:1]]
 (use-package web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -479,9 +415,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
 )
-;; Web Development:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Main%20Website%20Export][Main Website Export:1]]
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(
@@ -509,31 +443,38 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 	))
-;; Main Website Export:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Rebuild%20Sites][Rebuild Sites:1]]
 (global-set-key (kbd "C-c b") 'org-publish-project)
-;; Rebuild Sites:1 ends here
 
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*Custom%20Commands][Custom Commands:1]]
-(add-to-list 'org-src-lang-modes '("inline-js" . javascript))
-(defvar org-babel-default-header-args:inline-js
-  '((:results . "html")
-    (:exports . "results")))
-(defun org-babel-execute:inline-js (body _params)
-  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
-;; Custom Commands:1 ends here
-
-;; [[file:~/repos/rac_dotfiles/.emacs.d/racinit.org::*RSS%20-%20Elfeed][RSS - Elfeed:1]]
 (use-package elfeed
     )
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq-default elfeed-search-filter "@2-months-ago")
-  (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 5 'elfeed-update)))
+  (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
 
 
 (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
  (when (file-exists-p elfeed-urls)
    (load-file elfeed-urls))
 )
-;; RSS - Elfeed:1 ends here
+
+(use-package visual-fill-column)
+
+;;(setq visual-fill-column-width 95
+;;      visual-fill-column-center-text t)
+;;      (visual-fill-column-mode 1)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t))
+ )
+(setq org-confirm-babel-evaluate nil)
+
+(defun rac/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))

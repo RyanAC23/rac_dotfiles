@@ -1,6 +1,8 @@
+#+TITLE: Ryan AC Emacs Config
 #+STARTUP: overview
-#+PROPERTY: header-args :comments yes :results silent
-#+OPTIONS: toc:2
+# #+PROPERTY: header-args :comments nil :results silent
+
+#+PROPERTY: header-args:emacs-lisp :tangle ./racinit.el :results silent
 
 * Behavior
 ** Packages
@@ -174,18 +176,18 @@ Download and give a melpa package a shot without adding it to init.el.
    (tool-bar-mode -1)
  #+END_SRC
 
-** Display clock and system load average
-#+BEGIN_SRC emacs-lisp
-(setq display-time-24hr-format t)
-(display-time-mode 1)
-#+END_SRC
-
 ** load a default theme.
 [[https://emacsfodder.github.io/emacs-theme-editor/][Edit your own theme]], or find a [[https://peach-melpa.org/][premade theme]] you like online.
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (if (display-graphic-p)
     (load-theme 'neptune t))
+#+END_SRC
+
+** Display clock and system load average
+#+BEGIN_SRC emacs-lisp
+(setq display-time-24hr-format t)
+(display-time-mode 1)
 #+END_SRC
 
 ** Transparency
@@ -277,7 +279,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 ** Autocompletion
 #+BEGIN_SRC emacs-lisp
 
-  ;; Autocompletion ----------------------------------------------------------
   ;; We'll try company-mode for now. The old standard autocomplete was the
   ;; smartly named auto-complete, but only company is being actively developed.
    (use-package company
@@ -299,7 +300,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;;  (add-hook 'c++-mode-hook 'irony-mode)
   ;;  (add-hook 'c-mode-hook 'irony-mode)
   ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
 
 #+END_SRC
 
@@ -392,8 +392,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
       (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
     )
 
-
-
   (use-package org
     :hook (org-mode . org-mode-setup)
     :config
@@ -407,7 +405,15 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
     )
 
+  ;; org agenda
+  (setq org-agenda-files
+        '("~/Dropbox/emacs/rac-agenda.org"
+        "~/Dropbox/emacs/Birthdays.org"))
+  (setq org-log-done 'time)
+
+
   ;; reveal.js presentations
+
   (use-package ox-reveal
     :ensure ox-reveal)
   ;; We need to tell ox-reveal where to find the js file.
@@ -601,23 +607,13 @@ C-c + b
  (global-set-key (kbd "C-c b") 'org-publish-project)
  #+END_SRC
 
-** Custom Commands
-Export JS directly from a code block [[https://emacs.stackexchange.com/questions/28301/export-javascript-source-block-to-script-tag-in-html-when-exporting-org-file-to][by evaluating]]:
-#+BEGIN_SRC emacs-lisp
-(add-to-list 'org-src-lang-modes '("inline-js" . javascript))
-(defvar org-babel-default-header-args:inline-js
-  '((:results . "html")
-    (:exports . "results")))
-(defun org-babel-execute:inline-js (body _params)
-  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
-#+END_SRC
 * RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed
     )
   (global-set-key (kbd "C-x w") 'elfeed)
   (setq-default elfeed-search-filter "@2-months-ago")
-  (add-hook 'emacs-startup-hook (lambda () (run-at-time 5 5 'elfeed-update)))
+  (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
 
 
 (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
@@ -628,3 +624,32 @@ Export JS directly from a code block [[https://emacs.stackexchange.com/questions
 
 * Test Space
 For settings and Melpa packages I haven't committed myself to.
+
+#+BEGIN_SRC emacs-lisp
+(use-package visual-fill-column)
+
+;;(setq visual-fill-column-width 95
+;;      visual-fill-column-center-text t)
+;;      (visual-fill-column-mode 1)
+#+END_SRC
+
+** Org babel load languages
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t))
+   )
+  (setq org-confirm-babel-evaluate nil)
+#+END_SRC
+
+** Auto tangle Org config file
+#+begin_src emacs-lisp
+  (defun rac/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+                        (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle))))
+
+    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+#+end_src

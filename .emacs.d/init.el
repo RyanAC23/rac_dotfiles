@@ -1,12 +1,5 @@
 ;; Emacs init file [./.emacs.d/init.el]
 
-;; loading external config files
-(defun load-if-exists (f)
-  "Load the specified file if it exists."
-  (if (file-readable-p f)
-      (load-file f)))
-(load-if-exists "[filename here]")
-
 ;; ----- Packages --------------------------------------------------------------
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -21,19 +14,33 @@
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
-;; ----- load org init file ----------------------------------------------------
+;; ----- load external init file ---------------------------------------------------------
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/racinit.org"))
+;; loading external config files
+(defun load-if-exists (f)
+  "Load the specified file if it exists."
+  (if (file-readable-p f)
+      (load-file (expand-file-name f))
+    (message "No file to load was found.")
+    )
+  )
+
+(load-if-exists "~/.emacs.d/racinit.el")
+
+;; ----- Org Capture Templates -----------------------------------------------------------
 
 (setq org-capture-templates
       '(
 	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
 	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
 	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t)
-	))
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1)
+      )
+      )
 
 ;; ----- Auto Set Variables -----------------------------------------------------
 
