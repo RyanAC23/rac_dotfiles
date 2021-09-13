@@ -1,3 +1,21 @@
+;; The default is 800 kilobytes.  Measured in bytes.
+  ;;(setq gc-cons-threshold (* 50 1000 1000))
+
+  ;; Profile emacs startup
+
+  (defun run-startup-diagnostics ()
+    (add-hook 'emacs-startup-hook
+              (lambda ()
+                (message "*** Emacs loaded in %s with %d garbage collections."
+                         (format "%.2f seconds"
+                                 (float-time
+                                  (time-subtract after-init-time before-init-time)))
+                         gcs-done)))
+    (setq use-package-verbose t)
+    )
+
+(run-startup-diagnostics)
+
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
@@ -6,8 +24,11 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (use-package which-key
+  :defer 0
   :diminish which-key-mode
-  :config (which-key-mode))
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 1))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -137,7 +158,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq tramp-verbose 10)
 
-(use-package magit)
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+)
 
 ;; ivy gives intelligent file search with M-x
 (use-package ivy
@@ -145,6 +168,11 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (ivy-mode 1)
 )
+
+(use-package ivy-rich
+:after ivy
+:init
+(ivy-rich-mode 1))
 
 ;; counsel is a requirement for swiper
 (use-package counsel)
@@ -167,31 +195,28 @@ Uses `current-date-time-format' for the formatting the date/time."
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
     )
 
-(use-package ivy-rich
-:init
-(ivy-rich-mode 1))
-
 ;; We'll try company-mode for now. The old standard autocomplete was the
-;; smartly named auto-complete, but only company is being actively developed.
- (use-package company
-   :init
-   (add-hook 'emacs-lisp-mode-hook 'company-mode)
-   (add-hook 'org-mode-hook 'company-mode)
-   (add-hook 'c++-mode-hook 'company-mode)
-   (add-hook 'c-mode-hook 'company-mode))
+  ;; smartly named auto-complete, but only company is being actively developed.
+   (use-package company
+   :hook
+   ((emacs-lisp-mode . company-mode)
+   (org-mode . company-mode)
+   (c++-mode . company-mode)
+   (c-mode . company-mode))
+)
 
-;; C/C++ intellisense
-;; may need clang compiler installed for this to work
-;; (use-package company-irony
-;;  :config
-;;  (require 'company)
-;;  (add-to-list 'company-backends 'company-irony))
+  ;; C/C++ intellisense
+  ;; may need clang compiler installed for this to work
+  ;; (use-package company-irony
+  ;;  :config
+  ;;  (require 'company)
+  ;;  (add-to-list 'company-backends 'company-irony))
 
-;; (use-package irony
-;;  :config
-;;  (add-hook 'c++-mode-hook 'irony-mode)
-;;  (add-hook 'c-mode-hook 'irony-mode)
-;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  ;; (use-package irony
+  ;;  :config
+  ;;  (add-hook 'c++-mode-hook 'irony-mode)
+  ;;  (add-hook 'c-mode-hook 'irony-mode)
+  ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 ;; Navigation -------------------------------------------------------------
 (defalias 'list-buffers 'ibuffer)
@@ -222,120 +247,139 @@ Uses `current-date-time-format' for the formatting the date/time."
 	  (lambda ()
 	    (ibuffer-switch-to-saved-filter-groups "default")))
 
-(use-package projectile
-     :diminish projectile-mode
-     :config (projectile-mode)
-     :bind-keymap
-     ("C-c p" . projectile-command-map)
-     :custom ((projectile-completion-system 'ivy))
-     :init
-     (when (file-directory-p "~/repos/")
-       (setq projectile-project-search-path '("~/repos/")))
-     )
+;;  (use-package projectile
+;;    :diminish projectile-mode
+;;    :config (projectile-mode)
+;;    :bind-keymap
+;;    ("C-c p" . projectile-command-map)
+;;    :custom ((projectile-completion-system 'ivy))
+;;    :init
+;;    (when (file-directory-p "~/repos/")
+;;      (setq projectile-project-search-path '("~/repos/")))
+;;    )
 
-   (use-package all-the-icons
-)
-   ;; add install fonts if not present feature
-   ;; (defun install-icon-fonts-checker (dir)
-   ;;   (if ((file-exists-p dir) nil)
-   ;;       (message "Not looking good, champ.")
-   ;;     (message "Looks like it's there.")))
-   ;; install if not present
-   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-     (all-the-icons-install-fonts))
+;;  (use-package all-the-icons)
+;;  ;; install if not present
+;;  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+;;    (all-the-icons-install-fonts))
 
-  (use-package dashboard
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
-    (setq dashboard-items '((recents . 15)
-			     (projects . 5)
-			     (bookmarks . 5)
-			     (agenda . 5)
-			     (registers . 5)))
-    ;; centering looks awful with multiple frames.
-    (setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-footer-messages nil)
-    (load-file "~/.emacs.d/dashboard_quotes.el")
-    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+;; (use-package dashboard
+;;   :config
+;;   (dashboard-setup-startup-hook)
+;;   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+;;   (setq dashboard-items '((recents . 15)
+;; 			   (projects . 5)
+;; 			   (bookmarks . 5)
+;; 			   (agenda . 5)
+;; 			   (registers . 5)))
+;;   ;; centering looks awful with multiple frames.
+;;   (setq dashboard-center-content t)
+;;   (setq dashboard-set-file-icons t)
+;;   (setq dashboard-set-heading-icons t)
+;;   (setq dashboard-footer-messages nil)
+;;   (load-file "~/.emacs.d/dashboard_quotes.el")
+;;   (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 
 ;; Org-mode ------------------------------------------------------------
-(defun org-mode-setup ()
-  (org-indent-mode)
-  (dolist (face '((org-level-1 . 1.15)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
-  )
+  (defun org-mode-setup ()
+    (org-indent-mode)
+    (dolist (face '((org-level-1 . 1.15)
+                    (org-level-2 . 1.1)
+                    (org-level-3 . 1.05)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+      (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
+    )
 
-(use-package org
-  :hook (org-mode . org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-  )
+  (use-package org
+    :hook (org-mode . org-mode-setup)
+    :commands (org-capture org-agenda)
+    :config
+    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+    (require 'ox-md)   ;; Add markdown export support
+    (message "ORG loaded")
+    :bind
+    ("C-c a" . org-agenda)
+    )
 
-(use-package org-bullets
-  :config
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-  )
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+    )
 
-;; org agenda
-(setq org-agenda-files
-      '("~/Dropbox/emacs/rac-agenda.org"
-      "~/Dropbox/emacs/Birthdays.org"))
-(setq org-log-done 'time)
+  ;; org agenda
+  (setq org-agenda-files
+        '("~/Dropbox/emacs/rac-agenda.org"
+        "~/Dropbox/emacs/Birthdays.org"))
+  (setq org-log-done 'time)
 
 
-;; reveal.js presentations
+  ;; reveal.js presentations
 
-(use-package ox-reveal
-  :ensure ox-reveal)
-;; We need to tell ox-reveal where to find the js file.
-;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-(setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-(setq org-reveal-mathjax t)
-;; enable syntax highlighting
-(use-package htmlize
+  (use-package ox-reveal
+    :after org-mode
+    :config
+    ;; We need to tell ox-reveal where to find the js file.
+    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+    (setq org-reveal-mathjax t))
 )
 
-;; Add markdown export support
-(require 'ox-md)
+(with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t))
+     )
+(setq org-confirm-babel-evaluate nil)
+)
+
+(defun rac/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+
+(defun rac/org-mode-visual-fill ()
+  (setq visual-fill-column-width 95
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :defer t
+  :hook (org-mode . rac/org-mode-visual-fill))
+  :diminish
 
 (global-set-key (kbd "C-c c")
-		  'org-capture)
+		'org-capture)
 
-  (defadvice org-capture-finalize
-      (after delete-capture-frame activate)
-    "Advise capture-finalize to close the frame"
-    (if (equal "capture" (frame-parameter nil 'name))
-	(delete-frame)))
+(defadvice org-capture-finalize
+    (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+      (delete-frame)))
 
-  (defadvice org-capture-destroy
-      (after delete-capture-frame activate)
-    "Advise capture-destroy to close the frame"
-    (if (equal "capture" (frame-parameter nil 'name))
-	(delete-frame)))
+(defadvice org-capture-destroy
+    (after delete-capture-frame activate)
+  "Advise capture-destroy to close the frame"
+  (if (equal "capture" (frame-parameter nil 'name))
+      (delete-frame)))
 
-  (use-package noflet
-)
+(use-package noflet)
 
-  (defun make-capture-frame ()
-    "Create a new frame and run org-capture."
-    (interactive)
-    (make-frame '((name . "capture")))
-    (select-frame-by-name "capture")
-    (delete-other-windows)
-    (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
-      (org-capture)))
+(defun make-capture-frame ()
+  "Create a new frame and run org-capture."
+  (interactive)
+  (make-frame '((name . "capture")))
+  (select-frame-by-name "capture")
+  (delete-other-windows)
+  (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
+    (org-capture)))
 
 (use-package flycheck
   :config
@@ -346,18 +390,21 @@ Uses `current-date-time-format' for the formatting the date/time."
     )
 
 (use-package yasnippet
-    :config
-    (add-hook 'c-mode-hook 'yas-minor-mode)
-    (add-hook 'c++-mode-hook 'yas-minor-mode)
-    ;;(add-hook 'python-mode-hook 'yas-minor-mode)
+    :hook
+    ((c-mode . yas-minor-mode)
+    (c++-mode . yas-minor-mode)
+    (python-mode . yas-minor-mode))
   )
+
   (use-package yasnippet-snippets
+  :after yasnippet
 )
 
 (use-package blacken
-    :config
-    (add-hook 'python-mode-hook 'blacken-mode)
-)
+	:hook (python-mode . blacken-mode)
+;;    :config
+;;	(add-hook 'python-mode-hook 'blacken-mode)
+    )
 
 (defun indent-show-all ()
     (interactive)
@@ -383,20 +430,25 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'python-mode-hook 'python-remap-fs)
 
 (use-package tex
+    :hook LaTeX-mode
     :ensure auctex
-)
-(use-package auctex-latexmk
-)
-(setq TeX-auto-save t)
+    :config
+((setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
+(setq reftex-plug-into-AUCTeX t))
+)
+
+(use-package auctex-latexmk
+    :after tex
+)
 
 (use-package web-mode
+  :hook (html-mode . web-mode)
   :config
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (setq web-mode-engines-alist
@@ -410,6 +462,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq web-mode-enable-current-element-highlight t))
 
 (use-package emmet-mode
+  :after web-mode
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -446,6 +499,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (global-set-key (kbd "C-c b") 'org-publish-project)
 
+(use-package htmlize
+:defer 0
+)
+
 (use-package elfeed
     )
   (global-set-key (kbd "C-x w") 'elfeed)
@@ -457,24 +514,3 @@ Uses `current-date-time-format' for the formatting the date/time."
  (when (file-exists-p elfeed-urls)
    (load-file elfeed-urls))
 )
-
-(use-package visual-fill-column)
-
-;;(setq visual-fill-column-width 95
-;;      visual-fill-column-center-text t)
-;;      (visual-fill-column-mode 1)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t))
- )
-(setq org-confirm-babel-evaluate nil)
-
-(defun rac/org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle))))
-
-  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))

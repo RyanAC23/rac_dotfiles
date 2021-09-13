@@ -1,8 +1,29 @@
 #+TITLE: Ryan AC Emacs Config
 #+STARTUP: overview
-# #+PROPERTY: header-args :comments nil :results silent
 
 #+PROPERTY: header-args:emacs-lisp :tangle ./racinit.el :results silent
+
+* Startup Performance
+#+BEGIN_SRC emacs-lisp
+  ;; The default is 800 kilobytes.  Measured in bytes.
+  ;;(setq gc-cons-threshold (* 50 1000 1000))
+
+  ;; Profile emacs startup
+
+  (defun run-startup-diagnostics ()
+    (add-hook 'emacs-startup-hook
+              (lambda ()
+                (message "*** Emacs loaded in %s with %d garbage collections."
+                         (format "%.2f seconds"
+                                 (float-time
+                                  (time-subtract after-init-time before-init-time)))
+                         gcs-done)))
+    (setq use-package-verbose t)
+    )
+
+(run-startup-diagnostics)
+
+#+END_SRC
 
 * Behavior
 ** Packages
@@ -30,8 +51,11 @@ A nice mode that shows a list of key bindings that follow from inputs you've alr
 
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
+    :defer 0
     :diminish which-key-mode
-    :config (which-key-mode))
+    :config
+    (which-key-mode)
+    (setq which-key-idle-delay 1))
 #+END_SRC
 
 ** No Trailing Whitespace
@@ -233,7 +257,11 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 #+END_SRC
 * Version Control
 #+BEGIN_SRC emacs-lisp
-  (use-package magit)
+
+  (use-package magit
+  :commands (magit-status magit-get-current-branch)
+)
+
 #+END_SRC
 
 * Searching
@@ -246,6 +274,11 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     :config
     (ivy-mode 1)
   )
+
+  (use-package ivy-rich
+  :after ivy
+  :init
+  (ivy-rich-mode 1))
 
   ;; counsel is a requirement for swiper
   (use-package counsel)
@@ -268,10 +301,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
       (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
       )
 
-  (use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
-
 #+END_SRC
 
 * TODO Autocompletion
@@ -282,11 +311,12 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;; We'll try company-mode for now. The old standard autocomplete was the
   ;; smartly named auto-complete, but only company is being actively developed.
    (use-package company
-     :init
-     (add-hook 'emacs-lisp-mode-hook 'company-mode)
-     (add-hook 'org-mode-hook 'company-mode)
-     (add-hook 'c++-mode-hook 'company-mode)
-     (add-hook 'c-mode-hook 'company-mode))
+   :hook
+   ((emacs-lisp-mode . company-mode)
+   (org-mode . company-mode)
+   (c++-mode . company-mode)
+   (c-mode . company-mode))
+)
 
   ;; C/C++ intellisense
   ;; may need clang compiler installed for this to work
@@ -336,44 +366,38 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+END_SRC
 * Dashboard / Homescreen
 #+BEGIN_SRC emacs-lisp
-   (use-package projectile
-     :diminish projectile-mode
-     :config (projectile-mode)
-     :bind-keymap
-     ("C-c p" . projectile-command-map)
-     :custom ((projectile-completion-system 'ivy))
-     :init
-     (when (file-directory-p "~/repos/")
-       (setq projectile-project-search-path '("~/repos/")))
-     )
+  ;;  (use-package projectile
+  ;;    :diminish projectile-mode
+  ;;    :config (projectile-mode)
+  ;;    :bind-keymap
+  ;;    ("C-c p" . projectile-command-map)
+  ;;    :custom ((projectile-completion-system 'ivy))
+  ;;    :init
+  ;;    (when (file-directory-p "~/repos/")
+  ;;      (setq projectile-project-search-path '("~/repos/")))
+  ;;    )
 
-   (use-package all-the-icons
-)
-   ;; add install fonts if not present feature
-   ;; (defun install-icon-fonts-checker (dir)
-   ;;   (if ((file-exists-p dir) nil)
-   ;;       (message "Not looking good, champ.")
-   ;;     (message "Looks like it's there.")))
-   ;; install if not present
-   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-     (all-the-icons-install-fonts))
+  ;;  (use-package all-the-icons)
+  ;;  ;; install if not present
+  ;;  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+  ;;    (all-the-icons-install-fonts))
 
-  (use-package dashboard
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
-    (setq dashboard-items '((recents . 15)
-			     (projects . 5)
-			     (bookmarks . 5)
-			     (agenda . 5)
-			     (registers . 5)))
-    ;; centering looks awful with multiple frames.
-    (setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-footer-messages nil)
-    (load-file "~/.emacs.d/dashboard_quotes.el")
-    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+  ;; (use-package dashboard
+  ;;   :config
+  ;;   (dashboard-setup-startup-hook)
+  ;;   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+  ;;   (setq dashboard-items '((recents . 15)
+  ;; 			   (projects . 5)
+  ;; 			   (bookmarks . 5)
+  ;; 			   (agenda . 5)
+  ;; 			   (registers . 5)))
+  ;;   ;; centering looks awful with multiple frames.
+  ;;   (setq dashboard-center-content t)
+  ;;   (setq dashboard-set-file-icons t)
+  ;;   (setq dashboard-set-heading-icons t)
+  ;;   (setq dashboard-footer-messages nil)
+  ;;   (load-file "~/.emacs.d/dashboard_quotes.el")
+  ;;   (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 #+END_SRC
 
 * TODO Org Mode
@@ -394,12 +418,16 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 
   (use-package org
     :hook (org-mode . org-mode-setup)
+    :commands (org-capture org-agenda)
     :config
     (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+    (require 'ox-md)   ;; Add markdown export support
+    (message "ORG loaded")
+    :bind
+    ("C-c a" . org-agenda)
     )
 
   (use-package org-bullets
-    :config
     :hook (org-mode . org-bullets-mode)
     :custom
     (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
@@ -415,18 +443,54 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;; reveal.js presentations
 
   (use-package ox-reveal
-    :ensure ox-reveal)
-  ;; We need to tell ox-reveal where to find the js file.
-  ;; https://github.com/yjwen/org-reveal#set-the-location-of-revealjs
-  (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-  (setq org-reveal-mathjax t)
-  ;; enable syntax highlighting
-  (use-package htmlize
-  )
+    :after org-mode
+    :config
+    ;; We need to tell ox-reveal where to find the js file.
+    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+    (setq org-reveal-mathjax t))
+)
 
-  ;; Add markdown export support
-  (require 'ox-md)
 #+END_SRC
+
+** Org babel load languages
+#+BEGIN_SRC emacs-lisp
+
+  (with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t))
+     )
+(setq org-confirm-babel-evaluate nil)
+)
+
+#+END_SRC
+
+** Auto tangle Org config file
+#+begin_src emacs-lisp
+  (defun rac/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+                        (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle))))
+
+    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+#+end_src
+
+** Visual Fill Org Hook
+#+BEGIN_SRC emacs-lisp
+
+(defun rac/org-mode-visual-fill ()
+  (setq visual-fill-column-width 95
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :defer t
+  :hook (org-mode . rac/org-mode-visual-fill))
+  :diminish
+#+END_SRC
+
 * Org Links Mode
 
 For some reason, org capture links can't be defined in this file. If present here, they aren't loaded. I've moved that code chunk to [[file:./init.el][~init.el~]] instead.
@@ -446,8 +510,7 @@ For some reason, org capture links can't be defined in this file. If present her
     (if (equal "capture" (frame-parameter nil 'name))
 	(delete-frame)))
 
-  (use-package noflet
-)
+  (use-package noflet)
 
   (defun make-capture-frame ()
     "Create a new frame and run org-capture."
@@ -477,13 +540,16 @@ For some reason, org capture links can't be defined in this file. If present her
 Yasnippet gives you quick completion of common code snippets, such as loops and preprocessor instructions.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package yasnippet
-    :config
-    (add-hook 'c-mode-hook 'yas-minor-mode)
-    (add-hook 'c++-mode-hook 'yas-minor-mode)
-    ;;(add-hook 'python-mode-hook 'yas-minor-mode)
+
+ (use-package yasnippet
+    :hook
+    ((c-mode . yas-minor-mode)
+    (c++-mode . yas-minor-mode)
+    (python-mode . yas-minor-mode))
   )
+
   (use-package yasnippet-snippets
+  :after yasnippet
 )
 
 #+END_SRC
@@ -493,8 +559,9 @@ Automatically run blacken on any saved python buffer. The time saved is worth an
 
 #+BEGIN_SRC emacs-lisp
     (use-package blacken
-	:config
-	(add-hook 'python-mode-hook 'blacken-mode)
+	:hook (python-mode . blacken-mode)
+;;    :config
+;;	(add-hook 'python-mode-hook 'blacken-mode)
     )
 #+END_SRC
 
@@ -533,24 +600,32 @@ Nothing stuck here yet....
 * TODO LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
- (use-package tex
+
+(use-package tex
+    :hook LaTeX-mode
     :ensure auctex
-)
-(use-package auctex-latexmk
-)
-(setq TeX-auto-save t)
+    :config
+((setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
+(setq reftex-plug-into-AUCTeX t))
+)
+
+(use-package auctex-latexmk
+    :after tex
+)
+
 #+END_SRC
 
 * Web Development
 #+BEGIN_SRC emacs-lisp
+
   (use-package web-mode
+    :hook (html-mode . web-mode)
     :config
     (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
     (setq web-mode-engines-alist
@@ -564,11 +639,13 @@ Nothing stuck here yet....
     (setq web-mode-enable-current-element-highlight t))
 
   (use-package emmet-mode
+    :after web-mode
     :config
     (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
     (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
     (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
   )
+
 #+END_SRC
 * Website
 ** Main Website Export
@@ -607,6 +684,15 @@ C-c + b
  (global-set-key (kbd "C-c b") 'org-publish-project)
  #+END_SRC
 
+** Other Tools
+
+#+BEGIN_SRC emacs-lisp
+
+  (use-package htmlize
+  :defer 0
+  )
+
+#+END_SRC
 * RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
   (use-package elfeed
@@ -624,32 +710,3 @@ C-c + b
 
 * Test Space
 For settings and Melpa packages I haven't committed myself to.
-
-#+BEGIN_SRC emacs-lisp
-(use-package visual-fill-column)
-
-;;(setq visual-fill-column-width 95
-;;      visual-fill-column-center-text t)
-;;      (visual-fill-column-mode 1)
-#+END_SRC
-
-** Org babel load languages
-#+BEGIN_SRC emacs-lisp
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     (python . t))
-   )
-  (setq org-confirm-babel-evaluate nil)
-#+END_SRC
-
-** Auto tangle Org config file
-#+begin_src emacs-lisp
-  (defun rac/org-babel-tangle-config ()
-    (when (string-equal (buffer-file-name)
-                        (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
-      (let ((org-confirm-babel-evaluate nil))
-        (org-babel-tangle))))
-
-    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
-#+end_src
