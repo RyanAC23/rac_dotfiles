@@ -185,7 +185,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 ** Try
 Download and give a melpa package a shot without adding it to init.el.
 #+BEGIN_SRC emacs-lisp
-(use-package try)
+
+(use-package try
+:defer t
+)
+
 #+END_SRC
 
 * Theme and Appearance
@@ -232,17 +236,21 @@ Set transparency, and map transparency toggle to C-c t from https://www.emacswik
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 #+END_SRC
 
-** Modeline
+** Modeline - Spaceline
 #+BEGIN_SRC emacs-lisp
+
   (use-package spaceline
     :config
     (require 'spaceline-config)
     (setq powerline-default-separator (quote arrow))
-  (spaceline-spacemacs-theme))
+    (spaceline-spacemacs-theme)
+    (spaceline-toggle-projectile-root-off)
+    )
 #+END_SRC
 ** diminish - hide minor modes from line
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
+    :after spaceline
     :init
     (diminish 'page-break-lines-mode)
     (diminish 'undo-tree-mode)
@@ -366,38 +374,38 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+END_SRC
 * Dashboard / Homescreen
 #+BEGIN_SRC emacs-lisp
-  ;;  (use-package projectile
-  ;;    :diminish projectile-mode
-  ;;    :config (projectile-mode)
-  ;;    :bind-keymap
-  ;;    ("C-c p" . projectile-command-map)
-  ;;    :custom ((projectile-completion-system 'ivy))
-  ;;    :init
-  ;;    (when (file-directory-p "~/repos/")
-  ;;      (setq projectile-project-search-path '("~/repos/")))
-  ;;    )
+   (use-package projectile
+     :diminish projectile-mode
+     :config (projectile-mode)
+     :bind-keymap
+     ("C-c p" . projectile-command-map)
+     :custom ((projectile-completion-system 'ivy))
+     :init
+     (when (file-directory-p "~/repos/")
+       (setq projectile-project-search-path '("~/repos/")))
+     )
 
-  ;;  (use-package all-the-icons)
-  ;;  ;; install if not present
-  ;;  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-  ;;    (all-the-icons-install-fonts))
+   (use-package all-the-icons)
+   ;; install if not present
+   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+     (all-the-icons-install-fonts))
 
-  ;; (use-package dashboard
-  ;;   :config
-  ;;   (dashboard-setup-startup-hook)
-  ;;   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
-  ;;   (setq dashboard-items '((recents . 15)
-  ;; 			   (projects . 5)
-  ;; 			   (bookmarks . 5)
-  ;; 			   (agenda . 5)
-  ;; 			   (registers . 5)))
-  ;;   ;; centering looks awful with multiple frames.
-  ;;   (setq dashboard-center-content t)
-  ;;   (setq dashboard-set-file-icons t)
-  ;;   (setq dashboard-set-heading-icons t)
-  ;;   (setq dashboard-footer-messages nil)
-  ;;   (load-file "~/.emacs.d/dashboard_quotes.el")
-  ;;   (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+  (use-package dashboard
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+    (setq dashboard-items '((recents . 15)
+                             (projects . 5)
+                             (bookmarks . 5)
+                             (agenda . 5)
+                             (registers . 5)))
+    ;; centering looks awful with multiple frames.
+    (setq dashboard-center-content t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-footer-messages nil)
+    (load-file "~/.emacs.d/dashboard_quotes.el")
+    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 #+END_SRC
 
 * TODO Org Mode
@@ -695,17 +703,20 @@ C-c + b
 #+END_SRC
 * RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
+
   (use-package elfeed
+    :commands (elfeed)
+    :config
+    (setq-default elfeed-search-filter "@2-months-ago")
+    (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
+    (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+      (when (file-exists-p elfeed-urls)
+        (load-file elfeed-urls))
+      )
     )
+
   (global-set-key (kbd "C-x w") 'elfeed)
-  (setq-default elfeed-search-filter "@2-months-ago")
-  (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
 
-
-(let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
- (when (file-exists-p elfeed-urls)
-   (load-file elfeed-urls))
-)
 #+END_SRC
 
 * Test Space

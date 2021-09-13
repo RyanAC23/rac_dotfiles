@@ -116,7 +116,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(use-package try)
+(use-package try
+:defer t
+)
 
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
@@ -147,9 +149,12 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (require 'spaceline-config)
   (setq powerline-default-separator (quote arrow))
-(spaceline-spacemacs-theme))
+  (spaceline-spacemacs-theme)
+  (spaceline-toggle-projectile-root-off)
+  )
 
 (use-package diminish
+  :after spaceline
   :init
   (diminish 'page-break-lines-mode)
   (diminish 'undo-tree-mode)
@@ -247,38 +252,38 @@ Uses `current-date-time-format' for the formatting the date/time."
 	  (lambda ()
 	    (ibuffer-switch-to-saved-filter-groups "default")))
 
-;;  (use-package projectile
-;;    :diminish projectile-mode
-;;    :config (projectile-mode)
-;;    :bind-keymap
-;;    ("C-c p" . projectile-command-map)
-;;    :custom ((projectile-completion-system 'ivy))
-;;    :init
-;;    (when (file-directory-p "~/repos/")
-;;      (setq projectile-project-search-path '("~/repos/")))
-;;    )
+(use-package projectile
+   :diminish projectile-mode
+   :config (projectile-mode)
+   :bind-keymap
+   ("C-c p" . projectile-command-map)
+   :custom ((projectile-completion-system 'ivy))
+   :init
+   (when (file-directory-p "~/repos/")
+     (setq projectile-project-search-path '("~/repos/")))
+   )
 
-;;  (use-package all-the-icons)
-;;  ;; install if not present
-;;  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-;;    (all-the-icons-install-fonts))
+ (use-package all-the-icons)
+ ;; install if not present
+ (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+   (all-the-icons-install-fonts))
 
-;; (use-package dashboard
-;;   :config
-;;   (dashboard-setup-startup-hook)
-;;   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
-;;   (setq dashboard-items '((recents . 15)
-;; 			   (projects . 5)
-;; 			   (bookmarks . 5)
-;; 			   (agenda . 5)
-;; 			   (registers . 5)))
-;;   ;; centering looks awful with multiple frames.
-;;   (setq dashboard-center-content t)
-;;   (setq dashboard-set-file-icons t)
-;;   (setq dashboard-set-heading-icons t)
-;;   (setq dashboard-footer-messages nil)
-;;   (load-file "~/.emacs.d/dashboard_quotes.el")
-;;   (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+  (setq dashboard-items '((recents . 15)
+                           (projects . 5)
+                           (bookmarks . 5)
+                           (agenda . 5)
+                           (registers . 5)))
+  ;; centering looks awful with multiple frames.
+  (setq dashboard-center-content t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-footer-messages nil)
+  (load-file "~/.emacs.d/dashboard_quotes.el")
+  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
 
 ;; Org-mode ------------------------------------------------------------
   (defun org-mode-setup ()
@@ -504,13 +509,14 @@ Uses `current-date-time-format' for the formatting the date/time."
 )
 
 (use-package elfeed
-    )
-  (global-set-key (kbd "C-x w") 'elfeed)
+  :commands (elfeed)
+  :config
   (setq-default elfeed-search-filter "@2-months-ago")
   (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
+  (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+    (when (file-exists-p elfeed-urls)
+      (load-file elfeed-urls))
+    )
+  )
 
-
-(let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
- (when (file-exists-p elfeed-urls)
-   (load-file elfeed-urls))
-)
+(global-set-key (kbd "C-x w") 'elfeed)

@@ -9,9 +9,9 @@
  (position . 325))
 ("racinit.org"
  (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
- (front-context-string)
- (rear-context-string . "re t)\n#+END_SRC\n")
- (position . 16269))
+ (front-context-string . "+BEGIN_SRC emacs")
+ (rear-context-string . " TODO Org Mode\n#")
+ (position . 12208))
 ("org-capture-last-stored-marker"
  (filename . "~/Dropbox/website/org/capture/links-general.org")
  (front-context-string . "**  [[https://ww")
@@ -23,8 +23,8 @@
  (rear-context-string . "9-02 Thu 00:31>\n")
  (position . 1120))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/website/org/capture/links-general.org")
- (front-context-string . "**  [[https://ww")
- (rear-context-string . "p.org\"\n\n* Links\n")
- (position . 63))
+ (filename . "~/Dropbox/emacs/rac-agenda.org")
+ (front-context-string . "* TODO 1.92s aft")
+ (rear-context-string . "-13 Mon 00:41]\n\n")
+ (position . 824))
 )
