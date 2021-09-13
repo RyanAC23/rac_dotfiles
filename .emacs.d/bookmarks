@@ -24,7 +24,7 @@
  (position . 1120))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/emacs/rac-agenda.org")
- (front-context-string . "* TODO 1.92s aft")
- (rear-context-string . "-13 Mon 00:41]\n\n")
- (position . 824))
+ (front-context-string . "* TODO 1.36s & 1")
+ (rear-context-string . "-13 Mon 11:08]\n\n")
+ (position . 889))
 )

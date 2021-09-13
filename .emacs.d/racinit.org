@@ -6,7 +6,8 @@
 * Startup Performance
 #+BEGIN_SRC emacs-lisp
   ;; The default is 800 kilobytes.  Measured in bytes.
-  ;;(setq gc-cons-threshold (* 50 1000 1000))
+  ;; Don't forget to put this back at the default after startup.
+  (setq gc-cons-threshold (* 50 1000 1000)) ;; Roguhly 50MB
 
   ;; Profile emacs startup
 
@@ -40,7 +41,7 @@ Enable common lisp syntax
   (require 'cl-lib)
 #+END_SRC
 
-** y/n instead of 'yes/no'
+** [#B] y/n instead of 'yes/no'
 Be able to type 'y' instead of 'yes'
 #+BEGIN_SRC emacs-lisp
   (fset 'yes-or-no-p 'y-or-n-p)
@@ -459,6 +460,25 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 )
 
 #+END_SRC
+** Org Capture Templates
+#+BEGIN_SRC emacs-lisp
+
+;; ----- Org Capture Templates -----------------------------------------------------------
+
+(setq org-capture-templates
+      '(
+	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
+      )
+      )
+
+#+END_SRC
 
 ** Org babel load languages
 #+BEGIN_SRC emacs-lisp
@@ -535,11 +555,13 @@ For some reason, org capture links can't be defined in this file. If present her
 #+BEGIN_SRC emacs-lisp
 
   (use-package flycheck
+    :hook
+    ((c-mode . flycheck-mode)
+     (c++-mode . flycheck-mode)
+     ;;(python-mode flycheck-mode)
+     )
     :config
-      (add-hook 'c-mode-hook 'flycheck-mode)
       (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-      (add-hook 'c++-mode-hook 'flycheck-mode)
-      ;;(add-hook 'python-mode-hook 'flycheck-mode)
       )
 
 #+END_SRC
@@ -716,6 +738,15 @@ C-c + b
     )
 
   (global-set-key (kbd "C-x w") 'elfeed)
+
+#+END_SRC
+
+* End Of Startup Actions
+Lower the garbage collection rate from what we raised it to.
+
+#+BEGIN_SRC emacs-lisp
+
+(setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
 
 #+END_SRC
 

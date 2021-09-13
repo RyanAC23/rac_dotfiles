@@ -27,21 +27,6 @@
 
 (load-if-exists "~/.emacs.d/racinit.el")
 
-;; ----- Org Capture Templates -----------------------------------------------------------
-
-(setq org-capture-templates
-      '(
-	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1)
-      )
-      )
-
 ;; ----- Auto Set Variables -----------------------------------------------------
 
 (custom-set-variables

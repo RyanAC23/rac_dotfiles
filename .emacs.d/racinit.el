@@ -1,5 +1,6 @@
 ;; The default is 800 kilobytes.  Measured in bytes.
-  ;;(setq gc-cons-threshold (* 50 1000 1000))
+  ;; Don't forget to put this back at the default after startup.
+  (setq gc-cons-threshold (* 50 1000 1000)) ;; Roguhly 50MB
 
   ;; Profile emacs startup
 
@@ -333,6 +334,21 @@ Uses `current-date-time-format' for the formatting the date/time."
     (setq org-reveal-mathjax t))
 )
 
+;; ----- Org Capture Templates -----------------------------------------------------------
+
+(setq org-capture-templates
+      '(
+	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
+      )
+      )
+
 (with-eval-after-load 'org
     (org-babel-do-load-languages
      'org-babel-load-languages
@@ -387,11 +403,13 @@ Uses `current-date-time-format' for the formatting the date/time."
     (org-capture)))
 
 (use-package flycheck
+  :hook
+  ((c-mode . flycheck-mode)
+   (c++-mode . flycheck-mode)
+   ;;(python-mode flycheck-mode)
+   )
   :config
-    (add-hook 'c-mode-hook 'flycheck-mode)
     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-    (add-hook 'c++-mode-hook 'flycheck-mode)
-    ;;(add-hook 'python-mode-hook 'flycheck-mode)
     )
 
 (use-package yasnippet
@@ -520,3 +538,5 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 (global-set-key (kbd "C-x w") 'elfeed)
+
+(setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
