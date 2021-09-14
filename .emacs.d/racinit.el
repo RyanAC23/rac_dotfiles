@@ -1,3 +1,5 @@
+;; put variables for environment paths, like miniconda, here.
+
 ;; The default is 800 kilobytes.  Measured in bytes.
   ;; Don't forget to put this back at the default after startup.
   (setq gc-cons-threshold (* 50 1000 1000)) ;; Roguhly 50MB
@@ -155,17 +157,14 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 (use-package diminish
-  :after spaceline
-  :init
-  (diminish 'page-break-lines-mode)
-  (diminish 'undo-tree-mode)
-  (diminish 'org-src-mode)
-  (diminish 'eldoc-mode))
-
-(setq tramp-verbose 10)
-
-(use-package magit
-  :commands (magit-status magit-get-current-branch)
+    :after spaceline
+    :init
+    (diminish 'page-break-lines-mode)
+    (diminish 'undo-tree-mode)
+    (diminish 'org-src-mode)
+    (diminish 'eldoc-mode)
+    (diminish 'visual-line-mode)
+    (diminish 'org-indent-mode)
 )
 
 ;; ivy gives intelligent file search with M-x
@@ -201,29 +200,6 @@ Uses `current-date-time-format' for the formatting the date/time."
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
     )
 
-;; We'll try company-mode for now. The old standard autocomplete was the
-  ;; smartly named auto-complete, but only company is being actively developed.
-   (use-package company
-   :hook
-   ((emacs-lisp-mode . company-mode)
-   (org-mode . company-mode)
-   (c++-mode . company-mode)
-   (c-mode . company-mode))
-)
-
-  ;; C/C++ intellisense
-  ;; may need clang compiler installed for this to work
-  ;; (use-package company-irony
-  ;;  :config
-  ;;  (require 'company)
-  ;;  (add-to-list 'company-backends 'company-irony))
-
-  ;; (use-package irony
-  ;;  :config
-  ;;  (add-hook 'c++-mode-hook 'irony-mode)
-  ;;  (add-hook 'c-mode-hook 'irony-mode)
-  ;;  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
 ;; Navigation -------------------------------------------------------------
 (defalias 'list-buffers 'ibuffer)
 ;; Don't show filter groups if there are no filters in the group
@@ -254,37 +230,39 @@ Uses `current-date-time-format' for the formatting the date/time."
 	    (ibuffer-switch-to-saved-filter-groups "default")))
 
 (use-package projectile
-   :diminish projectile-mode
-   :config (projectile-mode)
-   :bind-keymap
-   ("C-c p" . projectile-command-map)
-   :custom ((projectile-completion-system 'ivy))
-   :init
-   (when (file-directory-p "~/repos/")
-     (setq projectile-project-search-path '("~/repos/")))
-   )
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :custom ((projectile-completion-system 'ivy))
+  :init
+  (when (file-directory-p "~/repos/")
+    (setq projectile-project-search-path '("~/repos/")))
+  )
 
- (use-package all-the-icons)
- ;; install if not present
- (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-   (all-the-icons-install-fonts))
+(use-package all-the-icons)
+;; install if not present
+(unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+  (all-the-icons-install-fonts))
 
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
   (setq dashboard-items '((recents . 15)
-                           (projects . 5)
-                           (bookmarks . 5)
-                           (agenda . 5)
-                           (registers . 5)))
+                          (projects . 5)
+                          (bookmarks . 5)
+                          (agenda . 5)
+                          (registers . 5)))
   ;; centering looks awful with multiple frames.
   (setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-footer-messages nil)
   (load-file "~/.emacs.d/dashboard_quotes.el")
-  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list)))
+  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
+  (setq dashboard-agenda-release-buffers t)
+  )
 
 ;; Org-mode ------------------------------------------------------------
   (defun org-mode-setup ()
@@ -402,6 +380,29 @@ Uses `current-date-time-format' for the formatting the date/time."
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
     (org-capture)))
 
+;; ;; We'll try company-mode for now. The old standard autocomplete was the
+;; ;; smartly named auto-complete, but only company is being actively developed.
+;; (use-package company
+;;   :hook
+;;   ((emacs-lisp-mode . company-mode)
+;;    (org-mode . company-mode)
+;;    (c++-mode . company-mode)
+;;    (c-mode . company-mode))
+;;   )
+
+;; ;; C/C++ intellisense
+;; ;; may need clang compiler installed for this to work
+;; (use-package company-irony
+;;   :config
+;;   (require 'company)
+;;   (add-to-list 'company-backends 'company-irony))
+
+;; (use-package irony
+;;   :config
+;;   (add-hook 'c++-mode-hook 'irony-mode)
+;;   (add-hook 'c-mode-hook 'irony-mode)
+;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
 (use-package flycheck
   :hook
   ((c-mode . flycheck-mode)
@@ -411,17 +412,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
     )
-
-(use-package yasnippet
-    :hook
-    ((c-mode . yas-minor-mode)
-    (c++-mode . yas-minor-mode)
-    (python-mode . yas-minor-mode))
-  )
-
-  (use-package yasnippet-snippets
-  :after yasnippet
-)
 
 (use-package blacken
 	:hook (python-mode . blacken-mode)
@@ -452,22 +442,57 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (add-hook 'python-mode-hook 'python-remap-fs)
 
-(use-package tex
-    :hook LaTeX-mode
-    :ensure auctex
+(use-package python
+    :ensure nil
+    :hook (python-mode . lsp-deferred)
+    :custom
+    (python-shell-interpreter "python3"))
+
+  (use-package conda
+    :after python
     :config
-((setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t))
-)
+    (custom-set-variables
+     '(conda-anaconda-home "~/apps/miniconda"))
+    (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
+    (conda-env-activate "work")
+    )
+
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (lsp-enable-which-key-integration t)
+    )
+
+;; (lsp-register-client
+;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
+;;                      :major-modes '(python-mode)
+;;                      :remote? t
+;;                      :server-id 'penguinnb))
+
+(use-package tex
+  :hook LaTeX-mode
+  :ensure auctex
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  (setq reftex-plug-into-AUCTeX t)
+  )
 
 (use-package auctex-latexmk
-    :after tex
+  :after tex
+  )
+
+(setq tramp-verbose 10)
+
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
 )
 
 (use-package web-mode
@@ -540,3 +565,14 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-x w") 'elfeed)
 
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
+
+(use-package dired
+    :ensure nil
+    :commands (dired dired-jump)
+    :custom ((dired-listing-switches "-hago --group-directories-first")
+             (setq delete-by-moving-to-trash t)
+             )
+    )
+(use-package all-the-icons-dired
+:hook (dired-mode . all-the-icons-dired-mode)
+)

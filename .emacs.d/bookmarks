@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("hypersonic"
+(("rac-report.org"
+ (filename . "/ssh:cocalc-ForbesGroup:/home/user/Members/Ryan/2021-fall/rac-report.org")
+ (front-context-string . "\n* Week of Septe")
+ (rear-context-string . "bin}\n\\maketitle\n")
+ (position . 319))
+("hypersonic"
  (filename . "/ssh:penguinnb:/home/racorbin/repos/heptapod/hypersonic/hypersonic/")
  (front-context-string . "classical_trajec")
  (rear-context-string . "62 Aug 30 15:19 ")
@@ -24,7 +29,7 @@
  (position . 1120))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/emacs/rac-agenda.org")
- (front-context-string . "* TODO 1.36s & 1")
- (rear-context-string . "-13 Mon 11:08]\n\n")
- (position . 889))
+ (front-context-string . "* TODO Make NEW ")
+ (rear-context-string)
+ (position . 3))
 )
