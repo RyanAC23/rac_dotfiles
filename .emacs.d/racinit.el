@@ -17,7 +17,7 @@
     (setq use-package-verbose t)
     )
 
-(run-startup-diagnostics)
+;;(run-startup-diagnostics)
 
 (require 'cl-lib)
 
@@ -39,7 +39,7 @@
     (windmove-default-keybindings)
 
 (when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+ (global-display-line-numbers-mode))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -415,27 +415,25 @@ Uses `current-date-time-format' for the formatting the date/time."
   ;;                      :server-id 'penguinnb))
 
 (use-package company
-  :after lsp-mode
   :hook
-  ((emacs-lisp-mode
-    org-mode
-    c++-mode
-    c-mode
-    lsp-mode
-    ) . company-mode)
-  ;;:bind (
-  ;;(:map company-active-map ([tab] . company-completion-selection))
-  ;;)
+  ((emacs-lisp-mode . company-mode)
+    (org-mode . company-mode)
+    (c++-mode . company-mode)
+    (c-mode . company-mode)
+    (lsp-mode . company-mode)
+    (python-mode . company-mode)
+    )
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+
   :custom
-  (with-eval-after-load 'company
-    (define-key company-active-map [tab] 'company-complete-selection))
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
   )
 
-(use-package company-box
-  :hook (company-mode . company-box-mode)
-  )
+;; (use-package company-box ;; this breaks things
+;;   :hook (company-mode . company-box-mode)
+;;   )
 
 ;; (use-package flycheck
 ;;   :hook
@@ -447,10 +445,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;     )
 
 (use-package blacken
-	:hook (python-mode . blacken-mode)
-;;    :config
-;;	(add-hook 'python-mode-hook 'blacken-mode)
-    )
+    :hook (python-mode . blacken-mode)
+)
 
 (defun indent-show-all ()
     (interactive)
