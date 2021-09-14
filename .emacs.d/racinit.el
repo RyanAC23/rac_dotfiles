@@ -19,19 +19,27 @@
 
 (run-startup-diagnostics)
 
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-
 (require 'cl-lib)
+
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(use-package which-key
-  :defer 0
-  :diminish which-key-mode
-  :config
-  (which-key-mode)
-  (setq which-key-idle-delay 1))
+(defun reload-init-file ()
+  (interactive)
+  (load-file user-init-file))
+
+(global-set-key (kbd "C-c r") 'reload-init-file)
+
+;; move between windows with shift+[arrow]
+    (windmove-default-keybindings)
+
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -52,34 +60,6 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
-
-(require 'server)
-(unless (server-running-p)
-  (progn
-    (server-start)
-    (toggle-frame-maximized)
-    )
-)
-
-(when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
-
-(use-package mic-paren
-    :config
-    ;;(paren-activate)
-    (add-hook 'c-mode-common-hook 'paren-activate)
-    (add-hook 'python-mode-hook   'paren-activate)
-    (add-hook 'org-mode-hook      'paren-activate)
-)
-
-;; move between windows with shift+[arrow]
-    (windmove-default-keybindings)
-
-(defun reload-init-file ()
-  (interactive)
-  (load-file user-init-file))
-
-(global-set-key (kbd "C-c r") 'reload-init-file)
 
 ;; ====================
 ;; insert date and time
@@ -113,14 +93,34 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key "\C-x\C-d" 'insert-current-date-time)
 (global-set-key "\C-x\C-t" 'insert-current-time)
 
-(setq locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(require 'server)
+(unless (server-running-p)
+  (progn
+    (server-start)
+    (toggle-frame-maximized)
+    )
+)
+
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 (use-package try
 :defer t
+)
+
+(use-package which-key
+  :defer 0
+  :diminish which-key-mode
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 1))
+
+(use-package mic-paren
+    :config
+    ;;(paren-activate)
+    (add-hook 'c-mode-common-hook 'paren-activate)
+    (add-hook 'python-mode-hook   'paren-activate)
+    (add-hook 'org-mode-hook      'paren-activate)
 )
 
 (setq inhibit-splash-screen t)
@@ -380,38 +380,71 @@ Uses `current-date-time-format' for the formatting the date/time."
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
     (org-capture)))
 
-;; ;; We'll try company-mode for now. The old standard autocomplete was the
-;; ;; smartly named auto-complete, but only company is being actively developed.
-;; (use-package company
-;;   :hook
-;;   ((emacs-lisp-mode . company-mode)
-;;    (org-mode . company-mode)
-;;    (c++-mode . company-mode)
-;;    (c-mode . company-mode))
-;;   )
+(defun efs/lsp-mode-setup()
+    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    (lsp-headerline-breadcrumb-mode))
 
-;; ;; C/C++ intellisense
-;; ;; may need clang compiler installed for this to work
-;; (use-package company-irony
-;;   :config
-;;   (require 'company)
-;;   (add-to-list 'company-backends 'company-irony))
 
-;; (use-package irony
-;;   :config
-;;   (add-hook 'c++-mode-hook 'irony-mode)
-;;   (add-hook 'c-mode-hook 'irony-mode)
-;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
-(use-package flycheck
-  :hook
-  ((c-mode . flycheck-mode)
-   (c++-mode . flycheck-mode)
-   ;;(python-mode flycheck-mode)
-   )
-  :config
-    (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :hook (lsp-mode . efs/lsp-mode-setup)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (setq lsp-enable-which-key-integration t)
+    (setq lsp-signature-auto-activate nil)
+    (setq lsp-diagnostics-provider :none)
     )
+
+(use-package lsp-ui
+:hook (lsp-mode . lsp-ui-mode)
+:custom
+(lsp-ui-doc-position 'bottom)
+)
+
+(use-package lsp-treemacs
+  :after lsp)
+
+(use-package lsp-ivy
+  :after lsp)
+
+  ;; (lsp-register-client
+  ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
+  ;;                      :major-modes '(python-mode)
+  ;;                      :remote? t
+  ;;                      :server-id 'penguinnb))
+
+(use-package company
+  :after lsp-mode
+  :hook
+  ((emacs-lisp-mode
+    org-mode
+    c++-mode
+    c-mode
+    lsp-mode
+    ) . company-mode)
+  ;;:bind (
+  ;;(:map company-active-map ([tab] . company-completion-selection))
+  ;;)
+  :custom
+  (with-eval-after-load 'company
+    (define-key company-active-map [tab] 'company-complete-selection))
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0)
+  )
+
+(use-package company-box
+  :hook (company-mode . company-box-mode)
+  )
+
+;; (use-package flycheck
+;;   :hook
+;;   ((c-mode . flycheck-mode)
+;;    (c++-mode . flycheck-mode)
+;;    )
+;;   :config
+;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+;;     )
 
 (use-package blacken
 	:hook (python-mode . blacken-mode)
@@ -443,33 +476,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'python-mode-hook 'python-remap-fs)
 
 (use-package python
-    :ensure nil
-    :hook (python-mode . lsp-deferred)
-    :custom
-    (python-shell-interpreter "python3"))
+  :ensure nil
+  :hook (python-mode . lsp-deferred)
+  :custom
+  (python-shell-interpreter "python3"))
 
-  (use-package conda
-    :after python
-    :config
-    (custom-set-variables
-     '(conda-anaconda-home "~/apps/miniconda"))
-    (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
-    (conda-env-activate "work")
-    )
-
-  (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :config
-    (lsp-enable-which-key-integration t)
-    )
-
-;; (lsp-register-client
-;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
-;;                      :major-modes '(python-mode)
-;;                      :remote? t
-;;                      :server-id 'penguinnb))
+(use-package conda
+  :after python
+  :config
+  (custom-set-variables
+   '(conda-anaconda-home "~/apps/miniconda"))
+  (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
+  (conda-env-activate "work")
+  )
 
 (use-package tex
   :hook LaTeX-mode
@@ -508,14 +527,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq web-mode-enable-auto-quoting t)
   (setq web-mode-enable-current-column-highlight t)
   (setq web-mode-enable-current-element-highlight t))
-
-(use-package emmet-mode
-  :after web-mode
-  :config
-  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
-)
 
 (require 'ox-publish)
 (setq org-publish-project-alist

@@ -31,37 +31,48 @@
 
 #+END_SRC
 
-* Behavior
-** Packages
-Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
-
-#+BEGIN_SRC emacs-lisp
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
-#+END_SRC
+* Behavior - Basic
 
 ** Common Lisp
 Enable common lisp syntax
 #+BEGIN_SRC emacs-lisp
   (require 'cl-lib)
 #+END_SRC
-
+** UTF-8 Encoding
+#+BEGIN_SRC emacs-lisp
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
+#+END_SRC
 ** [#B] y/n instead of 'yes/no'
 Be able to type 'y' instead of 'yes'
 #+BEGIN_SRC emacs-lisp
   (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
+** Quick Reload init.el
+ Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchange.com/questions/35170/is-there-a-key-binding-to-open-the-configuration-file-of-emacs][bookmarks.]]
+ #+BEGIN_SRC emacs-lisp
+ (defun reload-init-file ()
+   (interactive)
+   (load-file user-init-file))
 
-** which-key mode
-A nice mode that shows a list of key bindings that follow from inputs you've already entered.
+ (global-set-key (kbd "C-c r") 'reload-init-file)
 
+ #+END_SRC
+
+** Navigation
+ #+BEGIN_SRC emacs-lisp
+ ;; move between windows with shift+[arrow]
+     (windmove-default-keybindings)
+ #+END_SRC
+
+** Line Numbers
+Enable line numbers by default.
 #+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :defer 0
-    :diminish which-key-mode
-    :config
-    (which-key-mode)
-    (setq which-key-idle-delay 1))
+  (when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
 #+END_SRC
 
 ** No Trailing Whitespace
@@ -96,53 +107,6 @@ reroute backups and control history
 	auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
 	)
 #+END_SRC
-
-** TODO Server Mode
-Start in server mode to open files in the server instance with the bash command
-#+BEGIN_SRC emacs-lisp
-  (require 'server)
-  (unless (server-running-p)
-    (progn
-      (server-start)
-      (toggle-frame-maximized)
-      )
-  )
-#+END_SRC
-
-** Line Numbers
-Enable line numbers by default.
-#+BEGIN_SRC emacs-lisp
-  (when (version<= "26.0.50" emacs-version )
-    (global-display-line-numbers-mode))
-#+END_SRC
-
-** Enable parenthesis matching mode
-https://melpa.org/#/mic-paren
-#+BEGIN_SRC emacs-lisp
-  (use-package mic-paren
-      :config
-      ;;(paren-activate)
-      (add-hook 'c-mode-common-hook 'paren-activate)
-      (add-hook 'python-mode-hook   'paren-activate)
-      (add-hook 'org-mode-hook      'paren-activate)
-  )
-#+END_SRC
-
-** Navigation
- #+BEGIN_SRC emacs-lisp
- ;; move between windows with shift+[arrow]
-     (windmove-default-keybindings)
- #+END_SRC
-** Quick Reload init.el
- Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchange.com/questions/35170/is-there-a-key-binding-to-open-the-configuration-file-of-emacs][bookmarks.]]
- #+BEGIN_SRC emacs-lisp
- (defun reload-init-file ()
-   (interactive)
-   (load-file user-init-file))
-
- (global-set-key (kbd "C-c r") 'reload-init-file)
-
- #+END_SRC
 
 ** Insert timestamp
 #+BEGIN_SRC emacs-lisp
@@ -179,13 +143,26 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key "\C-x\C-t" 'insert-current-time)
 #+END_SRC
 
-** UTF-8 Encoding
+** Server Mode
+Start in server mode to open files in the server instance with the bash command
 #+BEGIN_SRC emacs-lisp
-  (setq locale-coding-system 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-selection-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
+  (require 'server)
+  (unless (server-running-p)
+    (progn
+      (server-start)
+      (toggle-frame-maximized)
+      )
+  )
+#+END_SRC
+
+* Behavior - Packages
+
+** Packages
+Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
+
+#+BEGIN_SRC emacs-lisp
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 #+END_SRC
 
 ** Try
@@ -197,6 +174,30 @@ Download and give a melpa package a shot without adding it to init.el.
 :defer t
 )
 
+#+END_SRC
+
+** which-key mode
+A nice mode that shows a list of key bindings that follow from inputs you've already entered.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :defer 0
+    :diminish which-key-mode
+    :config
+    (which-key-mode)
+    (setq which-key-idle-delay 1))
+#+END_SRC
+
+** Enable parenthesis matching mode
+https://melpa.org/#/mic-paren
+#+BEGIN_SRC emacs-lisp
+  (use-package mic-paren
+      :config
+      ;;(paren-activate)
+      (add-hook 'c-mode-common-hook 'paren-activate)
+      (add-hook 'python-mode-hook   'paren-activate)
+      (add-hook 'org-mode-hook      'paren-activate)
+  )
 #+END_SRC
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
@@ -519,49 +520,92 @@ For some reason, org capture links can't be defined in this file. If present her
 #+END_SRC
 
 * TODO Autocompletion
-** Autocompletion
+
+** TODO Language Server Protocol
+This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
 #+BEGIN_SRC emacs-lisp
 
-  ;; ;; We'll try company-mode for now. The old standard autocomplete was the
-  ;; ;; smartly named auto-complete, but only company is being actively developed.
-  ;; (use-package company
-  ;;   :hook
-  ;;   ((emacs-lisp-mode . company-mode)
-  ;;    (org-mode . company-mode)
-  ;;    (c++-mode . company-mode)
-  ;;    (c-mode . company-mode))
-  ;;   )
+  (defun efs/lsp-mode-setup()
+    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    (lsp-headerline-breadcrumb-mode))
 
-  ;; ;; C/C++ intellisense
-  ;; ;; may need clang compiler installed for this to work
-  ;; (use-package company-irony
-  ;;   :config
-  ;;   (require 'company)
-  ;;   (add-to-list 'company-backends 'company-irony))
 
-  ;; (use-package irony
-  ;;   :config
-  ;;   (add-hook 'c++-mode-hook 'irony-mode)
-  ;;   (add-hook 'c-mode-hook 'irony-mode)
-  ;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :hook (lsp-mode . efs/lsp-mode-setup)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (setq lsp-enable-which-key-integration t)
+    (setq lsp-signature-auto-activate nil)
+    (setq lsp-diagnostics-provider :none)
+    )
+
+(use-package lsp-ui
+:hook (lsp-mode . lsp-ui-mode)
+:custom
+(lsp-ui-doc-position 'bottom)
+)
+
+(use-package lsp-treemacs
+  :after lsp)
+
+(use-package lsp-ivy
+  :after lsp)
+
+  ;; (lsp-register-client
+  ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
+  ;;                      :major-modes '(python-mode)
+  ;;                      :remote? t
+  ;;                      :server-id 'penguinnb))
+
+
+
+
+#+END_SRC
+
+Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] might be a pain.
+** TODO Autocompletion
+#+BEGIN_SRC emacs-lisp
+
+    (use-package company
+      :after lsp-mode
+      :hook
+      ((emacs-lisp-mode
+        org-mode
+        c++-mode
+        c-mode
+        lsp-mode
+        ) . company-mode)
+      ;;:bind (
+      ;;(:map company-active-map ([tab] . company-completion-selection))
+      ;;)
+      :custom
+      (with-eval-after-load 'company
+        (define-key company-active-map [tab] 'company-complete-selection))
+      (company-minimum-prefix-length 1)
+      (company-idle-delay 0.0)
+      )
+
+    (use-package company-box
+      :hook (company-mode . company-box-mode)
+      )
 
 #+END_SRC
 * TODO C / C++
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
 
-  (use-package flycheck
-    :hook
-    ((c-mode . flycheck-mode)
-     (c++-mode . flycheck-mode)
-     ;;(python-mode flycheck-mode)
-     )
-    :config
-      (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-      )
+  ;; (use-package flycheck
+  ;;   :hook
+  ;;   ((c-mode . flycheck-mode)
+  ;;    (c++-mode . flycheck-mode)
+  ;;    )
+  ;;   :config
+  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+  ;;     )
 
 #+END_SRC
-
 * TODO Python
 ** Blacken Hook
 Automatically run blacken on any saved python buffer. The time saved is worth any disagreements I might have about formatting.
@@ -603,40 +647,25 @@ Uses the function keys to hide indentation.
 
 #+END_SRC
 
-** TODO IDE
+** Python Base
 #+BEGIN_SRC emacs-lisp
 
-    (use-package python
-      :ensure nil
-      :hook (python-mode . lsp-deferred)
-      :custom
-      (python-shell-interpreter "python3"))
+  (use-package python
+    :ensure nil
+    :hook (python-mode . lsp-deferred)
+    :custom
+    (python-shell-interpreter "python3"))
 
-    (use-package conda
-      :after python
-      :config
-      (custom-set-variables
-       '(conda-anaconda-home "~/apps/miniconda"))
-      (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
-      (conda-env-activate "work")
-      )
-
-    (use-package lsp-mode
-      :commands (lsp lsp-deferred)
-      :init
-      (setq lsp-keymap-prefix "C-c l")
-      :config
-      (lsp-enable-which-key-integration t)
-      )
-
-  ;; (lsp-register-client
-  ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
-  ;;                      :major-modes '(python-mode)
-  ;;                      :remote? t
-  ;;                      :server-id 'penguinnb))
+  (use-package conda
+    :after python
+    :config
+    (custom-set-variables
+     '(conda-anaconda-home "~/apps/miniconda"))
+    (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
+    (conda-env-activate "work")
+    )
 
 #+END_SRC
-
 * TODO LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
@@ -690,14 +719,6 @@ Uses the function keys to hide indentation.
     (setq web-mode-enable-auto-quoting t)
     (setq web-mode-enable-current-column-highlight t)
     (setq web-mode-enable-current-element-highlight t))
-
-  (use-package emmet-mode
-    :after web-mode
-    :config
-    (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-    (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-    (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
-  )
 
 #+END_SRC
 * Website

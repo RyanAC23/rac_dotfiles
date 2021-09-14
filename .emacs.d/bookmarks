@@ -29,7 +29,7 @@
  (position . 1120))
 ("org-capture-last-stored"
  (filename . "~/Dropbox/emacs/rac-agenda.org")
- (front-context-string . "* TODO Make NEW ")
+ (front-context-string . "* TODO Co-opt li")
  (rear-context-string)
  (position . 3))
 )
