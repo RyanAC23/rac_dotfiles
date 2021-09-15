@@ -1,5 +1,15 @@
 ;; put variables for environment paths, like miniconda, here.
 
+(defvar efs/default-font-size 120)
+(defvar efs/default-variable-font-size 120)
+(set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the fixed pitch face
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+;; Set the variable pitch face
+(set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+
 ;; The default is 800 kilobytes.  Measured in bytes.
   ;; Don't forget to put this back at the default after startup.
   (setq gc-cons-threshold (* 50 1000 1000)) ;; Roguhly 50MB
@@ -254,7 +264,6 @@ Uses `current-date-time-format' for the formatting the date/time."
                           (bookmarks . 5)
                           (agenda . 5)
                           (registers . 5)))
-  ;; centering looks awful with multiple frames.
   (setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
   (setq dashboard-set-heading-icons t)
@@ -265,61 +274,69 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 ;; Org-mode ------------------------------------------------------------
-(defun org-mode-setup ()
-  (org-indent-mode)
-  (dolist (face '((org-level-1 . 1.15)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
-  )
+  (defun org-mode-setup ()
+    (org-indent-mode)
+    (dolist (face '((org-level-1 . 1.3)
+                    (org-level-2 . 1.2)
+                    (org-level-3 . 1.1)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+      (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+      (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+      (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+      (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+      (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+      (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+      (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+      (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+    )
 
-(defun org-winmove-setup()
-  (setq-local windmove-mode nil)
-  (add-hook 'org-shiftup-final-hook 'windmove-up)
-  (add-hook 'org-shiftleft-final-hook 'windmove-left)
-  (add-hook 'org-shiftdown-final-hook 'windmove-down)
-  (add-hook 'org-shiftright-final-hook 'windmove-right)
-  )
+;;(org-mode-setup)
+  (defun org-winmove-setup()
+    (setq-local windmove-mode nil)
+    (add-hook 'org-shiftup-final-hook 'windmove-up)
+    (add-hook 'org-shiftleft-final-hook 'windmove-left)
+    (add-hook 'org-shiftdown-final-hook 'windmove-down)
+    (add-hook 'org-shiftright-final-hook 'windmove-right)
+    )
 
-(use-package org
-  :hook
-  ((org-mode . org-mode-setup)
-  (org-mode . org-winmove-setup))
-  :commands (org-capture org-agenda)
-  :config
-  (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-  (require 'ox-md)   ;; Add markdown export support
-  :bind
-  ("C-c a" . org-agenda)
-  )
+  (use-package org
+    :hook
+    ((org-mode . org-mode-setup)
+    (org-mode . org-winmove-setup))
+    :commands (org-capture org-agenda)
+    :config
+    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+    (require 'ox-md)   ;; Add markdown export support
+    :bind
+    ("C-c a" . org-agenda)
+    )
 
-(use-package org-bullets
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-  )
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+    )
 
-;; org agenda
-(setq org-agenda-files
-      '("~/Dropbox/emacs/rac-agenda.org"
-        "~/Dropbox/emacs/Birthdays.org"))
-(setq org-log-done 'time)
+  ;; org agenda
+  (setq org-agenda-files
+        '("~/Dropbox/emacs/rac-agenda.org"
+          "~/Dropbox/emacs/Birthdays.org"))
+  (setq org-log-done 'time)
 
 
-;; reveal.js presentations
+  ;; reveal.js presentations
 
-(use-package ox-reveal
-  :after org-mode
-  :config
-  ;; We need to tell ox-reveal where to find the js file.
-  ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-   (setq org-reveal-mathjax t))
-  )
+  (use-package ox-reveal
+    :after org-mode
+    :config
+    ;; We need to tell ox-reveal where to find the js file.
+    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+     (setq org-reveal-mathjax t))
+    )
 
 ;; ----- Org Capture Templates -----------------------------------------------------------
 
@@ -417,11 +434,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package lsp-ivy
   :after lsp)
 
-  ;; (lsp-register-client
-  ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
-  ;;                      :major-modes '(python-mode)
-  ;;                      :remote? t
-  ;;                      :server-id 'penguinnb))
+;; (lsp-register-client
+;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
+;;                      :major-modes '(python-mode)
+;;                      :remote? t
+;;                      :server-id 'penguinnb))
 
 (use-package company
   :hook
@@ -438,11 +455,14 @@ Uses `current-date-time-format' for the formatting the date/time."
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
+  ;;:custom-face
+  ;;(company-tooltip
+  ;; ((t (:family "Liberation"))))
   )
 
-;; (use-package company-box ;; this breaks things
-;;   :hook (company-mode . company-box-mode)
-;;   )
+;; (use-package company-box
+;;    :hook (company-mode . company-box-mode)
+;;    )
 
 ;; (use-package flycheck
 ;;   :hook

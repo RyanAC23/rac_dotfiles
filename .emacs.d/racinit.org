@@ -2,12 +2,24 @@
 #+STARTUP: overview
 #+PROPERTY: header-args:emacs-lisp :tangle ./racinit.el :results silent
 
-
 * Global Variables
 #+BEGIN_SRC emacs-lisp
 ;; put variables for environment paths, like miniconda, here.
 #+END_SRC
+** Fonts
+#+BEGIN_SRC emacs-lisp
 
+  (defvar efs/default-font-size 120)
+  (defvar efs/default-variable-font-size 120)
+  (set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
+
+  ;; Set the fixed pitch face
+  (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
+
+  ;; Set the variable pitch face
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+
+#+END_SRC
 * Startup Performance
 #+BEGIN_SRC emacs-lisp
   ;; The default is 800 kilobytes.  Measured in bytes.
@@ -368,7 +380,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
                             (bookmarks . 5)
                             (agenda . 5)
                             (registers . 5)))
-    ;; centering looks awful with multiple frames.
     (setq dashboard-center-content t)
     (setq dashboard-set-file-icons t)
     (setq dashboard-set-heading-icons t)
@@ -382,62 +393,70 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 
 * Org Mode
 #+BEGIN_SRC emacs-lisp
-  ;; Org-mode ------------------------------------------------------------
-  (defun org-mode-setup ()
-    (org-indent-mode)
-    (dolist (face '((org-level-1 . 1.15)
-                    (org-level-2 . 1.1)
-                    (org-level-3 . 1.05)
-                    (org-level-4 . 1.0)
-                    (org-level-5 . 1.1)
-                    (org-level-6 . 1.1)
-                    (org-level-7 . 1.1)
-                    (org-level-8 . 1.1)))
-      (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
-    )
+    ;; Org-mode ------------------------------------------------------------
+    (defun org-mode-setup ()
+      (org-indent-mode)
+      (dolist (face '((org-level-1 . 1.3)
+                      (org-level-2 . 1.2)
+                      (org-level-3 . 1.1)
+                      (org-level-4 . 1.0)
+                      (org-level-5 . 1.1)
+                      (org-level-6 . 1.1)
+                      (org-level-7 . 1.1)
+                      (org-level-8 . 1.1)))
+        (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+        (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+        (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+        (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+        (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+      )
 
-  (defun org-winmove-setup()
-    (setq-local windmove-mode nil)
-    (add-hook 'org-shiftup-final-hook 'windmove-up)
-    (add-hook 'org-shiftleft-final-hook 'windmove-left)
-    (add-hook 'org-shiftdown-final-hook 'windmove-down)
-    (add-hook 'org-shiftright-final-hook 'windmove-right)
-    )
+  ;;(org-mode-setup)
+    (defun org-winmove-setup()
+      (setq-local windmove-mode nil)
+      (add-hook 'org-shiftup-final-hook 'windmove-up)
+      (add-hook 'org-shiftleft-final-hook 'windmove-left)
+      (add-hook 'org-shiftdown-final-hook 'windmove-down)
+      (add-hook 'org-shiftright-final-hook 'windmove-right)
+      )
 
-  (use-package org
-    :hook
-    ((org-mode . org-mode-setup)
-    (org-mode . org-winmove-setup))
-    :commands (org-capture org-agenda)
-    :config
-    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-    (require 'ox-md)   ;; Add markdown export support
-    :bind
-    ("C-c a" . org-agenda)
-    )
+    (use-package org
+      :hook
+      ((org-mode . org-mode-setup)
+      (org-mode . org-winmove-setup))
+      :commands (org-capture org-agenda)
+      :config
+      (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+      (require 'ox-md)   ;; Add markdown export support
+      :bind
+      ("C-c a" . org-agenda)
+      )
 
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :custom
-    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-    )
+    (use-package org-bullets
+      :hook (org-mode . org-bullets-mode)
+      :custom
+      (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+      )
 
-  ;; org agenda
-  (setq org-agenda-files
-        '("~/Dropbox/emacs/rac-agenda.org"
-          "~/Dropbox/emacs/Birthdays.org"))
-  (setq org-log-done 'time)
+    ;; org agenda
+    (setq org-agenda-files
+          '("~/Dropbox/emacs/rac-agenda.org"
+            "~/Dropbox/emacs/Birthdays.org"))
+    (setq org-log-done 'time)
 
 
-  ;; reveal.js presentations
+    ;; reveal.js presentations
 
-  (use-package ox-reveal
-    :after org-mode
-    :config
-    ;; We need to tell ox-reveal where to find the js file.
-    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-     (setq org-reveal-mathjax t))
-    )
+    (use-package ox-reveal
+      :after org-mode
+      :config
+      ;; We need to tell ox-reveal where to find the js file.
+      ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+       (setq org-reveal-mathjax t))
+      )
 
 #+END_SRC
 ** Org Capture Templates
@@ -531,37 +550,42 @@ For some reason, org capture links can't be defined in this file. If present her
 
 * TODO Autocompletion
 
-** TODO Language Server Protocol
+** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
 #+BEGIN_SRC emacs-lisp
 
-  (defun efs/lsp-mode-setup()
-    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-    (lsp-headerline-breadcrumb-mode))
+    (defun efs/lsp-mode-setup()
+      (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+      (lsp-headerline-breadcrumb-mode))
 
 
-  (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :hook (lsp-mode . efs/lsp-mode-setup)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :config
-    (setq lsp-enable-which-key-integration t)
-    (setq lsp-signature-auto-activate nil)
-    (setq lsp-diagnostics-provider :none)
-    )
+    (use-package lsp-mode
+      :commands (lsp lsp-deferred)
+      :hook (lsp-mode . efs/lsp-mode-setup)
+      :init
+      (setq lsp-keymap-prefix "C-c l")
+      :config
+      (setq lsp-enable-which-key-integration t)
+      (setq lsp-signature-auto-activate nil)
+      (setq lsp-diagnostics-provider :none)
+      )
 
-(use-package lsp-ui
-:hook (lsp-mode . lsp-ui-mode)
-:custom
-(lsp-ui-doc-position 'bottom)
-)
+  (use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom)
+  )
 
-(use-package lsp-treemacs
-  :after lsp)
+  (use-package lsp-treemacs
+    :after lsp)
 
-(use-package lsp-ivy
-  :after lsp)
+  (use-package lsp-ivy
+    :after lsp)
+
+#+END_SRC
+
+** LSP over Tramp
+#+BEGIN_SRC emacs-lisp
 
   ;; (lsp-register-client
   ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
@@ -593,11 +617,14 @@ Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp
     :custom
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0)
+    ;;:custom-face
+    ;;(company-tooltip
+    ;; ((t (:family "Liberation"))))
     )
 
-  ;; (use-package company-box ;; this breaks things
-  ;;   :hook (company-mode . company-box-mode)
-  ;;   )
+  ;; (use-package company-box
+  ;;    :hook (company-mode . company-box-mode)
+  ;;    )
 
 #+END_SRC
 * TODO C / C++
@@ -614,7 +641,7 @@ Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp
   ;;     )
 
 #+END_SRC
-* TODO Python
+* Python
 ** Blacken Hook
 Automatically run blacken on any saved python buffer. The time saved is worth any disagreements I might have about formatting.
 
@@ -807,15 +834,15 @@ For settings and Melpa packages I haven't committed myself to.
 ** Directory Management
 #+BEGIN_SRC emacs-lisp
 
-  (use-package dired
-    :ensure nil
-    :commands (dired dired-jump)
-    :custom ((dired-listing-switches "-hago --group-directories-first")
-             (setq delete-by-moving-to-trash t)
-             )
-    )
-(use-package all-the-icons-dired
-:hook (dired-mode . all-the-icons-dired-mode)
-)
+    (use-package dired
+      :ensure nil
+      :commands (dired dired-jump)
+      :custom ((dired-listing-switches "-hago --group-directories-first")
+               (setq delete-by-moving-to-trash t)
+               )
+      )
+  (use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode)
+  )
 
 #+END_SRC
