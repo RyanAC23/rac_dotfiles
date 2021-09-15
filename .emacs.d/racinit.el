@@ -35,11 +35,11 @@
 
 (global-set-key (kbd "C-c r") 'reload-init-file)
 
-;; move between windows with shift+[arrow]
-    (windmove-default-keybindings)
+(windmove-default-keybindings)
 
 (when (version<= "26.0.50" emacs-version )
- (global-display-line-numbers-mode))
+  (global-display-line-numbers-mode))
+;;(setq line-number-major-tick 10)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -265,52 +265,61 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 ;; Org-mode ------------------------------------------------------------
-  (defun org-mode-setup ()
-    (org-indent-mode)
-    (dolist (face '((org-level-1 . 1.15)
-                    (org-level-2 . 1.1)
-                    (org-level-3 . 1.05)
-                    (org-level-4 . 1.0)
-                    (org-level-5 . 1.1)
-                    (org-level-6 . 1.1)
-                    (org-level-7 . 1.1)
-                    (org-level-8 . 1.1)))
-      (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
-    )
+(defun org-mode-setup ()
+  (org-indent-mode)
+  (dolist (face '((org-level-1 . 1.15)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :weight 'medium :height (cdr face)))
+  )
 
-  (use-package org
-    :hook (org-mode . org-mode-setup)
-    :commands (org-capture org-agenda)
-    :config
-    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-    (require 'ox-md)   ;; Add markdown export support
-    (message "ORG loaded")
-    :bind
-    ("C-c a" . org-agenda)
-    )
+(defun org-winmove-setup()
+  (setq-local windmove-mode nil)
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right)
+  )
 
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :custom
-    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-    )
+(use-package org
+  :hook
+  ((org-mode . org-mode-setup)
+  (org-mode . org-winmove-setup))
+  :commands (org-capture org-agenda)
+  :config
+  (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+  (require 'ox-md)   ;; Add markdown export support
+  :bind
+  ("C-c a" . org-agenda)
+  )
 
-  ;; org agenda
-  (setq org-agenda-files
-        '("~/Dropbox/emacs/rac-agenda.org"
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+  )
+
+;; org agenda
+(setq org-agenda-files
+      '("~/Dropbox/emacs/rac-agenda.org"
         "~/Dropbox/emacs/Birthdays.org"))
-  (setq org-log-done 'time)
+(setq org-log-done 'time)
 
 
-  ;; reveal.js presentations
+;; reveal.js presentations
 
-  (use-package ox-reveal
-    :after org-mode
-    :config
-    ;; We need to tell ox-reveal where to find the js file.
-    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-    (setq org-reveal-mathjax t))
-)
+(use-package ox-reveal
+  :after org-mode
+  :config
+  ;; We need to tell ox-reveal where to find the js file.
+  ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+   (setq org-reveal-mathjax t))
+  )
 
 ;; ----- Org Capture Templates -----------------------------------------------------------
 
