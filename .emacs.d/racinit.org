@@ -44,7 +44,6 @@
 #+END_SRC
 
 * Behavior - Basic
-
 ** Common Lisp
 Enable common lisp syntax
 #+BEGIN_SRC emacs-lisp
@@ -548,8 +547,7 @@ For some reason, org capture links can't be defined in this file. If present her
       (org-capture)))
 #+END_SRC
 
-* TODO Autocompletion
-
+* TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
 #+BEGIN_SRC emacs-lisp
@@ -584,22 +582,19 @@ This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutoria
 
 #+END_SRC
 
-** LSP over Tramp
+** TODO LSP over Tramp
 #+BEGIN_SRC emacs-lisp
 
-  ;; (lsp-register-client
-  ;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
-  ;;                      :major-modes '(python-mode)
-  ;;                      :remote? t
-  ;;                      :server-id 'penguinnb))
-
-
-
-
+   ;;  (lsp-register-client
+  ;;       (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
+  ;;                        :major-modes '(python-mode)
+  ;;                        :remote? t
+  ;;                        :server-id 'planeptune)
+  ;; )
 #+END_SRC
 
 Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] might be a pain.
-** TODO Autocompletion
+** Autocompletion
 #+BEGIN_SRC emacs-lisp
 
   (use-package company
@@ -617,28 +612,10 @@ Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp
     :custom
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0)
-    ;;:custom-face
-    ;;(company-tooltip
-    ;; ((t (:family "Liberation"))))
+    :custom-face
+    (company-tooltip
+     ((t (:family "Terminus"))))
     )
-
-  ;; (use-package company-box
-  ;;    :hook (company-mode . company-box-mode)
-  ;;    )
-
-#+END_SRC
-* TODO C / C++
-** Flycheck
-#+BEGIN_SRC emacs-lisp
-
-  ;; (use-package flycheck
-  ;;   :hook
-  ;;   ((c-mode . flycheck-mode)
-  ;;    (c++-mode . flycheck-mode)
-  ;;    )
-  ;;   :config
-  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-  ;;     )
 
 #+END_SRC
 * Python
@@ -699,6 +676,38 @@ Uses the function keys to hide indentation.
     )
 
 #+END_SRC
+* TODO C / C++
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+
+  ;; (use-package flycheck
+  ;;   :hook
+  ;;   ((c-mode . flycheck-mode)
+  ;;    (c++-mode . flycheck-mode)
+  ;;    )
+  ;;   :config
+  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+  ;;     )
+
+#+END_SRC
+* TODO Web Development
+#+BEGIN_SRC emacs-lisp
+
+  (use-package web-mode
+    :hook (html-mode . web-mode)
+    :config
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (setq web-mode-engines-alist
+	  '(("django" . "\\.html\\'")))
+    (setq web-mode-ac-sources-alist
+	  '(("css" . (ac-source-css-property))
+	    ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+    (setq web-mode-enable-auto-closing t)
+    (setq web-mode-enable-auto-quoting t)
+    (setq web-mode-enable-current-column-highlight t)
+    (setq web-mode-enable-current-element-highlight t))
+
+#+END_SRC
 * TODO LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
@@ -736,24 +745,6 @@ Uses the function keys to hide indentation.
 
 #+END_SRC
 
-* TODO Web Development
-#+BEGIN_SRC emacs-lisp
-
-  (use-package web-mode
-    :hook (html-mode . web-mode)
-    :config
-    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-    (setq web-mode-engines-alist
-	  '(("django" . "\\.html\\'")))
-    (setq web-mode-ac-sources-alist
-	  '(("css" . (ac-source-css-property))
-	    ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-    (setq web-mode-enable-auto-closing t)
-    (setq web-mode-enable-auto-quoting t)
-    (setq web-mode-enable-current-column-highlight t)
-    (setq web-mode-enable-current-element-highlight t))
-
-#+END_SRC
 * Website
 ** Main Website Export
 C-c + b

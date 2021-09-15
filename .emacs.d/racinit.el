@@ -434,11 +434,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package lsp-ivy
   :after lsp)
 
-;; (lsp-register-client
-;;     (make-lsp-client :new-connection (lsp-tramp-connection "python-lsp-server")
-;;                      :major-modes '(python-mode)
-;;                      :remote? t
-;;                      :server-id 'penguinnb))
+;;  (lsp-register-client
+;;       (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
+;;                        :major-modes '(python-mode)
+;;                        :remote? t
+;;                        :server-id 'planeptune)
+;; )
 
 (use-package company
   :hook
@@ -455,23 +456,10 @@ Uses `current-date-time-format' for the formatting the date/time."
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
-  ;;:custom-face
-  ;;(company-tooltip
-  ;; ((t (:family "Liberation"))))
+  :custom-face
+  (company-tooltip
+   ((t (:family "Terminus"))))
   )
-
-;; (use-package company-box
-;;    :hook (company-mode . company-box-mode)
-;;    )
-
-;; (use-package flycheck
-;;   :hook
-;;   ((c-mode . flycheck-mode)
-;;    (c++-mode . flycheck-mode)
-;;    )
-;;   :config
-;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-;;     )
 
 (use-package blacken
     :hook (python-mode . blacken-mode)
@@ -515,6 +503,29 @@ Uses `current-date-time-format' for the formatting the date/time."
   (conda-env-activate "work")
   )
 
+;; (use-package flycheck
+;;   :hook
+;;   ((c-mode . flycheck-mode)
+;;    (c++-mode . flycheck-mode)
+;;    )
+;;   :config
+;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+;;     )
+
+(use-package web-mode
+  :hook (html-mode . web-mode)
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (setq web-mode-engines-alist
+	'(("django" . "\\.html\\'")))
+  (setq web-mode-ac-sources-alist
+	'(("css" . (ac-source-css-property))
+	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+  (setq web-mode-enable-auto-closing t)
+  (setq web-mode-enable-auto-quoting t)
+  (setq web-mode-enable-current-column-highlight t)
+  (setq web-mode-enable-current-element-highlight t))
+
 (use-package tex
   :hook LaTeX-mode
   :ensure auctex
@@ -538,20 +549,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package magit
   :commands (magit-status magit-get-current-branch)
 )
-
-(use-package web-mode
-  :hook (html-mode . web-mode)
-  :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-engines-alist
-	'(("django" . "\\.html\\'")))
-  (setq web-mode-ac-sources-alist
-	'(("css" . (ac-source-css-property))
-	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-  (setq web-mode-enable-auto-closing t)
-  (setq web-mode-enable-auto-quoting t)
-  (setq web-mode-enable-current-column-highlight t)
-  (setq web-mode-enable-current-element-highlight t))
 
 (require 'ox-publish)
 (setq org-publish-project-alist
