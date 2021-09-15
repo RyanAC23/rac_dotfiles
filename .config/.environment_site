@@ -3,7 +3,7 @@
 
 # New way of activating conda: Use your install location of activating conda:
 # Use your install location
-. /home/ryan/data/apps/miniconda/etc/profile.d/conda.sh
+. /home/ryan/apps/miniconda/etc/profile.d/conda.sh
 conda activate          # Optional - activates the base environment.
 
 function j {
