@@ -1,0 +1,76 @@
+
+# ----- Debugging tools ---------------------------------------------------------
+
+_createGuayadequeProcess(){
+    if noActiveProcessExists; then
+	DISPLAY=:0 xdotool exec guayadeque
+    fi
+}
+
+_killGuayadequeProcess(){
+    DISPLAY=:0 xdotool windowkill $guayaPID
+}
+
+_debugControlsRoutine(){
+    clear_current_line="\r\033[0K\r"
+
+    while read -rsn1 key
+    do
+	case $key in
+	    '.')
+		echo -en "${clear_current_line}skipping to next track"
+		AudioNext
+		;;
+	    ',')
+		echo -en "${clear_current_line}skipping back..."
+		AudioPrevious
+		;;
+	    '=')
+		echo -en "${clear_current_line}volume up"
+		AudioVolumeUp
+		;;
+	    '-')
+		echo -en "${clear_current_line}volume down"
+		AudioVolumeDown
+		;;
+	    'p')
+		echo -en "${clear_current_line}toggling pause/play"
+		AudioTogglePlay
+		;;
+	    'k')
+		echo -en "${clear_current_line}killing active window."
+		_killGuayadequeProcess
+		;;
+	    'i')
+		setVariables
+		echo -en "${clear_current_line}Current PID is ${guayaPID}..."
+		;;
+	    'c')
+		echo -en "Creating Guayadeque process..."
+		checkProcessExists
+		_createGuayadequeProcess
+		;;
+	    'q')
+		echo -en "${clear_current_line}Exiting...\n"
+		exit
+		;;
+	esac
+    done
+}
+
+_activateDebugger(){
+    clear;
+    cat <<"EOF"
+=================================================================================
+  Controls:
+  >) Next track		       +) Volume up    p) Toggle pause / play
+  <) Previous track / restart  -) Volume down  q) Quit
+=================================================================================
+  c) Create Guayadeque         i) Print current process ID
+  k) Kill Guayadeque
+=================================================================================
+EOF
+
+    _debugControlsRoutine
+
+}
