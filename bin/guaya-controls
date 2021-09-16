@@ -121,7 +121,7 @@ doMainRoutine(){
 		exit
 		;;
 	    '_')
-		_activateDebugger
+		# _activateDebugger
 		;;
 	esac
     done
