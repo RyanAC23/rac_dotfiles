@@ -1,6 +1,10 @@
 #!/bin/bash
 
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+# source $DIR/guaya/debug_tools
+
 # ----- Guayadeque Remote --------------------------------------------------------
+# 2021 RC23
 # requires xdotool.
 
 # See bash code for getting song info on neofetch
@@ -10,6 +14,7 @@
 
 
 # ----- Functions ----------------------------------------------------------------
+
 makeTitleASCII(){
     clear;
     cat <<"EOF"
@@ -39,15 +44,29 @@ makeTitleASCII(){
 EOF
 }
 
+noActiveProcessExists(){
+    if [[ ! $(DISPLAY=:0 xdotool search --name guayadeque) ]]; then
+	return 0
+    else
+	return 1 # Backwards in bash...
+    fi
+}
+
+startup(){
+    if noActiveProcessExists; then
+	echo "No Guayadeque process exists! You'll need to set this from the desktop."
+	exit
+    else :
+    fi
+}
 
 getPID(){
     PID=$(DISPLAY=:0 xdotool search --name guayadeque | tail -1)
     echo $PID
 }
 
-guayaPID=$(getPID)
-
-set_xdo_command(){
+setVariables(){
+    guayaPID=$(getPID)
     do_command="DISPLAY=:0 xdotool windowactivate --sync $guayaPID key"
 }
 
@@ -72,39 +91,48 @@ AudioTogglePlay(){
     eval "$do_command XF86AudioPlay"
 }
 
+doMainRoutine(){
+    clear_current_line="\r\033[0K\r"
+    while read -rsn1 key
+    do
+	case $key in
+	    '.')
+		echo -en "${clear_current_line}skipping to next track"
+		AudioNext
+		;;
+	    ',')
+		echo -en "${clear_current_line}skipping back..."
+		AudioPrevious
+		;;
+	    '=')
+		echo -en "${clear_current_line}volume up"
+		AudioVolumeUp
+		;;
+	    '-')
+		echo -en "${clear_current_line}volume down"
+		AudioVolumeDown
+		;;
+	    'p')
+		echo -en "${clear_current_line}toggling pause/play"
+		AudioTogglePlay
+		;;
+	    'q')
+		echo -en "${clear_current_line}Exiting...\n"
+		exit
+		;;
+	    '_')
+		_activateDebugger
+		;;
+	esac
+    done
+}
 
 # ----- Main Routine ---------------------------------------
+
+startup
+
+setVariables
+
 makeTitleASCII
 
-set_xdo_command
-clear_current_line="\r\033[0K\r"
-
-while read -rsn1 key
-do
-    case $key in
-	'.')
-	    echo -en "${clear_current_line}skipping to next track"
-	    AudioNext
-	    ;;
-	',')
-	    echo -en "${clear_current_line}skipping back..."
-	    AudioPrevious
-	    ;;
-	'=')
-	    echo -en "${clear_current_line}volume up"
-	    AudioVolumeUp
-	    ;;
-	'-')
-	    echo -en "${clear_current_line}volume down"
-	    AudioVolumeDown
-	    ;;
-	'p')
-	    echo -en "${clear_current_line}toggling pause/play"
-	    AudioTogglePlay
-	    ;;
-	'q')
-	    echo -en "${clear_current_line}Exiting...\n"
-	     exit
-	     ;;
-    esac
-done
+doMainRoutine
