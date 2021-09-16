@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# ----- Guayadeque Remote --------------------------------------------------------
+# requires xdotool.
+
+# See bash code for getting song info on neofetch
+# https://github.com/dylanaraps/neofetch/blob/master/neofetch
+
+# ASCII by http://www.network-science.de/ascii/
+
+
+# ----- Functions ----------------------------------------------------------------
+makeTitleASCII(){
+    clear;
+    cat <<"EOF"
+                  _______           _______           _______
+                 (  ____ \|\     /|(  ___  )|\     /|(  ___  )
+                 | (    \/| )   ( || (   ) |( \   / )| (   ) |
+                 | |      | |   | || (___) | \ (_) / | (___) |
+                 | | ____ | |   | ||  ___  |  \   /  |  ___  |
+                 | | \_  )| |   | || (   ) |   ) (   | (   ) |
+                 | (___) || (___) || )   ( |   | |   | )   ( |
+                 (_______)(_______)|/     \|   \_/   |/     \|
+
+     _______  _______  _       _________ _______  _______  _       _______
+    (  ____ \(  ___  )( (    /|\__   __/(  ____ )(  ___  )( \     (  ____ \
+    | (    \/| (   ) ||  \  ( |   ) (   | (    )|| (   ) || (     | (    \/
+    | |      | |   | ||   \ | |   | |   | (____)|| |   | || |     | (_____
+    | |      | |   | || (\ \) |   | |   |     __)| |   | || |     (_____  )
+    | |      | |   | || | \   |   | |   | (\ (   | |   | || |           ) |
+    | (____/\| (___) || )  \  |   | |   | ) \ \__| (___) || (____/Y\____) |
+    (_______/(_______)|/    )_)   )_(   |/   \__/(_______)(_______|_______)
+
+=================================================================================
+  Controls:
+  >) Next track		       +) Volume up    p) Toggle pause / play
+  <) Previous track / restart  -) Volume down  q) Quit
+=================================================================================
+EOF
+}
+
+
+getPID(){
+    PID=$(DISPLAY=:0 xdotool search --name guayadeque | tail -1)
+    echo $PID
+}
+
+guayaPID=$(getPID)
+
+set_xdo_command(){
+    do_command="DISPLAY=:0 xdotool windowactivate --sync $guayaPID key"
+}
+
+AudioNext(){
+    eval "$do_command XF86AudioNext"
+}
+
+AudioPrevious(){
+    eval "$do_command XF86AudioPrev"
+}
+
+AudioVolumeUp(){
+    eval "$do_command XF86AudioRaiseVolume"
+}
+
+AudioVolumeDown(){
+    eval "$do_command XF86AudioLowerVolume"
+}
+
+
+AudioTogglePlay(){
+    eval "$do_command XF86AudioPlay"
+}
+
+
+# ----- Main Routine ---------------------------------------
+makeTitleASCII
+
+set_xdo_command
+clear_current_line="\r\033[0K\r"
+
+while read -rsn1 key
+do
+    case $key in
+	'.')
+	    echo -en "${clear_current_line}skipping to next track"
+	    AudioNext
+	    ;;
+	',')
+	    echo -en "${clear_current_line}skipping back..."
+	    AudioPrevious
+	    ;;
+	'=')
+	    echo -en "${clear_current_line}volume up"
+	    AudioVolumeUp
+	    ;;
+	'-')
+	    echo -en "${clear_current_line}volume down"
+	    AudioVolumeDown
+	    ;;
+	'p')
+	    echo -en "${clear_current_line}toggling pause/play"
+	    AudioTogglePlay
+	    ;;
+	'q')
+	    echo -en "${clear_current_line}Exiting...\n"
+	     exit
+	     ;;
+    esac
+done
