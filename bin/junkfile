@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ ! $(DISPLAY=:0 xdotool search --name guayadeque) ]]; then
-    echo "Launching Guayadeque"
-    DISPLAY=:0 xdotool exec guayadeque &
-else
-   echo "Stack not empty"
-fi
