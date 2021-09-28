@@ -133,6 +133,15 @@ Uses `current-date-time-format' for the formatting the date/time."
     (add-hook 'org-mode-hook      'paren-activate)
 )
 
+;; Place to put local packages.
+(let* ((path (expand-file-name "lisp" user-emacs-directory))
+       (local-pkgs (mapcar 'file-name-directory (directory-files-recursively path ".*\\.el"))))
+  (if (file-accessible-directory-p path)
+      (mapc (apply-partially 'add-to-list 'load-path) local-pkgs)
+    (make-directory path :parents)))
+
+(require 'bookmark+)
+
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -338,48 +347,6 @@ Uses `current-date-time-format' for the formatting the date/time."
      (setq org-reveal-mathjax t))
     )
 
-;; ----- Org Capture Templates -----------------------------------------------------------
-
-(setq org-capture-templates
-      '(
-	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
-      )
-      )
-
-(with-eval-after-load 'org
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       (python . t))
-     )
-(setq org-confirm-babel-evaluate nil)
-)
-
-(defun rac/org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle))))
-
-  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
-
-(defun rac/org-mode-visual-fill ()
-  (setq visual-fill-column-width 95
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :defer t
-  :hook (org-mode . rac/org-mode-visual-fill))
-  :diminish
-
 (global-set-key (kbd "C-c c")
 		'org-capture)
 
@@ -405,6 +372,48 @@ Uses `current-date-time-format' for the formatting the date/time."
   (delete-other-windows)
   (noflet ((switch-to-buffer-other-window (buf) (switch-to-buffer buf)))
     (org-capture)))
+
+(with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t))
+     )
+(setq org-confirm-babel-evaluate nil)
+)
+
+;; ----- Org Capture Templates -----------------------------------------------------------
+
+(setq org-capture-templates
+      '(
+	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
+      )
+      )
+
+(defun rac/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+
+(defun rac/org-mode-visual-fill ()
+  (setq visual-fill-column-width 95
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :defer t
+  :hook (org-mode . rac/org-mode-visual-fill))
+  :diminish
 
 (defun efs/lsp-mode-setup()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -609,3 +618,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package all-the-icons-dired
 :hook (dired-mode . all-the-icons-dired-mode)
 )
+
+(use-package org-roam
+  :ensure t)

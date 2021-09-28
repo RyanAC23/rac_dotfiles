@@ -49,7 +49,8 @@ Enable common lisp syntax
 #+BEGIN_SRC emacs-lisp
   (require 'cl-lib)
 #+END_SRC
-** UTF-8 Encoding
+** DONE UTF-8 Encoding
+CLOSED: [2021-09-18 Sat 21:51]
 #+BEGIN_SRC emacs-lisp
   (setq locale-coding-system 'utf-8)
   (set-terminal-coding-system 'utf-8)
@@ -168,7 +169,6 @@ Start in server mode to open files in the server instance with the bash command
 #+END_SRC
 
 * Behavior - Packages
-
 ** Packages
 Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
 
@@ -211,6 +211,19 @@ https://melpa.org/#/mic-paren
       (add-hook 'org-mode-hook      'paren-activate)
   )
 #+END_SRC
+** Load non-MELPA packages
+#+begin_src emacs-lisp
+  ;; Place to put local packages.
+  (let* ((path (expand-file-name "lisp" user-emacs-directory))
+         (local-pkgs (mapcar 'file-name-directory (directory-files-recursively path ".*\\.el"))))
+    (if (file-accessible-directory-p path)
+        (mapc (apply-partially 'add-to-list 'load-path) local-pkgs)
+      (make-directory path :parents)))
+#+end_src
+*** Bookamark-Plus
+#+begin_src emacs-lisp
+ (require 'bookmark+)
+#+end_src
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
 
@@ -458,67 +471,8 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
       )
 
 #+END_SRC
-** Org Capture Templates
-#+BEGIN_SRC emacs-lisp
+** Org Links Mode
 
-;; ----- Org Capture Templates -----------------------------------------------------------
-
-(setq org-capture-templates
-      '(
-	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
-      )
-      )
-
-#+END_SRC
-
-** Org babel load languages
-#+BEGIN_SRC emacs-lisp
-
-  (with-eval-after-load 'org
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       (python . t))
-     )
-(setq org-confirm-babel-evaluate nil)
-)
-
-#+END_SRC
-
-** Auto tangle Org config file
-#+begin_src emacs-lisp
-  (defun rac/org-babel-tangle-config ()
-    (when (string-equal (buffer-file-name)
-                        (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
-      (let ((org-confirm-babel-evaluate nil))
-        (org-babel-tangle))))
-
-    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
-#+end_src
-
-** Visual Fill Org Hook
-#+BEGIN_SRC emacs-lisp
-
-(defun rac/org-mode-visual-fill ()
-  (setq visual-fill-column-width 95
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :defer t
-  :hook (org-mode . rac/org-mode-visual-fill))
-  :diminish
-#+END_SRC
-* Org Links Mode
-
-For some reason, org capture links can't be defined in this file. If present here, they aren't loaded. I've moved that code chunk to [[file:./init.el][~init.el~]] instead.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "C-c c")
 		  'org-capture)
@@ -547,6 +501,64 @@ For some reason, org capture links can't be defined in this file. If present her
       (org-capture)))
 #+END_SRC
 
+** Org babel load languages
+#+BEGIN_SRC emacs-lisp
+
+  (with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (python . t))
+     )
+(setq org-confirm-babel-evaluate nil)
+)
+
+#+END_SRC
+
+** Org Capture Templates
+#+BEGIN_SRC emacs-lisp
+
+;; ----- Org Capture Templates -----------------------------------------------------------
+
+(setq org-capture-templates
+      '(
+	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
+	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
+      )
+      )
+
+#+END_SRC
+
+** Auto tangle Org config file
+#+begin_src emacs-lisp
+  (defun rac/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+                        (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle))))
+
+    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+#+end_src
+
+** Visual Fill Org Hook
+#+BEGIN_SRC emacs-lisp
+
+(defun rac/org-mode-visual-fill ()
+  (setq visual-fill-column-width 95
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :defer t
+  :hook (org-mode . rac/org-mode-visual-fill))
+  :diminish
+#+END_SRC
 * TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
@@ -836,4 +848,10 @@ For settings and Melpa packages I haven't committed myself to.
   :hook (dired-mode . all-the-icons-dired-mode)
   )
 
+#+END_SRC
+
+** Org Roam
+#+BEGIN_SRC emacs-lisp
+  (use-package org-roam
+    :ensure t)
 #+END_SRC
