@@ -17,7 +17,12 @@
     "\"I doubt whether you can give your telephone number without giving something of yourself.\" - Nabokov, Gogol"
     "\"If parallel lines do not meet it is not because they cannot, but because they have other things to do.\" - Nabokov, Gogol"
     "\"A writer is lost when he grows interested in such questions as \"what is art?\" and \"What is an artist's duty?\" - Nabokov, Gogol"
-;; Others
+    ;; Bulgakov
+    "\"Annushka has already bought the sunflower oil and not just bought it, but spilled it as well.\""
+    "\"Freshness comes in only one grade-first grade, and that's it. And if the sturgeon's second-grade fresh, that means it's rotten!\""
+    "\"I'm not doing any mischief, I'm not bothering anyone, I'm just fixing the primus!\""
+    "\"'Forgive me, but I don't believe you,' said Woland. 'That cannot be. Manuscripts don't burn.'\""
+    ;; Others
     "\"It is no fun to pay with a hangover for the feasting of others.\" - Lermontov"
     "\"But we cannot begin again. In this respect things are as they are, and will almost certainly get worse.\" - Frank Kermode, \"Not Entitled\""
 ;; Shakespeare
@@ -32,9 +37,7 @@
      "\"The man that did once sell the lion's skin while the beast lived, was killed with hunting him.\" - Henry V"
      "\"Ah, what a sign it is of evil life, where death's approach seems so terrible!\" - 2 Henry VI"
 ;; people
-     "\"Be an asset, not a liability.\" - Tim Kennedy"
-     "\"All of your excuses are Lies.\" - Jocko"
-     ;;"\"If I'm so smart, why am I losing?\" - Jocko"
-     "\"The enemy always has a vote.\" - Jocko"
-     ;;"\"Anything you can't carry 24 hrs/day is gone on the next chopper.\""
+     "\"Be an asset, not a liability.\""
+     "\"All of your excuses are Lies.\""
+     "\"The enemy always has a vote.\""
 ))

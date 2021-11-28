@@ -267,7 +267,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/banner/banner.gif")
+  (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
   (setq dashboard-items '((recents . 15)
                           (projects . 5)
                           (bookmarks . 5)
@@ -348,7 +348,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     )
 
 (global-set-key (kbd "C-c c")
-		'org-capture)
+                'org-capture)
 
 (defadvice org-capture-finalize
     (after delete-capture-frame activate)
@@ -391,7 +391,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
 	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
 	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
 	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
 	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
       )
@@ -453,7 +453,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package company
   :hook
   ((emacs-lisp-mode . company-mode)
-    (org-mode . company-mode)
+    ;; (org-mode . company-mode)
     (c++-mode . company-mode)
     (c-mode . company-mode)
     (lsp-mode . company-mode)
@@ -619,5 +619,40 @@ Uses `current-date-time-format' for the formatting the date/time."
 :hook (dired-mode . all-the-icons-dired-mode)
 )
 
-(use-package org-roam
-  :ensure t)
+(defun org-roam-node-insert-immediate (arg &rest args)
+  (interactive "P")
+  (let ((args (push arg args))
+        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                  '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
+
+  (use-package org-roam
+    :ensure t
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/Dropbox/emacs/Roam")
+    (org-roam-completion-everywhere t)
+    (org-roam-capture-templates
+     '(("n" "note: default" plain
+        "%?"
+        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+        :unnarrowed t)
+       ("a" "author" plain
+        "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+       :unnarrowed t)
+     ("b" "book" plain
+        (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+       :unnarrowed t)
+     ))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n I" . org-roam-node-insert-immediate)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point))
+    :config
+    (org-roam-setup)
+    )
