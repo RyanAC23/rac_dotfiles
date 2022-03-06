@@ -39,7 +39,7 @@
  '(custom-safe-themes
    '("754a64bc1ed03ecddd79bb59638c36adce4190a7ca24bdf374d409960916aec2" "dc7c3cb936ad634d6837241cc55716ff19074070ec345b87084774f5c96caf3a" "1632b73e6074cb253a6357e18bc04f0acd390ace77bdee0986ceaca78a5ca43c" default))
  '(elfeed-feeds
-   '("http://ronpaulinstitute.org/archives/peace-and-prosperity/rss.aspx?blogid=5" "https://alexberenson.substack.com/feed" "https://www.youtube.com/feeds/videos.xml?channel_id=UCkqcY4CAuBFNFho6JgygCnA"))
+   '())
  '(package-selected-packages
    '(org-roam lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons))
  '(tramp-terminal-type "dumb"))
