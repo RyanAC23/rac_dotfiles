@@ -106,6 +106,10 @@ Packages are divided into two sets, called core and full. The core list contains
 ## Updates
 
 ==========
+Tue Mar 08 20:54:24 PST 2022
+- Started a Makefile for Miniconda setup. Expand to other things eventually.
+
+==========
 Tue Sep 14 20:33:10 PDT 2021
 - Fixed .environment_site conda location
 - Updated emacs with ppa repository
