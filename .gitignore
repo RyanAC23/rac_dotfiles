@@ -1,28 +1,27 @@
 # tex repo
-/bin/tex-template/*
-/bin/tex-template/
+bin/tex-template/*
+bin/tex-template/
 
 # emacs non-essentials
-/.emacs.d/elpa/*
-/.emacs.d/backups/*
-/.emacs.d/projectile-bookmarks.eld
-/.emacs.d/auto-save-list/*
-/.emacs.d/recentf
-/.emacs.d/tramp
-/.emacs.d/ido.last
-/.emacs.d/session.*
-/.emacs.d/url/*
-/.emacs.d/.lsp-session-v1
-/.emacs.d/recentf~
-/.emacs.d/transient/
+.emacs.d/elpa/*
+.emacs.d/backups/*
+.emacs.d/projectile-bookmarks.eld
+.emacs.d/auto-save-list/*
+.emacs.d/recentf
+.emacs.d/tramp
+.emacs.d/ido.last
+.emacs.d/session.*
+.emacs.d/url/*
+.emacs.d/.lsp-session-v1
+.emacs.d/recentf~
+.emacs.d/transient/
 
-/.guayadeque/*
-/.guayadeque/
-/.guayadeque/cache.db
-/.guayadeque/Collections
-/.guayadeque/guayadeque.con*
+.guayadeque
 
 # emacs backups
 .\#*
 .\#*\#
 \#*
+
+# bin
+bin/stepmania
