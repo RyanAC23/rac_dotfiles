@@ -512,6 +512,10 @@ Uses `current-date-time-format' for the formatting the date/time."
   (conda-env-activate "work")
   )
 
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (local-set-key (kbd "C-<return>") 'compile)))
+
 ;; (use-package flycheck
 ;;   :hook
 ;;   ((c-mode . flycheck-mode)

@@ -689,6 +689,13 @@ Uses the function keys to hide indentation.
 
 #+END_SRC
 * TODO C / C++
+** Set compile hook to C/++
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (local-set-key (kbd "C-<return>") 'compile)))
+#+END_SRC
+
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
 
