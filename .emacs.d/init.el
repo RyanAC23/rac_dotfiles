@@ -42,8 +42,8 @@
  '(package-selected-packages
    '(org-roam lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons))
  '(tramp-terminal-type "dumb")
- '(warning-suppress-log-types '((use-package)))
- '(warning-suppress-types '((use-package))))
+ '(warning-suppress-log-types '((auto-save) (use-package)))
+ '(warning-suppress-types '((auto-save) (use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
