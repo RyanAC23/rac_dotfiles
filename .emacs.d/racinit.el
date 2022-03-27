@@ -415,6 +415,45 @@ Uses `current-date-time-format' for the formatting the date/time."
   :hook (org-mode . rac/org-mode-visual-fill))
   :diminish
 
+(defun org-roam-node-insert-immediate (arg &rest args)
+  (interactive "P")
+  (let ((args (push arg args))
+        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                  '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
+
+  (use-package org-roam
+    :ensure t
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/Dropbox/emacs/Roam")
+    (org-roam-completion-everywhere t)
+    (org-roam-capture-templates
+     '(("n" "note: default" plain
+        "%?"
+        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+        :unnarrowed t)
+       ("a" "author" plain
+        "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+       :unnarrowed t)
+     ("b" "book" plain
+        (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+       :unnarrowed t)
+     ))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n I" . org-roam-node-insert-immediate)
+           ("C-c n c" . org-id-get-create)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point))
+    :config
+    (org-roam-setup)
+    )
+
 (defun efs/lsp-mode-setup()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
@@ -622,41 +661,3 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package all-the-icons-dired
 :hook (dired-mode . all-the-icons-dired-mode)
 )
-
-(defun org-roam-node-insert-immediate (arg &rest args)
-  (interactive "P")
-  (let ((args (push arg args))
-        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-                                                  '(:immediate-finish t)))))
-    (apply #'org-roam-node-insert args)))
-
-  (use-package org-roam
-    :ensure t
-    :init
-    (setq org-roam-v2-ack t)
-    :custom
-    (org-roam-directory "~/Dropbox/emacs/Roam")
-    (org-roam-completion-everywhere t)
-    (org-roam-capture-templates
-     '(("n" "note: default" plain
-        "%?"
-        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-        :unnarrowed t)
-       ("a" "author" plain
-        "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
-       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-       :unnarrowed t)
-     ("b" "book" plain
-        (file "~/Dropbox/emacs/Roam/templates/book_template.org")
-       :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-       :unnarrowed t)
-     ))
-    :bind (("C-c n l" . org-roam-buffer-toggle)
-           ("C-c n f" . org-roam-node-find)
-           ("C-c n i" . org-roam-node-insert)
-           ("C-c n I" . org-roam-node-insert-immediate)
-           :map org-mode-map
-           ("C-M-i" . completion-at-point))
-    :config
-    (org-roam-setup)
-    )
