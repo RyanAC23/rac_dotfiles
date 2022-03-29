@@ -226,7 +226,6 @@ https://melpa.org/#/mic-paren
 #+end_src
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
-
 ** Visual Tweaks
  Disable the default splash screen, the visual scrollbars, the tool bar, and the menu bar that you never click.
  #+BEGIN_SRC emacs-lisp
@@ -600,12 +599,12 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
       :config
       (org-roam-setup)
       )
-
 #+END_SRC
 ** Org-Roam-Ui
+#+BEGIN_SRC emacs-lisp
 (use-package org-roam-ui
 :ensure t)
-
+#+END_SRC
 * TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
@@ -811,53 +810,6 @@ Uses the function keys to hide indentation.
 
 #+END_SRC
 
-* Website
-** Main Website Export
-C-c + b
-#+BEGIN_SRC emacs-lisp
-  (require 'ox-publish)
-  (setq org-publish-project-alist
-	'(
-
-	  ;; ... add all the components here (see below)...
-	  ("RyanAC23-website" :components ("website-notes" "website-static"))
-
-	  ("website-notes"
-	   :base-directory "~/Dropbox/website/org/"
-	   :base-extension "org"
-	   :publishing-directory "~/Dropbox/website/public_html/"
-	   :recursive t
-	   :publishing-function org-html-publish-to-html
-	   :headline-levels 4
-	   :auto-preamble t
-	   )
-
-	  ("website-static"
-	   :base-directory "~/Dropbox/website/org/"
-	   :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
-	   :publishing-directory "~/Dropbox/website/public_html/"
-	   :recursive t
-	   :publishing-function org-publish-attachment
-	   )
-
-
-	  ))
-#+END_SRC
-** Rebuild Sites
- #+BEGIN_SRC emacs-lisp
- (global-set-key (kbd "C-c b") 'org-publish-project)
- #+END_SRC
-
-** Other Tools
-For exporting an emacs buffer as an html file.
-
-#+BEGIN_SRC emacs-lisp
-
-  (use-package htmlize
-  :defer 0
-  )
-
-#+END_SRC
 * RSS - Elfeed
 #+BEGIN_SRC emacs-lisp
 
@@ -876,6 +828,73 @@ For exporting an emacs buffer as an html file.
 
 #+END_SRC
 
+* Website
+** Main Website Export
+Deploy with `C-c + b`.
+
+There are options for other ways to do this. It's possible that you'd want to build the site [[https://stackoverflow.com/questions/46295511/how-to-run-org-mode-commands-from-shell][from the command line]], with a `make` recipe. This works for now.
+
+
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-publish)
+  (setq org-publish-project-alist
+        '(
+
+          ;; ... add all the components here (see below)...
+          ("Neppermint-website" :components ("geocite" "7D76_671B" "site-capture" "website-static"))
+
+          ("geocite"
+           :base-directory "~/Dropbox/website/org/geocite/"
+           :base-extension "org"
+           :publishing-directory "~/Dropbox/website/public_html/geocite/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4
+           :auto-preamble t
+           )
+
+          ("7D76_671B"
+           :base-directory "~/Dropbox/website/org/7D76_671B/"
+           :base-extension "org"
+           :publishing-directory "~/Dropbox/website/public_html/7D76_671B/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4
+           :auto-preamble t
+           )
+
+          ("site-capture"
+           :base-directory "~/Dropbox/website/org/capture/"
+           :base-extension "org"
+           :publishing-directory "~/Dropbox/website/public_html/capture/"
+           :recursive t
+           :publishing-function org-html-publish-to-html
+           :headline-levels 4
+           :auto-preamble t
+           )
+
+          ("website-static"
+           :base-directory "~/Dropbox/website/org/"
+           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+           :publishing-directory "~/Dropbox/website/public_html/"
+           :recursive t
+           :publishing-function org-publish-attachment
+           )
+          ))
+#+END_SRC
+** Rebuild Sites
+ #+BEGIN_SRC emacs-lisp
+ (global-set-key (kbd "C-c b") 'org-publish-project)
+ #+END_SRC
+
+** Other Tools
+For exporting an emacs buffer as an html file.
+
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+  :defer 0
+  )
+#+END_SRC
 * End Of Startup Actions
 Lower the garbage collection rate from what we raised it to.
 

@@ -454,6 +454,9 @@ Uses `current-date-time-format' for the formatting the date/time."
     (org-roam-setup)
     )
 
+(use-package org-roam-ui
+:ensure t)
+
 (defun efs/lsp-mode-setup()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
@@ -602,40 +605,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   :commands (magit-status magit-get-current-branch)
 )
 
-(require 'ox-publish)
-(setq org-publish-project-alist
-      '(
-
-	;; ... add all the components here (see below)...
-	("RyanAC23-website" :components ("website-notes" "website-static"))
-
-	("website-notes"
-	 :base-directory "~/Dropbox/website/org/"
-	 :base-extension "org"
-	 :publishing-directory "~/Dropbox/website/public_html/"
-	 :recursive t
-	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4
-	 :auto-preamble t
-	 )
-
-	("website-static"
-	 :base-directory "~/Dropbox/website/org/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
-	 :publishing-directory "~/Dropbox/website/public_html/"
-	 :recursive t
-	 :publishing-function org-publish-attachment
-	 )
-
-
-	))
-
-(global-set-key (kbd "C-c b") 'org-publish-project)
-
-(use-package htmlize
-:defer 0
-)
-
 (use-package elfeed
   :commands (elfeed)
   :config
@@ -648,6 +617,58 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 (global-set-key (kbd "C-x w") 'elfeed)
+
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+
+        ;; ... add all the components here (see below)...
+        ("Neppermint-website" :components ("geocite" "7D76_671B" "site-capture" "website-static"))
+
+        ("geocite"
+         :base-directory "~/Dropbox/website/org/geocite/"
+         :base-extension "org"
+         :publishing-directory "~/Dropbox/website/public_html/geocite/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :auto-preamble t
+         )
+
+        ("7D76_671B"
+         :base-directory "~/Dropbox/website/org/7D76_671B/"
+         :base-extension "org"
+         :publishing-directory "~/Dropbox/website/public_html/7D76_671B/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :auto-preamble t
+         )
+
+        ("site-capture"
+         :base-directory "~/Dropbox/website/org/capture/"
+         :base-extension "org"
+         :publishing-directory "~/Dropbox/website/public_html/capture/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :auto-preamble t
+         )
+
+        ("website-static"
+         :base-directory "~/Dropbox/website/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+         :publishing-directory "~/Dropbox/website/public_html/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ))
+
+(global-set-key (kbd "C-c b") 'org-publish-project)
+
+(use-package htmlize
+:defer 0
+)
 
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
 
