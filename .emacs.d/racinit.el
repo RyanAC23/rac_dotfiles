@@ -283,69 +283,77 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 ;; Org-mode ------------------------------------------------------------
-  (defun org-mode-setup ()
-    (org-indent-mode)
-    (dolist (face '((org-level-1 . 1.3)
-                    (org-level-2 . 1.2)
-                    (org-level-3 . 1.1)
-                    (org-level-4 . 1.0)
-                    (org-level-5 . 1.1)
-                    (org-level-6 . 1.1)
-                    (org-level-7 . 1.1)
-                    (org-level-8 . 1.1)))
-      (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
-      (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-      (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-      (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-      (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-    )
+    (defun org-mode-setup ()
+      (org-indent-mode)
+      (dolist (face '((org-level-1 . 1.3)
+                      (org-level-2 . 1.2)
+                      (org-level-3 . 1.1)
+                      (org-level-4 . 1.0)
+                      (org-level-5 . 1.1)
+                      (org-level-6 . 1.1)
+                      (org-level-7 . 1.1)
+                      (org-level-8 . 1.1)))
+        (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+        (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+        (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+        (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+        (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+        (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+      )
 
-;;(org-mode-setup)
-  (defun org-winmove-setup()
-    (setq-local windmove-mode nil)
-    (add-hook 'org-shiftup-final-hook 'windmove-up)
-    (add-hook 'org-shiftleft-final-hook 'windmove-left)
-    (add-hook 'org-shiftdown-final-hook 'windmove-down)
-    (add-hook 'org-shiftright-final-hook 'windmove-right)
-    )
+  ;;(org-mode-setup)
+    (defun org-winmove-setup()
+      (setq-local windmove-mode nil)
+      (add-hook 'org-shiftup-final-hook 'windmove-up)
+      (add-hook 'org-shiftleft-final-hook 'windmove-left)
+      (add-hook 'org-shiftdown-final-hook 'windmove-down)
+      (add-hook 'org-shiftright-final-hook 'windmove-right)
+      )
 
-  (use-package org
-    :hook
-    ((org-mode . org-mode-setup)
-    (org-mode . org-winmove-setup))
-    :commands (org-capture org-agenda)
-    :config
-    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-    (require 'ox-md)   ;; Add markdown export support
-    :bind
-    ("C-c a" . org-agenda)
-    )
+(defun org-note-insert-page ()
+  "Prompt user to enter a number, with input history support."
+  (interactive)
+  (let (n)
+    (setq n (read-number "Type a page number: " ))
+    (insert (format "(%d) " n))))
 
-  (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :custom
-    (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-    )
+    (use-package org
+      :hook
+      ((org-mode . org-mode-setup)
+      (org-mode . org-winmove-setup))
+      :commands (org-capture org-agenda)
+      :config
+      (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+      (require 'ox-md)   ;; Add markdown export support
+      :bind
+      ("C-c a" . org-agenda)
+      ("C-p"   . org-note-insert-page)
+      )
 
-  ;; org agenda
-  (setq org-agenda-files
-        '("~/Dropbox/emacs/rac-agenda.org"
-          "~/Dropbox/emacs/Birthdays.org"))
-  (setq org-log-done 'time)
+    (use-package org-bullets
+      :hook (org-mode . org-bullets-mode)
+      :custom
+      (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
+      )
+
+    ;; org agenda
+    (setq org-agenda-files
+          '("~/Dropbox/emacs/rac-agenda.org"
+            "~/Dropbox/emacs/Birthdays.org"))
+    (setq org-log-done 'time)
 
 
-  ;; reveal.js presentations
+    ;; reveal.js presentations
 
-  (use-package ox-reveal
-    :after org-mode
-    :config
-    ;; We need to tell ox-reveal where to find the js file.
-    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-     (setq org-reveal-mathjax t))
-    )
+    (use-package ox-reveal
+      :after org-mode
+      :config
+      ;; We need to tell ox-reveal where to find the js file.
+      ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+       (setq org-reveal-mathjax t))
+      )
 
 (global-set-key (kbd "C-c c")
                 'org-capture)
