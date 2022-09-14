@@ -42,4 +42,7 @@
      "\"Be an asset, not a liability.\""
      "\"All of your excuses are Lies.\""
      "\"The enemy always has a vote.\""
+     ;; other
+     "\"Otium Operosum\""
+     "\"Ars longa, vita brevis.\""
 ))

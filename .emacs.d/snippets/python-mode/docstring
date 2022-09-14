@@ -1,0 +1,15 @@
+# key: docstring
+# name: docstring
+# --
+"""
+<func(args, kwargs)>
+
+<description>
+
+Parameters
+----------
+
+Returns
+-------
+
+"""

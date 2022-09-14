@@ -74,7 +74,7 @@
 ;; ====================
 ;; insert date and time
 
-(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+(defvar current-date-time-format "%a %d %B %Y %H:%M:%S %Z"
   "Format of date to insert with `insert-current-date-time' func
 See help of `format-time-string' for possible replacements")
 
@@ -86,8 +86,7 @@ Note the weekly scope of the command's precision.")
   "insert the current date and time into current buffer.
 Uses `current-date-time-format' for the formatting the date/time."
        (interactive)
-       (insert "==========\n")
-;       (insert (let () (comment-start)))
+       (insert "========================================\n")
        (insert (format-time-string current-date-time-format (current-time)))
        (insert "\n")
        )
@@ -139,8 +138,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (if (file-accessible-directory-p path)
       (mapc (apply-partially 'add-to-list 'load-path) local-pkgs)
     (make-directory path :parents)))
-
-(require 'bookmark+)
 
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
@@ -562,6 +559,12 @@ Uses `current-date-time-format' for the formatting the date/time."
   (conda-env-activate "work")
   )
 
+; # -------------------------------------------
+; # ----- Main --------------------------------
+; # -------------------------------------------
+;
+; if __name__ == "__main__":
+
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key (kbd "C-<return>") 'compile)))
@@ -607,7 +610,26 @@ Uses `current-date-time-format' for the formatting the date/time."
   :after tex
   )
 
-(setq tramp-verbose 10)
+(add-to-list 'org-src-lang-modes '("latex-macros" . latex))
+
+(defvar org-babel-default-header-args:latex-macros
+  '((:results . "raw")
+    (:exports . "results")))
+
+(defun prefix-all-lines (pre body)
+  (with-temp-buffer
+    (insert body)
+    (string-insert-rectangle (point-min) (point-max) pre)
+    (buffer-string)))
+
+(defun org-babel-execute:latex-macros (body _params)
+  (concat
+   (prefix-all-lines "#+LATEX_HEADER: " body)
+   "\n#+HTML_HEAD_EXTRA: <div style=\"display: none\"> \\(\n"
+   (prefix-all-lines "#+HTML_HEAD_EXTRA: " body)
+   "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
+
+(setq tramp-verbose 3)
 
 (use-package magit
   :commands (magit-status magit-get-current-branch)
@@ -626,51 +648,52 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (global-set-key (kbd "C-x w") 'elfeed)
 
-(require 'ox-publish)
-(setq org-publish-project-alist
-      '(
+(load-if-exists "~/.emacs.d/website.el")
+  ;; (require 'ox-publish)
+  ;; (setq org-publish-project-alist
+  ;;       '(
 
-        ;; ... add all the components here (see below)...
-        ("Neppermint-website" :components ("geocite" "7D76_671B" "site-capture" "website-static"))
+  ;;         ;; ... add all the components here (see below)...
+  ;;         ("Neppermint-website" :components ("geocite" "7D76_671B" "site-capture" "website-static"))
 
-        ("geocite"
-         :base-directory "~/Dropbox/website/org/geocite/"
-         :base-extension "org"
-         :publishing-directory "~/Dropbox/website/public_html/geocite/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4
-         :auto-preamble t
-         )
+  ;;         ("geocite"
+  ;;          :base-directory "~/Dropbox/website/org/geocite/"
+  ;;          :base-extension "org"
+  ;;          :publishing-directory "~/Dropbox/website/public_html/geocite/"
+  ;;          :recursive t
+  ;;          :publishing-function org-html-publish-to-html
+  ;;          :headline-levels 4
+  ;;          :auto-preamble t
+  ;;          )
 
-        ("7D76_671B"
-         :base-directory "~/Dropbox/website/org/7D76_671B/"
-         :base-extension "org"
-         :publishing-directory "~/Dropbox/website/public_html/7D76_671B/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4
-         :auto-preamble t
-         )
+  ;;         ("7D76_671B"
+  ;;          :base-directory "~/Dropbox/website/org/7D76_671B/"
+  ;;          :base-extension "org"
+  ;;          :publishing-directory "~/Dropbox/website/public_html/7D76_671B/"
+  ;;          :recursive t
+  ;;          :publishing-function org-html-publish-to-html
+  ;;          :headline-levels 4
+  ;;          :auto-preamble t
+  ;;          )
 
-        ("site-capture"
-         :base-directory "~/Dropbox/website/org/capture/"
-         :base-extension "org"
-         :publishing-directory "~/Dropbox/website/public_html/capture/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4
-         :auto-preamble t
-         )
+  ;;         ("site-capture"
+  ;;          :base-directory "~/Dropbox/website/org/capture/"
+  ;;          :base-extension "org"
+  ;;          :publishing-directory "~/Dropbox/website/public_html/capture/"
+  ;;          :recursive t
+  ;;          :publishing-function org-html-publish-to-html
+  ;;          :headline-levels 4
+  ;;          :auto-preamble t
+  ;;          )
 
-        ("website-static"
-         :base-directory "~/Dropbox/website/org/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
-         :publishing-directory "~/Dropbox/website/public_html/"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ))
+  ;;         ("website-static"
+  ;;          :base-directory "~/Dropbox/website/org/"
+  ;;          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|html"
+  ;;          :publishing-directory "~/Dropbox/website/public_html/"
+  ;;          :recursive t
+  ;;          :publishing-function org-publish-attachment
+  ;;          )
+  ;;         ))
 
 (global-set-key (kbd "C-c b") 'org-publish-project)
 
@@ -690,3 +713,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package all-the-icons-dired
 :hook (dired-mode . all-the-icons-dired-mode)
 )
+
+(use-package yasnippet
+       :ensure t
+       :init
+       (yas-global-mode 1)
+       :config
+       (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
