@@ -3,6 +3,15 @@ import os
 import shutil
 import re
 
+"""Take CD rips in subdirectories of the current directory and sort them by filetype.
+   This saves me a lot of time I otherwise spend searching for filetypes and manually
+   cutting/pasting them.
+
+   main() can almost definitely be simplified, and it currently does 3 full passes of the
+   album folders to ensure everything is moved. Since these folders are small (limited to
+   the size of a typical 16bit audio CD I find at the thriftstore), this slowdown is not
+   noticeable.
+"""
 
 # ==============================
 # Variables
@@ -20,6 +29,18 @@ dir_names = [re.findall(r"([\w]+$)", file_type.upper())[0] for file_type in file
 
 
 def make_directory(name=None, verbose=True):
+    """
+    Create a subdirectory within the current directory with the specified name.
+    This is mostly a wrapper to os.mkdir with some verbosity to it.
+
+    Parameters
+    ----------
+    name : string
+        Name of the directory to create.
+    verbose : bool
+        If True, prints some simple messages during action.
+    """
+
     if name is None:
         raise ValueError("A directory name must be specified.")
     elif os.path.isdir(name):
@@ -31,7 +52,23 @@ def make_directory(name=None, verbose=True):
             print(f"{newdir} created.")
 
 
-def get_album_names(regex=r"", filter=True):
+def get_album_names(filter=True):
+    """
+    Get a list of the album names in the current directory.
+
+    Parameters
+    ----------
+    filter : bool
+        If True, filters out directory names that match those created with other
+        utility functions. This will thus ignore directories called FLAC, MP3, _trash,
+        etc.
+
+    Returns
+    -------
+    album_names : list of strings
+        The list containing the album names stored as strings.
+    """
+
     unfiltered_names = [n.name for n in os.scandir() if n.is_dir()]
     if filter == False:
         return unfiltered_names
@@ -43,6 +80,20 @@ def get_album_names(regex=r"", filter=True):
 
 
 def move_files(source, destination, verbose=True):
+    """
+    Move files from the source directory to the destination directory.
+    This is mostly a wrapper to shutil.move with some verbosity to it.
+
+    Parameters
+    ----------
+    source : string
+        Name of the file to move.
+    destination : bool
+        Where to move the file.
+    verbose : bool
+        If True, prints some simple messages during action.
+    """
+
     # Don't forget to copy cover.jpg OR cover.png, and
     # to try looking for an associated .m3u
     if verbose is True:
@@ -52,6 +103,20 @@ def move_files(source, destination, verbose=True):
 
 
 def copy_files(source, destination, verbose=True):
+    """
+    Copy files from the source directory to the destination directory.
+    This is mostly a wrapper to shutil.copy with some verbosity to it.
+
+    Parameters
+    ----------
+    source : string
+        Name of the file to copy.
+    destination : bool
+        Where to copy the file.
+    verbose : bool
+        If True, prints some simple messages during action.
+    """
+
     if verbose is True:
         filename = re.findall(r"[ \w-]+\.[\w]+", source)
         print(f">>> Copying {filename} to {destination}.")
@@ -59,6 +124,20 @@ def copy_files(source, destination, verbose=True):
 
 
 def main(verbose=True):
+    """
+    Create directories to store ripped CDs in, then pass through each album and move
+    files of a specific extension to its associated directory.
+
+    This makes extensive use of os.walk to iterate through files in a directory. It can
+    probably be cleaned up, but this is not a performance heavy task and I wanted a quick
+    solution for now.
+
+    Parameters
+    ----------
+    verbose : bool
+        If True, prints some simple messages during action.
+    """
+
     # make directories
     [make_directory(name=dir_name) for dir_name in dir_names]
 
@@ -86,13 +165,13 @@ def main(verbose=True):
         # Second pass, to check for leftover files
         for root, dirs, files in os.walk(album):
             _deleted_images = 0
+            # keep track of how many files are deleted to avoid creating a new loop.
             for f in files:
                 if any([f.endswith(image_type) for image_type in album_art_types]):
                     os.remove(os.path.join(album, f))
                     _deleted_images += 1
 
-            print(len(files), _deleted_images)
-
+            # check that the number of deleted files matches the number of files there were.
             if (len(files) - _deleted_images) != 0:
                 print(
                     f'There are still files in folder "{album}". \nMoving to temporary directory.'
