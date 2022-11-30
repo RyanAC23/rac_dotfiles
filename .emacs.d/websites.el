@@ -11,7 +11,7 @@
            :publishing-directory "~/Dropbox/website/public_html/geocite/"
            :recursive t
            :publishing-function org-html-publish-to-html
-           :headline-levels 4
+           :headline-levels 10
            :auto-preamble t
            )
 
@@ -21,7 +21,7 @@
            :publishing-directory "~/Dropbox/website/public_html/7D76_671B/"
            :recursive t
            :publishing-function org-html-publish-to-html
-           :headline-levels 4
+           :headline-levels 10
            :auto-preamble t
            )
 
@@ -31,7 +31,7 @@
            :publishing-directory "~/Dropbox/website/public_html/capture/"
            :recursive t
            :publishing-function org-html-publish-to-html
-           :headline-levels 4
+           :headline-levels 10
            :auto-preamble t
            )
 

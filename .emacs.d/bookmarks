@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("quantum.py" 0 10
+(("notes_main.md"
+ (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
+ (front-context-string . "\n# August 04 202")
+ (rear-context-string . "22 13:44:24 PDT\n")
+ (position . 79))
+#1=(#("quantum.py" 0 10
       (bmkp-full-record #1#))
     (filename . "/ssh:ccphypersonic:/projects/cacf32aa-dd6d-4545-9836-25e3318d2626/hypersonic/src/zebra/quantum.py")
     (buffer-name . "quantum.py")
@@ -28,18 +33,10 @@
     (position . 1163))
 #1=(#("org-capture-last-stored" 0 23
       (bmkp-full-record #1#))
-    (annotation)
-    (tags)
-    (filename . "~/Dropbox/emacs/Roam/20220821-the_gambler.org")
-    (buffer-name . "20220821-the_gambler.org")
-    (front-context-string . "* Source\nAuthor:")
-    (rear-context-string . "le: The Gambler\n")
-    (front-context-region-string)
-    (rear-context-region-string)
-    (visits . 0)
-    (time . #2=(25347 7152 555867 416000))
-    (created . #2#)
-    (position . 89))
+    (filename . "~/Dropbox/emacs/Roam/20221119-ryan.org")
+    (front-context-string . "* Bio\n- year: 19")
+    (rear-context-string . ":\n#+title: Ryan\n")
+    (position . 82))
 #1=(#("sandbox.org" 0 11
       (bmkp-full-record #1#))
     (filename . "~/repos/bitbucket/physics/codex_optimus/Docs/sandbox.org")
