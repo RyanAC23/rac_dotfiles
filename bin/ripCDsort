@@ -1,0 +1,113 @@
+#!/usr/bin/python3
+import os
+import shutil
+import re
+
+
+# ==============================
+# Variables
+
+file_types = [".mp3", ".flac"]
+album_art_types = [".jpg", ".jpeg", ".png"]
+
+pwd = os.getcwd()
+trash = "_trash"
+
+dir_names = [re.findall(r"([\w]+$)", file_type.upper())[0] for file_type in file_types]
+
+# ==============================
+# Functions
+
+
+def make_directory(name=None, verbose=True):
+    if name is None:
+        raise ValueError("A directory name must be specified.")
+    elif os.path.isdir(name):
+        print(f"{name} already exists. Skipping creation.")
+    else:
+        os.mkdir(name)
+        if verbose == True:
+            newdir = os.path.join(pwd, name)
+            print(f"{newdir} created.")
+
+
+def get_album_names(regex=r"", filter=True):
+    unfiltered_names = [n.name for n in os.scandir() if n.is_dir()]
+    if filter == False:
+        return unfiltered_names
+    else:
+        album_names = [
+            name for name in unfiltered_names if (name not in (dir_names + [trash]))
+        ]
+        return album_names
+
+
+def move_files(source, destination, verbose=True):
+    # Don't forget to copy cover.jpg OR cover.png, and
+    # to try looking for an associated .m3u
+    if verbose is True:
+        filename = re.findall(r"[ \w-]+\.[\w]+", source)
+        print(f">>> Moving {filename} to {destination}.")
+    shutil.move(source, destination)
+
+
+def copy_files(source, destination, verbose=True):
+    if verbose is True:
+        filename = re.findall(r"[ \w-]+\.[\w]+", source)
+        print(f">>> Copying {filename} to {destination}.")
+    shutil.copy(source, destination)
+
+
+def main(verbose=True):
+    # make directories
+    [make_directory(name=dir_name) for dir_name in dir_names]
+
+    # get album list
+    albums = get_album_names(filter=True)
+
+    # create folders in dir_names
+    for album in albums:
+        for extension, DIR_NAME in zip(file_types, dir_names):
+            folder = os.path.join(DIR_NAME, album)
+            make_directory(name=folder, verbose=verbose)
+
+            # Move files of the associated extension to the proper folder
+            for root, dirs, files in os.walk(album):
+                for f in files:
+                    if f.endswith(extension):
+                        move_files(os.path.join(album, f), folder, verbose=verbose)
+                    elif any(
+                        [f.endswith(image_type) for image_type in album_art_types]
+                    ):
+                        copy_files(os.path.join(album, f), folder)
+                    elif f.endswith((extension + ".m3u")):
+                        move_files(os.path.join(album, f), folder, verbose=verbose)
+
+        # Second pass, to check for leftover files
+        for root, dirs, files in os.walk(album):
+            _deleted_images = 0
+            for f in files:
+                if any([f.endswith(image_type) for image_type in album_art_types]):
+                    os.remove(os.path.join(album, f))
+                    _deleted_images += 1
+
+            print(len(files), _deleted_images)
+
+            if (len(files) - _deleted_images) != 0:
+                print(
+                    f'There are still files in folder "{album}". \nMoving to temporary directory.'
+                )
+                make_directory(name=trash)
+                move_files(album, trash)
+                # clean up and delete the original folder (assert that it's empty)
+            elif (len(files) - _deleted_images) == 0:
+                os.rmdir(album)
+
+    print("Done!")
+
+
+# ===============================
+# Main
+
+if __name__ == "__main__":
+    main()
