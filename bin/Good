@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DIRECTORY=("/home/ryan/Dropbox/A-2023/"*.pdf)
+NAME="GOOD_2023"
+
+#qpdfview --unique --instance ${NAME}
+# the above creates a bash array named DIRECTORY.
+
+#for file in "${DIRECTORY[@]}"
+#do
+#    qpdfview --unique --choose-instance ${NAME} "${file}" &
+#done
+
+qpdfview --unique --instance ${NAME} "${DIRECTORY[@]}" &
