@@ -8,9 +8,9 @@ Miniconda:
 	wget $(MINICONDA_LOC); \
 	bash Miniconda3-latest-Linux-x86_64.sh
 
-GitSettings:
+gitConfig:
 	git config --global --replace-all user.name "ryan"
 	git config --global core.excludesfile "/home/ryan/.config/.gitignore_global"
 	git config --global --replace-all core.editor "emacs -nw -Q -load ~/.emacs.d/light_init.el"
-	git config --global alias.lg 'log --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)%n\ \ %s" --graph -10 --all'
+	git config --global alias.lg 'log  --graph --all -20 --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)\ %Cred%d%Creset%n\ \ %s"'
 	echo "Don't forget to set git config --global user.email!"
