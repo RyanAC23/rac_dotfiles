@@ -12,5 +12,5 @@ GitSettings:
 	git config --global --replace-all user.name "ryan"
 	git config --global core.excludesfile "/home/ryan/.config/.gitignore_global"
 	git config --global --replace-all core.editor "emacs -nw -Q -load ~/.emacs.d/light_init.el"
-	git config --global alias.lg 'log --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)%n\ \ %s" --graph -10'
+	git config --global alias.lg 'log --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)%n\ \ %s" --graph -10 --all'
 	echo "Don't forget to set git config --global user.email!"
