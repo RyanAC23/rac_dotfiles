@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -d ".git" ]; then
+   echo "This is a top level git repository."
+   exit 0
+fi
+
+echo "This is not a top level git repository."
+exit -1

@@ -71,37 +71,6 @@
       auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
       )
 
-;; ====================
-;; insert date and time
-
-(defvar current-date-time-format "%a %d %B %Y %H:%M:%S %Z"
-  "Format of date to insert with `insert-current-date-time' func
-See help of `format-time-string' for possible replacements")
-
-(defvar current-time-format "%a %H:%M:%S"
-  "Format of date to insert with `insert-current-time' func.
-Note the weekly scope of the command's precision.")
-
-(defun insert-current-date-time ()
-  "insert the current date and time into current buffer.
-Uses `current-date-time-format' for the formatting the date/time."
-       (interactive)
-       (insert "========================================\n")
-       (insert (format-time-string current-date-time-format (current-time)))
-       (insert "\n")
-       )
-
-(defun insert-current-time ()
-  "insert the current time (1-week scope) into the current buffer."
-       (interactive)
-       (insert "- ")
-       (insert (format-time-string current-time-format (current-time)))
-       (insert " ")
-       )
-
-(global-set-key "\C-x\C-d" 'insert-current-date-time)
-(global-set-key "\C-x\C-t" 'insert-current-time)
-
 (require 'server)
 (unless (server-running-p)
   (progn
@@ -109,6 +78,56 @@ Uses `current-date-time-format' for the formatting the date/time."
     (toggle-frame-maximized)
     )
 )
+
+;; ====================
+  ;; insert date and time
+
+  (defvar current-date-format "%A %d %B %Y"
+    "Format of date to insert with `insert-current-date' func
+  See help of `format-time-string' for possible replacements")
+
+  (defvar current-date-time-format "%a %d %B %Y %H:%M:%S %Z"
+    "Format of date to insert with `insert-current-date-time' func
+  See help of `format-time-string' for possible replacements")
+
+  (defvar current-time-format "%a %H:%M:%S"
+    "Format of date to insert with `insert-current-time' func.
+  Note the weekly scope of the command's precision.")
+
+(defun insert-current-date ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  (cond
+   ((equal major-mode 'markdown-mode)
+    (insert "# "))
+   ((equal major-mode 'org-mode)
+    (insert "* "))
+   (t
+    (insert "# ---------\n# ")))
+  (insert (format-time-string current-date-format))
+  (insert "\n")
+  )
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+  Uses `current-date-time-format' for the formatting the date/time."
+  (interactive)
+  (insert "========================================\n")
+  (insert (format-time-string current-date-time-format (current-time)))
+  (insert "\n")
+  )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+  (interactive)
+  (insert "- ")
+  (insert (format-time-string current-time-format (current-time)))
+  (insert " ")
+  )
+
+  (global-set-key "\C-x\C-d" 'insert-current-date)
+  (global-set-key "\C-x\C-t" 'insert-current-time)
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -457,6 +476,11 @@ Uses `current-date-time-format' for the formatting the date/time."
            ("C-M-i" . completion-at-point))
     :config
     (org-roam-setup)
+                                        ; The following snippet allows searching for tags using `org-roam-node-find`.
+                                        ;  [[https://github.com/org-roam/org-roam/pull/2054]]
+    (setq org-roam-node-display-template
+          (concat "${title:*} "
+                  (propertize "${tags:10}" 'face 'org-tag)))
     )
 
 (use-package org-roam-ui
@@ -720,3 +744,27 @@ Uses `current-date-time-format' for the formatting the date/time."
        (yas-global-mode 1)
        :config
        (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+
+(use-package org-ref
+  :ensure t
+  :hook (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+  )
+
+(setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
+                                       "~/Dropbox/emacs/bibliography/dei.bib"
+                                       "~/Dropbox/emacs/bibliography/master.bib"
+                                       "~/Dropbox/emacs/bibliography/archive.bib")
+      bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
+      bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+      bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+
+      bibtex-completion-additional-search-fields '(keywords)
+      bibtex-completion-display-formats
+      '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+        (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+        (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+        (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+        (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+      bibtex-completion-pdf-open-function
+      (lambda (fpath)
+        (call-process "open" nil 0 nil fpath)))
