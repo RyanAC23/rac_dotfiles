@@ -3,7 +3,7 @@ URxvt.termName:                rxvt-unicode
 ! Careful! Setting this to screen-256color made your home and
 ! end keys do all sorts of wonky stuff! (TERM env variable)
 ! https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
-URxvt*geometry:                120x35
+URxvt*geometry:                120x40
 URxvt.depth:                   32
 ! Transparency edit in brackets
 URxvt.background:              [99]#402f41
@@ -15,26 +15,34 @@ URxvt.mouseWheelScrollPage:    true
 URxvt.cursorBlink:             true
 URxvt.saveLines:               3000
 !URxvt.font:                    xft:terminus:size=12
-URxvt.font:                    xft:vl gothic:size=12
-URvt.fontbold:                 xft:vl gothic bold:size=12
+URxvt.font:                    xft:vl gothic:size=13
+URvt.fontbold:                 xft:vl gothic bold:size=13
 URxvt.fading:                  33
 URxvt.letterSpace:             +2
 
 ! ####### EXTENSIONS ###################################################
-! C-space to enter move mode
+! DISABLED - CONFLICT WITH EMACS: C-space to enter move mode
 ! v to enter selection highlight mode (like emacs C-space)
 ! Y to copy; with URxvt.keyboard-select.cliboard: true,
 !   this will also copy to the xclipboard
 ! https://github.com/muennich/urxvt-perls/
 URxvt.perl-ext-common: resize-font,url-select,keyboard-select,clipboard
 URxvt.url-select.launcher: google-chrome
-URxvt.keysym.C-space: perl:keyboard-select:activate
+! URxvt.keysym.C-space: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.button: 1
 URxvt.keysym.C-Down:    resize-font:smaller
 URxvt.keysym.C-Up:      resize-font:bigger
+
+! NEW
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
 ! ####### END EXTENSIONS ###############################################
 
 
