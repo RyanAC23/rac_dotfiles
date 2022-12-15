@@ -13,4 +13,5 @@ gitConfig:
 	git config --global core.excludesfile "/home/ryan/.config/.gitignore_global"
 	git config --global --replace-all core.editor "emacs -nw -Q -load ~/.emacs.d/light_init.el"
 	git config --global alias.lg 'log  --graph --all -20 --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)\ %Cred%d%Creset%n\ \ %s"'
+        git config --global init.defaultBranch master
 	echo "Don't forget to set git config --global user.email!"
