@@ -451,7 +451,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     :init
     (setq org-roam-v2-ack t)
     :custom
-    (org-roam-directory "~/Dropbox/emacs/Roam")
+    (org-roam-directory "~/Dropbox/emacs/Roam/db")
     (org-roam-completion-everywhere t)
     (org-roam-capture-templates
      '(("n" "note: default" plain
@@ -745,19 +745,31 @@ Uses `current-date-time-format' for the formatting the date/time."
        :config
        (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 
+(use-package bibtex
+    :ensure async)
+; (bibtex-set-dialect 'BibTeX)
+
+  (setq bibtex-autokey-year-length 4
+        bibtex-autokey-name-year-separator "-"
+        bibtex-autokey-year-title-separator "-"
+        bibtex-autokey-titleword-separator "-"
+        bibtex-autokey-titlewords 2
+        bibtex-autokey-titlewords-stretch 1
+        bibtex-autokey-titleword-length 5)
+
 (use-package org-ref
   :ensure t
-  :hook (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+  :config
+  (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
   )
 
-(setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
-                                       "~/Dropbox/emacs/bibliography/dei.bib"
-                                       "~/Dropbox/emacs/bibliography/master.bib"
-                                       "~/Dropbox/emacs/bibliography/archive.bib")
+(setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
+                                       "~/Dropbox/emacs/bibliography/otherworld.bib"
+                                       "~/Dropbox/emacs/bibliography/nuclear.bib")
       bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
       bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
       bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-
       bibtex-completion-additional-search-fields '(keywords)
       bibtex-completion-display-formats
       '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
@@ -768,3 +780,5 @@ Uses `current-date-time-format' for the formatting the date/time."
       bibtex-completion-pdf-open-function
       (lambda (fpath)
         (call-process "open" nil 0 nil fpath)))
+
+(define-key bibtex-mode-map (kbd "H-b") 'org-ref-bibtex-hydra/body)
