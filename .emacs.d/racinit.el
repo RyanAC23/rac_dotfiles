@@ -760,7 +760,11 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package org-ref
   :ensure t
   :config
-  (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+  (local-unset-key (kbd "C-c ]"))
+  (define-key org-mode-map (kbd "C-c ] i") 'org-ref-insert-link)
+  (define-key org-mode-map (kbd "C-c ] c") 'org-ref-insert-cite-function)
+  (define-key org-mode-map (kbd "C-c ] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+  (define-key bibtex-mode-map (kbd "C-c ] b") 'org-ref-bibtex-hydra/body)
   (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
   )
 
@@ -780,5 +784,3 @@ Uses `current-date-time-format' for the formatting the date/time."
       bibtex-completion-pdf-open-function
       (lambda (fpath)
         (call-process "open" nil 0 nil fpath)))
-
-(define-key bibtex-mode-map (kbd "H-b") 'org-ref-bibtex-hydra/body)

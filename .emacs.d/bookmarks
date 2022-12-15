@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
- (front-context-string . "\n# August 04 202")
- (rear-context-string . "22 13:44:24 PDT\n")
- (position . 79))
+ (front-context-string . "# Wednesday 14 D")
+ (rear-context-string)
+ (position . 1))
 #1=(#("racinit.org" 0 11
       (bmkp-full-record #1#))
     (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")

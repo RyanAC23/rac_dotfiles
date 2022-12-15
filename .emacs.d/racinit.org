@@ -1,4 +1,4 @@
-#+TITLE: Ryan AC Emacs Config
+#+TITLE: Ryan's Emacs Config
 #+STARTUP: overview
 #+PROPERTY: header-args:emacs-lisp :tangle ./racinit.el :results silent
 
@@ -1014,7 +1014,11 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
   (use-package org-ref
     :ensure t
     :config
-    (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+    (local-unset-key (kbd "C-c ]"))
+    (define-key org-mode-map (kbd "C-c ] i") 'org-ref-insert-link)
+    (define-key org-mode-map (kbd "C-c ] c") 'org-ref-insert-cite-function)
+    (define-key org-mode-map (kbd "C-c ] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+    (define-key bibtex-mode-map (kbd "C-c ] b") 'org-ref-bibtex-hydra/body)
     (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
     )
 
@@ -1034,6 +1038,4 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
         bibtex-completion-pdf-open-function
         (lambda (fpath)
           (call-process "open" nil 0 nil fpath)))
-
-  (define-key bibtex-mode-map (kbd "H-b") 'org-ref-bibtex-hydra/body)
 #+END_SRC
