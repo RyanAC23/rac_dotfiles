@@ -43,7 +43,7 @@
    '("~/Dropbox/emacs/rac-agenda.org" "~/Dropbox/emacs/Birthdays.org"))
  '(org-export-headline-levels 10)
  '(package-selected-packages
-   '(org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview elfeed-org elfeed which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons))
+   '(org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich tex auctex-latexmk-setup dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons yasnippet org-roam-ui org-roam lsp-ivy blacken))
  '(tramp-terminal-type "dumb")
  '(warning-suppress-log-types '((auto-save) (use-package)))
  '(warning-suppress-types '((auto-save) (use-package))))

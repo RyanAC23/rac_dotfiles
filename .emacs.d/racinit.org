@@ -399,10 +399,10 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     :config
     (dashboard-setup-startup-hook)
     (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-    (setq dashboard-items '((recents . 15)
-                            (projects . 5)
-                            (bookmarks . 5)
+    (setq dashboard-items '((projects . 10)
                             (agenda . 5)
+                            (recents . 15)
+                            (bookmarks . 5)
                             (registers . 5)))
     (setq dashboard-center-content t)
     (setq dashboard-set-file-icons t)
@@ -633,6 +633,53 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 (use-package org-roam-ui
 :ensure t)
 #+END_SRC
+* Reference and Citations
+** Bibtex
+#+BEGIN_SRC emacs-lisp
+    (use-package bibtex
+      :ensure async)
+  ; (bibtex-set-dialect 'BibTeX)
+
+    (setq bibtex-autokey-year-length 4
+          bibtex-autokey-name-year-separator "-"
+          bibtex-autokey-year-title-separator "-"
+          bibtex-autokey-titleword-separator "-"
+          bibtex-autokey-titlewords 2
+          bibtex-autokey-titlewords-stretch 1
+          bibtex-autokey-titleword-length 5)
+#+END_SRC
+** Org-Ref
+#+BEGIN_SRC emacs-lisp
+    (use-package org-ref
+      :ensure t
+      :config
+      (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+      )
+
+    (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
+                                           "~/Dropbox/emacs/bibliography/otherworld.bib"
+                                           "~/Dropbox/emacs/bibliography/nuclear.bib")
+          bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
+          bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+          bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+          bibtex-completion-additional-search-fields '(keywords)
+          bibtex-completion-display-formats
+          '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+            (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+            (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+          bibtex-completion-pdf-open-function
+          (lambda (fpath)
+            (call-process "open" nil 0 nil fpath)))
+
+                                            ; keyboard commands - org mode
+  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
+  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
+  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
+  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+
+#+END_SRC
 * TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
@@ -763,14 +810,15 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
     )
 
 #+END_SRC
-** Convenience Commands
+** Yasnippet
+Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutorial.html][tutorial]] on Yasnippet features and functions.
 #+BEGIN_SRC emacs-lisp
-; # -------------------------------------------
-; # ----- Main --------------------------------
-; # -------------------------------------------
-;
-; if __name__ == "__main__":
-
+  (use-package yasnippet
+         :ensure t
+         :init
+         (yas-global-mode 1)
+         :config
+         (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 #+END_SRC
 * TODO C / C++
 ** Set compile hook to C/++
@@ -793,25 +841,7 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
   ;;     )
 
 #+END_SRC
-* TODO Web Development
-#+BEGIN_SRC emacs-lisp
-
-  (use-package web-mode
-    :hook (html-mode . web-mode)
-    :config
-    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-    (setq web-mode-engines-alist
-	  '(("django" . "\\.html\\'")))
-    (setq web-mode-ac-sources-alist
-	  '(("css" . (ac-source-css-property))
-	    ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-    (setq web-mode-enable-auto-closing t)
-    (setq web-mode-enable-auto-quoting t)
-    (setq web-mode-enable-current-column-highlight t)
-    (setq web-mode-enable-current-element-highlight t))
-
-#+END_SRC
-* TODO LaTeX
+* LaTeX
 ** Auctex / latexmk
 #+BEGIN_SRC emacs-lisp
 
@@ -863,32 +893,12 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
 (setq tramp-verbose 3)
 #+END_SRC
 * Version Control
+This is for convenience only. Doing this from the terminal is easier.
 #+BEGIN_SRC emacs-lisp
-
   (use-package magit
-  :commands (magit-status magit-get-current-branch)
-)
-
-#+END_SRC
-
-* RSS - Elfeed
-#+BEGIN_SRC emacs-lisp
-
-  (use-package elfeed
-    :commands (elfeed)
-    :config
-    (setq-default elfeed-search-filter "@2-months-ago")
-    (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
-    (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
-      (when (file-exists-p elfeed-urls)
-        (load-file elfeed-urls))
-      )
+    :commands (magit-status magit-get-current-branch)
     )
-
-  (global-set-key (kbd "C-x w") 'elfeed)
-
 #+END_SRC
-
 * Website
 ** Main Website Export
 Deploy with `C-c + b`.
@@ -966,9 +976,29 @@ Lower the garbage collection rate from what we raised it to.
 
 #+END_SRC
 
+* Old Packages
+Things I no longer use but haven't deleted from this doc yet.
+** RSS - Elfeed
+I tried this for a while but didn't use it much. I'll tag the section out rather than delete it completely, just in case.
+#+BEGIN_SRC emacs-lisp
+  ;; (use-package elfeed
+  ;;   :commands (elfeed)
+  ;;   :config
+  ;;   (setq-default elfeed-search-filter "@2-months-ago")
+  ;;   (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
+  ;;   (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+  ;;     (when (file-exists-p elfeed-urls)
+  ;;       (load-file elfeed-urls))
+  ;;     )
+  ;;   )
+
+  ;; (global-set-key (kbd "C-x w") 'elfeed)
+#+END_SRC
+
 * Test Space
 For settings and Melpa packages I haven't committed myself to.
-** Directory Management
+** TODO Directory Management
+All I really want is for directory buffers not to accumulate.
 #+BEGIN_SRC emacs-lisp
 
     (use-package dired
@@ -981,63 +1011,5 @@ For settings and Melpa packages I haven't committed myself to.
   (use-package all-the-icons-dired
   :hook (dired-mode . all-the-icons-dired-mode)
   )
-
-#+END_SRC
-
-** Yasnippet
-Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutorial.html][tutorial]] on Yasnippet features and functions.
-#+BEGIN_SRC emacs-lisp
-  (use-package yasnippet
-         :ensure t
-         :init
-         (yas-global-mode 1)
-         :config
-         (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
-#+END_SRC
-
-** TODO Bibtex
-#+BEGIN_SRC emacs-lisp
-    (use-package bibtex
-      :ensure async)
-  ; (bibtex-set-dialect 'BibTeX)
-
-    (setq bibtex-autokey-year-length 4
-          bibtex-autokey-name-year-separator "-"
-          bibtex-autokey-year-title-separator "-"
-          bibtex-autokey-titleword-separator "-"
-          bibtex-autokey-titlewords 2
-          bibtex-autokey-titlewords-stretch 1
-          bibtex-autokey-titleword-length 5)
-#+END_SRC
-** TODO Org-Ref
-#+BEGIN_SRC emacs-lisp
-    (use-package org-ref
-      :ensure t
-      :config
-      (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
-      )
-
-    (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
-                                           "~/Dropbox/emacs/bibliography/otherworld.bib"
-                                           "~/Dropbox/emacs/bibliography/nuclear.bib")
-          bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
-          bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-          bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-          bibtex-completion-additional-search-fields '(keywords)
-          bibtex-completion-display-formats
-          '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-            (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-          bibtex-completion-pdf-open-function
-          (lambda (fpath)
-            (call-process "open" nil 0 nil fpath)))
-
-                                            ; keyboard commands - org mode
-  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
 
 #+END_SRC

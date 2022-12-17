@@ -284,10 +284,10 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-  (setq dashboard-items '((recents . 15)
-                          (projects . 5)
-                          (bookmarks . 5)
+  (setq dashboard-items '((projects . 10)
                           (agenda . 5)
+                          (recents . 15)
+                          (bookmarks . 5)
                           (registers . 5)))
   (setq dashboard-center-content t)
   (setq dashboard-set-file-icons t)
@@ -486,6 +486,47 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package org-roam-ui
 :ensure t)
 
+(use-package bibtex
+    :ensure async)
+; (bibtex-set-dialect 'BibTeX)
+
+  (setq bibtex-autokey-year-length 4
+        bibtex-autokey-name-year-separator "-"
+        bibtex-autokey-year-title-separator "-"
+        bibtex-autokey-titleword-separator "-"
+        bibtex-autokey-titlewords 2
+        bibtex-autokey-titlewords-stretch 1
+        bibtex-autokey-titleword-length 5)
+
+(use-package org-ref
+    :ensure t
+    :config
+    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+    )
+
+  (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
+                                         "~/Dropbox/emacs/bibliography/otherworld.bib"
+                                         "~/Dropbox/emacs/bibliography/nuclear.bib")
+        bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
+        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-display-formats
+        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+        bibtex-completion-pdf-open-function
+        (lambda (fpath)
+          (call-process "open" nil 0 nil fpath)))
+
+                                          ; keyboard commands - org mode
+(define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
+(define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
+(define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
+(define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+
 (defun efs/lsp-mode-setup()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
@@ -583,11 +624,12 @@ Uses `current-date-time-format' for the formatting the date/time."
   (conda-env-activate "work")
   )
 
-; # -------------------------------------------
-; # ----- Main --------------------------------
-; # -------------------------------------------
-;
-; if __name__ == "__main__":
+(use-package yasnippet
+       :ensure t
+       :init
+       (yas-global-mode 1)
+       :config
+       (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 
 (add-hook 'c-mode-common-hook
           (lambda ()
@@ -601,20 +643,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;   :config
 ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
 ;;     )
-
-(use-package web-mode
-  :hook (html-mode . web-mode)
-  :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (setq web-mode-engines-alist
-	'(("django" . "\\.html\\'")))
-  (setq web-mode-ac-sources-alist
-	'(("css" . (ac-source-css-property))
-	  ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
-  (setq web-mode-enable-auto-closing t)
-  (setq web-mode-enable-auto-quoting t)
-  (setq web-mode-enable-current-column-highlight t)
-  (setq web-mode-enable-current-element-highlight t))
 
 (use-package tex
   :hook LaTeX-mode
@@ -657,20 +685,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package magit
   :commands (magit-status magit-get-current-branch)
-)
-
-(use-package elfeed
-  :commands (elfeed)
-  :config
-  (setq-default elfeed-search-filter "@2-months-ago")
-  (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
-  (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
-    (when (file-exists-p elfeed-urls)
-      (load-file elfeed-urls))
-    )
   )
-
-(global-set-key (kbd "C-x w") 'elfeed)
 
 (load-if-exists "~/.emacs.d/website.el")
   ;; (require 'ox-publish)
@@ -727,6 +742,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
 
+;; (use-package elfeed
+;;   :commands (elfeed)
+;;   :config
+;;   (setq-default elfeed-search-filter "@2-months-ago")
+;;   (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
+;;   (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
+;;     (when (file-exists-p elfeed-urls)
+;;       (load-file elfeed-urls))
+;;     )
+;;   )
+
+;; (global-set-key (kbd "C-x w") 'elfeed)
+
 (use-package dired
     :ensure nil
     :commands (dired dired-jump)
@@ -737,51 +765,3 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package all-the-icons-dired
 :hook (dired-mode . all-the-icons-dired-mode)
 )
-
-(use-package yasnippet
-       :ensure t
-       :init
-       (yas-global-mode 1)
-       :config
-       (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
-
-(use-package bibtex
-    :ensure async)
-; (bibtex-set-dialect 'BibTeX)
-
-  (setq bibtex-autokey-year-length 4
-        bibtex-autokey-name-year-separator "-"
-        bibtex-autokey-year-title-separator "-"
-        bibtex-autokey-titleword-separator "-"
-        bibtex-autokey-titlewords 2
-        bibtex-autokey-titlewords-stretch 1
-        bibtex-autokey-titleword-length 5)
-
-(use-package org-ref
-    :ensure t
-    :config
-    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
-    )
-
-  (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
-                                         "~/Dropbox/emacs/bibliography/otherworld.bib"
-                                         "~/Dropbox/emacs/bibliography/nuclear.bib")
-        bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
-        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-        bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-display-formats
-        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-        bibtex-completion-pdf-open-function
-        (lambda (fpath)
-          (call-process "open" nil 0 nil fpath)))
-
-                                          ; keyboard commands - org mode
-(define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-(define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-(define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-(define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
