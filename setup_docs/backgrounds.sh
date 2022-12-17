@@ -9,6 +9,11 @@ WALLPAPERS=($LOGIN $LAPTOP $DESKTOP)
 # Run DownloadBGs to download all images.
 # Run SetLaptop/SetDesktop to set up the wallpapers on your appropriate system.
 
+CheckRoot(){
+    source ./check_root.sh
+    CheckIfRoot
+}
+
 DownloadBGs(){
     for url in ${WALLPAPERS[@]}; do
 	wget $url -P ./wallpapers/
@@ -16,6 +21,7 @@ DownloadBGs(){
 }
 
 SetLoginBG(){
+    CheckRoot
     BG_DIR="/usr/share/backgrounds/ubuntu-mate-common"
     BG_LOCATION="$BG_DIR/login.png"
     CONFIG_FILE="/usr/share/glib-2.0/schemas/30_ubuntu-mate.gschema.override"
@@ -56,11 +62,6 @@ Test(){
     echo "Hey, it worked."
     }
 
-main(){
-    source ./check_root.sh
-    CheckIfRoot
-}
-
 # --------------------------------
-main
+
 "$@"

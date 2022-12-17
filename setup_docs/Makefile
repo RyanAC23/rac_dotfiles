@@ -39,4 +39,4 @@ _loginWall:
 	sudo ./backgrounds.sh SetLoginBG
 
 dlWallpapers:
-	sudo ./backgrounds.sh DownloadBGs
+	./backgrounds.sh DownloadBGs
