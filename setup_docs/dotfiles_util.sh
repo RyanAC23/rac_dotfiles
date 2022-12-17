@@ -1,22 +1,25 @@
-#!/bin/sh
-# install emacs, urxvt, and tmux to get up and running
+#!/bin/bash
 
-CheckIfRoot(){
-    if [ `whoami` != root ]; then
-	echo "Welcome `whoami`."
-    else
-	echo "Please rerun this script as user and not root."
-	exit 1
-    fi
+# This file used to do a lot of heavy lifting, but as I need the commands I'm going to
+# work on making it more modular, and put these commands in separate modules. The
+# ultimate fate of this file will be a master `make` command that runs this as a wrapper # for individual modules, with minimal interaction.
+
+
+# install emacs, urxvt, and tmux to get up and running.
+
+
+CheckRoot(){
+    source ./check_root.sh
+    CheckIfRoot
 }
 
 ## Check functions
 # repos directory
 Repo_Dir_Check(){
-	if [ ! -d ~/repos ]; then
-		echo "Creating ~/repos directory."
-		mkdir ~/repos
-	fi
+    if [ ! -d ~/repos ]; then
+	echo "Creating ~/repos directory."
+	mkdir ~/repos
+    fi
 }
 
 # dotfiles repo
@@ -94,21 +97,17 @@ Copy_Config_Files(){
 }
 
 SetBackgrounds(){
-    if [ ! -f "/usr/share/backgrounds/ubuntu-mate-common/login.png" ]; then
-	sudo wget https://www.dropbox.com/s/7qpwun1mifq9ssn/login.png -P /usr/share/backgrounds/ubuntu-mate-common/
-	cp -r $HOME/repos/rac_dotfiles/etc/lightdm/ /tmp/lightdm
-	sudo cp -r /tmp/lightdm/slick-greeter.conf /etc/lightdm/
-    fi
-    if [ ! -f "$HOME/.config/backgrounds/laptop_wall.png" ]; then
-	    wget https://www.dropbox.com/s/m19gngd5sbostw2/laptop_wall.png -P $HOME/.config/backgrounds/
-    fi
-    if [ ! -f "$HOME/.config/backgrounds/desktop_wall.jpg" ]; then
-	    wget https://www.dropbox.com/s/4j1eieeepv6brga/desktop_wall.jpg -P $HOME/.config/backgrounds/
-    fi
+    source ./backgrounds.sh
+    SetLaptop
+    echo "Setting backgrounds for Laptop. If you'd like desktop wallpapers,"
+    echo "run 'make desktopWalls' in this directory."
+    echo
 }
 
 ##### main program #####
-CheckIfRoot
+echo
+
+CheckRoot
 
 Repo_Dir_Check
 

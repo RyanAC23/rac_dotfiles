@@ -11,7 +11,7 @@ WALLPAPERS=($LOGIN $LAPTOP $DESKTOP)
 
 DownloadBGs(){
     for url in ${WALLPAPERS[@]}; do
-	wget $url -P /home/ryan/Downloads/temp/
+	wget $url -P ./wallpapers/
     done
 }
 
@@ -51,6 +51,10 @@ SetDesktop(){
     SetLoginBG
     SetLaptopBG
 }
+
+Test(){
+    echo "Hey, it worked."
+    }
 
 main(){
     source ./check_root.sh
