@@ -2,6 +2,7 @@
 import os
 import shutil
 import re
+import warnings
 
 """Take CD rips in subdirectories of the current directory and sort them by filetype.
    This saves me a lot of time I otherwise spend searching for filetypes and manually
@@ -26,6 +27,15 @@ dir_names = [re.findall(r"([\w]+$)", file_type.upper())[0] for file_type in file
 
 # ==============================
 # Functions
+
+def clean_beets_dir():
+    beets_lib = os.path.expanduser("~") + "/.config/beets"
+    del_files = ["library.db", "state.pickle"]
+    for _file in del_files:
+        try:
+            os.remove(os.path.join(beets_lib, _file))
+        except:
+            warnings.warn(f"Can't remove {_file}; not found!")
 
 
 def make_directory(name=None, verbose=True):
@@ -123,7 +133,7 @@ def copy_files(source, destination, verbose=True):
     shutil.copy(source, destination)
 
 
-def main(verbose=True):
+def main(verbose=True, clean_beets=False):
     """
     Create directories to store ripped CDs in, then pass through each album and move
     files of a specific extension to its associated directory.
@@ -137,6 +147,8 @@ def main(verbose=True):
     verbose : bool
         If True, prints some simple messages during action.
     """
+    if clean_beets is True:
+        clean_beets_dir()
 
     # make directories
     [make_directory(name=dir_name) for dir_name in dir_names]
@@ -189,4 +201,4 @@ def main(verbose=True):
 # Main
 
 if __name__ == "__main__":
-    main()
+    main(clean_beets=True)
