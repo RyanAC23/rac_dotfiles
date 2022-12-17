@@ -9,9 +9,11 @@ disable_login_bell(){
     source ./check_root.sh
     CheckIfRoot
     sudo touch $bell_override_file
+    cat $bell_override_file
     echo [org.ArcticaProject.arctica-greeter] > $bell_override_file
     echo play-ready-sound=false >> $bell_override_file
     sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+    # echo $bell_override_file
 }
 
 
