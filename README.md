@@ -1,4 +1,4 @@
-2# rac_dotfiles
+# Neptune : Config
 <h3 align="center">D-Clips</h3>
 
 <div align="center">
@@ -7,15 +7,15 @@
 
 ## Table of Contents
 - [About](#about)
-- [Package List](#packages)
-- [Dotfiles List](#dotfiles)
+- [Package list](#packages)
+- [Config files list](#configs)
 - [Bugs](#bugs)
-- [To Do](#todo)
+- [To do](#todo)
 
 ---
 
 ## About <a name = "about"></a>
-My personal dotfiles, and scripts I use to quickly reinstall. Options for both a quick install and full install are present, differing only in the number of packages installed.<br>
+My personal setup and config files, and scripts I use to quickly reinstall. Options for both a quick install and full install are present, differing only in the number of packages installed.<br>
 
 Obviously on a new system git probably won't be installed, and ssh won't be set up. You'll have to set up one or both.
 Grab the initial setup file from the below public repo:
@@ -69,7 +69,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | Chrome                                                     | Web Browser                                          | I know...                                      |
 | [gstreamer1.0-plugins-bad](https://packages.debian.org/sid/gstreamer1.0-plugins-bad) | Audio codecs               | For straggling .m4a files                      |
 | [Transmission](https://transmissionbt.com/download/)       | Torrent client                                       |                                                |
-## Dotfiles List <a name = "dotfiles"></a>
+## Config files list <a name = "configs"></a>
 | file / directory name               | Description                                                                       |
 |-------------------------------------|-----------------------------------------------------------------------------------|
 | /bin                                | Contains dumb scripts                                                             |
@@ -92,7 +92,8 @@ Packages are divided into two sets, called core and full. The core list contains
 | /.config/ranger                     | Minor settings telling ranger to preview images and use emacs.                    |
 | /.config/.environment_site          | Command for quickly running a jupyter server. Could be merged with .bash_aliases. |
 
-## Other Packages:
+## Other Packages
+Most of these are things I've played with in the past but no longer use.
 - Wireshark
 - Lynx
 - MC
@@ -103,14 +104,15 @@ Packages are divided into two sets, called core and full. The core list contains
 
 
 
-## Updates
+# Updates
 
-==========
-Tue Mar 08 20:54:24 PST 2022
+## Saturday 17 December 2022
+[Since a version update](https://unix.stackexchange.com/questions/644819/is-it-possible-to-move-tmux-conf-to-config-folder), tmux can now store its config file in `.config`. I'm all about keeping the root directory clean.
+
+## Tuesday March 08 2022
 - Started a Makefile for Miniconda setup. Expand to other things eventually.
 
-==========
-Tue Sep 14 20:33:10 PDT 2021
+##  Tuesday September 14 2021
 - Fixed .environment_site conda location
 - Updated emacs with ppa repository
 
@@ -119,46 +121,39 @@ sudo add-apt-repository -y ppa:ubuntu-elisp
 sudo apt update
 sudo apt install emacs-snapshot
 ```
-==========
-Sat Aug 21 14:13:28 PDT 2021
+
+## Saturday August 21 2021
 - New quotes.
 
-=========
-Mon Feb 08 2020
+## Monday February 08 2020
 - Added libreoffice and gnuplot to installer.
 
 
-## Bugs <a name = "bugs"></a>
-(2021-01-10)
+# Bugs <a name = "bugs"></a>
+## January 10 2021
 - Dropbox will hang if run from the script. Move this to the end or find a way to close the Dropbox session after installing that won't kill the install script.
 - Chrome reinstalls every time you run the full script, even if already present.
 - .config/dconf does not copy properly. Change ~rsync~ to ~cp -r~ command.
 
-(2020-11-29)
+## November 29 2020
 
 - [x] possible bug with dconf file not copying with rsync command. Try on VM and see if this is reproducible on another machine.
 
-==========
-Mon Dec 07 13:23:03 PST 2020
+## December 07 2020
 - [ ] Should create a small new script to check for changes between config files, and to sync them
 
-==========
-(2020-11-28)
-
+## November 28 2020
 - [x] .csv files must end with newline or the installer will miss the last package.
 
-## To Do <a name = "todo"></a>
-
+# To Do <a name = "todo"></a>
 - [x] Add wallpaper copy/set from Dropbox public link
   ```
   sudo cp [dropbox]/login.png /usr/share/backgrounds/ubuntu-mate-common/
   ```
-- [x] Add dotfiles explanations
+- [x] Add config file explanations
 - [x] Add Dropbox setup
 - [ ] Add Conda setup
 - [ ] Add Conda environment install
-- [ ] Make one config folder symlink routine
+- [x] Make one config folder symlink routine
 - [x] Turn off bluetooth controller by default
 - [x] Add numlockx to package list
-- [ ] Batch picture downloader
-- [ ] Private ssh keys to private repo
