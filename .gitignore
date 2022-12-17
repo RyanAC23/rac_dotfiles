@@ -25,3 +25,7 @@ bin/tex-template/
 
 # bin
 bin/stepmania
+
+# big files
+*.jpg
+*.png
