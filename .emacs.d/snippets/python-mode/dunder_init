@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: __init__
+# key: __init
+# --
+
+def __init__(self, **kwargs):
+    for kw in kwargs:
+        if not hasattr(self, kw):
+            raise ValueError
+        else:
+            setattr(self, kw, kwargs[kw])

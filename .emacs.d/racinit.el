@@ -264,6 +264,63 @@ Uses `current-date-time-format' for the formatting the date/time."
 	  (lambda ()
 	    (ibuffer-switch-to-saved-filter-groups "default")))
 
+(defun ajv/human-readable-file-sizes-to-bytes (string)
+  "Convert a human-readable file size into bytes."
+  (interactive)
+  (cond
+   ((string-suffix-p "G" string t)
+    (* 1000000000 (string-to-number (substring string 0 (- (length string) 1)))))
+   ((string-suffix-p "M" string t)
+    (* 1000000 (string-to-number (substring string 0 (- (length string) 1)))))
+   ((string-suffix-p "K" string t)
+    (* 1000 (string-to-number (substring string 0 (- (length string) 1)))))
+   (t
+    (string-to-number (substring string 0 (- (length string) 1))))
+   )
+  )
+
+(defun ajv/bytes-to-human-readable-file-sizes (bytes)
+  "Convert number of bytes to human-readable file size."
+  (interactive)
+  (cond
+   ((> bytes 1000000000) (format "%10.1fG" (/ bytes 1000000000.0)))
+   ((> bytes 100000000) (format "%10.0fM" (/ bytes 1000000.0)))
+   ((> bytes 1000000) (format "%10.1fM" (/ bytes 1000000.0)))
+   ((> bytes 100000) (format "%10.0fk" (/ bytes 1000.0)))
+   ((> bytes 1000) (format "%10.1fk" (/ bytes 1000.0)))
+   (t (format "%10d" bytes)))
+  )
+
+;; Use human readable Size column instead of original one
+(define-ibuffer-column size-h
+  (:name "Size"
+	 :inline t
+	 :summarizer
+	 (lambda (column-strings)
+	   (let ((total 0))
+	     (dolist (string column-strings)
+	       (setq total
+		     ;; like, ewww ...
+		     (+ (float (ajv/human-readable-file-sizes-to-bytes string))
+			total)))
+	     (ajv/bytes-to-human-readable-file-sizes total)))	 ;; :summarizer nil
+	 )
+  (ajv/bytes-to-human-readable-file-sizes (buffer-size)))
+
+;; Modify the default ibuffer-formats
+(setq ibuffer-formats
+      '((mark modified read-only locked " "
+	      (name 20 20 :left :elide)
+	      " "
+	      (size-h 11 -1 :right)
+	      " "
+	      (mode 16 16 :left :elide)
+	      " "
+	      filename-and-process)
+	(mark " "
+	      (name 16 -1)
+	      " " filename)))
+
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -742,19 +799,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
 
-;; (use-package elfeed
-;;   :commands (elfeed)
-;;   :config
-;;   (setq-default elfeed-search-filter "@2-months-ago")
-;;   (add-hook 'emacs-startup-hook (lambda () (run-at-time 0 120 'elfeed-update)))
-;;   (let ((elfeed-urls "~/Dropbox/emacs/rac_elfeeds.el"))
-;;     (when (file-exists-p elfeed-urls)
-;;       (load-file elfeed-urls))
-;;     )
-;;   )
-
-;; (global-set-key (kbd "C-x w") 'elfeed)
-
 (use-package dired
     :ensure nil
     :commands (dired dired-jump)
@@ -765,3 +809,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package all-the-icons-dired
 :hook (dired-mode . all-the-icons-dired-mode)
 )
+
+(use-package elfeed
+  :ensure t
+  :commands (elfeed)
+  :bind ("C-x w" . elfeed)
+  :config
+  (setq-default elfeed-search-filter "@6-months-ago +unread")
+  )
+
+(use-package elfeed-org
+  :ensure t
+  :after elfeed
+  :config
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/Dropbox/emacs/elfeed.org"))
+  )
