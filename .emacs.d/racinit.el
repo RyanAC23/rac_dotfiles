@@ -235,36 +235,41 @@ Uses `current-date-time-format' for the formatting the date/time."
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
     )
 
-;; Navigation -------------------------------------------------------------
-(defalias 'list-buffers 'ibuffer)
+;; begin ibuffer at startup.
+
+  ;; Navigation -------------------------------------------------------------
+          (defalias 'list-buffers 'ibuffer)
+
 ;; Don't show filter groups if there are no filters in the group
-(setq ibuffer-show-empty-filter-groups nil)
-(setq ibuffer-sorting-mode major-mode)
-;; Don't ask for confirmation to delete unmodified buffers
-(setq ibuffer-expert t)
+          (setq ibuffer-show-empty-filter-groups nil)
+          (setq ibuffer-sorting-mode major-mode)
+          ;; Don't ask for confirmation to delete unmodified buffers
+          (setq ibuffer-expert t)
 
-;; categorize buffers by groups:
-(setq ibuffer-saved-filter-groups
-      (quote (("default"
-	       ("python" (mode . python-mode))
-	       ("c/c++" (or
-			 (mode . c-mode)
-			 (mode . c++-mode)))
-	       ("org"
-		         (mode . org-mode))
-	       ("web"
-			 (or
-			 (mode . web-mode)
-			 (mode . css-mode)))
-	       ("emacs" (or
-			 (name . "^\\*scratch\\*$")
-			 (name . "^\\*Messages\\*$")))))))
+          ;; categorize buffers by groups:
+          (setq ibuffer-saved-filter-groups
+                (quote (("default"
+                         ("python" (mode . python-mode))
+                         ("c/c++" (or
+                                   (mode . c-mode)
+                                   (mode . c++-mode)))
+                         ("docs"
+                                   (or
+                                    (mode . org-mode)
+                                    (mode . markdown-mode)))
+                         ("web"
+                                   (or
+                                   (mode . web-mode)
+                                   (mode . css-mode)))
+                         ("emacs" (or
+                                   (name . "^\\*scratch\\*$")
+                                   (name . "^\\*Messages\\*$")))))))
 
-(add-hook 'ibuffer-mode-hook
-	  (lambda ()
-	    (ibuffer-switch-to-saved-filter-groups "default")))
+          (add-hook 'ibuffer-mode-hook
+                    (lambda ()
+                      (ibuffer-switch-to-saved-filter-groups "default")))
 
-(defun ajv/human-readable-file-sizes-to-bytes (string)
+(defun human-readable-file-sizes-to-bytes (string)
   "Convert a human-readable file size into bytes."
   (interactive)
   (cond
@@ -279,7 +284,7 @@ Uses `current-date-time-format' for the formatting the date/time."
    )
   )
 
-(defun ajv/bytes-to-human-readable-file-sizes (bytes)
+(defun bytes-to-human-readable-file-sizes (bytes)
   "Convert number of bytes to human-readable file size."
   (interactive)
   (cond
@@ -292,34 +297,34 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 ;; Use human readable Size column instead of original one
+
 (define-ibuffer-column size-h
   (:name "Size"
-	 :inline t
-	 :summarizer
-	 (lambda (column-strings)
-	   (let ((total 0))
-	     (dolist (string column-strings)
-	       (setq total
-		     ;; like, ewww ...
-		     (+ (float (ajv/human-readable-file-sizes-to-bytes string))
-			total)))
-	     (ajv/bytes-to-human-readable-file-sizes total)))	 ;; :summarizer nil
-	 )
-  (ajv/bytes-to-human-readable-file-sizes (buffer-size)))
+         :summarizer
+         (lambda (column-strings)
+           (let ((total 0))
+             (dolist (string column-strings)
+               (setq total
+                     ;; like, ewww ...
+                     (+ (float (human-readable-file-sizes-to-bytes string))
+                        total)))
+             (bytes-to-human-readable-file-sizes total)))	 ;; :summarizer nil
+         )
+  (bytes-to-human-readable-file-sizes (buffer-size)))
 
-;; Modify the default ibuffer-formats
+;; ;; Modify the default ibuffer-formats
 (setq ibuffer-formats
       '((mark modified read-only locked " "
-	      (name 20 20 :left :elide)
-	      " "
-	      (size-h 11 -1 :right)
-	      " "
-	      (mode 16 16 :left :elide)
-	      " "
-	      filename-and-process)
-	(mark " "
-	      (name 16 -1)
-	      " " filename)))
+              (name 20 20 :left :elide)
+              " "
+              (size-h 11 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " "
+              filename-and-process)
+        (mark " "
+              (name 16 -1)
+              " " filename)))
 
 (use-package projectile
   :diminish projectile-mode
@@ -678,7 +683,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   (custom-set-variables
    '(conda-anaconda-home "~/apps/miniconda"))
   (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
-  (conda-env-activate "work")
+  (conda-env-activate "base")
   )
 
 (use-package yasnippet
