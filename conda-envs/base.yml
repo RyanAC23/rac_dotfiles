@@ -1,0 +1,17 @@
+name: work
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - black
+  - hatch
+  - ipykernel
+  - numpy
+  - pip
+  - pytest
+  - python>=3.10.9
+  - scipy
+  - pip:
+      - jupytext
+      - matplotlib
+      - pytest-cov
