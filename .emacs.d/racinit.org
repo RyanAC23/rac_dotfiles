@@ -872,9 +872,9 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
     :after python
     :config
     (custom-set-variables
-     '(conda-anaconda-home "~/apps/miniconda"))
-    (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
-    (conda-env-activate "base")
+     '(conda-anaconda-home "~/miniconda3"))
+    (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
+    (conda-env-activate "work")
     )
 
 #+END_SRC

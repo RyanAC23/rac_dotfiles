@@ -1,17 +1,37 @@
 name: work
+
 channels:
-  - conda-forge
   - defaults
+
 dependencies:
+  - python=3.9
+
   - black
-  - hatch
+  - conda-forge::pyfftw=0.12
+    # fix pyfftw to avoid this bug https://github.com/pyFFTW/pyFFTW/issues/294
+  - cython
   - ipykernel
   - numpy
-  - pip
-  - pytest
-  - python>=3.10.9
+  - numba
   - scipy
+
+  # Optimization
+  - snakeviz
+  - tqdm
+
+  # Testing
+  - pytest
+
+  # Pip-only dependencies
+  - pip
   - pip:
+      - hatch
       - jupytext
       - matplotlib
       - pytest-cov
+
+      # dev unique
+      - husl
+      - uncertainties
+      - zope-interface
+      - persist

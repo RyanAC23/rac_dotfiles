@@ -681,9 +681,9 @@ Uses `current-date-time-format' for the formatting the date/time."
   :after python
   :config
   (custom-set-variables
-   '(conda-anaconda-home "~/apps/miniconda"))
-  (setq conda-env-home-directory (expand-file-name "~/apps/miniconda/"))
-  (conda-env-activate "base")
+   '(conda-anaconda-home "~/miniconda3"))
+  (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
+  (conda-env-activate "work")
   )
 
 (use-package yasnippet
