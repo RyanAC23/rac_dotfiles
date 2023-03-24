@@ -8,10 +8,10 @@
  (rear-context-string . "2K Nov  8 21:41 ")
  (position . 522))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/rac-agenda.org")
- (front-context-string . "* TODO make term")
- (rear-context-string)
- (position . 3))
+ (filename . "~/Dropbox/emacs/Roam/db/20230318-greek_philosophers.org")
+ (front-context-string)
+ (rear-context-string . "ek Philosophers\n")
+ (position . 96))
 ("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
  (front-context-string . "# Wednesday 14 D")

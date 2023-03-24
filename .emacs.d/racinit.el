@@ -165,7 +165,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (if (display-graphic-p)
-    (load-theme 'neptune t))
+    ;;(load-theme 'neptune t))
+    (load-theme 'xemacs t))
 
 (setq display-time-24hr-format t)
 (display-time-mode 1)
