@@ -1,34 +1,40 @@
 #+TITLE: Ryan's Emacs Config
 #+STARTUP: overview
-#+PROPERTY: header-args:emacs-lisp :tangle ./racinit.el :results silent
+#+PROPERTY: header-args:emacs-lisp :lexical t :tangle ./racinit.el :results silent
+
+* Emacs Config
+This is my main config file for Emacs. It sets up all of the packages and hooks I want to use, despite being an Org mode file.
+
+The property header in this file is where the magic happens. [[https://orgmode.org/worg/org-contrib/babel/][Org-Babel]] is configured to automatically extract, or "tangle", every cell in this notebook with the header "Emacs-Lisp". It then outputs them in a new file, specified in the property header. I include that file in my default `init.el`, and otherwise I do not edit that file. With this workflow, all editing of my Emacs config is done within this file, and I can quickly jump between collapsible headers and organize code on the fly.
+
+** Style Guidelines
+- `BEGIN_SRC` lines should have a space above them, but not below.
+- `END_SRC` lines should have a space below them, but not above.
+- If the purpose of a function is something that might apply to a different language, put it in its own section. For instance, I do not only want to autolint Python files, so all linting procedures should be in the same section.
+- Minimize dependencies. Delete them if you don't use them.
 
 * Global Variables
-#+BEGIN_SRC emacs-lisp
-;; put variables for environment paths, like miniconda, here.
-#+END_SRC
 ** Fonts
 #+BEGIN_SRC emacs-lisp
-
   (defvar efs/default-font-size 120)
   (defvar efs/default-variable-font-size 120)
-  (set-face-attribute 'default nil :font "Fira Code Retina" :height efs/default-font-size)
 
-  ;; Set the fixed pitch face
-  (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height efs/default-font-size)
-
-  ;; Set the variable pitch face
-  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
+  (set-face-attribute 'default nil :font "Fira Code Retina" :height
+                      efs/default-font-size)
+  (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
+                      efs/default-font-size)
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
+                      efs/default-variable-font-size :weight 'regular)
 
 #+END_SRC
 * Startup Performance
-#+BEGIN_SRC emacs-lisp
-  ;; The default is 800 kilobytes.  Measured in bytes.
-  ;; Don't forget to put this back at the default after startup.
-  (setq gc-cons-threshold (* 50 1000 1000)) ;; Roguhly 50MB
+  The default garbage collection threshold is 800 kilobytes. This means a ton of garbage collections will occur, slowing down startup. I raise the default threshold for startup and lower it again at the bottom of this file.
 
-  ;; Profile emacs startup
+#+BEGIN_SRC emacs-lisp
+  (setq gc-cons-threshold (* 50 1000 1000)) ; Roguhly 50MB
 
   (defun run-startup-diagnostics ()
+    "A short profile of emacs startup."
     (add-hook 'emacs-startup-hook
               (lambda ()
                 (message "*** Emacs loaded in %s with %d garbage collections."
@@ -36,52 +42,53 @@
                                  (float-time
                                   (time-subtract after-init-time before-init-time)))
                          gcs-done)))
-    (setq use-package-verbose t)
-    )
+    (setq use-package-verbose t))
 
-;;(run-startup-diagnostics)
-
+  (run-startup-diagnostics) ; TODO: just run function anonymously?
 #+END_SRC
 
 * Behavior - Basic
 ** Common Lisp
-Enable common lisp syntax
+Enable common lisp syntax.
 #+BEGIN_SRC emacs-lisp
   (require 'cl-lib)
 #+END_SRC
 ** DONE UTF-8 Encoding
 CLOSED: [2021-09-18 Sat 21:51]
 #+BEGIN_SRC emacs-lisp
-  (setq locale-coding-system 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-selection-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
+  (dolist  (_sys '((lambda(x)
+                   (setq locale-coding-system x))
+                 set-terminal-coding-system
+                 set-keyboard-coding-system
+                 set-selection-coding-system
+                 prefer-coding-system))
+    (funcall _sys 'utf-8))
 #+END_SRC
 ** y/n instead of 'yes/no'
-Be able to type 'y' instead of 'yes'
+Be able to type 'y' instead of 'yes'.
 #+BEGIN_SRC emacs-lisp
   (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 ** Quick Reload init.el
  Don't rebind keys for opening init.el. Instead, use [[https://emacs.stackexchange.com/questions/35170/is-there-a-key-binding-to-open-the-configuration-file-of-emacs][bookmarks.]]
  #+BEGIN_SRC emacs-lisp
- (defun reload-init-file ()
-   (interactive)
-   (load-file user-init-file))
+   (defun reload-init-file ()
+     (interactive)
+     (load-file user-init-file))
 
- (global-set-key (kbd "C-c r") 'reload-init-file)
-
+   (global-set-key (kbd "C-c r") 'reload-init-file)
  #+END_SRC
 
 ** Navigation
 Move between windows with shift+[arrow]. See [[Org Mode]] for a custom hook that disables this minor mode locally and enables shift for TODO flags.
- #+BEGIN_SRC emacs-lisp
+
+#+BEGIN_SRC emacs-lisp
    (windmove-default-keybindings)
  #+END_SRC
 
 ** Line Numbers
 Enable line numbers by default.
+
 #+BEGIN_SRC emacs-lisp
   (when (version<= "26.0.50" emacs-version )
     (global-display-line-numbers-mode))
@@ -90,12 +97,14 @@ Enable line numbers by default.
 
 ** No Trailing Whitespace
 Delete trailing whitespace when saving
+
 #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+END_SRC
 
 ** Word Wrap
 enable word wrap mode globally
+
 #+BEGIN_SRC emacs-lisp
   (global-visual-line-mode)
 #+END_SRC
@@ -106,31 +115,29 @@ reroute backups and control history
 #+BEGIN_SRC emacs-lisp
   (defvar --backup-directory (concat user-emacs-directory "backups"))
   (if (not (file-exists-p --backup-directory))
-	  (make-directory --backup-directory t))
+      (make-directory --backup-directory t))
   (setq backup-directory-alist `(("." . ,--backup-directory)))
   (setq make-backup-files t          ; backup of a file the first time it is saved.
-	backup-by-copying t          ; don't clobber symlinks
-	version-control t            ; version numbers for backup files
-	delete-old-versions t        ; delete excess backup files silently
-	delete-by-moving-to-trash t
-	kept-old-versions 2          ; oldest versions to keep when a new numbered backup is made (default: 2)
-	kept-new-versions 2          ; newest versions to keep when a new numbered backup is made (default: 2)
-	auto-save-default nil          ; auto-save every buffer that visits a file
-	auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
-	auto-save-interval 200       ; number of keystrokes between auto-saves (default: 300)
-	)
+        backup-by-copying t          ; don't clobber symlinks
+        version-control t            ; version numbers for backup files
+        delete-old-versions t        ; delete excess backup files silently
+        delete-by-moving-to-trash t
+        kept-old-versions 2          ; oldest versions to keep when a new numbered backup is made (default: 2)
+        kept-new-versions 2          ; newest versions to keep when a new numbered backup is made (default: 2)
+        auto-save-default nil          ; auto-save every buffer that visits a file
+        auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
+        auto-save-interval 200)       ; number of keystrokes between auto-saves (default: 300)
 #+END_SRC
 
 ** Server Mode
 Start in server mode to open files in the server instance with the bash command
+
 #+BEGIN_SRC emacs-lisp
   (require 'server)
   (unless (server-running-p)
     (progn
       (server-start)
-      (toggle-frame-maximized)
-      )
-  )
+      (toggle-frame-maximized)))
 #+END_SRC
 
 ** Insert timestamp
@@ -138,16 +145,16 @@ Start in server mode to open files in the server instance with the bash command
     ;; ====================
     ;; insert date and time
 
-    (defvar current-date-format "%A %d %B %Y"
-      "Format of date to insert with `insert-current-date' func
+  (defvar current-date-format "%A %d %B %Y"
+    "Format of date to insert with `insert-current-date' func
     See help of `format-time-string' for possible replacements")
 
-    (defvar current-date-time-format "%a %d %B %Y %H:%M:%S %Z"
-      "Format of date to insert with `insert-current-date-time' func
+  (defvar current-date-time-format "%a %d %B %Y %H:%M:%S %Z"
+    "Format of date to insert with `insert-current-date-time' func
     See help of `format-time-string' for possible replacements")
 
-    (defvar current-time-format "%a %H:%M:%S"
-      "Format of date to insert with `insert-current-time' func.
+  (defvar current-time-format "%a %H:%M:%S"
+    "Format of date to insert with `insert-current-time' func.
     Note the weekly scope of the command's precision.")
 
   (defun insert-current-date ()
@@ -162,8 +169,7 @@ Start in server mode to open files in the server instance with the bash command
      (t
       (insert "# ---------\n# ")))
     (insert (format-time-string current-date-format))
-    (insert "\n")
-    )
+    (insert "\n"))
 
   (defun insert-current-date-time ()
     "insert the current date and time into current buffer.
@@ -171,38 +177,35 @@ Start in server mode to open files in the server instance with the bash command
     (interactive)
     (insert "========================================\n")
     (insert (format-time-string current-date-time-format (current-time)))
-    (insert "\n")
-    )
+    (insert "\n"))
 
   (defun insert-current-time ()
     "insert the current time (1-week scope) into the current buffer."
     (interactive)
     (insert "- ")
     (insert (format-time-string current-time-format (current-time)))
-    (insert " ")
-    )
+    (insert " "))
 
-    (global-set-key "\C-x\C-d" 'insert-current-date)
-    (global-set-key "\C-x\C-t" 'insert-current-time)
+  (global-set-key "\C-x\C-d" 'insert-current-date)
+  (global-set-key "\C-x\C-t" 'insert-current-time)
 #+END_SRC
+
 * Behavior - Packages
 ** Packages
 Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
 
 #+BEGIN_SRC emacs-lisp
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
+  (require 'use-package-ensure)
+  (setq use-package-always-ensure t)
 #+END_SRC
 
 ** Try
 
 Download and give a melpa package a shot without adding it to init.el.
+
 #+BEGIN_SRC emacs-lisp
-
-(use-package try
-:defer t
-)
-
+  (use-package try
+    :defer t)
 #+END_SRC
 
 ** which-key mode
@@ -219,37 +222,42 @@ A nice mode that shows a list of key bindings that follow from inputs you've alr
 
 ** Enable parenthesis matching mode
 https://melpa.org/#/mic-paren
+
 #+BEGIN_SRC emacs-lisp
   (use-package mic-paren
-      :config
-      ;;(paren-activate)
-      (add-hook 'c-mode-common-hook 'paren-activate)
-      (add-hook 'python-mode-hook   'paren-activate)
-      (add-hook 'org-mode-hook      'paren-activate)
-  )
+    :config
+    (dolist (hooks '(c-mode-common-hook
+                    python-mode-hook
+                    org-mode-hook
+                    emacs-lisp-mode-hook))
+      (add-hook hooks 'paren-activate)))
 #+END_SRC
+
 ** Load non-MELPA packages
 #+begin_src emacs-lisp
-  ;; Place to put local packages.
+  ;;; Place to put local packages.
   (let* ((path (expand-file-name "lisp" user-emacs-directory))
          (local-pkgs (mapcar 'file-name-directory (directory-files-recursively path ".*\\.el"))))
     (if (file-accessible-directory-p path)
         (mapc (apply-partially 'add-to-list 'load-path) local-pkgs)
       (make-directory path :parents)))
 #+end_src
+
 * Theme and Appearance
 [[https://emacs.stackexchange.com/questions/7151/is-there-a-way-to-detect-that-emacs-is-running-in-a-terminal][Terminal sessions]] can have problems with color themes, so only load your custom color profile if running in a GUI. I do this by running emacs with two different aliases, one for a full GUI session and another for a terminal, with its own minimal init.el loaded. This is usually only for git commits and other quick edits.
 ** Visual Tweaks
  Disable the default splash screen, the visual scrollbars, the tool bar, and the menu bar that you never click.
- #+BEGIN_SRC emacs-lisp
-   (setq inhibit-splash-screen t)
-   (scroll-bar-mode -1)
-   (menu-bar-mode -1)
-   (tool-bar-mode -1)
+
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-splash-screen t)
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
  #+END_SRC
 
 ** load a default theme.
 [[https://emacsfodder.github.io/emacs-theme-editor/][Edit your own theme]], or find a [[https://peach-melpa.org/][premade theme]] you like online.
+
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
   (if (display-graphic-p)
@@ -258,53 +266,56 @@ https://melpa.org/#/mic-paren
 #+END_SRC
 
 ** Display clock and system load average
+
 #+BEGIN_SRC emacs-lisp
-(setq display-time-24hr-format t)
-(display-time-mode 1)
+  (setq display-time-24hr-format t)
+  (display-time-mode 1)
 #+END_SRC
 
 ** Transparency
 Set transparency, and map transparency toggle to C-c t from https://www.emacswiki.org/emacs/TransparentEmacs
 
 #+BEGIN_SRC emacs-lisp
-(defun toggle-transparency ()
-   (interactive)
-   (let ((alpha (frame-parameter nil 'alpha)))
-     (set-frame-parameter
-      nil 'alpha
-      (if (eql (cond ((numberp alpha) alpha)
-                     ((numberp (cdr alpha)) (cdr alpha))
-                     ;; Also handle undocumented (<active> <inactive>) form.
-                     ((numberp (cadr alpha)) (cadr alpha)))
-               100)
-          '(95 . 50) '(100 . 100)))))
-(global-set-key (kbd "C-c t") 'toggle-transparency)
+  (defun toggle-transparency ()
+    (interactive)
+    (let ((alpha (frame-parameter nil 'alpha)))
+      (set-frame-parameter
+       nil 'alpha
+       (if (eql (cond ((numberp alpha) alpha)
+                      ((numberp (cdr alpha)) (cdr alpha))
+                      ;; Also handle undocumented (<active> <inactive>) form.
+                      ((numberp (cadr alpha)) (cadr alpha)))
+                100)
+           '(95 . 50) '(100 . 100)))))
+  (global-set-key (kbd "C-c t") 'toggle-transparency)
 #+END_SRC
 
 ** Modeline - Spaceline
-#+BEGIN_SRC emacs-lisp
 
+#+BEGIN_SRC emacs-lisp
   (use-package spaceline
     :config
     (require 'spaceline-config)
     (setq powerline-default-separator (quote arrow))
     (spaceline-spacemacs-theme)
-    (spaceline-toggle-projectile-root-off)
-    )
+    (spaceline-toggle-projectile-root-off))
 #+END_SRC
+
 ** diminish - hide minor modes from line
+
 #+BEGIN_SRC emacs-lisp
   (use-package diminish
     :after spaceline
     :init
-    (diminish 'page-break-lines-mode)
-    (diminish 'undo-tree-mode)
-    (diminish 'org-src-mode)
-    (diminish 'eldoc-mode)
-    (diminish 'visual-line-mode)
-    (diminish 'org-indent-mode)
-)
+    (dolist (diminish-list '(page-break-lines-mode
+                             undo-tree-mode
+                             org-src-mode
+                             eldoc-mode
+                             visual-line-mode
+                             org-indent-mode))
+      (diminish diminish-list)))
 #+END_SRC
+
 * Searching
 The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give regular expression searches with spaces and suggest completions for commands and other minibuffer actions. ~Ivy-rich~ provides extra information on functions in ivy menus.
 #+BEGIN_SRC emacs-lisp
@@ -313,13 +324,12 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   (use-package ivy
     :diminish
     :config
-    (ivy-mode 1)
-  )
+    (ivy-mode 1))
 
   (use-package ivy-rich
-  :after ivy
-  :init
-  (ivy-rich-mode 1))
+    :after ivy
+    :init
+    (ivy-rich-mode 1))
 
   ;; counsel is a requirement for swiper
   (use-package counsel)
@@ -327,58 +337,55 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   ;; swiper is an improved search with intelligent pattern matching.
   (use-package swiper
     :bind (("C-s" . swiper)
-	   ("C-r" . swiper)
-	   ("C-c C-r" . ivy-resume)
-	   ("M-x" . counsel-M-x)
-	   ("C-x C-f" . counsel-find-file)
-	   ("M-y" . counsel-yank-pop)
-	   ("M-n" . (lambda () (interactive) (search-forward (car swiper-history))))
-	   ("M-p" . (lambda () (interactive) (search-backward (car swiper-history))))
-	   )
+           ("C-r" . swiper)
+           ("C-c C-r" . ivy-resume)
+           ("M-x" . counsel-M-x)
+           ("C-x C-f" . counsel-find-file)
+           ("M-y" . counsel-yank-pop)
+           ("M-n" . (lambda () (interactive) (search-forward (car swiper-history))))
+           ("M-p" . (lambda () (interactive) (search-backward (car swiper-history)))))
     :config
     (progn
       (setq ivy-use-virtual-buffers t)
       (setq ivy-display-style 'fancy)
-      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
-      )
-
+      (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 #+END_SRC
 
 * iBuffer
 #+BEGIN_SRC emacs-lisp
   ;; begin ibuffer at startup.
 
-    ;; Navigation -------------------------------------------------------------
-            (defalias 'list-buffers 'ibuffer)
+  ;; Navigation -------------------------------------------------------------
+  (defalias 'list-buffers 'ibuffer)
 
   ;; Don't show filter groups if there are no filters in the group
-            (setq ibuffer-show-empty-filter-groups nil)
-            (setq ibuffer-sorting-mode major-mode)
-            ;; Don't ask for confirmation to delete unmodified buffers
-            (setq ibuffer-expert t)
+  (setq ibuffer-show-empty-filter-groups nil)
+  (setq ibuffer-sorting-mode major-mode)
+  ;; Don't ask for confirmation to delete unmodified buffers
+  (setq ibuffer-expert t)
 
-            ;; categorize buffers by groups:
-            (setq ibuffer-saved-filter-groups
-                  (quote (("default"
-                           ("python" (mode . python-mode))
-                           ("c/c++" (or
-                                     (mode . c-mode)
-                                     (mode . c++-mode)))
-                           ("docs"
-                                     (or
-                                      (mode . org-mode)
-                                      (mode . markdown-mode)))
-                           ("web"
-                                     (or
-                                     (mode . web-mode)
-                                     (mode . css-mode)))
-                           ("emacs" (or
-                                     (name . "^\\*scratch\\*$")
-                                     (name . "^\\*Messages\\*$")))))))
+  ;; categorize buffers by groups:
+  (setq ibuffer-saved-filter-groups
+        (quote (("default"
+                 ("python" (mode . python-mode))
+                 ("c/c++" (or
+                           (mode . c-mode)
+                           (mode . c++-mode)))
+                 ("docs"
+                  (or
+                   (mode . org-mode)
+                   (mode . markdown-mode)))
+                 ("web"
+                  (or
+                   (mode . web-mode)
+                   (mode . css-mode)))
+                 ("emacs" (or
+                           (name . "^\\*scratch\\*$")
+                           (name . "^\\*Messages\\*$")))))))
 
-            (add-hook 'ibuffer-mode-hook
-                      (lambda ()
-                        (ibuffer-switch-to-saved-filter-groups "default")))
+  (add-hook 'ibuffer-mode-hook
+            (lambda ()
+              (ibuffer-switch-to-saved-filter-groups "default")))
 #+END_SRC
 
 ** Make 'size' column human readable
@@ -396,9 +403,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
      ((string-suffix-p "K" string t)
       (* 1000 (string-to-number (substring string 0 (- (length string) 1)))))
      (t
-      (string-to-number (substring string 0 (- (length string) 1))))
-     )
-    )
+      (string-to-number (substring string 0 (- (length string) 1))))))
 
   (defun bytes-to-human-readable-file-sizes (bytes)
     "Convert number of bytes to human-readable file size."
@@ -409,8 +414,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
      ((> bytes 1000000) (format "%10.1fM" (/ bytes 1000000.0)))
      ((> bytes 100000) (format "%10.0fk" (/ bytes 1000.0)))
      ((> bytes 1000) (format "%10.1fk" (/ bytes 1000.0)))
-     (t (format "%10d" bytes)))
-    )
+     (t (format "%10d" bytes))))
 
   ;; Use human readable Size column instead of original one
 
@@ -421,14 +425,12 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
              (let ((total 0))
                (dolist (string column-strings)
                  (setq total
-                       ;; like, ewww ...
                        (+ (float (human-readable-file-sizes-to-bytes string))
                           total)))
-               (bytes-to-human-readable-file-sizes total)))	 ;; :summarizer nil
-           )
+               (bytes-to-human-readable-file-sizes total)))); :summarizer nil
     (bytes-to-human-readable-file-sizes (buffer-size)))
 
-  ;; ;; Modify the default ibuffer-formats
+  ;; Modify the default ibuffer-formats
   (setq ibuffer-formats
         '((mark modified read-only locked " "
                 (name 20 20 :left :elide)
@@ -447,7 +449,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 - Added dashboard config to [[https://githubmemory.com/repo/emacs-dashboard/emacs-dashboard/issues/297][close agenda buffers]] after reading them on startup.
 
 #+BEGIN_SRC emacs-lisp
-
   (use-package projectile
     :diminish projectile-mode
     :config (projectile-mode)
@@ -456,10 +457,10 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     :custom ((projectile-completion-system 'ivy))
     :init
     (when (file-directory-p "~/repos/")
-      (setq projectile-project-search-path '("~/repos/")))
-    )
+      (setq projectile-project-search-path '("~/repos/"))))
 
   (use-package all-the-icons)
+
   ;; install if not present
   (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
     (all-the-icons-install-fonts))
@@ -479,43 +480,39 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     (setq dashboard-footer-messages nil)
     (load-file "~/.emacs.d/dashboard_quotes.el")
     (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
-    (setq dashboard-agenda-release-buffers t)
-    )
-
+    (setq dashboard-agenda-release-buffers t))
 #+END_SRC
 
 * Org Mode
 ** Org Base Config
 #+BEGIN_SRC emacs-lisp
-      ;; Org-mode ------------------------------------------------------------
-      (defun org-mode-setup ()
-        (org-indent-mode)
-        (dolist (face '((org-level-1 . 1.3)
-                        (org-level-2 . 1.2)
-                        (org-level-3 . 1.1)
-                        (org-level-4 . 1.0)
-                        (org-level-5 . 1.1)
-                        (org-level-6 . 1.1)
-                        (org-level-7 . 1.1)
-                        (org-level-8 . 1.1)))
-          (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
-          (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-          (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-          (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
-          (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-          (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-          (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-          (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-        )
+  ;; Org-mode ------------------------------------------------------------
+  (defun org-mode-setup ()
+    (org-indent-mode)
+    (dolist (face '((org-level-1 . 1.3)
+                    (org-level-2 . 1.2)
+                    (org-level-3 . 1.1)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+      (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+    (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+    (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
 
-    ;;(org-mode-setup)
-      (defun org-winmove-setup()
-        (setq-local windmove-mode nil)
-        (add-hook 'org-shiftup-final-hook 'windmove-up)
-        (add-hook 'org-shiftleft-final-hook 'windmove-left)
-        (add-hook 'org-shiftdown-final-hook 'windmove-down)
-        (add-hook 'org-shiftright-final-hook 'windmove-right)
-        )
+  ;;(org-mode-setup)
+  (defun org-winmove-setup()
+    (setq-local windmove-mode nil)
+    (add-hook 'org-shiftup-final-hook 'windmove-up)
+    (add-hook 'org-shiftleft-final-hook 'windmove-left)
+    (add-hook 'org-shiftdown-final-hook 'windmove-down)
+    (add-hook 'org-shiftright-final-hook 'windmove-right))
 
   (defun org-note-insert-page ()
     "Prompt user to enter a number, with input history support."
@@ -524,42 +521,38 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
       (setq n (read-number "Type a page number: " ))
       (insert (format "(%d) " n))))
 
-      (use-package org
-        :hook
-        ((org-mode . org-mode-setup)
-        (org-mode . org-winmove-setup))
-        :commands (org-capture org-agenda)
-        :config
-        (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
-        (require 'ox-md)   ;; Add markdown export support
-        :bind
-        ("C-c a" . org-agenda)
-        ("C-p"   . org-note-insert-page)
-        )
+  (use-package org
+    :hook
+    ((org-mode . org-mode-setup)
+     (org-mode . org-winmove-setup))
+    :commands (org-capture org-agenda)
+    :config
+    (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
+    (require 'ox-md)   ;; Add markdown export support
+    :bind
+    ("C-c a" . org-agenda)
+    ("C-p"   . org-note-insert-page))
 
-      (use-package org-bullets
-        :hook (org-mode . org-bullets-mode)
-        :custom
-        (org-bullets-bullet-list '("あ" "い" "う" "え" "お"))
-        )
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("あ" "い" "う" "え" "お")))
 
-      ;; org agenda
-      (setq org-agenda-files
-            '("~/Dropbox/emacs/rac-agenda.org"
-              "~/Dropbox/emacs/Birthdays.org"))
-      (setq org-log-done 'time)
+  ;; org agenda
+  (setq org-agenda-files
+        '("~/Dropbox/emacs/rac-agenda.org"
+          "~/Dropbox/emacs/Birthdays.org"))
+  (setq org-log-done 'time)
 
 
-      ;; reveal.js presentations
+  ;; reveal.js presentations
 
-      (use-package ox-reveal
-        :after org-mode
-        :config
-        ;; We need to tell ox-reveal where to find the js file.
-        ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-         (setq org-reveal-mathjax t))
-        )
-
+  (use-package ox-reveal
+    :after org-mode
+    :config
+    ;; We need to tell ox-reveal where to find the js file.
+    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+     (setq org-reveal-mathjax t)))
 #+END_SRC
 ** Org Links Mode
 
@@ -592,66 +585,60 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+END_SRC
 
 ** Org babel load languages
-#+BEGIN_SRC emacs-lisp
 
+#+BEGIN_SRC emacs-lisp
   (with-eval-after-load 'org
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((emacs-lisp . t)
-       (python . t))
-     )
-(setq org-confirm-babel-evaluate nil)
-)
-
+       (python . t)))
+    (setq org-confirm-babel-evaluate nil))
 #+END_SRC
 
 ** Org Capture Templates
+
 #+BEGIN_SRC emacs-lisp
-
-;; ----- Org Capture Templates -----------------------------------------------------------
-
-(setq org-capture-templates
-      '(
-	("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
-	("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-	 "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
-	("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-	 "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
-	("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-	 "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)
-      )
-      )
-
+  (setq org-capture-templates
+        '(
+          ("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
+           "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+          ("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
+           "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
+          ("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
+           "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
+          ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
+           "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)))
 #+END_SRC
 
 ** Auto tangle Org config file
+
 #+begin_src emacs-lisp
-  (defun rac/org-babel-tangle-config ()
+  (defun rac-org-babel-tangle-config ()
     (when (string-equal (buffer-file-name)
                         (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
 
-    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac-org-babel-tangle-config)))
 #+end_src
 
 ** Visual Fill Org Hook
+
 #+BEGIN_SRC emacs-lisp
+  (defun rac-org-mode-visual-fill ()
+    (setq visual-fill-column-width 95
+          visual-fill-column-center-text t)
+    (visual-fill-column-mode 1))
 
-(defun rac/org-mode-visual-fill ()
-  (setq visual-fill-column-width 95
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :defer t
-  :hook (org-mode . rac/org-mode-visual-fill))
-  :diminish
+  (use-package visual-fill-column
+    :defer t
+    :hook (org-mode . rac-org-mode-visual-fill)
+    :diminish)
 #+END_SRC
-** Org Roam
-#+BEGIN_SRC emacs-lisp
 
+** Org Roam
+
+#+BEGIN_SRC emacs-lisp
   (defun org-roam-node-insert-immediate (arg &rest args)
     (interactive "P")
     (let ((args (push arg args))
@@ -659,132 +646,129 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
                                                     '(:immediate-finish t)))))
       (apply #'org-roam-node-insert args)))
 
-    (use-package org-roam
-      :ensure t
-      :init
-      (setq org-roam-v2-ack t)
-      :custom
-      (org-roam-directory "~/Dropbox/emacs/Roam/db")
-      (org-roam-completion-everywhere t)
-      (org-roam-capture-templates
-       '(("n" "note: default" plain
-          "%?"
-          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-          :unnarrowed t)
-         ("a" "author" plain
-          "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
-         :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-         :unnarrowed t)
+  (use-package org-roam
+    :ensure t
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/Dropbox/emacs/Roam/db")
+    (org-roam-completion-everywhere t)
+    (org-roam-capture-templates
+     '(("n" "note: default" plain
+        "%?"
+        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+        :unnarrowed t)
+       ("a" "author" plain
+        "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+        :unnarrowed t)
        ("b" "book" plain
-          (file "~/Dropbox/emacs/Roam/templates/book_template.org")
-         :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-         :unnarrowed t)
-       ))
-      :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n i" . org-roam-node-insert)
-             ("C-c n I" . org-roam-node-insert-immediate)
-             ("C-c n c" . org-id-get-create)
-             :map org-mode-map
-             ("C-M-i" . completion-at-point))
-      :config
-      (org-roam-setup)
+        (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+        :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+        :unnarrowed t)))
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n I" . org-roam-node-insert-immediate)
+           ("C-c n c" . org-id-get-create)
+           :map org-mode-map
+           ("C-M-i" . completion-at-point))
+    :config
+    (org-roam-setup)
                                           ; The following snippet allows searching for tags using `org-roam-node-find`.
                                           ;  [[https://github.com/org-roam/org-roam/pull/2054]]
-      (setq org-roam-node-display-template
-            (concat "${title:*} "
-                    (propertize "${tags:10}" 'face 'org-tag)))
-      )
+    (setq org-roam-node-display-template
+          (concat "${title:*} "
+                  (propertize "${tags:10}" 'face 'org-tag))))
 #+END_SRC
 
 ** Org-Roam-Ui
+
 #+BEGIN_SRC emacs-lisp
-(use-package org-roam-ui
-:ensure t)
+  (use-package org-roam-ui
+    :ensure t)
 #+END_SRC
 * Reference and Citations
 ** Bibtex
-#+BEGIN_SRC emacs-lisp
-    (use-package bibtex
-      :ensure async)
-  ; (bibtex-set-dialect 'BibTeX)
 
-    (setq bibtex-autokey-year-length 4
-          bibtex-autokey-name-year-separator "-"
-          bibtex-autokey-year-title-separator "-"
-          bibtex-autokey-titleword-separator "-"
-          bibtex-autokey-titlewords 2
-          bibtex-autokey-titlewords-stretch 1
-          bibtex-autokey-titleword-length 5)
+#+BEGIN_SRC emacs-lisp
+  (use-package bibtex
+    :ensure async)
+
+  (setq bibtex-autokey-year-length 4
+        bibtex-autokey-name-year-separator "-"
+        bibtex-autokey-year-title-separator "-"
+        bibtex-autokey-titleword-separator "-"
+        bibtex-autokey-titlewords 2
+        bibtex-autokey-titlewords-stretch 1
+        bibtex-autokey-titleword-length 5)
 #+END_SRC
+
 ** Org-Ref
+
 #+BEGIN_SRC emacs-lisp
-    (use-package org-ref
-      :ensure t
-      :config
-      (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
-      )
+  (use-package org-ref
+    :ensure t
+    :config
+    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
 
-    (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/physics.bib"
-                                           "~/Dropbox/emacs/bibliography/otherworld.bib"
-                                           "~/Dropbox/emacs/bibliography/nuclear.bib")
-          bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
-          bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-          bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-          bibtex-completion-additional-search-fields '(keywords)
-          bibtex-completion-display-formats
-          '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-            (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-          bibtex-completion-pdf-open-function
-          (lambda (fpath)
-            (call-process "open" nil 0 nil fpath)))
+  (setq bibtex-completion-bibliography
+        '("~/Dropbox/emacs/bibliography/physics.bib"
+          "~/Dropbox/emacs/bibliography/otherworld.bib"
+          "~/Dropbox/emacs/bibliography/nuclear.bib")
+        bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
+        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-display-formats
+        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+        bibtex-completion-pdf-open-function
+        (lambda (fpath)
+          (call-process "open" nil 0 nil fpath)))
 
-                                            ; keyboard commands - org mode
   (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
   (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
   (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
   (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
-
 #+END_SRC
+
 * TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
+
 #+BEGIN_SRC emacs-lisp
+  (defun efs/lsp-mode-setup()
+    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    (lsp-headerline-breadcrumb-mode))
 
-    (defun efs/lsp-mode-setup()
-      (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-      (lsp-headerline-breadcrumb-mode))
-
-
-    (use-package lsp-mode
-      :commands (lsp lsp-deferred)
-      :hook (lsp-mode . efs/lsp-mode-setup)
-      :init
-      (setq lsp-keymap-prefix "C-c l")
-      :config
-      (setq lsp-enable-which-key-integration t)
-      (setq lsp-signature-auto-activate nil)
-      (setq lsp-diagnostics-provider :none)
-      )
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :hook (lsp-mode . efs/lsp-mode-setup)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (setq lsp-enable-which-key-integration t)
+    (setq lsp-signature-auto-activate nil)
+    (setq lsp-diagnostics-provider :none))
 
   (use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom)
-  )
+    :hook (lsp-mode . lsp-ui-mode)
+    :custom
+    (lsp-ui-doc-position 'bottom))
 
   (use-package lsp-treemacs
     :after lsp)
 
   (use-package lsp-ivy
     :after lsp)
-
 #+END_SRC
 
 ** TODO LSP over Tramp
+
 #+BEGIN_SRC emacs-lisp
 
    ;;  (lsp-register-client
@@ -795,74 +779,72 @@ This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutoria
   ;; )
 #+END_SRC
 
-Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] might be a pain.
-** Autocompletion
-#+BEGIN_SRC emacs-lisp
+Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] will be a pain. Avoid it if you can.
 
+** Autocompletion
+
+#+BEGIN_SRC emacs-lisp
   (use-package company
     :hook
-    ((emacs-lisp-mode . company-mode)
-      ;; (org-mode . company-mode)
-      (c++-mode . company-mode)
-      (c-mode . company-mode)
-      (lsp-mode . company-mode)
-      (python-mode . company-mode)
-      )
+    ((emacs-lisp-mode
+      c++-mode
+      c-mode
+      lsp-mode
+      python-mode)
+     . company-mode)
     :bind (:map company-active-map
-           ("<tab>" . company-complete-selection))
-
+                ("<tab>" . company-complete-selection))
     :custom
     (company-minimum-prefix-length 1)
     (company-idle-delay 0.0)
     :custom-face
     (company-tooltip
-     ((t (:family "Terminus"))))
-    )
-
+     ((t (:family "Terminus")))))
 #+END_SRC
-* Python
-** Blacken Hook
-Automatically run blacken on any saved python buffer. The time saved is worth any disagreements I might have about formatting.
+
+* Auto Linting
+** Python
+Automatically run `blacken` on any Python buffer upon saving. The time saved is worth any disagreements I might have about formatting.
 
 #+BEGIN_SRC emacs-lisp
-    (use-package blacken
-	:hook (python-mode . blacken-mode)
-    )
+  (use-package blacken
+    :hook (python-mode . blacken-mode))
 #+END_SRC
 
+** TODO C/C++
+** TODO Emacs-Lisp
+Find a way to auto-lint Emacs-Lisp code blocks in Org files. The rules should be something like [[https://github.com/bbatsov/emacs-lisp-style-guide][the ones here.]]
+* Python
 ** Selective Display
 Uses the function keys to hide indentation.
 
 #+BEGIN_SRC emacs-lisp
-    (defun indent-show-all ()
-      (interactive)
-      (set-selective-display nil)
-      (condition-case nil (hs-show-all) (error nil))
-      (show-all))
-    (defun python-remap-fs ()
-      (global-set-key [f1] 'indent-show-all)
-      (global-set-key [f2] (lambda () (interactive) (set-selective-display
-						   standard-indent)))
-      (global-set-key [f3] (lambda () (interactive) (set-selective-display
-						   (* 2 standard-indent))))
-      (global-set-key [f4] (lambda () (interactive) (set-selective-display
-						   (* 3 standard-indent))))
-      (global-set-key [f5] (lambda () (interactive) (set-selective-display
-						   (* 4 standard-indent))))
-      (global-set-key [f6] (lambda () (interactive) (set-selective-display
-						   (* 5 standard-indent))))
-      (global-set-key [f7] (lambda () (interactive) (set-selective-display
-						   nil)))
-    )
-
+  (defun indent-show-all ()
+    (interactive)
+    (set-selective-display nil)
+    (condition-case nil (hs-show-all) (error nil))
+    (show-all))
+  (defun python-remap-fs ()
+    (global-set-key [f1] 'indent-show-all)
+    (global-set-key [f2] (lambda () (interactive) (set-selective-display
+                                                   standard-indent)))
+    (global-set-key [f3] (lambda () (interactive) (set-selective-display
+                                                   (* 2 standard-indent))))
+    (global-set-key [f4] (lambda () (interactive) (set-selective-display
+                                                   (* 3 standard-indent))))
+    (global-set-key [f5] (lambda () (interactive) (set-selective-display
+                                                   (* 4 standard-indent))))
+    (global-set-key [f6] (lambda () (interactive) (set-selective-display
+                                                   (* 5 standard-indent))))
+    (global-set-key [f7] (lambda () (interactive) (set-selective-display
+                                                   nil))))
   (add-hook 'python-mode-hook 'python-remap-fs)
-
 #+END_SRC
 
 See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-name-main-but-somehow-not][difference between]] sending the current Python buffer to an inferior shell (`C-c C-c`) and the universal command that also sends `__main__` for properly written scripts (`C-u C-c C-c`)
 ** Python Base
-#+BEGIN_SRC emacs-lisp
 
+#+BEGIN_SRC emacs-lisp
   (use-package python
     :ensure nil
     :hook (python-mode . lsp-deferred)
@@ -875,22 +857,24 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
     (custom-set-variables
      '(conda-anaconda-home "~/miniconda3"))
     (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
-    (conda-env-activate "work")
-    )
-
+    (conda-env-activate "work"))
 #+END_SRC
+
 ** Yasnippet
 Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutorial.html][tutorial]] on Yasnippet features and functions.
+
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-         :ensure t
-         :init
-         (yas-global-mode 1)
-         :config
-         (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+    :ensure t
+    :init
+    (yas-global-mode 1)
+    :config
+    (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 #+END_SRC
+
 * TODO C / C++
 ** Set compile hook to C/++
+
 #+BEGIN_SRC emacs-lisp
   (add-hook 'c-mode-common-hook
             (lambda ()
@@ -899,21 +883,18 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
 
 ** Flycheck
 #+BEGIN_SRC emacs-lisp
-
   ;; (use-package flycheck
   ;;   :hook
   ;;   ((c-mode . flycheck-mode)
   ;;    (c++-mode . flycheck-mode)
   ;;    )
   ;;   :config
-  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
-  ;;     )
-
+  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99"))))
 #+END_SRC
 * LaTeX
 ** Auctex / latexmk
-#+BEGIN_SRC emacs-lisp
 
+#+BEGIN_SRC emacs-lisp
   (use-package tex
     :hook LaTeX-mode
     :ensure auctex
@@ -925,49 +906,51 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
     (add-hook 'LaTeX-mode-hook 'flyspell-mode)
     (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
     (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-    (setq reftex-plug-into-AUCTeX t)
-    )
+    (setq reftex-plug-into-AUCTeX t))
 
   (use-package auctex-latexmk
-    :after tex
-    )
-
+    :after tex)
 #+END_SRC
+
 ** Latex with Org Export
 [[https://emacs.stackexchange.com/questions/54703/exporting-latex-commands-to-html-mathjax][Exporting LaTeX newcommands to MathJax in Org mode]]
+
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'org-src-lang-modes '("latex-macros" . latex))
+  (add-to-list 'org-src-lang-modes '("latex-macros" . latex))
 
-(defvar org-babel-default-header-args:latex-macros
-  '((:results . "raw")
-    (:exports . "results")))
+  (defvar org-babel-default-header-args:latex-macros
+    '((:results . "raw")
+      (:exports . "results")))
 
-(defun prefix-all-lines (pre body)
-  (with-temp-buffer
-    (insert body)
-    (string-insert-rectangle (point-min) (point-max) pre)
-    (buffer-string)))
+  (defun prefix-all-lines (pre body)
+    (with-temp-buffer
+      (insert body)
+      (string-insert-rectangle (point-min) (point-max) pre)
+      (buffer-string)))
 
-(defun org-babel-execute:latex-macros (body _params)
-  (concat
-   (prefix-all-lines "#+LATEX_HEADER: " body)
-   "\n#+HTML_HEAD_EXTRA: <div style=\"display: none\"> \\(\n"
-   (prefix-all-lines "#+HTML_HEAD_EXTRA: " body)
-   "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
+  (defun org-babel-execute:latex-macros (body _params)
+    (concat
+     (prefix-all-lines "#+LATEX_HEADER: " body)
+     "\n#+HTML_HEAD_EXTRA: <div style=\"display: none\"> \\(\n"
+     (prefix-all-lines "#+HTML_HEAD_EXTRA: " body)
+     "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
    #+END_SRC
 * SSH / TRAMP
 [[https://www.gnu.org/software/emacs/manual/html_node/tramp/Traces-and-Profiles.html][GNU.org]] lists the Tramp verbosity levels, from 0 (doesn't talk to you at all) to 10 (doesn't shut up). 3 is the default. For your sanity (I'm speaking from experience), do _not_ set this to 10 for any stupid reason.
 ** Tramp
+
 #+BEGIN_SRC emacs-lisp
-(setq tramp-verbose 3)
+  (setq tramp-verbose 3)
 #+END_SRC
+
 * Version Control
-This is for convenience only. Doing this from the terminal is easier.
+This is for playing around only. In practice, I have found that doing this from the terminal is easier.
+
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :commands (magit-status magit-get-current-branch)
-    )
+    :commands (magit-status magit-get-current-branch))
 #+END_SRC
+
 * Website
 ** Main Website Export
 Deploy with `C-c + b`.
@@ -975,12 +958,13 @@ Deploy with `C-c + b`.
 The current way I deal with this is to keep the site elisp in a separate file, which might be packaged with the site repo as a root level configuration file. I then build the site [[https://stackoverflow.com/questions/46295511/how-to-run-org-mode-commands-from-shell][from the command line]], with a `make` recipe. Since I only have one website, I don't have this in stencil form, but it could be made quickly from my Geocities page.
 
 At any rate, load `website.el'.
+
 #+BEGIN_SRC emacs-lisp
   (load-if-exists "~/.emacs.d/website.el")
 #+END_SRC
 ** Rebuild Sites
  #+BEGIN_SRC emacs-lisp
- (global-set-key (kbd "C-c b") 'org-publish-project)
+   (global-set-key (kbd "C-c b") 'org-publish-project)
  #+END_SRC
 
 ** Other Tools
@@ -988,36 +972,31 @@ For exporting an emacs buffer as an html file.
 
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
-  :defer 0
-  )
+    :defer 0)
 #+END_SRC
+
 * End Of Startup Actions
-Lower the garbage collection rate from what we raised it to.
+Lower the garbage collection threshold from the higher value used at startup.
 
 #+BEGIN_SRC emacs-lisp
-
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
-
 #+END_SRC
 
 * Test Space
 For settings and Melpa packages I haven't committed myself to.
 ** TODO Directory Management
 All I really want is for directory buffers not to accumulate.
+
 #+BEGIN_SRC emacs-lisp
-
-    (use-package dired
-      :ensure nil
-      :commands (dired dired-jump)
-      :custom ((dired-listing-switches "-hago --group-directories-first")
-               (setq delete-by-moving-to-trash t)
-               )
-      )
+  (use-package dired
+    :ensure nil
+    :commands (dired dired-jump)
+    :custom ((dired-listing-switches "-hago --group-directories-first")
+             (setq delete-by-moving-to-trash t)))
   (use-package all-the-icons-dired
-  :hook (dired-mode . all-the-icons-dired-mode)
-  )
-
+    :hook (dired-mode . all-the-icons-dired-mode))
 #+END_SRC
+
 ** RSS - Elfeed
 I keep my elfeed-org file in [[~/Dropbox/emacs/elfeed.org][Dropbox]] to allow syncing between computers.
 
@@ -1027,15 +1006,12 @@ I keep my elfeed-org file in [[~/Dropbox/emacs/elfeed.org][Dropbox]] to allow sy
     :commands (elfeed)
     :bind ("C-x w" . elfeed)
     :config
-    (setq-default elfeed-search-filter "@6-months-ago +unread")
-    )
+    (setq-default elfeed-search-filter "@6-months-ago +unread"))
 
   (use-package elfeed-org
     :ensure t
     :after elfeed
     :config
     (elfeed-org)
-    (setq rmh-elfeed-org-files (list "~/Dropbox/emacs/elfeed.org"))
-    )
-
+    (setq rmh-elfeed-org-files (list "~/Dropbox/emacs/elfeed.org")))
 #+END_SRC
