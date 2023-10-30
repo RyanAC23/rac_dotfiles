@@ -344,13 +344,13 @@ Uses `current-date-time-format' for the formatting the date/time."
 (defun org-mode-setup ()
   (org-indent-mode)
   (dolist (face '((org-level-1 . 1.3)
-                  (org-level-2 . 1.2)
-                  (org-level-3 . 1.1)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
+		  (org-level-2 . 1.2)
+		  (org-level-3 . 1.1)
+		  (org-level-4 . 1.0)
+		  (org-level-5 . 1.1)
+		  (org-level-6 . 1.1)
+		  (org-level-7 . 1.1)
+		  (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
   (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
@@ -395,14 +395,16 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; org agenda
 (setq org-agenda-files
       '("~/Dropbox/emacs/rac-agenda.org"
-        "~/Dropbox/emacs/Birthdays.org"))
+	"~/Dropbox/emacs/Birthdays.org"))
 (setq org-log-done 'time)
 
 
 ;; reveal.js presentations
 
+;;* Tuesday 18 July 2023 Tagging out because this seems to kill my org-bullets.
+
+
 (use-package ox-reveal
-  :after org-mode
   :config
   ;; We need to tell ox-reveal where to find the js file.
   ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
@@ -700,7 +702,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package magit
   :commands (magit-status magit-get-current-branch))
 
-(load-if-exists "~/.emacs.d/website.el")
+(load-if-exists "~/.emacs.d/websites.el")
 
 (global-set-key (kbd "C-c b") 'org-publish-project)
 

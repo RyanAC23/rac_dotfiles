@@ -490,13 +490,13 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   (defun org-mode-setup ()
     (org-indent-mode)
     (dolist (face '((org-level-1 . 1.3)
-                    (org-level-2 . 1.2)
-                    (org-level-3 . 1.1)
-                    (org-level-4 . 1.0)
-                    (org-level-5 . 1.1)
-                    (org-level-6 . 1.1)
-                    (org-level-7 . 1.1)
-                    (org-level-8 . 1.1)))
+		    (org-level-2 . 1.2)
+		    (org-level-3 . 1.1)
+		    (org-level-4 . 1.0)
+		    (org-level-5 . 1.1)
+		    (org-level-6 . 1.1)
+		    (org-level-7 . 1.1)
+		    (org-level-8 . 1.1)))
       (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
     (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
     (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
@@ -540,19 +540,23 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 
   ;; org agenda
   (setq org-agenda-files
-        '("~/Dropbox/emacs/rac-agenda.org"
-          "~/Dropbox/emacs/Birthdays.org"))
+	'("~/Dropbox/emacs/rac-agenda.org"
+	  "~/Dropbox/emacs/Birthdays.org"))
   (setq org-log-done 'time)
 
 
   ;; reveal.js presentations
 
+  ;;* Tuesday 18 July 2023 Tagging out because this seems to kill my org-bullets.
+
+
   (use-package ox-reveal
-    :after org-mode
     :config
     ;; We need to tell ox-reveal where to find the js file.
     ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
      (setq org-reveal-mathjax t)))
+
+
 #+END_SRC
 ** Org Links Mode
 
@@ -957,10 +961,10 @@ Deploy with `C-c + b`.
 
 The current way I deal with this is to keep the site elisp in a separate file, which might be packaged with the site repo as a root level configuration file. I then build the site [[https://stackoverflow.com/questions/46295511/how-to-run-org-mode-commands-from-shell][from the command line]], with a `make` recipe. Since I only have one website, I don't have this in stencil form, but it could be made quickly from my Geocities page.
 
-At any rate, load `website.el'.
+At any rate, load `websites.el'.
 
 #+BEGIN_SRC emacs-lisp
-  (load-if-exists "~/.emacs.d/website.el")
+  (load-if-exists "~/.emacs.d/websites.el")
 #+END_SRC
 ** Rebuild Sites
  #+BEGIN_SRC emacs-lisp

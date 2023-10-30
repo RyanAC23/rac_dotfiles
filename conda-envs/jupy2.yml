@@ -1,0 +1,16 @@
+name: jupyter
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - ipython
+  - jupyter
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - pip:
+    - jupytext
+    - jupyter-contrib-core
+    - nbclassic
+
+prefix: /home/ryan/miniconda3/envs/jupyter

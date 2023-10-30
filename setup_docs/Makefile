@@ -40,3 +40,7 @@ _loginWall:
 
 dlWallpapers:
 	./backgrounds.sh DownloadBGs
+
+theme:
+	# This should have two options : 90s, Neptune. You know what I mean.
+	echo "Not Implemented."

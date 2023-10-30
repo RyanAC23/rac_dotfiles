@@ -3,7 +3,7 @@
 
 # New way of activating conda: Use your install location of activating conda:
 # Use your install location
-. /home/ryan/apps/miniconda/etc/profile.d/conda.sh
+. /home/ryan/miniconda3/etc/profile.d/conda.sh
 conda activate          # Optional - activates the base environment.
 
 function j {
@@ -14,8 +14,6 @@ function j {
     else
        CONFIG_FLAG=""
     fi
-    #echo "jupyter notebook --browser=Chrome ${CONFIG_FLAG} $*"
-    #jupyter notebook --browser=Chrome "${CONFIG_FLAG}" "$*"
     echo "conda activate"
     conda deactivate
     conda deactivate
@@ -25,4 +23,23 @@ function j {
     echo "jupyter notebook ${CONFIG_FLAG} $*"
     jupyter notebook "${CONFIG_FLAG}" "$*"
     conda deactivate
+}
+
+function j_mamba {
+    if [ -f './jupyter_notebook_config.py' ]; then
+        CONFIG_FLAG="--config=./jupyter_notebook_config.py"
+    elif [ -f "$(hg root)/jupyter_notebook_config.py" ]; then
+        CONFIG_FLAG="--config=$(hg root)/jupyter_notebook_config.py"
+    else
+       CONFIG_FLAG=""
+    fi
+    echo "micromamba activate"
+    micromamba deactivate
+    micromamba deactivate
+    micromamba activate
+    echo "micromamba activate jupyter"
+    micromamba activate jupyter
+    echo "jupyter nbclassic ${CONFIG_FLAG} $*"
+    jupyter nbclassic "${CONFIG_FLAG}" "$*"
+    micromamba deactivate
 }
