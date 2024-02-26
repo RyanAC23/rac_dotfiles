@@ -152,6 +152,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
+(use-package rainbow-mode)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (if (display-graphic-p)
     ;;(load-theme 'neptune t))
@@ -344,13 +346,13 @@ Uses `current-date-time-format' for the formatting the date/time."
 (defun org-mode-setup ()
   (org-indent-mode)
   (dolist (face '((org-level-1 . 1.3)
-		  (org-level-2 . 1.2)
-		  (org-level-3 . 1.1)
-		  (org-level-4 . 1.0)
-		  (org-level-5 . 1.1)
-		  (org-level-6 . 1.1)
-		  (org-level-7 . 1.1)
-		  (org-level-8 . 1.1)))
+                  (org-level-2 . 1.2)
+                  (org-level-3 . 1.1)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
   (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
@@ -373,6 +375,8 @@ Uses `current-date-time-format' for the formatting the date/time."
   (interactive)
   (let (n)
     (setq n (read-number "Type a page number: " ))
+    (end-of-line)
+    (insert "\n- ")
     (insert (format "(%d) " n))))
 
 (use-package org
@@ -395,7 +399,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; org agenda
 (setq org-agenda-files
       '("~/Dropbox/emacs/rac-agenda.org"
-	"~/Dropbox/emacs/Birthdays.org"))
+        "~/Dropbox/emacs/Birthdays.org"))
 (setq org-log-done 'time)
 
 
@@ -473,49 +477,97 @@ Uses `current-date-time-format' for the formatting the date/time."
   :diminish)
 
 (defun org-roam-node-insert-immediate (arg &rest args)
-  (interactive "P")
-  (let ((args (push arg args))
-        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-                                                  '(:immediate-finish t)))))
-    (apply #'org-roam-node-insert args)))
+      (interactive "P")
+      (let ((args (push arg args))
+            (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                      '(:immediate-finish t)))))
+        (apply #'org-roam-node-insert args)))
 
-(use-package org-roam
-  :ensure t
-  :init
-  (setq org-roam-v2-ack t)
-  :custom
-  (org-roam-directory "~/Dropbox/emacs/Roam/db")
-  (org-roam-completion-everywhere t)
-  (org-roam-capture-templates
-   '(("n" "note: default" plain
-      "%?"
-      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)
-     ("a" "author" plain
-      "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
-      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)
-     ("b" "book" plain
-      (file "~/Dropbox/emacs/Roam/templates/book_template.org")
-      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)))
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert)
-         ("C-c n I" . org-roam-node-insert-immediate)
-         ("C-c n c" . org-id-get-create)
-         :map org-mode-map
-         ("C-M-i" . completion-at-point))
-  :config
-  (org-roam-setup)
-                                        ; The following snippet allows searching for tags using `org-roam-node-find`.
-                                        ;  [[https://github.com/org-roam/org-roam/pull/2054]]
-  (setq org-roam-node-display-template
-        (concat "${title:*} "
-                (propertize "${tags:10}" 'face 'org-tag))))
+    (use-package org-roam
+      :ensure t
+      :init
+      (setq org-roam-v2-ack t)
+      :custom
+      (org-roam-directory "~/Dropbox/emacs/Roam/db")
+      (org-roam-completion-everywhere t)
+      (org-roam-capture-templates
+       '(("n" "note: default" plain
+          "%?"
+          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+          :unnarrowed t)
+         ("a" "author" plain
+          "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+          :unnarrowed t)
+         ("b" "book" plain
+          (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+          :unnarrowed t)))
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+             ("C-c n f" . org-roam-node-find)
+             ("C-c n i" . org-roam-node-insert)
+             ("C-c n I" . org-roam-node-insert-immediate)
+             ("C-c n c" . org-id-get-create)
+             :map org-mode-map
+             ("C-M-i" . completion-at-point))
+      :config
+      (org-roam-setup)
+                                            ; The following snippet allows searching for tags using `org-roam-node-find`.
+                                            ;  [[https://github.com/org-roam/org-roam/pull/2054]]
+      (setq org-roam-node-display-template
+            (concat "${title:*} "
+                    (propertize "${tags:10}" 'face 'org-tag)))3
+                 ** Chapter 4
+                5
+org-roam-export)
 
 (use-package org-roam-ui
   :ensure t)
+
+(defun rac/TeX-save-compile()
+  ;; (save-buffer)
+  (TeX-command-run-all nil)
+)
+
+    (use-package tex
+      :ensure auctex
+      :mode
+      ("\\.tex\\'" . latex-mode)
+      :config
+      (setq TeX-auto-save t)
+      (setq TeX-parse-self t)
+      (setq-default TeX-master nil)
+      (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+      (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+      (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+      (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+      (setq reftex-plug-into-AUCTeX t)
+      ;; :bind ("C-<return>" . TeX-command-run-all)
+      (add-hook 'after-save-hook 'rac/TeX-save-compile)
+      )
+    (use-package auctex-latexmk
+      :after auctex
+      ;;:hook (setq-local TeX-command-default "LatexMk")
+    )
+
+(add-to-list 'org-src-lang-modes '("latex-macros" . latex))
+
+(defvar org-babel-default-header-args:latex-macros
+  '((:results . "raw")
+    (:exports . "results")))
+
+(defun prefix-all-lines (pre body)
+  (with-temp-buffer
+    (insert body)
+    (string-insert-rectangle (point-min) (point-max) pre)
+    (buffer-string)))
+
+(defun org-babel-execute:latex-macros (body _params)
+  (concat
+   (prefix-all-lines "#+LATEX_HEADER: " body)
+   "\n#+HTML_HEAD_EXTRA: <div style=\"display: none\"> \\(\n"
+   (prefix-all-lines "#+HTML_HEAD_EXTRA: " body)
+   "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
 
 (use-package bibtex
   :ensure async)
@@ -529,32 +581,33 @@ Uses `current-date-time-format' for the formatting the date/time."
       bibtex-autokey-titleword-length 5)
 
 (use-package org-ref
-  :ensure t
-  :config
-  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+    :ensure t
+    :config
+    (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
+(use-package org-ref-ivy)
 
-(setq bibtex-completion-bibliography
-      '("~/Dropbox/emacs/bibliography/physics.bib"
-        "~/Dropbox/emacs/bibliography/otherworld.bib"
-        "~/Dropbox/emacs/bibliography/nuclear.bib")
-      bibtex-completion-library-path '("~/Dropbox/Quadrivium/.bibtex-pdfs/")
-      bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-      bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-      bibtex-completion-additional-search-fields '(keywords)
-      bibtex-completion-display-formats
-      '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-        (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-        (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-        (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-        (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-      bibtex-completion-pdf-open-function
-      (lambda (fpath)
-        (call-process "open" nil 0 nil fpath)))
+  (setq bibtex-completion-bibliography
+        '("~/Dropbox/emacs/bibliography/physics.bib"
+          "~/Dropbox/emacs/bibliography/otherworld.bib"
+          "~/Dropbox/emacs/bibliography/nuclear.bib")
+        bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
+        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-display-formats
+        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+        bibtex-completion-pdf-open-function
+        (lambda (fpath)
+          (call-process "open" nil 0 nil fpath)))
 
-(define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-(define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-(define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-(define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
+  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
+  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
+  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
 
 (defun efs/lsp-mode-setup()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -661,41 +714,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;    )
 ;;   :config
 ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99"))))
-
-(use-package tex
-  :hook LaTeX-mode
-  :ensure auctex
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq-default TeX-master nil)
-  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (setq reftex-plug-into-AUCTeX t))
-
-(use-package auctex-latexmk
-  :after tex)
-
-(add-to-list 'org-src-lang-modes '("latex-macros" . latex))
-
-(defvar org-babel-default-header-args:latex-macros
-  '((:results . "raw")
-    (:exports . "results")))
-
-(defun prefix-all-lines (pre body)
-  (with-temp-buffer
-    (insert body)
-    (string-insert-rectangle (point-min) (point-max) pre)
-    (buffer-string)))
-
-(defun org-babel-execute:latex-macros (body _params)
-  (concat
-   (prefix-all-lines "#+LATEX_HEADER: " body)
-   "\n#+HTML_HEAD_EXTRA: <div style=\"display: none\"> \\(\n"
-   (prefix-all-lines "#+HTML_HEAD_EXTRA: " body)
-   "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
 
 (setq tramp-verbose 3)
 

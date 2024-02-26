@@ -12,5 +12,3 @@ dependencies:
     - jupytext
     - jupyter-contrib-core
     - nbclassic
-
-prefix: /home/ryan/miniconda3/envs/jupyter

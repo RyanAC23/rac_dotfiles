@@ -1,0 +1,40 @@
+! Background
+
+URxvt.cursorColor:    #7d7d7d
+URxvt.highlightColor: #ffffff
+
+! special
+*.foreground:   #000000
+*.background:   [98]#cacaca
+*.cursorColor:  #000000
+
+! tmux bar
+!! background
+*.color0:       #bb99ff
+!! foreground
+*.color8:       #000000
+
+! directories & border of neptune logo
+*.color12:      #7b3fa7
+! symlinks
+*.color14:      #0077ff
+
+! center of neptune logo & neofetch text
+*.color13:	 #9d70b1
+
+*.color1:       #a54242
+*.color9:       #a00000
+*.color2:       #77009f
+*.color10:      #0040bf
+*.color3:       #8e00bd
+*.color11:      #b32257
+*.color4:       #5f819d
+*.color5:       #bba2c3
+
+! cyan
+*.color6:       #3a3f3f
+
+
+! white
+*.color7:       #192026
+*.color15:      #000000

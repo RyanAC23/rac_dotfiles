@@ -1,19 +1,17 @@
 ! URxvt settings
+! https://wiki.archlinux.org/title/x_resources
+
 URxvt.termName:                rxvt-unicode
 ! Careful! Setting this to screen-256color made your home and
 ! end keys do all sorts of wonky stuff! (TERM env variable)
 ! https://wiki.archlinux.org/index.php/Home_and_End_keys_not_working
-URxvt*geometry:                120x40
+URxvt*geometry:                120x45
+!URxvt.geometry: 		120x40
 URxvt.depth:                   32
-! Transparency edit in brackets
-URxvt.background:              [99]#402f41
-URxvt.foreground:              white
-URxvt.cursorColor:             #55dd55
-URxvt.highlightColor:          #33bb33
 URxvt.scrollBar:               false
 URxvt.mouseWheelScrollPage:    true
 URxvt.cursorBlink:             true
-URxvt.saveLines:               3000
+URxvt.saveLines:               10000
 !URxvt.font:                    xft:terminus:size=12
 URxvt.font:                    xft:vl gothic:size=13
 URvt.fontbold:                 xft:vl gothic bold:size=13
@@ -52,40 +50,4 @@ Xft.hinting:      full
 
 !xterm.metaSendsEscape: true
 
-
-! special
-*.foreground:   #a39e9b
-*.background:   #2f1e2e
-*.cursorColor:  #a39e9b
-
-! black
-*.color0:       #2f1e2e
-*.color8:       #776e71
-
-! red
-*.color1:       #ef6155
-*.color9:       #ef6155
-
-! green
-*.color2:       #48b685
-*.color10:      #48b685
-
-! yellow
-*.color3:       #fec418
-*.color11:      #fec418
-
-! blue
-*.color4:       #06b6ef
-*.color12:      #06b6ef
-
-! magenta
-*.color5:       #815ba4
-*.color13:      #815ba4
-
-! cyan
-*.color6:       #5bc4bf
-*.color14:      #5bc4bf
-
-! white
-*.color7:       #a39e9b
-*.color15:      #e7e9db
+#include "./repos/rac_dotfiles/.Xresources.d/.rxvt-unicode"

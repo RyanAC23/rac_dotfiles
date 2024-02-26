@@ -8,10 +8,10 @@
  (rear-context-string . "2K Nov  8 21:41 ")
  (position . 522))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/Roam/db/20230810-the_enchanter.org")
- (front-context-string . "* Source\n\nAuthor")
- (rear-context-string . ": The Enchanter\n")
- (position . 91))
+ (filename . "~/Dropbox/emacs/Roam/db/20240219-evangelion.org")
+ (front-context-string)
+ (rear-context-string . "tle: Evangelion\n")
+ (position . 88))
 ("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
  (front-context-string . "# Wednesday 14 D")
