@@ -241,17 +241,23 @@ Uses `current-date-time-format' for the formatting the date/time."
                ("c/c++" (or
                          (mode . c-mode)
                          (mode . c++-mode)))
+               ("emacs" (or
+                         (mode . org-mode)
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")))
+               ("TeX" (or
+                       (mode . tex-mode)
+                       (mode . latex-mode)
+                       (mode . bibtex-mode)))
                ("docs"
-                (or
-                 (mode . org-mode)
-                 (mode . markdown-mode)))
+                 (mode . markdown-mode))
                ("web"
                 (or
                  (mode . web-mode)
                  (mode . css-mode)))
-               ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")))))))
+               ("Dired"
+                (mode . dired-mode))
+               ))))
 
 (add-hook 'ibuffer-mode-hook
           (lambda ()
@@ -411,8 +417,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package ox-reveal
   :config
   ;; We need to tell ox-reveal where to find the js file.
-  ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-   (setq org-reveal-mathjax t)))
+  (dolist (setq '(
+                  (org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+                  (org-reveal-mathjax t)))))
 
 (global-set-key (kbd "C-c c")
                 'org-capture)
@@ -477,49 +484,47 @@ Uses `current-date-time-format' for the formatting the date/time."
   :diminish)
 
 (defun org-roam-node-insert-immediate (arg &rest args)
-      (interactive "P")
-      (let ((args (push arg args))
-            (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-                                                      '(:immediate-finish t)))))
-        (apply #'org-roam-node-insert args)))
+  (interactive "P")
+  (let ((args (push arg args))
+        (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                  '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
 
-    (use-package org-roam
-      :ensure t
-      :init
-      (setq org-roam-v2-ack t)
-      :custom
-      (org-roam-directory "~/Dropbox/emacs/Roam/db")
-      (org-roam-completion-everywhere t)
-      (org-roam-capture-templates
-       '(("n" "note: default" plain
-          "%?"
-          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-          :unnarrowed t)
-         ("a" "author" plain
-          "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
-          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-          :unnarrowed t)
-         ("b" "book" plain
-          (file "~/Dropbox/emacs/Roam/templates/book_template.org")
-          :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-          :unnarrowed t)))
-      :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n i" . org-roam-node-insert)
-             ("C-c n I" . org-roam-node-insert-immediate)
-             ("C-c n c" . org-id-get-create)
-             :map org-mode-map
-             ("C-M-i" . completion-at-point))
-      :config
-      (org-roam-setup)
-                                            ; The following snippet allows searching for tags using `org-roam-node-find`.
-                                            ;  [[https://github.com/org-roam/org-roam/pull/2054]]
-      (setq org-roam-node-display-template
-            (concat "${title:*} "
-                    (propertize "${tags:10}" 'face 'org-tag)))3
-                 ** Chapter 4
-                5
-org-roam-export)
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Dropbox/emacs/Roam/db")
+  (org-roam-completion-everywhere t)
+  (org-roam-capture-templates
+   '(("n" "note: default" plain
+      "%?"
+      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("a" "author" plain
+      "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("b" "book" plain
+      (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+      :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n I" . org-roam-node-insert-immediate)
+         ("C-c n c" . org-id-get-create)
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
+  :config
+  (org-roam-setup)
+                                        ; The following snippet allows searching for tags using `org-roam-node-find`.
+                                        ;  [[https://github.com/org-roam/org-roam/pull/2054]]
+  (setq org-roam-node-display-template
+        (concat "${title:*} "
+                (propertize "${tags:10}" 'face 'org-tag)))
+  )
 
 (use-package org-roam-ui
   :ensure t)
@@ -528,7 +533,6 @@ org-roam-export)
   ;; (save-buffer)
   (TeX-command-run-all nil)
 )
-
     (use-package tex
       :ensure auctex
       :mode
@@ -539,15 +543,14 @@ org-roam-export)
       (setq-default TeX-master nil)
       (add-hook 'LaTeX-mode-hook 'visual-line-mode)
       (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-      (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
       (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
       (setq reftex-plug-into-AUCTeX t)
       ;; :bind ("C-<return>" . TeX-command-run-all)
-      (add-hook 'after-save-hook 'rac/TeX-save-compile)
+      ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
       )
     (use-package auctex-latexmk
       :after auctex
-      ;;:hook (setq-local TeX-command-default "LatexMk")
+      ;; :hook (setq-local TeX-command-default "LatexMk")
     )
 
 (add-to-list 'org-src-lang-modes '("latex-macros" . latex))
@@ -581,65 +584,39 @@ org-roam-export)
       bibtex-autokey-titleword-length 5)
 
 (use-package org-ref
-    :ensure t
+  :ensure t
     :config
     (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
-(use-package org-ref-ivy)
 
-  (setq bibtex-completion-bibliography
-        '("~/Dropbox/emacs/bibliography/physics.bib"
-          "~/Dropbox/emacs/bibliography/otherworld.bib"
-          "~/Dropbox/emacs/bibliography/nuclear.bib")
-        bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
-        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-        bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-display-formats
-        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-        bibtex-completion-pdf-open-function
-        (lambda (fpath)
-          (call-process "open" nil 0 nil fpath)))
+(setq bibtex-completion-bibliography
+      '("~/Dropbox/emacs/bibliography/physics.bib"
+        "~/Dropbox/emacs/bibliography/otherworld.bib"
+        "~/Dropbox/emacs/bibliography/nuclear.bib")
+      bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
+      bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+      bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+      bibtex-completion-additional-search-fields '(keywords)
+      bibtex-completion-display-formats
+      '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+        (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+        (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+        (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+        (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+      bibtex-completion-pdf-open-function
+      (lambda (fpath)
+        (call-process "open" nil 0 nil fpath)))
 
-  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+(define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
+(define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
+(define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
+(define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
 
-(defun efs/lsp-mode-setup()
-  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-  (lsp-headerline-breadcrumb-mode))
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+(use-package flycheck
+  :ensure t
   :config
-  (setq lsp-enable-which-key-integration t)
-  (setq lsp-signature-auto-activate nil)
-  (setq lsp-diagnostics-provider :none))
-
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom))
-
-(use-package lsp-treemacs
-  :after lsp)
-
-(use-package lsp-ivy
-  :after lsp)
-
-;;  (lsp-register-client
-;;       (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
-;;                        :major-modes '(python-mode)
-;;                        :remote? t
-;;                        :server-id 'planeptune)
-;; )
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  ;;(add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+  )
 
 (use-package company
   :hook
@@ -683,8 +660,7 @@ org-roam-export)
 (add-hook 'python-mode-hook 'python-remap-fs)
 
 (use-package python
-  :ensure nil
-  :hook (python-mode . lsp-deferred)
+  :ensure t
   :custom
   (python-shell-interpreter "python3"))
 
@@ -692,9 +668,9 @@ org-roam-export)
   :after python
   :config
   (custom-set-variables
-   '(conda-anaconda-home "~/miniconda3"))
+   '(conda-anaconda-home "~/.conda/"))
   (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
-  (conda-env-activate "work"))
+  (conda-env-activate "~/miniconda3/"))
 
 (use-package yasnippet
   :ensure t
@@ -706,14 +682,6 @@ org-roam-export)
 (add-hook 'c-mode-common-hook
           (lambda ()
             (local-set-key (kbd "C-<return>") 'compile)))
-
-;; (use-package flycheck
-;;   :hook
-;;   ((c-mode . flycheck-mode)
-;;    (c++-mode . flycheck-mode)
-;;    )
-;;   :config
-;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99"))))
 
 (setq tramp-verbose 3)
 
@@ -728,6 +696,17 @@ org-roam-export)
   :defer 0)
 
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
+
+(desktop-save-mode t)
+
+(setq your-own-path default-directory)
+(if (file-exists-p
+     (concat your-own-path ".emacs.desktop"))
+    (desktop-read your-own-path))
+
+(add-hook 'kill-emacs-hook
+      `(lambda ()
+        (desktop-save ,your-own-path t)))
 
 (use-package dired
   :ensure nil

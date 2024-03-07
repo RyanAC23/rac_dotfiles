@@ -1,6 +1,7 @@
 #+TITLE: Ryan's Emacs Config
 #+STARTUP: overview
-#+PROPERTY: header-args:emacs-lisp :lexical t :tangle ./racinit.el :results silent
+#+PROPERTY: header-args:emacs-lisp :lexical t :tangle ./racinit.el :results silen
+#+EXCLUDE_TAGS: noexport
 
 * Emacs Config
 This is my main config file for Emacs. It sets up all of the packages and hooks I want to use, despite being an Org mode file.
@@ -46,7 +47,6 @@ The property header in this file is where the magic happens. [[https://orgmode.o
 
   (run-startup-diagnostics) ; TODO: just run function anonymously?
 #+END_SRC
-
 * Behavior - Basic
 ** Common Lisp
 Enable common lisp syntax.
@@ -361,6 +361,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 #+END_SRC
 
 * iBuffer
+
 #+BEGIN_SRC emacs-lisp
   ;; begin ibuffer at startup.
 
@@ -380,23 +381,28 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
                  ("c/c++" (or
                            (mode . c-mode)
                            (mode . c++-mode)))
+                 ("emacs" (or
+                           (mode . org-mode)
+                           (name . "^\\*scratch\\*$")
+                           (name . "^\\*Messages\\*$")))
+                 ("TeX" (or
+                         (mode . tex-mode)
+                         (mode . latex-mode)
+                         (mode . bibtex-mode)))
                  ("docs"
-                  (or
-                   (mode . org-mode)
-                   (mode . markdown-mode)))
+                   (mode . markdown-mode))
                  ("web"
                   (or
                    (mode . web-mode)
                    (mode . css-mode)))
-                 ("emacs" (or
-                           (name . "^\\*scratch\\*$")
-                           (name . "^\\*Messages\\*$")))))))
+                 ("Dired"
+                  (mode . dired-mode))
+                 ))))
 
   (add-hook 'ibuffer-mode-hook
             (lambda ()
               (ibuffer-switch-to-saved-filter-groups "default")))
 #+END_SRC
-
 ** Make 'size' column human readable
 [[https://www.emacswiki.org/emacs/IbufferMode#h5o-12:~:text=match%20qualifier%20it))))-,Use%20Human%20readable%20Size%20column,-I%20don%E2%80%99t%20like][Emacs Wiki has a solution to this.]]
 
@@ -564,9 +570,9 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
   (use-package ox-reveal
     :config
     ;; We need to tell ox-reveal where to find the js file.
-    ((setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-     (setq org-reveal-mathjax t)))
-
+    (dolist (setq '(
+                    (org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+                    (org-reveal-mathjax t)))))
 
 #+END_SRC
 ** Org Links Mode
@@ -654,50 +660,48 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 ** Org Roam
 
 #+BEGIN_SRC emacs-lisp
-      (defun org-roam-node-insert-immediate (arg &rest args)
-        (interactive "P")
-        (let ((args (push arg args))
-              (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-                                                        '(:immediate-finish t)))))
-          (apply #'org-roam-node-insert args)))
+        (defun org-roam-node-insert-immediate (arg &rest args)
+          (interactive "P")
+          (let ((args (push arg args))
+                (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                          '(:immediate-finish t)))))
+            (apply #'org-roam-node-insert args)))
 
-      (use-package org-roam
-        :ensure t
-        :init
-        (setq org-roam-v2-ack t)
-        :custom
-        (org-roam-directory "~/Dropbox/emacs/Roam/db")
-        (org-roam-completion-everywhere t)
-        (org-roam-capture-templates
-         '(("n" "note: default" plain
-            "%?"
-            :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-            :unnarrowed t)
-           ("a" "author" plain
-            "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
-            :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-            :unnarrowed t)
-           ("b" "book" plain
-            (file "~/Dropbox/emacs/Roam/templates/book_template.org")
-            :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
-            :unnarrowed t)))
-        :bind (("C-c n l" . org-roam-buffer-toggle)
-               ("C-c n f" . org-roam-node-find)
-               ("C-c n i" . org-roam-node-insert)
-               ("C-c n I" . org-roam-node-insert-immediate)
-               ("C-c n c" . org-id-get-create)
-               :map org-mode-map
-               ("C-M-i" . completion-at-point))
-        :config
-        (org-roam-setup)
-                                              ; The following snippet allows searching for tags using `org-roam-node-find`.
-                                              ;  [[https://github.com/org-roam/org-roam/pull/2054]]
-        (setq org-roam-node-display-template
-              (concat "${title:*} "
-                      (propertize "${tags:10}" 'face 'org-tag)))3
-                   ,** Chapter 4
-                  5
-  org-roam-export)
+        (use-package org-roam
+          :ensure t
+          :init
+          (setq org-roam-v2-ack t)
+          :custom
+          (org-roam-directory "~/Dropbox/emacs/Roam/db")
+          (org-roam-completion-everywhere t)
+          (org-roam-capture-templates
+           '(("n" "note: default" plain
+              "%?"
+              :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+              :unnarrowed t)
+             ("a" "author" plain
+              "* Bio\n\n- year: %?\n- Birthplace: %?\n- Other: %?\n\n"
+              :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+              :unnarrowed t)
+             ("b" "book" plain
+              (file "~/Dropbox/emacs/Roam/templates/book_template.org")
+              :if-new (file+head "%<%Y%m%d>-${slug}.org" "#+title: ${title}\n")
+              :unnarrowed t)))
+          :bind (("C-c n l" . org-roam-buffer-toggle)
+                 ("C-c n f" . org-roam-node-find)
+                 ("C-c n i" . org-roam-node-insert)
+                 ("C-c n I" . org-roam-node-insert-immediate)
+                 ("C-c n c" . org-id-get-create)
+                 :map org-mode-map
+                 ("C-M-i" . completion-at-point))
+          :config
+          (org-roam-setup)
+                                                ; The following snippet allows searching for tags using `org-roam-node-find`.
+                                                ;  [[https://github.com/org-roam/org-roam/pull/2054]]
+          (setq org-roam-node-display-template
+                (concat "${title:*} "
+                        (propertize "${tags:10}" 'face 'org-tag)))
+          )
                  #+END_SRC
 
 ** Org-Roam-Ui
@@ -714,7 +718,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     ;; (save-buffer)
     (TeX-command-run-all nil)
   )
-
       (use-package tex
         :ensure auctex
         :mode
@@ -725,22 +728,21 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
         (setq-default TeX-master nil)
         (add-hook 'LaTeX-mode-hook 'visual-line-mode)
         (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-        (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
         (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
         (setq reftex-plug-into-AUCTeX t)
         ;; :bind ("C-<return>" . TeX-command-run-all)
-        (add-hook 'after-save-hook 'rac/TeX-save-compile)
+        ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
         )
       (use-package auctex-latexmk
         :after auctex
-        ;;:hook (setq-local TeX-command-default "LatexMk")
+        ;; :hook (setq-local TeX-command-default "LatexMk")
       )
 #+END_SRC
 
 - Wednesday 21 February 2024
 There are some detailed examples on LaTeX environments [[https://emacs.stackexchange.com/questions/34189/emacs-setup-for-latex-after-use-package-verse][here]]. Your hooks weren't working because you were in tex mode, not latex mode.
 
-** Latex with Org Export
+** TODO Latex with Org Export
 [[https://emacs.stackexchange.com/questions/54703/exporting-latex-commands-to-html-mathjax][Exporting LaTeX newcommands to MathJax in Org mode]]
 
 #+BEGIN_SRC emacs-lisp
@@ -783,41 +785,42 @@ There are some detailed examples on LaTeX environments [[https://emacs.stackexch
 ** Org-Ref
 
 #+BEGIN_SRC emacs-lisp
-    (use-package org-ref
-      :ensure t
+  (use-package org-ref
+    :ensure t
       :config
       (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
-  (use-package org-ref-ivy)
+#+END_SRC
 
-    (setq bibtex-completion-bibliography
-          '("~/Dropbox/emacs/bibliography/physics.bib"
-            "~/Dropbox/emacs/bibliography/otherworld.bib"
-            "~/Dropbox/emacs/bibliography/nuclear.bib")
-          bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
-          bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-          bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-          bibtex-completion-additional-search-fields '(keywords)
-          bibtex-completion-display-formats
-          '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-            (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-            (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-            (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-          bibtex-completion-pdf-open-function
-          (lambda (fpath)
-            (call-process "open" nil 0 nil fpath)))
+#+BEGIN_SRC emacs-lisp
+  (setq bibtex-completion-bibliography
+        '("~/Dropbox/emacs/bibliography/physics.bib"
+          "~/Dropbox/emacs/bibliography/otherworld.bib"
+          "~/Dropbox/emacs/bibliography/nuclear.bib")
+        bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
+        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+        bibtex-completion-additional-search-fields '(keywords)
+        bibtex-completion-display-formats
+        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+        bibtex-completion-pdf-open-function
+        (lambda (fpath)
+          (call-process "open" nil 0 nil fpath)))
 
-    (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-    (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-    (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-    (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
+  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
+  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
+  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
+  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit)
 #+END_SRC
 
 * TODO LSP and IDE Core
 ** Language Server Protocol
 This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
   (defun efs/lsp-mode-setup()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
@@ -844,21 +847,22 @@ This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutoria
     :after lsp)
 #+END_SRC
 
-** TODO LSP over Tramp
-
-#+BEGIN_SRC emacs-lisp
-
-   ;;  (lsp-register-client
-  ;;       (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
-  ;;                        :major-modes '(python-mode)
-  ;;                        :remote? t
-  ;;                        :server-id 'planeptune)
-  ;; )
-#+END_SRC
-
 Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] will be a pain. Avoid it if you can.
 
+- Thursday 07 March 2024
+  I'm not sure I like this at all. Disabling completely for now.
 ** Autocompletion
+
+** Flycheck
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :ensure t
+    :config
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    ;;(add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+    )
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
   (use-package company
@@ -922,19 +926,18 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
 ** Python Base
 
 #+BEGIN_SRC emacs-lisp
-  (use-package python
-    :ensure nil
-    :hook (python-mode . lsp-deferred)
-    :custom
-    (python-shell-interpreter "python3"))
+      (use-package python
+        :ensure t
+        :custom
+        (python-shell-interpreter "python3"))
 
-  (use-package conda
-    :after python
-    :config
-    (custom-set-variables
-     '(conda-anaconda-home "~/miniconda3"))
-    (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
-    (conda-env-activate "work"))
+      (use-package conda
+        :after python
+        :config
+        (custom-set-variables
+         '(conda-anaconda-home "~/.conda/"))
+        (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
+        (conda-env-activate "~/miniconda3/"))
 #+END_SRC
 
 ** Yasnippet
@@ -958,16 +961,6 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
               (local-set-key (kbd "C-<return>") 'compile)))
 #+END_SRC
 
-** Flycheck
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package flycheck
-  ;;   :hook
-  ;;   ((c-mode . flycheck-mode)
-  ;;    (c++-mode . flycheck-mode)
-  ;;    )
-  ;;   :config
-  ;;     (add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99"))))
-#+END_SRC
 * SSH / TRAMP
 [[https://www.gnu.org/software/emacs/manual/html_node/tramp/Traces-and-Profiles.html][GNU.org]] lists the Tramp verbosity levels, from 0 (doesn't talk to you at all) to 10 (doesn't shut up). 3 is the default. For your sanity (I'm speaking from experience), do _not_ set this to 10 for any stupid reason.
 ** Tramp
@@ -1014,6 +1007,24 @@ Lower the garbage collection threshold from the higher value used at startup.
 #+BEGIN_SRC emacs-lisp
 (setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
 #+END_SRC
+
+
+- Wednesday 06 March 2024
+[[https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html][Emacs desktop sessions]]
+
+#+BEGIN_SRC emacs-lisp
+     (desktop-save-mode t)
+
+  (setq your-own-path default-directory)
+  (if (file-exists-p
+       (concat your-own-path ".emacs.desktop"))
+      (desktop-read your-own-path))
+
+  (add-hook 'kill-emacs-hook
+        `(lambda ()
+          (desktop-save ,your-own-path t)))
+
+   #+END_SRC
 
 * Test Space
 For settings and Melpa packages I haven't committed myself to.

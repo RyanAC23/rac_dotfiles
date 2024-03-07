@@ -2,16 +2,21 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("zebra"
+(("thesis.tex"
+ (filename . "~/repos/gitlab/physics/thesis-2024/tex/thesis.tex")
+ (front-context-string . "\\documentclass[o")
+ (rear-context-string)
+ (position . 1))
+("zebra"
  (filename . "/ssh:penguin:/home/racorbin/hypersonic/src/zebra/")
  (front-context-string . "parameters.py\n  ")
  (rear-context-string . "2K Nov  8 21:41 ")
  (position . 522))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/Roam/db/20240219-evangelion.org")
+ (filename . "~/Dropbox/emacs/Roam/db/20240306-quantum_field_theory.org")
  (front-context-string)
- (rear-context-string . "tle: Evangelion\n")
- (position . 88))
+ (rear-context-string . "um Field Theory\n")
+ (position . 98))
 ("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
  (front-context-string . "# Wednesday 14 D")
