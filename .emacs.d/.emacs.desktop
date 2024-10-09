@@ -2,210 +2,186 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Wed Mar  6 21:32:30 2024
+;; Created Sun Sep 29 22:19:40 2024
 ;; Desktop file format version 208
 ;; Emacs version 28.0.50
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (26089 20846 654880 899000) (desktop . "208") "ryan@neptune" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (font-parameter . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "gray80") (mouse-color . "#4c4c4c") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "#4c4c4c") (scroll-bar-background . "#f2f1f0") (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . maximized) (visibility . t) (skip-taskbar) (z-group) (cursor-color . "#4c4c4c") (display-type . color) (background-mode . light) (sticky) (environment) (powerline-cache) (last-focus-update . t) (frameset--id . "D75A-7DB8-E493-435B") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0.0") (explicit-name) (lsp-headerline--string . #(" src  tunneling    winter.py" 0 1 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 2 5 (mouse-face header-line-highlight help-echo "mouse-1: browse 'src' with Dired\nmouse-2: browse 'src' with Dired in other window" local-map (keymap (header-line keymap (mouse-2 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src" select-window 1 dired-other-window] 4 "\n\n(fn EVENT)" "e"]) (mouse-1 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src" select-window 1 dired] 4 "\n\n(fn EVENT)" "e"]))) lsp-full-path "/home/ryan/repos/heptapod/projects/tunneling/src" font-lock-face lsp-headerline-breadcrumb-path-face) 6 7 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 8 17 (mouse-face header-line-highlight help-echo "mouse-1: browse 'tunneling' with Dired\nmouse-2: browse 'tunneling' with Dired in other window" local-map (keymap (header-line keymap (mouse-2 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" select-window 1 dired-other-window] 4 "\n\n(fn EVENT)" "e"]) (mouse-1 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" select-window 1 dired] 4 "\n\n(fn EVENT)" "e"]))) lsp-full-path "/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" font-lock-face lsp-headerline-breadcrumb-path-face) 18 19 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 20 21 (display (image :type png :file "/home/ryan/.emacs.d/elpa/treemacs-20221107.2105/icons/default/python.png" :scale 1.0021052631578946 :ascent center :width 22 :height 22 :transform-smoothing t :background "grey90")) 22 31 (font-lock-face lsp-headerline-breadcrumb-path-face))) (tabs (current-tab (name . "zebra") (explicit-name))) (height . 52) (width . 190) (left . 0) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 80) (min-pixel-width . 100) (min-pixel-height-ignore . 40) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 20) (min-pixel-width-safe . 20)) leaf (pixel-width . 1920) (pixel-height . 1028) (total-width . 192) (total-height . 51) (normal-height . 1.0) (normal-width . 1.0) (buffer "*Ibuffer*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 2221) (start . 1)) (next-buffers "*pylsp::stderr*") (prev-buffers ("*pylsp::stderr*" 392 392) ("*Ibuffer*" 1 2221) ("*dashboard*" 619 1928) ("racinit.org" 36044 36894) ("tunneling.tex" 1 1222) ("*Messages*" 4453 5138) ("20230710-nnpss23.org" 71188 73239) ("tech-home.org" 990 2949) ("pyproject.toml" 4495 5526) ("*lsp-log*" 1 1) ("*pylsp*" 1 1) ("*scratch*" 1 1) ("nedf.py" 1 1) ("winter.py" 1 109) ("20220518-nuclear_physics.org" 1 93) ("20240306-quantum_field_theory.org" 1 293) ("nuclear.tex<nuclearnotes>" 1 35) ("atom_interferometry.tex" 1 122) ("nuclear.tex<tex>" 23075 23655) ("thesis.tex" 1755 2424))))])
+(setq desktop-saved-frameset [frameset 1 (26362 13548 114718 84000) (desktop . "208") "ryan@neptune" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (font-parameter . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "gray80") (mouse-color . "#4c4c4c") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "#4c4c4c") (scroll-bar-background . "#f2f1f0") (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen . maximized) (visibility . t) (skip-taskbar) (z-group) (cursor-color . "#4c4c4c") (display-type . color) (background-mode . light) (sticky) (environment) (powerline-cache) (last-focus-update . t) (frameset--id . "D75A-7DB8-E493-435B") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (lsp-headerline--string . #(" src  tunneling    winter.py" 0 1 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 2 5 (mouse-face header-line-highlight help-echo "mouse-1: browse 'src' with Dired\nmouse-2: browse 'src' with Dired in other window" local-map (keymap (header-line keymap (mouse-2 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src" select-window 1 dired-other-window] 4 "\n\n(fn EVENT)" "e"]) (mouse-1 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src" select-window 1 dired] 4 "\n\n(fn EVENT)" "e"]))) lsp-full-path "/home/ryan/repos/heptapod/projects/tunneling/src" font-lock-face lsp-headerline-breadcrumb-path-face) 6 7 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 8 17 (mouse-face header-line-highlight help-echo "mouse-1: browse 'tunneling' with Dired\nmouse-2: browse 'tunneling' with Dired in other window" local-map (keymap (header-line keymap (mouse-2 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" select-window 1 dired-other-window] 4 "\n\n(fn EVENT)" "e"]) (mouse-1 . #[257 "\301\302\234\211@\262!\210\303\300!\207" ["/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" select-window 1 dired] 4 "\n\n(fn EVENT)" "e"]))) lsp-full-path "/home/ryan/repos/heptapod/projects/tunneling/src/tunneling" font-lock-face lsp-headerline-breadcrumb-path-face) 18 19 (face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) font-lock-face (:family "Material Icons" :height 1.0 :inherit lsp-headerline-breadcrumb-separator-face) display (raise 0.0) rear-nonsticky t) 20 21 (display (image :type png :file "/home/ryan/.emacs.d/elpa/treemacs-20221107.2105/icons/default/python.png" :scale 1.0021052631578946 :ascent center :width 22 :height 22 :transform-smoothing t :background "grey90")) 22 31 (font-lock-face lsp-headerline-breadcrumb-path-face))) (tabs (current-tab (name . "zebra") (explicit-name))) (height . 52) (width . 190) (left . 0) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 80) (min-pixel-width . 100) (min-pixel-height-ignore . 40) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 20) (min-pixel-width-safe . 20)) leaf (pixel-width . 1920) (pixel-height . 1028) (total-width . 192) (total-height . 51) (normal-height . 1.0) (normal-width . 1.0) (buffer "*Ibuffer*" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 156) (start . 1)) (prev-buffers ("ROMLIST.RAW" 1 1) ("20240306-quantum_field_theory.org" 1 293) ("nuclear.tex" 1 35) ("nedf.py" 1 1) ("tech-home.org" 1 2949) ("20230710-nnpss23.org" 1 73239) ("20220518-nuclear_physics.org" 1 85) ("racinit.org" 1 36894) ("environment.yaml" 1 234) ("degrade_jpg.py" 1 239) ("winter.py" 1 109) ("20230313-programming.org" 1 830) ("*scratch*" 1 1))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
 (setq search-ring nil)
-(setq regexp-search-ring '("mar" "desktop" "racin" "unneling" "atom" "thesis" "castin" "get_poky" "sweep_Vs" "shift" "overlay" "plot" "particles" "particl" "functionalpara"))
+(setq regexp-search-ring '("jupy" "mar" "desktop" "racin" "unneling" "atom" "thesis" "castin" "get_poky" "sweep_Vs" "shift" "overlay" "plot" "particles" "particl" "functionalpara"))
 (setq register-alist nil)
-(setq file-name-history '(#("/home/ryan/.emacs.d/" 0 20 (ivy-index 0)) #("/home/ryan/.emacs.d/desktop/" 0 28 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/custom_math.tex" 0 63 (ivy-index 17)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/tunneling.tex" 0 61 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/nuclear.tex" 0 59 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/atom_interferometry.tex" 0 71 (ivy-index 11)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/.latexmkrc" 0 58 (ivy-index 0)) "/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/.latexmkrc" #("/home/ryan/repos/gitlab/physics/thesis-2024/" 0 44 (ivy-index 0)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/racbook-config.tex" 0 66 (ivy-index 0)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/krane.tex" 0 57 (ivy-index 13)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex" 0 59 (ivy-index 22)) #("/home/ryan/repos/heptapod/projects/tunneling/src/tunneling/winter.py" 0 68 (ivy-index 4)) "/home/ryan/repos/bitbucket/wsu-tex/qm_notes/2015_quizzes/2015_quizzes.tex" #("/ssh:penguin:/home/racorbin/hypersonic/src/wkb/plots.py" 0 55 (ivy-index 8)) #("/ssh:penguin:/home/racorbin/hypersonic/src/wkb/experiments.py" 0 61 (ivy-index 0)) #("/home/ryan/Dropbox/website/org/geocite/tech/tech-home.org" 0 57 (ivy-index 14)) #("/home/ryan/Dropbox/website/org/geocite/pages/my_wishlist.org" 0 60 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/" 0 31 (ivy-index 0)) "/home/ryan/.conda/environments.txt" "/home/ryan/.conda" "/home/ryan/physics/hep/nuclear_hydrodynamics/pyproject.toml" #("/ssh:penguin:/home/racorbin/hypersonic/.cookiecutter.yaml" 0 57 (ivy-index 16)) "/home/ryan/physics/hep/nuclear_hydrodynamics/.cookiecutter.yaml" #("/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/nuclear_hydrodynamics/nuclei.py" 0 107 (ivy-index 1)) "/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/nuclear_hydrodynamics/parameter_sets.py" "~/.emacs.d/bookmarks" "~/.elfeed/index" "/ssh:penguin:/home/racorbin/hypersonic/src/gpe/bec.py" "~/repos/rac_dotfiles/.emacs.d/racinit.org" "~/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/GDR/nedf.py" "~/physics/nuclear/src/nedf/utils.py" "~/physics/nuclear/src/nedf/nedf.py" "~/physics/nuclear/nc" "~/Dropbox/website/org/geocite/tech/tech-home.org" "~/physics/nuclear/anaconda-project.yaml" "~/repos/gitlab/physics/thesis-2024/tex/thesis.tex" "~/repos/gitlab/physics/thesis-2024/tex/custom_math.tex" "~/repos/gitlab/physics/thesis-2024/tex/thesis.log" "~/repos/bitbucket/wsu-tex/prelim_draft/custom_math.tex" "~/repos/bitbucket/wsu-tex/prelim_draft/prelim_draft.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/landau_nuclear.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.log" "~/repos/bitbucket/wsu-tex/nuclearnotes/qft.tex"))
+(setq file-name-history '("/media/ryan/BENNVENN/ROMLIST.RAW" "~/Dropbox/site-resources/Site Settings and Saves/SharkClick.sav" "~/repos/gitlab/projects/image-processing/degrade_jpg/src/degrade_jpg.py" "~/Dropbox/wsu-docs/2022/DAMOP 2022/orbits.tex" #("/home/ryan/repos/heptapod/projects/tunneling/environment.yaml" 0 61 (ivy-index 21)) #("/tmp/hgmerge-pjxohkru/environment~base.yaml" 0 43 (ivy-index 2)) #("/tmp/hgmerge-pjxohkru/environment~other.yaml" 0 44 (ivy-index 4)) #("/tmp/hgmerge-pjxohkru/environment~local.yaml" 0 44 (ivy-index 3)) #("/tmp/hgmerge-dbrnpe7n/environment~local.yaml" 0 44 (ivy-index 3)) #("/home/ryan/.emacs.d/" 0 20 (ivy-index 0)) #("/home/ryan/.emacs.d/desktop/" 0 28 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/custom_math.tex" 0 63 (ivy-index 17)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/tunneling.tex" 0 61 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/nuclear.tex" 0 59 (ivy-index 0)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/atom_interferometry.tex" 0 71 (ivy-index 11)) #("/home/ryan/repos/gitlab/physics/thesis-2024/tex/.latexmkrc" 0 58 (ivy-index 0)) "/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/.latexmkrc" #("/home/ryan/repos/gitlab/physics/thesis-2024/" 0 44 (ivy-index 0)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/racbook-config.tex" 0 66 (ivy-index 0)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/krane.tex" 0 57 (ivy-index 13)) #("/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex" 0 59 (ivy-index 22)) #("/home/ryan/repos/heptapod/projects/tunneling/src/tunneling/winter.py" 0 68 (ivy-index 4)) "/home/ryan/repos/bitbucket/wsu-tex/qm_notes/2015_quizzes/2015_quizzes.tex" #("/ssh:penguin:/home/racorbin/hypersonic/src/wkb/plots.py" 0 55 (ivy-index 8)) #("/ssh:penguin:/home/racorbin/hypersonic/src/wkb/experiments.py" 0 61 (ivy-index 0)) #("/home/ryan/Dropbox/website/org/geocite/tech/tech-home.org" 0 57 (ivy-index 14)) #("/home/ryan/Dropbox/website/org/geocite/pages/my_wishlist.org" 0 60 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/" 0 31 (ivy-index 0)) "/home/ryan/.conda/environments.txt" "/home/ryan/.conda" "/home/ryan/physics/hep/nuclear_hydrodynamics/pyproject.toml" #("/ssh:penguin:/home/racorbin/hypersonic/.cookiecutter.yaml" 0 57 (ivy-index 16)) "/home/ryan/physics/hep/nuclear_hydrodynamics/.cookiecutter.yaml" #("/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/nuclear_hydrodynamics/nuclei.py" 0 107 (ivy-index 1)) "/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/nuclear_hydrodynamics/parameter_sets.py" "~/.emacs.d/bookmarks" "~/.elfeed/index" "/ssh:penguin:/home/racorbin/hypersonic/src/gpe/bec.py" "~/repos/rac_dotfiles/.emacs.d/racinit.org" "~/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/GDR/nedf.py" "~/physics/nuclear/src/nedf/utils.py" "~/physics/nuclear/src/nedf/nedf.py" "~/physics/nuclear/nc" "~/Dropbox/website/org/geocite/tech/tech-home.org" "~/physics/nuclear/anaconda-project.yaml" "~/repos/gitlab/physics/thesis-2024/tex/thesis.tex" "~/repos/gitlab/physics/thesis-2024/tex/custom_math.tex" "~/repos/gitlab/physics/thesis-2024/tex/thesis.log" "~/repos/bitbucket/wsu-tex/prelim_draft/custom_math.tex" "~/repos/bitbucket/wsu-tex/prelim_draft/prelim_draft.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/landau_nuclear.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex" "~/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.log" "~/repos/bitbucket/wsu-tex/nuclearnotes/qft.tex"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/home/ryan/repos/rac_dotfiles/.emacs.d/racinit.org"
-  "racinit.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
-  36894
-  '(36626 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 20764 710790 144000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (28043 36626))))
-
-(desktop-create-buffer 208
-  "/home/ryan/Dropbox/emacs/Roam/db/20220518-nuclear_physics.org"
-  "20220518-nuclear_physics.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
-  85
-  '(93 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 20038 251646 485000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/tunneling.tex"
-  "tunneling.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  1222
-  '(4161 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 20018 465724 813000) (buffer-file-coding-system . utf-8-unix) (truncate-lines) (TeX-master . t))
-  '((mark-ring (1))))
-
-(desktop-create-buffer 208
-  "/home/ryan/Dropbox/emacs/Roam/db/20230710-nnpss23.org"
-  "20230710-nnpss23.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
-  73239
-  '(2685 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 19858 370993 356000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/ryan/Dropbox/website/org/geocite/tech/tech-home.org"
-  "tech-home.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
-  2949
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 19813 621719 708000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/GDR/nedf.py"
-  "nedf.py"
-  'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode blacken-mode company-mode)
+  "/media/ryan/BENNVENN/ROMLIST.RAW"
+  "ROMLIST.RAW"
+  'fundamental-mode
+  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode)
   1
-  '(19334 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26089 19760 37293 268000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (564 713))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/thesis.tex"
-  "thesis.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  2424
-  '(2424 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 13457 181645 166000) (buffer-file-coding-system . utf-8-unix) (truncate-lines) (TeX-master . t))
-  '((mark-ring (2423 2423 267 52 1216 2050 1103 2423 2423 1299 1306 2050 2051))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/custom_math.tex"
-  "custom_math.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  704
-  '(640 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 5752 798109 769000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/nuclear.tex"
-  "nuclear.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  23655
-  '(102 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 13458 760471 53000) (buffer-file-coding-system . utf-8-unix) (truncate-lines) (TeX-master . t))
-  '((mark-ring (1 56 1))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/atom_interferometry.tex"
-  "atom_interferometry.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  122
-  '(1 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 13459 917557 873000) (buffer-file-coding-system . utf-8-unix) (truncate-lines) (TeX-master . t))
-  '((mark-ring (56 1))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex"
-  "nuclear.tex"
-  'latex-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  35
   '(nil nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 26089 13461 114505 234000) (buffer-file-coding-system . undecided-unix) (truncate-lines) (TeX-master . t))
-  '((mark-ring nil)))
-
-(desktop-create-buffer 208
-  "/home/ryan/Dropbox/emacs/Roam/db/20240306-quantum_field_theory.org"
-  "20240306-quantum_field_theory.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
-  293
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26089 13461 867194 135000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((buffer-display-time 26362 13547 56402 559000) (buffer-file-coding-system . iso-latin-1) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
   "/home/ryan/Dropbox/emacs/Roam/db/20230313-programming.org"
   "20230313-programming.org"
   'org-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode org-indent-mode projectile-mode which-key-mode TeX-PDF-mode)
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
   830
   '(161 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 26088 53523 526882 494000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 26362 13530 624709 558000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
   "/home/ryan/repos/heptapod/projects/tunneling/src/tunneling/winter.py"
   "winter.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode lsp-mode blacken-mode company-mode lsp-completion-mode lsp-lens-mode lsp-modeline-code-actions-mode lsp-modeline-diagnostics-mode lsp-modeline-workspace-status-mode lsp-diagnostics-mode)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
   109
   '(109 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26089 13475 3565 60000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26362 13525 852497 622000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring (109))))
 
 (desktop-create-buffer 208
-  "/home/ryan/physics/hep/nuclear_hydrodynamics/pyproject.toml"
-  "pyproject.toml"
-  'conf-toml-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode)
-  5526
-  '(5530 nil)
+  "/home/ryan/repos/gitlab/projects/image-processing/degrade_jpg/src/degrade_jpg.py"
+  "degrade_jpg.py"
+  'python-mode
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
+  239
+  '(239 nil)
   nil
   nil
-  '((buffer-display-time 26089 13530 822341 331000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26361 50431 743415 927000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/home/ryan/physics/hep/nuclear_hydrodynamics/.cookiecutter.yaml"
-  ".cookiecutter.yaml"
+  "/home/ryan/repos/heptapod/projects/tunneling/environment.yaml"
+  "environment.yaml"
   'fundamental-mode
-  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode projectile-mode which-key-mode TeX-PDF-mode)
-  1076
-  '(824 nil)
+  '(visual-line-mode ivy-mode override-global-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode)
+  234
+  '(nil nil)
   nil
   nil
-  '((buffer-display-time 26089 20764 704001 885000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (774 443 166))))
+  '((buffer-display-time 26361 50147 24051 621000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/rac_dotfiles/.emacs.d/racinit.org"
+  "racinit.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
+  36894
+  '(36626 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 49412 565010 74000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (28043 36626))))
+
+(desktop-create-buffer 208
+  "/home/ryan/Dropbox/emacs/Roam/db/20220518-nuclear_physics.org"
+  "20220518-nuclear_physics.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
+  85
+  '(93 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 48687 454298 639000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/Dropbox/emacs/Roam/db/20230710-nnpss23.org"
+  "20230710-nnpss23.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
+  73239
+  '(2685 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 48516 430051 545000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/Dropbox/website/org/geocite/tech/tech-home.org"
+  "tech-home.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
+  2949
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 48473 180065 901000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/physics/nuclear/data/CHRISTMAS_ATTACK/nuclear-hydrodynamics-fork/GDR/nedf.py"
+  "nedf.py"
+  'python-mode
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
+  1
+  '(19333 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26361 48425 220256 894000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (564 713))))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/custom_math.tex"
+  "custom_math.tex"
+  'LaTeX-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
+  704
+  '(640 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 34425 400913 618000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/gitlab/physics/thesis-2024/tex/atom_interferometry.tex"
+  "atom_interferometry.tex"
+  'LaTeX-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
+  122
+  '(1 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 42134 608257 210000) (buffer-file-coding-system . utf-8-unix) (truncate-lines) (TeX-master . t))
+  '((mark-ring (56 1))))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/bitbucket/wsu-tex/nuclearnotes/nuclear.tex"
+  "nuclear.tex"
+  'TeX-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
+  35
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26361 42141 793903 235000) (buffer-file-coding-system . undecided-unix) (truncate-lines) (TeX-master . t))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/Dropbox/emacs/Roam/db/20240306-quantum_field_theory.org"
+  "20240306-quantum_field_theory.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode org-indent-mode projectile-mode TeX-PDF-mode)
+  293
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26362 13544 285583 353000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring nil)))
 

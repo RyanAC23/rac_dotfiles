@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Allows the environment to override which commands are called.
+EMACS=${EMACS:-emacs}
+EMACSCLIENT=${EMACSCLIENT:-emacsclient}
+
+cmd="(progn (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+            (ediff-merge-with-ancestor \"$1\" \"$2\" \"$3\" nil \"$4\")
+            (select-frame-set-input-focus (nth 0 (frame-list))))"
+
+# Check if emacs client is running.  If not then use emacs.  This is here to
+# work arround a bug in the following Mac OS X version of emacs which I
+# generally really like
+#
+# https://github.com/railwaycat/emacs-mac-port
+#
+# The bug prevents emacsclient from starting a server appropriately (the server
+# lauched will only open windows in a terminal).  On other systems, you can
+# probably get away with just the emacsclient version.
+
+${EMACSCLIENT} -a false -e '(emacs-version)'
+if  [[ $? -eq 0 ]]; then
+    ${EMACSCLIENT} -c -F "((height . 60) (fullscreen . fullwidth))" -e "${cmd}"
+else
+    ${EMACS} -fw --eval "${cmd}"
+fi

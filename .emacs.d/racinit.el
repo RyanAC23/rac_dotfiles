@@ -456,14 +456,23 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq org-capture-templates
       '(
-        ("k" "Links-kabal" entry (file+headline "~/Dropbox/website/org/capture/links-kabal.org" "Links")
-         "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
-        ("l" "Links-general" entry (file+headline "~/Dropbox/website/org/capture/links-general.org" "Links")
-         "* %? [[%^C][%^{PROMPT}]] %^g \n%T" :prepend t :kill-buffer t)
-        ("w" "Links-work" entry (file+headline "~/Dropbox/website/org/capture/links-work.org" "Links")
-         "* %? %^L %^g \n%T" :prepend t :kill-buffer t)
         ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-         "* TODO %?\n %U\n %a\n %i" :empty-lines 1 :prepend t :kill-buffer t)))
+         "* TODO %?\n %U\n %a\n %i \n%T" :empty-lines 1 :prepend t :kill-buffer t)
+        ("1" "Links : Geofront" table-line (file+headline
+                                            "~/Dropbox/website/org/capture/links-general.org" "Links")
+         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
+        ("2" "Links : NERV Headquarters" table-line (file+headline
+                                            "~/Dropbox/website/org/capture/links-focused.org" "Links")
+         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
+        ("3" "Links : Central Dogma" table-line (file+headline
+                                            "~/Dropbox/website/org/capture/links-private.org" "Links")
+         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
+        ("n" "Links : Nabokov" table-line (file+headline
+                                           "~/Dropbox/website/org/capture/links-general.org" "Nabokovia")
+         "| [[%^C][%^{Title}]] | %^{NOTES} | %^g | %t |" :kill-buffer t)
+        ("q" "new quote" plain (file+headline "~/Dropbox/website/org/geocite/other/other-content-index.org" "Quotes")
+         "# %T\n#+BEGIN_QUOTE\n/%^{QUOTE}/\n\t--%^{SOURCE}\n#+END_QUOTE\n\n%?" :prepend t :kill-buffer t)
+        ))
 
 (defun rac-org-babel-tangle-config ()
   (when (string-equal (buffer-file-name)
@@ -474,7 +483,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac-org-babel-tangle-config)))
 
 (defun rac-org-mode-visual-fill ()
-  (setq visual-fill-column-width 95
+  (setq visual-fill-column-width 150
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 

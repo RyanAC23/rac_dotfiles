@@ -15,6 +15,7 @@ bin/tex-template/
 .emacs.d/.lsp-session-v1
 .emacs.d/recentf~
 .emacs.d/transient/
+.emacs.d/org-roam.db
 
 .guayadeque
 

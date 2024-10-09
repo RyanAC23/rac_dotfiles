@@ -26,6 +26,7 @@
     "\"It is no fun to pay with a hangover for the feasting of others.\" - Lermontov"
     "\"But we cannot begin again. In this respect things are as they are, and will almost certainly get worse.\" - Frank Kermode, \"Not Entitled\""
     "Ars Longa, Vita Brevis"
+    "They asked a gypsy, \"what would you do if you became Czar?\"\n\"Steal 300 rubles and run away.\""
 ;; Shakespeare
      "\"They have been at a great feast of languages, and stolen the scraps.\" - Love's Labour Lost"
      "\"If we imagine no worse of them than they of themselves, they may pass for excellent men.\" - Midsummer Night's Dream"

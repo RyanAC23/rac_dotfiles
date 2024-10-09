@@ -13,10 +13,10 @@
  (rear-context-string . "2K Nov  8 21:41 ")
  (position . 522))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/Roam/db/20240306-quantum_field_theory.org")
- (front-context-string)
- (rear-context-string . "um Field Theory\n")
- (position . 98))
+ (filename . "~/Dropbox/emacs/rac-agenda.org")
+ (front-context-string . "* TODO Draft gen")
+ (rear-context-string)
+ (position . 3))
 ("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
  (front-context-string . "# Wednesday 14 D")
