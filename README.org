@@ -1,0 +1,5 @@
+* TODO Dotfile Restructuring Project
+- [ ] New project with old history hidden.
+- [ ] Careful to hide any sensitive info and databases from repo.
+- [ ] Makefiles for everything.
+- [ ] GitHUB, fun repo name.

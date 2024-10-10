@@ -454,24 +454,28 @@ Uses `current-date-time-format' for the formatting the date/time."
      (python . t)))
   (setq org-confirm-babel-evaluate nil))
 
+(setq link-capture-string "| [[%^C][%^{TITLE}]] | %^{NOTES} | %^g | %t |")
+(setq quote-capture-string "# %T\n#+BEGIN_QUOTE\n/%^{QUOTE}/\n\t--%^{SOURCE}\n#+END_QUOTE\n\n%?")
 (setq org-capture-templates
-      '(
+      `(
         ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
          "* TODO %?\n %U\n %a\n %i \n%T" :empty-lines 1 :prepend t :kill-buffer t)
         ("1" "Links : Geofront" table-line (file+headline
                                             "~/Dropbox/website/org/capture/links-general.org" "Links")
-         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
+         ,link-capture-string :kill-buffer t)
+        ("g" "Links : Geofront" table-line (file+headline
+                                            "~/Dropbox/website/org/capture/links-general.org" "Game")
+         ,link-capture-string :kill-buffer t)
         ("2" "Links : NERV Headquarters" table-line (file+headline
-                                            "~/Dropbox/website/org/capture/links-focused.org" "Links")
-         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
-        ("3" "Links : Central Dogma" table-line (file+headline
-                                            "~/Dropbox/website/org/capture/links-private.org" "Links")
-         "| [[%^C][%^{Title}]] | %^g | %^{NOTES} | %t |" :kill-buffer t)
+                                                     "~/Dropbox/website/org/capture/links-focused.org" "Links")
+         ,link-capture-string :kill-buffer t)
+        ("3" "Links : Central Dogma" table-line (file+headline                                       "~/Dropbox/website/org/capture/links-private.org" "Links")
+         ,link-capture-string :kill-buffer t)
         ("n" "Links : Nabokov" table-line (file+headline
                                            "~/Dropbox/website/org/capture/links-general.org" "Nabokovia")
-         "| [[%^C][%^{Title}]] | %^{NOTES} | %^g | %t |" :kill-buffer t)
+         ,link-capture-string :kill-buffer t)
         ("q" "new quote" plain (file+headline "~/Dropbox/website/org/geocite/other/other-content-index.org" "Quotes")
-         "# %T\n#+BEGIN_QUOTE\n/%^{QUOTE}/\n\t--%^{SOURCE}\n#+END_QUOTE\n\n%?" :prepend t :kill-buffer t)
+         :prepend t :kill-buffer t)
         ))
 
 (defun rac-org-babel-tangle-config ()
