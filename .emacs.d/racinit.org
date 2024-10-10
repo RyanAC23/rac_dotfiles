@@ -618,10 +618,13 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 
 ** Org Capture Templates
 
+Do not be confused between the quote and the [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Backquote.html][backquote]]. The quote "'( )" returns a list, but does not let you evaluate within it. A backquote will allow items within the list to be evaluated, by prefacing them with a comma operator ",". The comma will evaluate the following list or element, and expand it in the list. I use this below to keep myself from retyping the complicated `link-capture-string` five times (following the "Do Not Repeat Yourself" principle.)
+
 #+BEGIN_SRC emacs-lisp
 
-  (setq link-capture-string "| [[%^C][%^{TITLE}]] | %^{NOTES} | %^g | %t |")
+  (setq link-capture-string "| [[%^{LINK}][%^{TITLE}]] | %^{NOTES} | %^g | %t |")
   (setq quote-capture-string "# %T\n#+BEGIN_QUOTE\n/%^{QUOTE}/\n\t--%^{SOURCE}\n#+END_QUOTE\n\n%?")
+
   (setq org-capture-templates
         `(
           ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
@@ -644,7 +647,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
            :prepend t :kill-buffer t)
           ))
 #+END_SRC
-** [#B] Auto tangle Org config file
+** Auto tangle Org config file
 
 #+begin_src emacs-lisp
   (defun rac-org-babel-tangle-config ()

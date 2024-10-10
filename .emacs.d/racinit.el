@@ -454,8 +454,9 @@ Uses `current-date-time-format' for the formatting the date/time."
      (python . t)))
   (setq org-confirm-babel-evaluate nil))
 
-(setq link-capture-string "| [[%^C][%^{TITLE}]] | %^{NOTES} | %^g | %t |")
+(setq link-capture-string "| [[%^{LINK}][%^{TITLE}]] | %^{NOTES} | %^g | %t |")
 (setq quote-capture-string "# %T\n#+BEGIN_QUOTE\n/%^{QUOTE}/\n\t--%^{SOURCE}\n#+END_QUOTE\n\n%?")
+
 (setq org-capture-templates
       `(
         ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
