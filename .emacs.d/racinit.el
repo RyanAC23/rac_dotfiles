@@ -304,7 +304,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Modify the default ibuffer-formats
 (setq ibuffer-formats
       '((mark modified read-only locked " "
-              (name 20 20 :left :elide)
+              (name 30 30 :left :elide)
               " "
               (size-h 11 -1 :right)
               " "
@@ -464,11 +464,8 @@ Uses `current-date-time-format' for the formatting the date/time."
         ("1" "Links : Geofront" table-line (file+headline
                                             "~/Dropbox/website/org/capture/links-general.org" "Links")
          ,link-capture-string :kill-buffer t)
-        ("g" "Links : Geofront" table-line (file+headline
-                                            "~/Dropbox/website/org/capture/links-general.org" "Game")
-         ,link-capture-string :kill-buffer t)
         ("2" "Links : NERV Headquarters" table-line (file+headline
-                                                     "~/Dropbox/website/org/capture/links-focused.org" "Links")
+                                                     "~/Dropbox/website/org/capture/links-focused.org" "Other")
          ,link-capture-string :kill-buffer t)
         ("3" "Links : Central Dogma" table-line (file+headline                                       "~/Dropbox/website/org/capture/links-private.org" "Links")
          ,link-capture-string :kill-buffer t)
@@ -477,6 +474,10 @@ Uses `current-date-time-format' for the formatting the date/time."
          ,link-capture-string :kill-buffer t)
         ("q" "new quote" plain (file+headline "~/Dropbox/website/org/geocite/other/other-content-index.org" "Quotes")
          :prepend t :kill-buffer t)
+        ("g" "Links : Games [Geofront]" table-line (file+headline
+                                                    "~/Dropbox/website/org/capture/links-general.org" "Game")
+         ,link-capture-string :kill-buffer t)
+
         ))
 
 (defun rac-org-babel-tangle-config ()
