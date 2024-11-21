@@ -1,0 +1,23 @@
+plugins: embedart fetchart
+
+import:
+    write: no
+    copy: no
+    resume: no
+
+fetchart:
+  auto: yes
+  cautious: no
+  cover_names: cover
+  sources:
+    - filesystem
+    - coverart
+    - albumart
+    - amazon
+    - itunes
+    - spotify
+    - wikipedia
+    - '*'
+  store_source: yes
+
+verbose: no

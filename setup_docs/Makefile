@@ -5,11 +5,11 @@ MINICONDA_LOC = "https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86
 # ------------------------------------------------------------------------------------
 
 gitConfig:
-	git config --global --replace-all user.name "ryan"
+	git config --global --replace-all user.name "Ryan A. Corbin"
 	git config --global core.excludesfile "/home/ryan/.config/.gitignore_global"
 	git config --global --replace-all core.editor "emacs -nw -Q -load ~/.emacs.d/light_init.el"
 	git config --global alias.st 'status -s'
-	git config --global alias.lg 'log  --graph --all -20 --pretty=format:"%C(yellow)%h\ %Cblue[%cn]%Creset\ (%cr)\ %Cred%d%Creset%n\ \ %s"'
+	git config --global alias.lg  'log --graph --all -20 --pretty=format:"%C(bold magenta)%h%C(reset) - %C(dim magenta)(%ar)%C(reset)%C(auto)%d%C(reset)%n%C(dim white)%s%C(dim magenta) - %an%C(reset)"'
 	git config --global init.defaultBranch master
 	echo "Don't forget to set git config --global user.email!"
 
