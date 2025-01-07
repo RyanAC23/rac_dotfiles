@@ -2,210 +2,198 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Fri Nov 15 19:07:58 2024
+;; Created Wed Dec 11 22:32:40 2024
 ;; Desktop file format version 208
 ;; Emacs version 28.0.50
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (26424 3214 566508 201000) (desktop . "208") "ryan@neptune" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (font-parameter . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "gray80") (mouse-color . "#4c4c4c") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "#4c4c4c") (scroll-bar-background . "#f2f1f0") (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha 100 . 100) (no-focus-on-map) (no-accept-focus) (fullscreen . fullheight) (visibility . t) (skip-taskbar) (z-group) (cursor-color . "#4c4c4c") (display-type . color) (background-mode . light) (sticky) (environment) (powerline-cache) (last-focus-update) (frameset--id . "0D6F-82CC-7C69-574A") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0.0") (explicit-name) (tabs (current-tab (name . "*dashboard*") (explicit-name))) (height . 52) (width . 94) (left . 950) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 80) (min-pixel-width . 100) (min-pixel-height-ignore . 40) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 20) (min-pixel-width-safe . 20)) leaf (pixel-width . 958) (pixel-height . 1027) (total-width . 95) (total-height . 51) (normal-height . 1.0) (normal-width . 1.0) (buffer "thesis.tex" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 229) (start . 1)) (prev-buffers ("SuppMat.tex" 1 102) ("*Ibuffer*" 1 1867) ("particles.py" 2880 3472) ("20230710-nnpss23.org" 75410 76247) ("semiclassical.py" 1456 3048) ("distributions.py" 1 1307) ("20220212-lolita.org" 6682 7493) ("sheets.py" 6334 7350) ("*Messages*" 11884 45210) ("20241007-mediterranean.org" 1 1123) ("gaussianKd.py" 1816 2499) ("plots.py" 5974 7305) ("go.bash" 1 253))))])
+(setq desktop-saved-frameset [frameset 1 (26458 33672 962591 138000) (desktop . "208") "ryan@neptune" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (font-parameter . "-CTDB-Fira Code-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "black") (background-color . "gray80") (mouse-color . "#4c4c4c") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "#4c4c4c") (scroll-bar-background . "#f2f1f0") (menu-bar-lines . 0) (tab-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha 100 . 100) (no-focus-on-map) (no-accept-focus) (fullscreen . maximized) (visibility . t) (skip-taskbar) (z-group) (cursor-color . "#4c4c4c") (display-type . color) (background-mode . light) (sticky) (environment) (powerline-cache) (last-focus-update . t) (frameset--id . "0D6F-82CC-7C69-574A") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":0.0") (explicit-name) (tabs (current-tab (name . "*dashboard*") (explicit-name))) (height . 52) (width . 190) (left . 0) (top . 0)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 80) (min-pixel-width . 200) (min-pixel-height-ignore . 40) (min-pixel-width-ignore . 80) (min-pixel-height-safe . 20) (min-pixel-width-safe . 40)) hc (pixel-width . 1920) (pixel-height . 1028) (total-width . 192) (total-height . 51) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 960) (pixel-height . 1028) (total-width . 96) (total-height . 51) (normal-height . 1.0) (normal-width . 0.5) (buffer "20220212-lolita.org" (selected . t) (hscroll . 0) (fringes 8 8 t nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 105) (start . 1)) (prev-buffers ("*Ibuffer*" 1 1) ("20220212-lolita.org" 23219 23219))) (leaf (last . t) (pixel-width . 960) (pixel-height . 1028) (total-width . 96) (total-height . 51) (normal-height . 1.0) (normal-width . 0.5) (buffer "20221119-ryan.org" (selected) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 68) (start . 1)) (prev-buffers ("*Ibuffer*" 1 1389) ("20220212-lolita.org" 86205 86286)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
 (setq search-ring nil)
-(setq regexp-search-ring '("&" "\\(extra\\).*?\\(work\\)" "title" "newcommand" "madelung" "since" "\\\\begin{figure}" "v2." "old_fig" "Fig1" "use-package" "parenth" "translation" "ignorable" "\\(half\\).*?\\(a\\).*?\\(life\\)" "pecadi"))
+(setq regexp-search-ring '("yas" "ryan" "///" "\\(the\\).*?\\(four\\).*?\\(publi\\)" "hurrican" ":bind" "tab" "yas" "key" "yas" "english" "\\(lewis\\).*?\\(carro\\)" "\\(pete\\).*?\\(dean\\)" "starover" "\\(reader's\\).*?\\(guide\\)" "phyllis"))
 (setq register-alist nil)
-(setq file-name-history '(#("/home/ryan/repos/gitlab/projects/book_nab/thesis.tex" 0 52 (ivy-index 6)) #("/home/ryan/repos/gitlab/ForbesGroup/latex-ubcthesis_new/" 0 56 (ivy-index 2)) #("/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/SuppMat.tex" 0 85 (ivy-index 6)) "/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/main.tex" #("/home/ryan/Dropbox/emacs/Roam/db/*Org MD Export*" 0 48 (ivy-index 0)) #("/home/ryan/Dropbox/website/org/geocite/other/other-content-index.org" 0 68 (ivy-index 4)) #("/home/ryan/Dropbox/website/org/geocite/pages/adagia.org" 0 55 (ivy-index 4)) "/home/ryan/repos/gitlab/Ryan_Notes/.cookiecutter.yaml" #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/src/branched_flow/semiclassical.py" 0 92 (ivy-index 0)) "/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/pyproject.toml" #("/home/ryan/repos/heptapod/hypersonic/src/wkb/gaussianKd.py" 0 58 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/pearcey_qm.md" 0 63 (ivy-index 7)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/poky.py" 0 57 (ivy-index 1)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/experiments.py" 0 64 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/distributions.py" 0 61 (ivy-index 0)) "/home/ryan/repos/packages/fftw-3.3.10/go.bash" "/home/ryan/physics/hfb-py/Docs/Demonstration.md" #("/home/ryan/physics/hfb-py/pyproject.toml" 0 40 (ivy-index 0)) #("/home/ryan/physics/hfb-py/tests/demos/test_sho_basis.py" 0 55 (ivy-index 3)) #("/home/ryan/physics/quantum-fields/pyproject.toml" 0 48 (ivy-index 0)) "/home/ryan/repos/gitlab/physics/hfb-py/pyproject.toml" #("/home/ryan/repos/heptapod/hypersonic/tests/test_wkb.py" 0 54 (ivy-index 10)) #("/home/ryan/repos/heptapod/hypersonic/tests/test_classical.py" 0 60 (ivy-index 5)) #("/home/ryan/repos/packages/gpe/pyproject.toml" 0 44 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/pyproject.toml" 0 51 (ivy-index 0)) "/home/ryan/repos/gitlab/physics/hfb-py/pyproject.toml" #("/home/ryan/physics/hfb-py/src/hfb_py/shell_model.py" 0 51 (ivy-index 0)) #("/home/ryan/physics/hfb-py/tests/test_example.py" 0 47 (ivy-index 4)) #("/home/ryan/physics/hfb-py/tests/test_shell.py" 0 45 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/_ext/mmfutils/src/mmfutils/math/bases/utils.py" 0 104 (ivy-index 5)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/_ext/mmfutils/src/mmfutils/plot/contour.py" 0 100 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/_ext/mmfutils/src/mmfutils/plot/__init__.py" 0 101 (ivy-index 2)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/_ext/mmfutils/src/mmfutils/__init__.py" 0 96 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/_ext/gpe/src/gpe/plot_utils.py" 0 67 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/_ext/mmfutils/src/mmfutils/math/bases/bases.py" 0 104 (ivy-index 3)) "/home/ryan/.gitconfig" "~/repos/rac_dotfiles/setup_docs/Makefile" #("/home/ryan/repos/heptapod/hypersonic/src/gpe/src/gpe/bec.py" 0 59 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/particles.py" 0 57 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/hypersonic/" 0 52 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/hypersonic/experiments.py" 0 66 (ivy-index 7)) #("/home/ryan/repos/heptapod/hypersonic/_ext/gpe/src/gpe/bec.py" 0 60 (ivy-index 0)) "/home/ryan/Dropbox/website/.gitignore" #("/home/ryan/Dropbox/website/org/capture/links-private.org" 0 56 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/capture/links-focused.org" 0 56 (ivy-index 5)) #("/home/ryan/Dropbox/website/org/capture/links-general.org" 0 56 (ivy-index 0)) #("/home/ryan/repos/rac_dotfiles/README.org" 0 40 (ivy-index 0)) #("/home/ryan/repos/rac_dotfiles/README.md" 0 39 (ivy-index 20)) "/home/ryan/repos/rac_dotfiles/.gitignore" "/home/ryan/repos/rac_dotfiles/.emacs.d/org-roam.db" "/home/ryan/Dropbox/website/org/capture/links-hub.org" "/home/ryan/Dropbox/website/org/geocite/home/sidebar.org" "/home/ryan/Dropbox/website/org/geocite/home/sidebar" #("/home/ryan/Dropbox/website/org/geocite/home/sidebar.org" 0 55 (ivy-index 1)) #("/home/ryan/Dropbox/website/org/geocite/other/mccarthy.org" 0 57 (ivy-index 2)) #("/home/ryan/Dropbox/website/org/capture/links-kabal.org" 0 54 (ivy-index 6)) #("/home/ryan/Dropbox/website/org/capture/links-work.org" 0 53 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/capture/links-lit.org" 0 52 (ivy-index 7)) #("/home/ryan/Dropbox/website/org/capture/links-hub.org" 0 52 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/README.md" 0 46 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/readme.org" 0 47 (ivy-index 34)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/sheets.py" 0 54 (ivy-index 11)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/experiments.py" 0 59 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/plots.py" 0 53 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Interference/psikd.py" 0 63 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/utils.py" 0 53 (ivy-index 1)) #("/home/ryan/repos/Github/game-vault/org/games.org" 0 48 (ivy-index 7)) #("/home/ryan/repos/Github/game-vault/org/pokemon.org" 0 50 (ivy-index 0)) #("/home/ryan/repos/Github/game-vault/org/gba.org" 0 46 (ivy-index 8)) "/home/ryan/repos/Github/game-vault/Makefile" #("/home/ryan/repos/Github/game-vault/org/backups.org" 0 50 (ivy-index 0)) "/home/ryan/repos/Github/game-vault/org/organization.org" "/home/ryan/repos/Github/game-vault/org/gameboy.org" "/home/ryan/repos/Github/game-vault/org/updates.org" "/home/ryan/repos/gitlab/homepage/org/index.org" #("/home/ryan/repos/Github/game-vault/org/index.org" 0 48 (ivy-index 7)) #("/home/ryan/repos/Github/game-vault/org/organization.org" 0 55 (ivy-index 7)) #("/home/ryan/repos/Github/game-vault/org/gameboy.org" 0 50 (ivy-index 2)) "/home/ryan/repos/gitlab/homepage/org/index.org" "/home/ryan/repos/Github/game-vault/build.el" "/home/ryan/repos/gitlab/Corbin/memoir/memoir.org" #("/home/ryan/repos/heptapod/hypersonic/src/zebra/wkb.py" 0 53 (ivy-index 11)) #("/home/ryan/Dropbox/emacs/" 0 25 (ivy-index 0)) #("/home/ryan/Dropbox/emacs/Roam/" 0 30 (ivy-index 3)) #("/home/ryan/.emacs.d/dashboard_quotes.el" 0 39 (ivy-index 19)) "/home/ryan/repos/packages/gpe/.git/config" #("/ssh:cocalc-ForbesGroup:/home/user/.repositories/ryan_hypersonic/src/wkb/gaussianKd.py" 0 86 (ivy-index 0)) #("/ssh:cocalc-ForbesGroup:/home/user/.repositories/ryan_hypersonic/src/wkb/distributions.py" 0 89 (ivy-index 0)) #("/ssh:cocalc-ForbesGroup:/home/user/.repositories/ryan_hypersonic/src/wkb/particles.py" 0 85 (ivy-index 1)) "/home/ryan/repos/packages/gpe/.git/config" #("/home/ryan/repos/Github/game-vault/inventory/games.org" 0 54 (ivy-index 3)) "/home/ryan/Dropbox/website/org/geocite/pages/my_wishlist.org" "/home/ryan/repos/gitlab/physics/quantum-fields/Docs/index.md" "/home/ryan/Downloads/golosa/audiograbber" "/home/ryan/repos/gitlab/homepage/org/aboutme.org" "/home/ryan/repos/gitlab/homepage/Makefile" #("/home/ryan/repos/Github/game-vault/inventory/organization.org" 0 61 (ivy-index 0)) "/home/ryan/repos/gitlab/physics/hfb-py/Makefile" #("/home/ryan/repos/gitlab/physics/hfb-py/.cookie" 0 46 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/.cookiecutter.yaml" 0 55 (ivy-index 0))))
+(setq file-name-history '(#("/home/ryan/.emacs.d/snippets/org-mode/quote" 0 43 (ivy-index 4)) #("/home/ryan/repos/gitlab/projects/lolita-riddle/org/book_chapters/chapter_1.org" 0 78 (ivy-index 7)) #("/home/ryan/.emacs.d/snippets/org-mode/elisp" 0 43 (ivy-index 3)) #("/home/ryan/Dropbox/website/" 0 27 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/Notebooks/flow2d.py" 0 77 (ivy-index 9)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/poky.py" 0 52 (ivy-index 0)) "/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/poky.py" #("/home/ryan/repos/gitlab/physics/dissertation/chapters/matter_wave.tex" 0 69 (ivy-index 12)) #("/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/SuppMat.tex" 0 85 (ivy-index 1)) "/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/src/branched_flow/semiclassical.py" "/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/.latexmkrc" #("/home/ryan/Dropbox/website/org/capture/links-hub.org" 0 52 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/main.tex" 0 82 (ivy-index 8)) #("/home/ryan/repos/gitlab/projects/book_nab/new/Makefile" 0 54 (ivy-index 0)) "/home/ryan/repos/gitlab/projects/book_nab/new/.latexmkrc" #("/home/ryan/repos/gitlab/physics/dissertation/chapters/GPE.tex" 0 61 (ivy-index 7)) "/home/ryan/repos/gitlab/projects/book_nab/chapters/Mary.tex" #("/home/ryan/repos/gitlab/projects/book_nab/new/ryanbook.cls" 0 58 (ivy-index 0)) #("/home/ryan/repos/gitlab/projects/book_nab/WSUclass.cls" 0 54 (ivy-index 0)) #("/home/ryan/repos/gitlab/projects/book_nab/new/main.tex" 0 54 (ivy-index 0)) "/home/ryan/repos/gitlab/projects/book_nab/main.tex" "/home/ryan/repos/gitlab/projects/book_nab/Makefile" "/home/ryan/repos/gitlab/projects/book_nab/koma/examples/wsu_template/Dissertation/diss.tex" #("/home/ryan/repos/gitlab/projects/book_nab/ubcsample.tex" 0 55 (ivy-index 20)) "/home/ryan/repos/gitlab/Ryan_Notes/Makefile" "/home/ryan/repos/gitlab/Ryan_Notes/pyproject.toml" #("/home/ryan/repos/gitlab/Ryan_Notes/src/ryan_notes/kinesis.py" 0 60 (ivy-index 0)) #("/home/ryan/repos/gitlab/Ryan_Notes/src/ryan_notes/kineses.py" 0 60 (ivy-index 4)) #("/home/ryan/repos/gitlab/projects/book_nab/koma/examples/wsu_template/Dissertation/chapters/ch1.tex" 0 98 (ivy-index 0)) #("/home/ryan/repos/gitlab/projects/book_nab/koma/examples/wsu_template/Dissertation/diss.tex" 0 90 (ivy-index 6)) #("/home/ryan/repos/gitlab/projects/book_nab/thesis.tex" 0 52 (ivy-index 19)) #("/home/ryan/Documents/cd_sort/Makefile" 0 37 (ivy-index 0)) #("/home/ryan/repos/rac_dotfiles/setup_docs/Makefile" 0 49 (ivy-index 5)) #("/home/ryan/Documents/Games/stepmania-home/Makefile" 0 50 (ivy-index 0)) #("/home/ryan/repos/rac_dotfiles/" 0 30 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/Makefile" 0 45 (ivy-index 0)) "/home/ryan/Documents/cd_sort/MP3/The White Stripes/Makefile" "/home/ryan/.config/beets/config.yaml" "/home/ryan/bin/ripCDsort" #("/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/experiments.py" 0 64 (ivy-index 6)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/poky.py" 0 57 (ivy-index 10)) "/home/ryan/repos/heptapod/hypersonic/Docs/Interference/AI" "/home/ryan/repos/heptapod/hypersonic/Metrology.md" #("/home/ryan/repos/heptapod/hypersonic/Notebooks/particles.py" 0 59 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/experiments.py" 0 59 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/plots.py" 0 53 (ivy-index 0)) #("/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/src/branched_flow/semiclassical.py" 0 92 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/particles.py" 0 57 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/_ext/gpe/src/gpe/bec.py" 0 60 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/Docs/Interference/1D Quantum.md" 0 68 (ivy-index 9)) "/home/ryan/repos/heptapod/hypersonic/Docs/Interference/Kd-WKB.md" "/home/ryan/repos/heptapod/hypersonic/Docs/Interference/1D" "/home/ryan/repos/heptapod/hypersonic/Docs/Interference/Quantum.md" #("/home/ryan/repos/gitlab/projects/book_nab/book.cls" 0 50 (ivy-index 10)) #("/home/ryan/repos/gitlab/projects/book_nab/README.rst" 0 52 (ivy-index 9)) #("/home/ryan/repos/gitlab/ForbesGroup/latex-ubcthesis_new/book.cls" 0 64 (ivy-index 9)) #("/home/ryan/repos/gitlab/ForbesGroup/latex-ubcthesis_new/thesis.tex" 0 66 (ivy-index 12)) #("/home/ryan/repos/gitlab/projects/book_nab/ubcthesis.cls" 0 55 (ivy-index 21)) #("/home/ryan/Dropbox/website/org/geocite/pages/my_wishlist.org" 0 60 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/wkb/plots.py" 0 58 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/wkb/distributions.py" 0 66 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/zebra/wkb.py" 0 58 (ivy-index 12)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/wkb/" 0 50 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/tests/test_distributions.py" 0 69 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/tests/test_distributions.pu" 0 69 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/tests/test_minimize.py" 0 64 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/geocite/tech/rca_lyra.org" 0 56 (ivy-index 12)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/hypersonic/experiments.py" 0 71 (ivy-index 7)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/Docs/Pearcey/poky.py" 0 62 (ivy-index 11)) #("/home/ryan/Dropbox/website/org/capture/links-general.org" 0 56 (ivy-index 6)) #("/home/ryan/Dropbox/website/org/capture/links-focused.org" 0 56 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/Manuscripts/Figures/Interference1/figs_mmf.py" 0 87 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/tests/test_hypersonic.py" 0 66 (ivy-index 8)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/Docs/Pearcey/experiments.py" 0 69 (ivy-index 2)) #("/home/ryan/.ssh/config" 0 22 (ivy-index 0)) "/home/ryan/.bashrc" #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/wkb/particles.py" 0 62 (ivy-index 0)) #("/ssh:penguin_dd:/home/racorbin/hypersonic/src/wkb/experiments.py" 0 64 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/gpe/src/gpe/bec.py" 0 59 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/hypersonic/" 0 52 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/src/hypersonic/experiments.py" 0 66 (ivy-index 7)) "/home/ryan/Dropbox/website/.gitignore" #("/home/ryan/Dropbox/website/org/capture/links-private.org" 0 56 (ivy-index 8)) #("/home/ryan/repos/rac_dotfiles/README.org" 0 40 (ivy-index 0)) #("/home/ryan/repos/rac_dotfiles/README.md" 0 39 (ivy-index 20)) "/home/ryan/repos/rac_dotfiles/.gitignore" "/home/ryan/repos/rac_dotfiles/.emacs.d/org-roam.db" "/home/ryan/Dropbox/website/org/geocite/home/sidebar.org" "/home/ryan/Dropbox/website/org/geocite/home/sidebar" "/home/ryan/Dropbox/website/org/geocite/other/other-content-index.org" #("/home/ryan/Dropbox/website/org/geocite/home/sidebar.org" 0 55 (ivy-index 1)) #("/home/ryan/Dropbox/website/org/geocite/other/other-content-index.org" 0 68 (ivy-index 0)) #("/home/ryan/Dropbox/website/org/geocite/other/mccarthy.org" 0 57 (ivy-index 2)) #("/home/ryan/Dropbox/website/org/capture/links-kabal.org" 0 54 (ivy-index 6)) #("/home/ryan/Dropbox/website/org/capture/links-work.org" 0 53 (ivy-index 8)) #("/home/ryan/Dropbox/website/org/capture/links-lit.org" 0 52 (ivy-index 7)) #("/home/ryan/repos/heptapod/hypersonic/README.md" 0 46 (ivy-index 0)) #("/home/ryan/repos/heptapod/hypersonic/readme.org" 0 47 (ivy-index 34)) #("/home/ryan/repos/heptapod/hypersonic/src/wkb/sheets.py" 0 54 (ivy-index 11))))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/projects/book_nab/thesis.tex"
-  "thesis.tex"
-  'LaTeX-mode
-  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  229
-  '(837 nil)
+  "/home/ryan/Dropbox/emacs/Roam/db/20220212-lolita.org"
+  "20220212-lolita.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode org-indent-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode)
+  105
+  '(87143 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 26424 3149 338115 503000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (430 864 261 864 223 4344 3194 230 207 207 190 190 18439 206 261 355))))
+  '((indent-tabs-mode) (buffer-display-time 26458 33668 983129 914000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (86328 75809 85851 85068 84909 84909 23219 57317 645 69646 69646 67979 69646 72331 72241 72331))))
 
 (desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/SuppMat.tex"
-  "SuppMat.tex"
-  'LaTeX-mode
-  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  102
-  '(101 nil)
+  "/home/ryan/Dropbox/emacs/Roam/db/20221119-ryan.org"
+  "20221119-ryan.org"
+  'org-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode)
+  68
+  '(566 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 26424 2058 604101 602000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (101 65 79 79 79 103 103 79 79 79 79 79 79 79 79 1))))
+  '((buffer-display-time 26458 33668 983130 670000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (449))))
 
 (desktop-create-buffer 208
   "/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/main.tex"
   "main.tex"
   'LaTeX-mode
   '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
-  5584
-  '(5567 nil)
+  11067
+  '(11067 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-display-time 26424 2058 604108 216000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (5542 15719 13903 13903 13204 13148 4744 2454 8387 9700 9226 5673 10503 10957 13091 8605))))
+  '((indent-tabs-mode) (buffer-display-time 26458 16367 128639 406000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (7259 6004 9777 9755 9318 12528 9302 7419 7841 7614 7660 8489 7553 13455 506 3946))))
 
 (desktop-create-buffer 208
   "/home/ryan/repos/heptapod/hypersonic/src/wkb/particles.py"
   "particles.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  3472
-  '(18707 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  27830
+  '(25371 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26423 40002 366559 852000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (19274 18102 17708 20749 20221 1409))))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26450 44561 108053 952000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (8398 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1))))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/Notebooks/flow2d.py"
+  "flow2d.py"
+  'python-mode
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode blacken-mode company-mode)
+  9175
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26450 44552 159237 916000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/src/branched_flow/semiclassical.py"
+  "semiclassical.py"
+  'python-mode
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode blacken-mode company-mode)
+  1420
+  '(nil nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26450 44554 520445 577000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/heptapod/hypersonic/src/wkb/poky.py"
+  "poky.py"
+  'python-mode
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  9759
+  '(1 nil)
+  nil
+  nil
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26450 44372 43825 17000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring nil)))
 
 (desktop-create-buffer 208
   "/home/ryan/Dropbox/emacs/Roam/db/20230710-nnpss23.org"
   "20230710-nnpss23.org"
   'org-mode
   '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode org-indent-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode)
-  76247
-  '(76228 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26417 26574 580566 244000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (52566 76365 76365 76180 76180 75539 75539 3810 75082 74327 74883 74327 74327 32363))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/gitlab/ForbesGroup/project_branched_flow/src/branched_flow/semiclassical.py"
-  "semiclassical.py"
-  'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode blacken-mode company-mode TeX-PDF-mode)
-  3048
+  76409
   '(nil nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26416 21608 852547 511000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((indent-tabs-mode) (buffer-display-time 26450 32117 972067 828000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/src/wkb/distributions.py"
-  "distributions.py"
+  "/home/ryan/repos/gitlab/ForbesGroup/paper_hypersonic/Manuscripts/Pearcey1/SuppMat.tex"
+  "SuppMat.tex"
+  'LaTeX-mode
+  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode reftex-mode flyspell-mode)
+  68
+  '(51 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 26450 19939 538577 943000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (51))))
+
+(desktop-create-buffer 208
+  "/home/ryan/repos/gitlab/Ryan_Notes/src/ryan_notes/kinesis.py"
+  "kinesis.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  1307
-  '(12314 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode blacken-mode company-mode)
+  2668
+  '(2481 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26414 24684 539472 112000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring nil)))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26438 52940 878542 89000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (2619 4190 3601 3592 3548 4149 4148 1 1 1 1 1 1 1 1 1))))
 
 (desktop-create-buffer 208
-  "/home/ryan/Dropbox/emacs/Roam/db/20220212-lolita.org"
-  "20220212-lolita.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode org-indent-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode)
-  4788
-  '(4174 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26411 42043 509577 44000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (4136 4118 4027 4118 3907 3907 3889 6602 6489 6423 6682 6682 3907 4118 4322))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/src/wkb/gaussianKd.py"
-  "gaussianKd.py"
+  "/home/ryan/repos/heptapod/hypersonic/Notebooks/particles.py"
+  "particles.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  2499
-  '(146 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  11736
+  '(8869 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26405 4364 90224 125000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (2423))))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26436 8556 260231 843000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (5731 4981 1701 11736 8868 3341 3341 1 1 1 1 1 1 1 1 1))))
 
 (desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/src/wkb/sheets.py"
-  "sheets.py"
+  "/home/ryan/repos/heptapod/hypersonic/Docs/Pearcey/experiments.py"
+  "experiments.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  7350
-  '(6277 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  6970
+  '(3394 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26406 19704 209544 724000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (6386 6255 7351 7316 7341 6171 7390 7350))))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26436 8557 631109 92000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (4029 3643 6970 6323 6970 5855 5582 5854 4030 4093 1149 505 1685 143 37 130))))
 
 (desktop-create-buffer 208
-  "/home/ryan/Dropbox/emacs/Roam/db/20241007-mediterranean.org"
-  "20241007-mediterranean.org"
-  'org-mode
-  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode org-indent-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode)
-  1123
-  '(1123 nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-display-time 26399 7469 307629 777000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (400 248))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/src/wkb/plots.py"
-  "plots.py"
+  "/home/ryan/repos/heptapod/hypersonic/_ext/gpe/src/gpe/bec.py"
+  "bec.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  7305
-  '(5874 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode auto-revert-mode TeX-PDF-mode blacken-mode company-mode)
+  37695
+  '(14265 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26395 59867 973309 285000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (1 1 1))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/packages/fftw-3.3.10/go.bash"
-  "go.bash"
-  'sh-mode
-  '(visual-line-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode)
-  253
-  '(1 nil)
-  nil
-  nil
-  '((buffer-display-time 26393 54104 680653 109000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (43 44 44 253 44))))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26436 8562 93469 772000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
+  '((mark-ring (37714 1))))
 
 (desktop-create-buffer 208
   "/home/ryan/repos/heptapod/hypersonic/src/wkb/experiments.py"
   "experiments.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  4482
-  '(4615 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26391 15775 54176 738000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
-  '((mark-ring (792 1186 814 974 974 621 1009 1020 973 4348 1508 1783 1 1 1 973))))
-
-(desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/src/wkb/utils.py"
-  "utils.py"
-  'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  414
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  5006
   '(nil nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26387 13734 132145 756000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26436 8563 826899 562000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
   '((mark-ring nil)))
 
 (desktop-create-buffer 208
-  "/home/ryan/repos/heptapod/hypersonic/Docs/Interference/psikd.py"
-  "psikd.py"
+  "/home/ryan/repos/heptapod/hypersonic/src/wkb/plots.py"
+  "plots.py"
   'python-mode
-  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode blacken-mode company-mode TeX-PDF-mode)
-  2733
-  '(2868 nil)
+  '(visual-line-mode eldoc-mode ivy-mode override-global-mode flycheck-mode yas-minor-mode which-key-mode projectile-mode TeX-PDF-mode blacken-mode company-mode)
+  8738
+  '(2098 nil)
   nil
   nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26381 40625 350742 393000) (buffer-file-coding-system . utf-8-unix) (truncate-lines))
-  '((mark-ring (2733 2714 2868 2733 2868 2734 1 1 1 1 1 1 1 1 1 1))))
+  '((tab-width . 8) (indent-tabs-mode) (buffer-display-time 26458 16382 431743 677000) (buffer-file-coding-system . undecided-unix) (truncate-lines))
+  '((mark-ring (1166 8602 1157 146 145))))
 

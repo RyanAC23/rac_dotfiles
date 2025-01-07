@@ -380,7 +380,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   "Prompt user to enter a number, with input history support."
   (interactive)
   (let (n)
-    (setq n (read-number "Type a page number: " ))
+    (setq n (read-number "Enter a page number: " ))
     (end-of-line)
     (insert "\n- ")
     (insert (format "(%d) " n))))
@@ -692,7 +692,10 @@ Uses `current-date-time-format' for the formatting the date/time."
   :init
   (yas-global-mode 1)
   :config
-  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+  (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+  (yas-reload-all)
+  :bind
+  ("C-<tab>" . yas-expand))
 
 (add-hook 'c-mode-common-hook
           (lambda ()

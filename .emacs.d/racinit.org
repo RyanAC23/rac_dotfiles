@@ -533,7 +533,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     "Prompt user to enter a number, with input history support."
     (interactive)
     (let (n)
-      (setq n (read-number "Type a page number: " ))
+      (setq n (read-number "Enter a page number: " ))
       (end-of-line)
       (insert "\n- ")
       (insert (format "(%d) " n))))
@@ -966,7 +966,11 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
     :init
     (yas-global-mode 1)
     :config
-    (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
+    (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
+    (yas-reload-all)
+    :bind
+    ("C-<tab>" . yas-expand))
+
 #+END_SRC
 
 * TODO C / C++
