@@ -16,17 +16,28 @@ The property header in this file is where the magic happens. [[https://orgmode.o
 
 * Global Variables
 ** Fonts
+Palatino seems to need a slightly larger font to be comfortable.
+
 #+BEGIN_SRC emacs-lisp
+
+  (defvar efs/default-bigger-font-size 135)
+  (defvar efs/fixed-pitch-bigger-font-size 130)
   (defvar efs/default-font-size 120)
+  (defvar efs/fixed-pitch-font-size 120)
   (defvar efs/default-variable-font-size 120)
 
-  (set-face-attribute 'default nil :font "Fira Code Retina" :height
-                      efs/default-font-size)
-  (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
-                      efs/default-font-size)
-  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
-                      efs/default-variable-font-size :weight 'regular)
-
+        ;; (set-face-attribute 'default nil :font "Palatino" :height
+        ;;    		  efs/default-bigger-font-size)
+        ;; (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
+        ;; 		    efs/default-variable-font-size :weight 'regular)
+        ;; (set-face-attribute 'fixed-pitch nil :font "Palatino" :height
+        ;; 		    efs/fixed-pitch-bigger-font-size)
+        (set-face-attribute 'default nil :font "Fira Code Retina" :height
+                            efs/default-font-size)
+        (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
+                              efs/default-font-size)
+        (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
+                              efs/default-variable-font-size :weight 'regular)
 #+END_SRC
 * Startup Performance
   The default garbage collection threshold is 800 kilobytes. This means a ton of garbage collections will occur, slowing down startup. I raise the default threshold for startup and lower it again at the bottom of this file.
@@ -87,7 +98,7 @@ Move between windows with shift+[arrow]. See [[Org Mode]] for a custom hook that
  #+END_SRC
 
 ** Line Numbers
-Enable line numbers by default.
+Enable the display of line numbers by default.
 
 #+BEGIN_SRC emacs-lisp
   (when (version<= "26.0.50" emacs-version )
@@ -96,7 +107,7 @@ Enable line numbers by default.
 #+END_SRC
 
 ** No Trailing Whitespace
-Delete trailing whitespace when saving
+Delete trailing whitespace when saving.
 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -107,6 +118,14 @@ enable word wrap mode globally
 
 #+BEGIN_SRC emacs-lisp
   (global-visual-line-mode)
+#+END_SRC
+
+** Key Rebinds
+By default, `C-n` is bound to `next-line`, which goes immediately to the line below. This behavior includes wrapped lines that do not actually end in a carriage return. Intuitively this behavior makes sense for the arrow keys, which are almost always on present day, present time keyboards, so there's no need for `C-n` to reproduce the behavior. When defining quick macros, I sometimes want to go to the next logical line, which is unbound in emacs by default.
+
+#+BEGIN_SRC emacs-lisp
+(require 'bind-key)
+(bind-key* "C-n" 'next-logical-line)
 #+END_SRC
 
 ** TODO Cleaner Directories
@@ -195,8 +214,9 @@ Start in server mode to open files in the server instance with the bash command
 Always add ~:ensure t~ to packages with ~use-package~. This causes packages to be installed automatically if they are not present on your system (this is useful when jumping back and forth between a few different machines).
 
 #+BEGIN_SRC emacs-lisp
-  (require 'use-package-ensure)
-  (setq use-package-always-ensure t)
+  (require 'use-package))
+  ;(require 'use-package-ensure)
+  ;(setq use-package-always-ensure t)
 #+END_SRC
 
 ** Try
@@ -363,45 +383,46 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 * iBuffer
 
 #+BEGIN_SRC emacs-lisp
-  ;; begin ibuffer at startup.
+    ;; begin ibuffer at startup.
 
-  ;; Navigation -------------------------------------------------------------
-  (defalias 'list-buffers 'ibuffer)
+    ;; Navigation -------------------------------------------------------------
+    (defalias 'list-buffers 'ibuffer)
 
-  ;; Don't show filter groups if there are no filters in the group
-  (setq ibuffer-show-empty-filter-groups nil)
-  (setq ibuffer-sorting-mode major-mode)
-  ;; Don't ask for confirmation to delete unmodified buffers
-  (setq ibuffer-expert t)
+    ;; Don't show filter groups if there are no filters in the group
+    (setq ibuffer-show-empty-filter-groups nil)
+    (setq ibuffer-sorting-mode major-mode)
+    ;; Don't ask for confirmation to delete unmodified buffers
+    (setq ibuffer-expert t)
 
-  ;; categorize buffers by groups:
-  (setq ibuffer-saved-filter-groups
-        (quote (("default"
-                 ("python" (mode . python-mode))
-                 ("c/c++" (or
-                           (mode . c-mode)
-                           (mode . c++-mode)))
-                 ("emacs" (or
-                           (mode . org-mode)
-                           (name . "^\\*scratch\\*$")
-                           (name . "^\\*Messages\\*$")))
-                 ("TeX" (or
-                         (mode . tex-mode)
-                         (mode . latex-mode)
-                         (mode . bibtex-mode)))
-                 ("docs"
-                   (mode . markdown-mode))
-                 ("web"
-                  (or
-                   (mode . web-mode)
-                   (mode . css-mode)))
-                 ("Dired"
-                  (mode . dired-mode))
-                 ))))
+    ;; categorize buffers by groups:
+    (setq ibuffer-saved-filter-groups
+          (quote (("default"
+                   ("python" (mode . python-mode))
+                   ("c/c++" (or
+                             (mode . c-mode)
+                             (mode . c++-mode)))
+                   ("emacs" (or
+                             (mode . org-mode)
+                             (name . "^\\*scratch\\*$")
+                             (name . "^\\*Messages\\*$")))
+                   ("TeX" (or
+                           (mode . tex-mode)
+                           (mode . latex-mode)
+                           (mode . bibtex-mode)
+                           (mode . reftex-mode))
+                   ("docs"
+                     (mode . markdown-mode))
+                   ("web"
+                    (or
+                     (mode . web-mode)
+                     (mode . css-mode)))
+                   ("Dired"
+                    (mode . dired-mode))
+                   ))))
 
-  (add-hook 'ibuffer-mode-hook
-            (lambda ()
-              (ibuffer-switch-to-saved-filter-groups "default")))
+    (add-hook 'ibuffer-mode-hook
+              (lambda ()
+                (ibuffer-switch-to-saved-filter-groups "default")))
 #+END_SRC
 ** Make 'size' column human readable
 [[https://www.emacswiki.org/emacs/IbufferMode#h5o-12:~:text=match%20qualifier%20it))))-,Use%20Human%20readable%20Size%20column,-I%20don%E2%80%99t%20like][Emacs Wiki has a solution to this.]]
@@ -456,7 +477,7 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
                 " "
                 filename-and-process)
           (mark " "
-                (name 16 -1)
+                (name 33 33)
                 " " filename)))
 #+END_SRC
 
@@ -731,29 +752,32 @@ Do not be confused between the quote and the [[https://www.gnu.org/software/emac
 ** Auctex / latexmk
 
 #+BEGIN_SRC emacs-lisp
-  (defun rac/TeX-save-compile()
-    ;; (save-buffer)
-    (TeX-command-run-all nil)
-  )
-      (use-package tex
-        :ensure auctex
-        :mode
-        ("\\.tex\\'" . latex-mode)
-        :config
-        (setq TeX-auto-save t)
-        (setq TeX-parse-self t)
-        (setq-default TeX-master nil)
-        (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-        (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-        (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-        (setq reftex-plug-into-AUCTeX t)
-        ;; :bind ("C-<return>" . TeX-command-run-all)
-        ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
-        )
-      (use-package auctex-latexmk
-        :after auctex
-        ;; :hook (setq-local TeX-command-default "LatexMk")
-      )
+  ;; (defun rac/TeX-save-compile()
+  ;;   ;; (save-buffer)
+  ;;   (TeX-command-run-all nil)
+  ;; )
+  (use-package auctex
+    :ensure t
+    :mode (("\\.tex\\'" . auctex-mode)  ; LaTeX and TeX
+           ("\\.sty\\'" . latex-mode)  ; LaTeX style files
+           )
+    :bind (("C-c l" . auctex-command-latex)) ; Compile (latexmk)
+    )
+    ;; :config
+  ;;   (setq TeX-auto-save t)
+  ;;   (setq TeX-parse-self t)
+  ;;   (setq-default TeX-master nil)
+  ;;   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+  ;;   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  ;;   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+  ;;   (setq reftex-plug-into-AUCTeX t)
+  ;;   ;; :bind ("C-<return>" . TeX-command-run-all)
+  ;;   ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
+  ;;   )
+  ;; (use-package auctex-latexmk
+  ;;   :after auctex
+  ;;   ;; :hook (setq-local TeX-command-default "LatexMk")
+  ;;   )
 #+END_SRC
 
 - Wednesday 21 February 2024

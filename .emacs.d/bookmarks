@@ -13,10 +13,10 @@
  (rear-context-string . "2K Nov  8 21:41 ")
  (position . 522))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/Roam/db/20241119-biology.org")
- (front-context-string)
- (rear-context-string . "+title: biology\n")
- (position . 85))
+ (filename . "~/Dropbox/emacs/rac-agenda.org")
+ (front-context-string . "* TODO Figure ou")
+ (rear-context-string)
+ (position . 3))
 ("notes_main.md"
  (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
  (front-context-string . "# Wednesday 14 D")

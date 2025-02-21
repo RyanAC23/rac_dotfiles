@@ -1,12 +1,21 @@
+(defvar efs/default-bigger-font-size 135)
+(defvar efs/fixed-pitch-bigger-font-size 130)
 (defvar efs/default-font-size 120)
+(defvar efs/fixed-pitch-font-size 120)
 (defvar efs/default-variable-font-size 120)
 
-(set-face-attribute 'default nil :font "Fira Code Retina" :height
-                    efs/default-font-size)
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
-                    efs/default-font-size)
-(set-face-attribute 'variable-pitch nil :font "Cantarell" :height
-                    efs/default-variable-font-size :weight 'regular)
+      ;; (set-face-attribute 'default nil :font "Palatino" :height
+      ;;    		  efs/default-bigger-font-size)
+      ;; (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
+      ;; 		    efs/default-variable-font-size :weight 'regular)
+      ;; (set-face-attribute 'fixed-pitch nil :font "Palatino" :height
+      ;; 		    efs/fixed-pitch-bigger-font-size)
+      (set-face-attribute 'default nil :font "Fira Code Retina" :height
+                          efs/default-font-size)
+      (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
+                            efs/default-font-size)
+      (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
+                            efs/default-variable-font-size :weight 'regular)
 
 (setq gc-cons-threshold (* 50 1000 1000)) ; Roguhly 50MB
 
@@ -50,6 +59,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (global-visual-line-mode)
+
+(require 'bind-key)
+(bind-key* "C-n" 'next-logical-line)
 
 (defvar --backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p --backup-directory))
@@ -119,8 +131,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key "\C-x\C-d" 'insert-current-date)
 (global-set-key "\C-x\C-t" 'insert-current-time)
 
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
+(require 'use-package))
+;(require 'use-package-ensure)
+;(setq use-package-always-ensure t)
 
 (use-package try
   :defer t)
@@ -248,7 +261,8 @@ Uses `current-date-time-format' for the formatting the date/time."
                ("TeX" (or
                        (mode . tex-mode)
                        (mode . latex-mode)
-                       (mode . bibtex-mode)))
+                       (mode . bibtex-mode)
+                       (mode . reftex-mode))
                ("docs"
                  (mode . markdown-mode))
                ("web"
@@ -312,7 +326,7 @@ Uses `current-date-time-format' for the formatting the date/time."
               " "
               filename-and-process)
         (mark " "
-              (name 16 -1)
+              (name 33 33)
               " " filename)))
 
 (use-package projectile
@@ -544,29 +558,32 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package org-roam-ui
   :ensure t)
 
-(defun rac/TeX-save-compile()
-  ;; (save-buffer)
-  (TeX-command-run-all nil)
-)
-    (use-package tex
-      :ensure auctex
-      :mode
-      ("\\.tex\\'" . latex-mode)
-      :config
-      (setq TeX-auto-save t)
-      (setq TeX-parse-self t)
-      (setq-default TeX-master nil)
-      (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-      (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-      (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-      (setq reftex-plug-into-AUCTeX t)
-      ;; :bind ("C-<return>" . TeX-command-run-all)
-      ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
-      )
-    (use-package auctex-latexmk
-      :after auctex
-      ;; :hook (setq-local TeX-command-default "LatexMk")
-    )
+;; (defun rac/TeX-save-compile()
+;;   ;; (save-buffer)
+;;   (TeX-command-run-all nil)
+;; )
+(use-package auctex
+  :ensure t
+  :mode (("\\.tex\\'" . auctex-mode)  ; LaTeX and TeX
+         ("\\.sty\\'" . latex-mode)  ; LaTeX style files
+         )
+  :bind (("C-c l" . auctex-command-latex)) ; Compile (latexmk)
+  )
+  ;; :config
+;;   (setq TeX-auto-save t)
+;;   (setq TeX-parse-self t)
+;;   (setq-default TeX-master nil)
+;;   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;;   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;;   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;;   (setq reftex-plug-into-AUCTeX t)
+;;   ;; :bind ("C-<return>" . TeX-command-run-all)
+;;   ;;(add-hook 'after-save-hook 'rac/TeX-save-compile)
+;;   )
+;; (use-package auctex-latexmk
+;;   :after auctex
+;;   ;; :hook (setq-local TeX-command-default "LatexMk")
+;;   )
 
 (add-to-list 'org-src-lang-modes '("latex-macros" . latex))
 

@@ -5,7 +5,7 @@ PWD := `pwd`
 backgrounds:
 	@echo "Feature not yet implemented."
 
-cleanEmacs:
+cleanEmacsPackages:
 	rm -rf .emacs.d/elpa
 
 linkEmacs:
