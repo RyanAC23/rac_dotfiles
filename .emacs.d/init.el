@@ -1,11 +1,10 @@
 ;; Emacs init file [./.emacs.d/init.el]
 
 ;; ----- Packages --------------------------------------------------------------
+
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 (unless package-archive-contents
@@ -13,6 +12,7 @@
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
+(require 'use-package)
 
 ;; ----- load external init file ---------------------------------------------------------
 
@@ -44,7 +44,7 @@
    '("~/Dropbox/emacs/rac-agenda.org" "~/Dropbox/emacs/Birthdays.org"))
  '(org-export-headline-levels 10)
  '(package-selected-packages
-   '(rainbow-mode neptune-light2-theme neptune-light-theme neptune-light elfeed-org org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons yasnippet org-roam-ui org-roam lsp-ivy blacken))
+   '(latex tex auctex-latexmk rainbow-mode neptune-light2-theme neptune-light-theme neptune-light elfeed-org org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons yasnippet org-roam-ui org-roam lsp-ivy blacken))
  '(safe-local-variable-values '((TeX-master . t)))
  '(tramp-terminal-type "dumb"))
 (custom-set-faces

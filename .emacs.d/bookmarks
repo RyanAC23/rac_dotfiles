@@ -2,27 +2,7 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("thesis.tex"
- (filename . "~/repos/gitlab/physics/thesis-2024/tex/thesis.tex")
- (front-context-string . "\\documentclass[o")
- (rear-context-string)
- (position . 1))
-("zebra"
- (filename . "/ssh:penguin:/home/racorbin/hypersonic/src/zebra/")
- (front-context-string . "parameters.py\n  ")
- (rear-context-string . "2K Nov  8 21:41 ")
- (position . 522))
-("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/rac-agenda.org")
- (front-context-string . "* TODO Figure ou")
- (rear-context-string)
- (position . 3))
-("notes_main.md"
- (filename . "~/repos/bitbucket/physics/lab_notebook/Docs/2022/notes_main.md")
- (front-context-string . "# Wednesday 14 D")
- (rear-context-string)
- (position . 1))
-#1=(#("racinit.org" 0 11
+(#1=(#("racinit.org" 0 11
       (bmkp-full-record #1#))
     (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
     (buffer-name . "racinit.org")
