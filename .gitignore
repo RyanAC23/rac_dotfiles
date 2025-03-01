@@ -16,6 +16,9 @@ bin/tex-template/
 .emacs.d/recentf~
 .emacs.d/transient/
 .emacs.d/org-roam.db
+.emacs.desktop
+.emacs.d/_tar/*
+.emacs.d/eln-cache/*
 
 .guayadeque
 
