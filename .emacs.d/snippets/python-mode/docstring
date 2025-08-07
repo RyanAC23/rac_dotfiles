@@ -1,14 +1,12 @@
-# key: docstring
+# key: """
 # name: docstring
 # --
 """
-<func(args, kwargs)>
-
-<description>
+	$1
 
 Parameters
 ----------
-
+	$0
 Returns
 -------
 

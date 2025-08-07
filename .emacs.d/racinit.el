@@ -590,7 +590,13 @@ Uses `current-date-time-format' for the formatting the date/time."
   :ensure t
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode)
-  ;;(add-hook 'c-mode-hook '(lambda () (setq flycheck-gcc-language-standard "gnu99")))
+  ;; Set the gcc language standard.
+  (add-hook 'c++-mode-hook '(lambda () (setq flycheck-gcc-language-standard "c++23")))
+  ;; Tell cppcheck to use c++23.
+  (setq flycheck-cppcheck-standards '("c++23"))
+  (add-hook 'c++-mode-hook
+          '(lambda ()
+             (setq flycheck-gcc-args '("-std=c++23"))))
   )
 
 (use-package company
@@ -652,6 +658,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
   (yas-reload-all)
+  (yas-global-mode 1)
   :bind
   ("C-<tab>" . yas-expand))
 

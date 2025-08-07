@@ -2,7 +2,31 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(#1=(#("racinit.org" 0 11
+(("hfb_py"
+ (filename . "~/physics/hfb-py/src/hfb_py/")
+ (front-context-string)
+ (rear-context-string . "34 Jul 23 17:02 ")
+ (position . 1226)
+ (last-modified 26765 42223 790329 733000))
+("academic bio"
+ (filename . "~/repos/gitlab/rac_pro/cover_letters/applications/sample/main.tex")
+ (front-context-string . "\n\\subsection{Aca")
+ (rear-context-string . "ы знаешь кто я?\n")
+ (position . 727)
+ (last-modified 26560 47855 335175 536000))
+("HFB Notes"
+ (filename . "~/physics/papers/hfb_notes/main.tex")
+ (front-context-string . "\\section{Discret")
+ (rear-context-string . "o be mistyped.\n\n")
+ (position . 8117)
+ (last-modified 26560 47836 51069 882000))
+("org-capture-last-stored"
+ (filename . "~/Dropbox/emacs/Roam/db/20250707-compressible_turbulence.org")
+ (front-context-string . "#+filetags: :phy")
+ (rear-context-string . "ulence Workshop\n")
+ (position . 110)
+ (last-modified 26733 21324 875410 711000))
+#1=(#("racinit.org" 0 11
       (bmkp-full-record #1#))
     (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
     (buffer-name . "racinit.org")
