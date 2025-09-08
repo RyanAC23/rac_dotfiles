@@ -1,14 +1,18 @@
 #!/bin/bash
 
-DIRECTORY=("/home/ryan/Dropbox/A-2023/"*.pdf)
-NAME="GOOD_2023"
+TECH_DIR="/home/ryan/Dropbox/Library/Fumika Zone/Technical"
+STUDY_DIR="/home/ryan/Dropbox/A-2023"
+
+CURRENT_STUDIES=("$TECH_DIR/Stroustrup - A Tour of C++.pdf"
+		 "$TECH_DIR/Press - Numerical Recipes 3rd Edition.pdf"
+		 "$TECH_DIR/Coleman - Quantum Field Theory.pdf"
+		 "$TECH_DIR/Needham - Visual Complex Analysis.pdf")
+
+DIRECTORY=("$STUDY_DIR/"*.pdf)
+NAME="GOOD"
 
 #qpdfview --unique --instance ${NAME}
 # the above creates a bash array named DIRECTORY.
 
-#for file in "${DIRECTORY[@]}"
-#do
-#    qpdfview --unique --choose-instance ${NAME} "${file}" &
-#done
-
+qpdfview --unique --instance ${NAME}  "${CURRENT_STUDIES[@]}" &
 qpdfview --unique --instance ${NAME} "${DIRECTORY[@]}" &

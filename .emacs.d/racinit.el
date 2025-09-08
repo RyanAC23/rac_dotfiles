@@ -619,6 +619,15 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package blacken
   :hook (python-mode . blacken-mode))
 
+(use-package format-all
+  :ensure t
+  :hook ((c-mode c++-mode) . format-all-mode)
+  :config
+  (setq format-all-buffer-on-save t)
+  (setq-default format-all-formatters
+                '(("C"     (astyle "--mode=c"))
+                  ("JavaScript" ("prettier" "--parser=babel")))))
+
 (defun indent-show-all ()
   (interactive)
   (set-selective-display nil)
@@ -653,14 +662,24 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq conda-env-home-directory (expand-file-name "~/miniconda3/"))
   (conda-env-activate "~/miniconda3/"))
 
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  )
+
 (use-package yasnippet
   :ensure t
   :config
   (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
   (yas-reload-all)
   (yas-global-mode 1)
+  :hook
+  (markdown-mode . (lambda ()
+                     (yas-activate-extra-mode 'latex-mode)))
   :bind
-  ("C-<tab>" . yas-expand))
+  ("C-<tab>" . yas-expand)
+  )
 
 (add-hook 'c-mode-common-hook
           (lambda ()

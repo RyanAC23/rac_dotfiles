@@ -44,7 +44,7 @@
    '("~/Dropbox/emacs/rac-agenda.org" "~/Dropbox/emacs/Birthdays.org"))
  '(org-export-headline-levels 10)
  '(package-selected-packages
-   '(latex tex auctex-latexmk rainbow-mode neptune-light2-theme neptune-light-theme neptune-light elfeed-org org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons yasnippet org-roam-ui org-roam lsp-ivy blacken))
+   '(markdown-mode dashboard-hackernews format-all latex tex auctex-latexmk rainbow-mode neptune-light2-theme neptune-light-theme neptune-light elfeed-org org-ref-ivy org-ref lsp-treemacs lsp-ui lsp-mode conda eterm-256-color all-the-icons-dired magit ivy-rich dashboard-ls lavender-theme ibuffer-vc mic-paren noflet maple-preview which-key web-mode use-package undo-tree try tabbar spaceline projectile ox-reveal org-bullets htmlize esup diminish dashboard counsel company auto-complete all-the-icons yasnippet org-roam-ui org-roam lsp-ivy blacken))
  '(safe-local-variable-values '((TeX-master . t)))
  '(tramp-terminal-type "dumb"))
 (custom-set-faces

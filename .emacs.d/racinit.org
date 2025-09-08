@@ -879,6 +879,16 @@ Automatically run `blacken` on any Python buffer upon saving. The time saved is 
 #+END_SRC
 
 ** TODO C/C++
+#+BEGIN_SRC emacs-lisp
+    (use-package format-all
+      :ensure t
+      :hook ((c-mode c++-mode) . format-all-mode)
+      :config
+      (setq format-all-buffer-on-save t)
+      (setq-default format-all-formatters
+                    '(("C"     (astyle "--mode=c"))
+                      ("JavaScript" ("prettier" "--parser=babel")))))
+#+END_SRC
 ** TODO Emacs-Lisp
 Find a way to auto-lint Emacs-Lisp code blocks in Org files. The rules should be something like [[https://github.com/bbatsov/emacs-lisp-style-guide][the ones here.]]
 * Python
@@ -930,14 +940,24 @@ See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-
 Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutorial.html][tutorial]] on Yasnippet features and functions.
 
 #+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :ensure t
+    :mode ("README\\.md\\'" . gfm-mode)
+    :init (setq markdown-command "multimarkdown")
+    )
+
   (use-package yasnippet
     :ensure t
     :config
     (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets"))
     (yas-reload-all)
     (yas-global-mode 1)
+    :hook
+    (markdown-mode . (lambda ()
+                       (yas-activate-extra-mode 'latex-mode)))
     :bind
-    ("C-<tab>" . yas-expand))
+    ("C-<tab>" . yas-expand)
+    )
 
 #+END_SRC
 

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: iota
+# key: iota
+# --
+
+std::ranges::views::iota($0)
