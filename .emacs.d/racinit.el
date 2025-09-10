@@ -621,12 +621,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package format-all
   :ensure t
-  :hook ((c-mode c++-mode) . format-all-mode)
+  :hook ((c-mode c++-mode) . format-all-ensure-formatter)
   :config
-  (setq format-all-buffer-on-save t)
-  (setq-default format-all-formatters
-                '(("C"     (astyle "--mode=c"))
-                  ("JavaScript" ("prettier" "--parser=babel")))))
+  (setq format-all-buffer-on-save t))
 
 (defun indent-show-all ()
   (interactive)

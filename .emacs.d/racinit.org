@@ -878,16 +878,19 @@ Automatically run `blacken` on any Python buffer upon saving. The time saved is 
     :hook (python-mode . blacken-mode))
 #+END_SRC
 
-** TODO C/C++
+** DONE C/C++
+CLOSED: [2025-09-09 Tue 22:55]
+
+Using `((c-mode c++-mode) . format-all-mode)` successfully activated the minor mode but would not select the formatter, despite being installed. I fixed this by using `format-all-ensure-formatter`, which must activate the minor mode. It seems to work now.
+
+Remember that `clang-format` needs to be installed.
+
 #+BEGIN_SRC emacs-lisp
-    (use-package format-all
-      :ensure t
-      :hook ((c-mode c++-mode) . format-all-mode)
-      :config
-      (setq format-all-buffer-on-save t)
-      (setq-default format-all-formatters
-                    '(("C"     (astyle "--mode=c"))
-                      ("JavaScript" ("prettier" "--parser=babel")))))
+  (use-package format-all
+    :ensure t
+    :hook ((c-mode c++-mode) . format-all-ensure-formatter)
+    :config
+    (setq format-all-buffer-on-save t))
 #+END_SRC
 ** TODO Emacs-Lisp
 Find a way to auto-lint Emacs-Lisp code blocks in Org files. The rules should be something like [[https://github.com/bbatsov/emacs-lisp-style-guide][the ones here.]]
