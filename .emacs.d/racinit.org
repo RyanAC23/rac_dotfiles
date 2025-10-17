@@ -836,18 +836,20 @@ Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp
 ** Flycheck
 
 #+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :ensure t
-    :config
-    (add-hook 'after-init-hook #'global-flycheck-mode)
-    ;; Set the gcc language standard.
-    (add-hook 'c++-mode-hook '(lambda () (setq flycheck-gcc-language-standard "c++23")))
-    ;; Tell cppcheck to use c++23.
-    (setq flycheck-cppcheck-standards '("c++23"))
-    (add-hook 'c++-mode-hook
-            '(lambda ()
-               (setq flycheck-gcc-args '("-std=c++23"))))
-    )
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+    (use-package flycheck
+      :ensure t
+      :config
+      (add-hook 'after-init-hook #'global-flycheck-mode)
+      ;; Set the gcc language standard.
+      (add-hook 'c++-mode-hook '(lambda () (setq flycheck-gcc-language-standard "c++23")))
+      ;; Tell cppcheck to use c++23.
+      (setq flycheck-cppcheck-standards '("c++23"))
+      (add-hook 'c++-mode-hook
+              '(lambda ()
+                 (setq flycheck-gcc-args '("-std=c++23"))))
+      )
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
@@ -888,9 +890,10 @@ Remember that `clang-format` needs to be installed.
 #+BEGIN_SRC emacs-lisp
   (use-package format-all
     :ensure t
-    :hook ((c-mode c++-mode) . format-all-ensure-formatter)
+    :hook ((c-mode . format-all-mode)
+           (c++-mode . format-all-mode))
     :config
-    (setq format-all-buffer-on-save t))
+    (setq-default format-all-formatters '(("C++" clang-format))))
 #+END_SRC
 ** TODO Emacs-Lisp
 Find a way to auto-lint Emacs-Lisp code blocks in Org files. The rules should be something like [[https://github.com/bbatsov/emacs-lisp-style-guide][the ones here.]]

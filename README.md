@@ -39,9 +39,7 @@ Packages are divided into two sets, called core and full. The core list contains
 | [git](https://git-scm.com/)                                | Fast distributed version control system              |                                                |
 | [ranger](http://ranger.github.io/)                         | Simple console file manager                          |                                                |
 | [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html)  | Unicode enabled rxvt-clone terminal emulator (urxvt) | .urxvt symlinked to $HOME                      |
-| [w3m](http://w3m.sourceforge.net/)                         | text-based web browser                               | Installed as a dependency for urxvt and ranger |
 | [xclip](https://github.com/astrand/xclip)                  | Command line interface to the X11 clipboard          |                                                |
-| [mercurial](https://www.mercurial-scm.org)                 | Distributed source control management tool           |                                                |
 | [libx11-dev](https://packages.ubuntu.com/xenial/libx11-dev) | Dependencies                                        |                                                |
 | [libxft-dev](https://packages.ubuntu.com/xenial/libxft-dev) | Dependencies                                        |                                                |
 | [ffmpeg](https://ffmpeg.org/)                              | Cross platform audio and video editor                |                                                |
@@ -61,12 +59,9 @@ Packages are divided into two sets, called core and full. The core list contains
 | [mpv](https://mpv.io/)                                     | Cross platform media player                          |                                                |
 | [texlive-full](https://tug.org/texlive/)                   | TeX document production system                       | THE killer of a quick install                  |
 | [stellarium](http://stellarium.org/)                       | Open source planetarium software                     |                                                |
-| [screenkey](https://gitlab.com/screenkey/screenkey)        | Key screencast tool                                  |                                                |
-| [virtualbox](https://www.virtualbox.org/)                  | Cross platform virtualization                        |                                                |
 | [asunder](http://littlesvr.ca/asunder/)                    | CD ripper                                            | For trips to the thrift store                  |
 | [krita](https://krita.org/en/)                             | Painting/image editor                                |                                                |
 | [gparted](https://gparted.org/)                            | GUI partition manager                                |                                                |
-| Chrome                                                     | Web Browser                                          | I know...                                      |
 | [gstreamer1.0-plugins-bad](https://packages.debian.org/sid/gstreamer1.0-plugins-bad) | Audio codecs               | For straggling .m4a files                      |
 | [Transmission](https://transmissionbt.com/download/)       | Torrent client                                       |                                                |
 ## Config files list <a name = "configs"></a>

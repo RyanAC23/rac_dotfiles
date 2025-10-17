@@ -5,10 +5,9 @@ STUDY_DIR="/home/ryan/Dropbox/A-2023"
 PROBLEM_DIR="/home/ryan/Dropbox/Library/Fumika Zone/Technical/Problems and Solutions"
 # En route to HPC nuclear DFT
 CURRENT_STUDIES=("$TECH_DIR/Stroustrup - A Tour of C++.pdf"
-		 "$TECH_DIR/Press - Numerical Recipes 3rd Edition.pdf"
+		 # "$TECH_DIR/Press - Numerical Recipes 3rd Edition.pdf"
 		 "$TECH_DIR/Coleman - Quantum Field Theory.pdf"
 		 "$TECH_DIR/Needham - Visual Complex Analysis.pdf"
-		 "$PROBLEM_DIR/Galitski - Exploring Quantum Mechanics.pdf"
 		 "$PROBLEM_DIR/Gelis - Problems in Quantum Field Theory.pdf")
 
 DIRECTORY=("$STUDY_DIR/"*.pdf)

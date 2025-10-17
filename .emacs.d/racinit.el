@@ -586,18 +586,20 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq TeX-electric-sub-and-superscript t)
   )
 
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-  ;; Set the gcc language standard.
-  (add-hook 'c++-mode-hook '(lambda () (setq flycheck-gcc-language-standard "c++23")))
-  ;; Tell cppcheck to use c++23.
-  (setq flycheck-cppcheck-standards '("c++23"))
-  (add-hook 'c++-mode-hook
-          '(lambda ()
-             (setq flycheck-gcc-args '("-std=c++23"))))
-  )
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+  (use-package flycheck
+    :ensure t
+    :config
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    ;; Set the gcc language standard.
+    (add-hook 'c++-mode-hook '(lambda () (setq flycheck-gcc-language-standard "c++23")))
+    ;; Tell cppcheck to use c++23.
+    (setq flycheck-cppcheck-standards '("c++23"))
+    (add-hook 'c++-mode-hook
+            '(lambda ()
+               (setq flycheck-gcc-args '("-std=c++23"))))
+    )
 
 (use-package company
   :hook
@@ -621,9 +623,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package format-all
   :ensure t
-  :hook ((c-mode c++-mode) . format-all-ensure-formatter)
+  :hook ((c-mode . format-all-mode)
+         (c++-mode . format-all-mode))
   :config
-  (setq format-all-buffer-on-save t))
+  (setq-default format-all-formatters '(("C++" clang-format))))
 
 (defun indent-show-all ()
   (interactive)

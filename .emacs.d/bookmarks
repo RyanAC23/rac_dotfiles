@@ -21,11 +21,11 @@
  (position . 8117)
  (last-modified 26560 47836 51069 882000))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/emacs/Roam/db/20250707-compressible_turbulence.org")
+ (filename . "~/Dropbox/emacs/Roam/db/20250918-physics_general.org")
  (front-context-string . "#+filetags: :phy")
- (rear-context-string . "ulence Workshop\n")
- (position . 110)
- (last-modified 26733 21324 875410 711000))
+ (rear-context-string . "+title: Physics\n")
+ (position . 85)
+ (last-modified 26828 26942 629231 38000))
 #1=(#("racinit.org" 0 11
       (bmkp-full-record #1#))
     (filename . "~/repos/rac_dotfiles/.emacs.d/racinit.org")
