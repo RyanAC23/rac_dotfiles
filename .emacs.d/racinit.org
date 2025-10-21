@@ -1052,35 +1052,6 @@ Lower the garbage collection threshold from the higher value used at startup.
 * Test Space
 For settings and Melpa packages I haven't committed myself to.
 * Dump
-** Org-Ref
-I tried this for a while and it didn't do anything for me except break the update to Emacs 29. That's it for now.
-#+BEGIN_SRC emacs-lisp :tangle no
-  (use-package org-ref			;
-      :config
-      (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f")))
-  (setq bibtex-completion-bibliography
-        '("~/Dropbox/emacs/bibliography/physics.bib"
-          "~/Dropbox/emacs/bibliography/otherworld.bib"
-          "~/Dropbox/emacs/bibliography/nuclear.bib")
-        bibtex-completion-library-path '("~/Dropbox/bibtex-pdfs/")
-        bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-        bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-        bibtex-completion-additional-search-fields '(keywords)
-        bibtex-completion-display-formats
-        '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-          (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-          (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-          (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-        bibtex-completion-pdf-open-function
-        (lambda (fpath)
-          (call-process "open" nil 0 nil fpath)))
-
-  (define-key org-mode-map (kbd "C-c C-] b") 'org-ref-bibtex-hydra/body)
-  (define-key org-mode-map (kbd "C-c C-] i") 'org-ref-insert-link)
-  (define-key org-mode-map (kbd "C-c C-] c") 'org-ref-insert-cite-function)
-  (define-key org-mode-map (kbd "C-c C-] n") 'org-ref-bibtex-hydra/org-ref-bibtex-new-entry/body-and-exit) ;
-#+END_SRC
 ** RSS - Elfeed
 I keep my elfeed-org file in [[~/Dropbox/emacs/elfeed.org][Dropbox]] to allow syncing between computers.
 
@@ -1093,7 +1064,7 @@ I keep my elfeed-org file in [[~/Dropbox/emacs/elfeed.org][Dropbox]] to allow sy
     (setq-default elfeed-search-filter "@6-months-ago +unread"))
 #+END_SRC
 
-** Directory Management
+** TODO Directory Management
 All I really want is for directory buffers not to accumulate.
 
 #+BEGIN_SRC emacs-lisp :tangle no
