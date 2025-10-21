@@ -44,14 +44,6 @@
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
-  ;; (dolist  (_sys '((lambda(x)
-  ;;                  (setq locale-coding-system x))
-  ;;                set-terminal-coding-system
-  ;;                set-keyboard-coding-system
-  ;;                set-selection-coding-system
-  ;;                prefer-coding-system))
-  ;;   (funcall _sys 'utf-8))
-
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (defun reload-init-file ()
@@ -154,11 +146,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package mic-paren
   :config
-  (dolist (hooks '(c-mode-common-hook
-                  python-mode-hook
-                  org-mode-hook
-                  emacs-lisp-mode-hook))
-    (add-hook hooks 'paren-activate)))
+  (paren-activate))
 
 ;;; Place to put local packages.
 (let* ((path (expand-file-name "lisp" user-emacs-directory))
@@ -245,94 +233,86 @@ Uses `current-date-time-format' for the formatting the date/time."
     (setq ivy-display-style 'fancy)
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
-;; begin ibuffer at startup.
-
-;; Navigation -------------------------------------------------------------
-(defalias 'list-buffers 'ibuffer)
-
-;; Don't show filter groups if there are no filters in the group
-(setq ibuffer-show-empty-filter-groups nil)
-(setq ibuffer-sorting-mode major-mode)
-;; Don't ask for confirmation to delete unmodified buffers
-(setq ibuffer-expert t)
-
-;; categorize buffers by groups:
-(setq ibuffer-saved-filter-groups
-      (quote (("default"
-               ("python" (mode . python-mode))
-               ("c/c++" (or
-                         (mode . c-mode)
-                         (mode . c++-mode)))
-               ("org" (mode . org-mode))
-               ("TeX" (or (filename . ".tex")
-                          (filename . ".sty")))
-               ("docs" (mode . markdown-mode))
-               ("web" (or
-                       (mode . mhtml-mode)
-                       (mode . html-mode)
-                       (mode . css-mode)))
-               ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Warnings\\*$")
-                         (name . "^\\*Messages\\*$")))
-               ("Dired" (mode . dired-mode))
-               ))))
-
-(add-hook 'ibuffer-mode-hook
-          (lambda ()
+(use-package ibuffer
+  :ensure nil; ; ibuffer is built-in, so don't try to install it from melpa.
+  :bind ("C-x C-b" . ibuffer)
+  :hook (ibuffer-mode . (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
+  :config
+  ;; Don't show filter groups if there are no filters in the group
+  (setq ibuffer-show-empty-filter-groups nil)
+  ;; Don't ask for confirmation to delete unmodified buffers
+  (setq ibuffer-expert t)
+  ;; categorize buffers by project/language groups:
+  (setq ibuffer-saved-filter-groups
+        (quote (("default"
+                 ("python" (mode . python-mode))
+                 ("c/c++" (or
+                           (mode . c-mode)
+                           (mode . c++-mode)))
+                 ("org" (mode . org-mode))
+                 ("TeX" (or (filename . ".tex")
+                            (filename . ".sty")))
+                 ("docs" (mode . markdown-mode))
+                 ("web" (or
+                         (mode . mhtml-mode)
+                         (mode . html-mode)
+                         (mode . css-mode)))
+                 ("emacs" (or
+                           (name . "^\\*scratch\\*$")
+                           (name . "^\\*Warnings\\*$")
+                           (name . "^\\*Messages\\*$")))
+                 ("Dired" (mode . dired-mode))
+                 ))))
 
-(defun human-readable-file-sizes-to-bytes (string)
-  "Convert a human-readable file size into bytes."
-  (interactive)
-  (cond
-   ((string-suffix-p "G" string t)
-    (* 1000000000 (string-to-number (substring string 0 (- (length string) 1)))))
-   ((string-suffix-p "M" string t)
-    (* 1000000 (string-to-number (substring string 0 (- (length string) 1)))))
-   ((string-suffix-p "K" string t)
-    (* 1000 (string-to-number (substring string 0 (- (length string) 1)))))
-   (t
-    (string-to-number (substring string 0 (- (length string) 1))))))
+  (defun rac/--human-readable-file-sizes-to-bytes (string)
+    "Convert a human-readable file size into bytes."
+    (cond
+     ((string-suffix-p "G" string t)
+      (* 1000000000 (string-to-number (substring string 0 (- (length string) 1)))))
+     ((string-suffix-p "M" string t)
+      (* 1000000 (string-to-number (substring string 0 (- (length string) 1)))))
+     ((string-suffix-p "K" string t)
+      (* 1000 (string-to-number (substring string 0 (- (length string) 1)))))
+     (t
+      (string-to-number (substring string 0 (- (length string) 1))))))
 
-(defun bytes-to-human-readable-file-sizes (bytes)
-  "Convert number of bytes to human-readable file size."
-  (interactive)
-  (cond
-   ((> bytes 1000000000) (format "%10.1fG" (/ bytes 1000000000.0)))
-   ((> bytes 100000000) (format "%10.0fM" (/ bytes 1000000.0)))
-   ((> bytes 1000000) (format "%10.1fM" (/ bytes 1000000.0)))
-   ((> bytes 100000) (format "%10.0fk" (/ bytes 1000.0)))
-   ((> bytes 1000) (format "%10.1fk" (/ bytes 1000.0)))
-   (t (format "%10d" bytes))))
+  (defun rac/--bytes-to-human-readable-file-sizes (bytes)
+    "Convert number of bytes to human-readable file size."
+    (cond
+     ((> bytes 1000000000) (format "%10.1fG" (/ bytes 1000000000.0)))
+     ((> bytes 100000000) (format "%10.0fM" (/ bytes 1000000.0)))
+     ((> bytes 1000000) (format "%10.1fM" (/ bytes 1000000.0)))
+     ((> bytes 100000) (format "%10.0fk" (/ bytes 1000.0)))
+     ((> bytes 1000) (format "%10.1fk" (/ bytes 1000.0)))
+     (t (format "%10d" bytes))))
 
-;; Use human readable Size column instead of original one
+  ;; Use human readable Size column instead of original one
+  (define-ibuffer-column size-h
+    (:name "Size"
+           :summarizer
+           (lambda (column-strings)
+             (let ((total 0))
+               (dolist (string column-strings)
+                 (setq total
+                       (+ (float (rac/--human-readable-file-sizes-to-bytes string))
+                          total)))
+               (rac/--bytes-to-human-readable-file-sizes total)))); :summarizer nil
+    (rac/--bytes-to-human-readable-file-sizes (buffer-size)))
 
-(define-ibuffer-column size-h
-  (:name "Size"
-         :summarizer
-         (lambda (column-strings)
-           (let ((total 0))
-             (dolist (string column-strings)
-               (setq total
-                     (+ (float (human-readable-file-sizes-to-bytes string))
-                        total)))
-             (bytes-to-human-readable-file-sizes total)))); :summarizer nil
-  (bytes-to-human-readable-file-sizes (buffer-size)))
-
-;; Modify the default ibuffer-formats
-(setq ibuffer-formats
-      '((mark modified read-only locked " "
-              (name 30 30 :left :elide)
-              " "
-              (size-h 11 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " "
-              filename-and-process)
-        (mark " "
-              (name 33 33)
-              " " filename)))
+  ;; Modify the default ibuffer-formats
+  (setq ibuffer-formats
+        '((mark modified read-only locked " "
+                (name 30 30 :left :elide)
+                " "
+                (size-h 11 -1 :right)
+                " "
+                (mode 16 16 :left :elide)
+                " "
+                filename-and-process)
+          (mark " "
+                (name 33 33)
+                " " filename))))
 
 (use-package projectile
     :diminish projectile-mode
@@ -578,7 +558,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 (use-package auctex
   :mode (("\\.tex\\'" . latex-mode)
          ("\\.sty\\'" . latex-mode))
-  ;;:bind (("C-c l" . (compile "latexmk")))
   :bind ("C-<return>" . compile)
   :config
   (setq TeX-electric-sub-and-superscript t)
