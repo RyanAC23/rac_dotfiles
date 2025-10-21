@@ -40,15 +40,34 @@ Palatino seems to need a slightly larger font to be comfortable.
 	(set-face-attribute 'variable-pitch nil :font "Cantarell" :height
 			      rac/default-variable-font-size :weight 'regular)
 #+END_SRC
+* RAC utils
+These are utility and helper functions I've written to customize my experience. I have collected them here so that they will be loaded in time to be used elsewhere; in particular I was having issues with Dashboard selecting my quotes randomizer (a vanity I was not willing to give up).
+
+`rac/load-if-exists` was moved to `init.el` because that's where *this* file is loaded from.
+
+#+BEGIN_SRC emacs-lisp
+  (rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
+                                          ; provides rac/dashboard-quotes-list
+  (defun rac/random-quote ()
+    "Pick a random quote from `dashboard_quotes.el`."
+    (if (and
+         (boundp 'rac/dashboard-quotes-list)
+         (> (length rac/dashboard-quotes-list) 0))
+        (nth (random (length rac/dashboard-quotes-list)) rac/dashboard-quotes-list)
+      "ERROR: rac/dashboard-quotes-list not bound or 0 length."))
+
+  (defvar rac/bytes-per-KiB 1024
+    "Number of bytes in a kibibyte (KiB).")
+
+  (defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
+    "Number of bytes in a mebibyte (MiB).")
+
+#+END_SRC
+
 * Startup Performance
   The default garbage collection threshold is 800 kilobytes. This means a ton of garbage collections will occur, slowing down startup. I raise the default threshold for startup and lower it again at the bottom of this file.
 
 #+BEGIN_SRC emacs-lisp
-    (defvar rac/bytes-per-KiB 1024
-      "Number of bytes in a kibibyte (KiB).")
-
-    (defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
-      "Number of bytes in a mebibyte (MiB).")
 
       (setq gc-cons-threshold (* 100 rac/bytes-per-MiB))
       ;"GC threshold during startup: 100 MiB."
@@ -464,51 +483,48 @@ The size column is not human readable by default. [[https://www.emacswiki.org/em
                   " " filename))))
 #+END_SRC
 
-* COMMENT Dashboard / Homescreen
+* TODO Dashboard / Homescreen
 - Added dashboard config to [[https://githubmemory.com/repo/emacs-dashboard/emacs-dashboard/issues/297][close agenda buffers]] after reading them on startup.
 
 #+BEGIN_SRC emacs-lisp
-  (rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
-                                          ; provides rac/dashboard-quotes-list
-  (defun rac/random-quote ()
-    "docstring"
-    (if (and
-         (boundp 'rac/dashboard-quotes-list)
-         (> (length rac/dashboard-quotes-list) 0))
-        (nth (random (length rac/dashboard-quotes-list)) rac/dashboard-quotes-list)
-      "ERROR: rac/dashboard-quotes-list not bound or 0 length."))
 
-  (use-package projectile
-    :diminish projectile-mode
-    :config (projectile-mode)
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :custom ((projectile-completion-system 'ivy))
-    :init
-    (when (file-directory-p "~/repos/")
-      (setq projectile-project-search-path '("~/repos/"))))
+      (use-package projectile
+        :diminish projectile-mode
+        :config (projectile-mode)
+        :bind-keymap
+        ("C-c p" . projectile-command-map)
+        :custom ((projectile-completion-system 'ivy))
+        :init
+        (when (file-directory-p "~/repos/")
+          (setq projectile-project-search-path '("~/repos/"))))
 
-  (use-package all-the-icons)
+      (use-package all-the-icons)
 
-  ;; install if not present
-  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-    (all-the-icons-install-fonts))
+      ;; install if not present
+      (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+        (all-the-icons-install-fonts))
 
-    (use-package dashboard
-      :init
-      (dashboard-setup-startup-hook)
-      :config
-      (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-      (setq dashboard-items '((projects . 10)
-                              (recents . 15)
-                              (bookmarks . 5)
-                              (registers . 5)))
-      (setq dashboard-center-content t)
-      (setq dashboard-set-file-icons t)
-      (setq dashboard-set-heading-icons t)
-      (setq dashboard-footer-messages nil)
-      (setq dashboard-banner-logo-title (rac/random-quote))
-      (dashboard-open))
+      (use-package dashboard
+        :init
+        (message "Dashboard: Setting banner...")
+        (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
+        (message "Dashboard: Setting projectile backend...")
+        (setq dashboard-projects-backend 'projectile)
+
+        (message "Dashboard: Setting items...")
+        (setq dashboard-items '((projects . 10)
+                                (recents . 15)
+                                (bookmarks . 5)
+                                (registers . 5)))
+
+        (message "Dashboard: Setting display options...")
+        (setq dashboard-center-content t)
+        (setq dashboard-set-file-icons t)
+        (setq dashboard-set-heading-icons t)
+        (setq dashboard-footer-messages '(""))
+        (setq dashboard-banner-logo-title (rac/random-quote))
+        (message "Dashboard: Calling dashboard-setup-startup-hook...")
+        (dashboard-setup-startup-hook))
       #+END_SRC
 
 * Org Mode
@@ -746,7 +762,7 @@ This must be loaded after `org`!!!
      "\n#+HTML_HEAD_EXTRA: \\)</div>\n"))
    #+END_SRC
 
-* TODO LaTeX
+* LaTeX
 ** TODO Auctex / latexmk
 
 #+BEGIN_SRC emacs-lisp

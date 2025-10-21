@@ -18,13 +18,23 @@
       (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
 			    rac/default-variable-font-size :weight 'regular)
 
+(rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
+                                        ; provides rac/dashboard-quotes-list
+(defun rac/random-quote ()
+  "Pick a random quote from `dashboard_quotes.el`."
+  (if (and
+       (boundp 'rac/dashboard-quotes-list)
+       (> (length rac/dashboard-quotes-list) 0))
+      (nth (random (length rac/dashboard-quotes-list)) rac/dashboard-quotes-list)
+    "ERROR: rac/dashboard-quotes-list not bound or 0 length."))
+
 (defvar rac/bytes-per-KiB 1024
-    "Number of bytes in a kibibyte (KiB).")
+  "Number of bytes in a kibibyte (KiB).")
 
-  (defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
-    "Number of bytes in a mebibyte (MiB).")
+(defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
+  "Number of bytes in a mebibyte (MiB).")
 
-    (setq gc-cons-threshold (* 100 rac/bytes-per-MiB))
+(setq gc-cons-threshold (* 100 rac/bytes-per-MiB))
     ;"GC threshold during startup: 100 MiB."
 
     (defun rac/run-startup-diagnostics ()
@@ -313,6 +323,44 @@ Uses `current-date-time-format' for the formatting the date/time."
           (mark " "
                 (name 33 33)
                 " " filename))))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :custom ((projectile-completion-system 'ivy))
+  :init
+  (when (file-directory-p "~/repos/")
+    (setq projectile-project-search-path '("~/repos/"))))
+
+(use-package all-the-icons)
+
+;; install if not present
+(unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+  (all-the-icons-install-fonts))
+
+(use-package dashboard
+  :init
+  (message "Dashboard: Setting banner...")
+  (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
+  (message "Dashboard: Setting projectile backend...")
+  (setq dashboard-projects-backend 'projectile)
+
+  (message "Dashboard: Setting items...")
+  (setq dashboard-items '((projects . 10)
+                          (recents . 15)
+                          (bookmarks . 5)
+                          (registers . 5)))
+
+  (message "Dashboard: Setting display options...")
+  (setq dashboard-center-content t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-footer-messages '(""))
+  (setq dashboard-banner-logo-title (rac/random-quote))
+  (message "Dashboard: Calling dashboard-setup-startup-hook...")
+  (dashboard-setup-startup-hook))
 
 ;; Org-mode ------------------------------------------------------------
 (defun org-mode-setup ()
