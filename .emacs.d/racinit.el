@@ -158,7 +158,7 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (paren-activate))
 
-;;; Place to put local packages.
+;;; Place to put local packages. .emacs.d/lisp/
 (let* ((path (expand-file-name "lisp" user-emacs-directory))
        (local-pkgs (mapcar 'file-name-directory (directory-files-recursively path ".*\\.el"))))
   (if (file-accessible-directory-p path)

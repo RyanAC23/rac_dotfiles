@@ -1,1 +1,7 @@
-something gets mad if this dir doesn't exist.
+#+TITLE: Local Packages
+
+This directory is for local Emacs Lisp packages that aren't available on MELPA.
+
+~racinit.org~ automatically adds all subdirectories here to load-path.
+
+Even if empty, this directory must exist or load-path setup gets angry.

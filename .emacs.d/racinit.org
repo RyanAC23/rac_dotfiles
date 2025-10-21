@@ -270,7 +270,7 @@ https://melpa.org/#/mic-paren
 
 ** Load non-MELPA packages
  #+begin_src emacs-lisp
-   ;;; Place to put local packages.
+   ;;; Place to put local packages. .emacs.d/lisp/
    (let* ((path (expand-file-name "lisp" user-emacs-directory))
           (local-pkgs (mapcar 'file-name-directory (directory-files-recursively path ".*\\.el"))))
      (if (file-accessible-directory-p path)
