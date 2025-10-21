@@ -1,22 +1,22 @@
-(defvar efs/default-bigger-font-size 135)
-(defvar efs/fixed-pitch-bigger-font-size 130)
-(defvar efs/default-font-size 120)
-(defvar efs/fixed-pitch-font-size 120)
-(defvar efs/default-variable-font-size 120)
+(defvar rac/default-bigger-font-size 135)
+(defvar rac/fixed-pitch-bigger-font-size 130)
+(defvar rac/default-font-size 120)
+(defvar rac/fixed-pitch-font-size 120)
+(defvar rac/default-variable-font-size 120)
 
       ;; (set-face-attribute 'default nil :font "Palatino" :height
-      ;;    		  efs/default-bigger-font-size)
+      ;;    		  rac/default-bigger-font-size)
       ;; (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
-      ;; 		    efs/default-variable-font-size :weight 'regular)
+      ;; 		    rac/default-variable-font-size :weight 'regular)
       ;; (set-face-attribute 'fixed-pitch nil :font "Palatino" :height
-      ;; 		    efs/fixed-pitch-bigger-font-size)
+      ;; 		    rac/fixed-pitch-bigger-font-size)
 
       (set-face-attribute 'default nil :font "Fira Code Retina" :height
-			  efs/default-font-size)
+			  rac/default-font-size)
       (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height
-			    efs/default-font-size)
+			    rac/default-font-size)
       (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
-			    efs/default-variable-font-size :weight 'regular)
+			    rac/default-variable-font-size :weight 'regular)
 
 (setq gc-cons-threshold (* 50 1000 1000)) ; Roguhly 50MB
 
@@ -485,22 +485,22 @@ Uses `current-date-time-format' for the formatting the date/time."
          ,link-capture-string :kill-buffer t)
         ))
 
-(defun rac-org-babel-tangle-config ()
+(defun rac/org-babel-tangle-config ()
   (when (string-equal (buffer-file-name)
                       (expand-file-name "~/repos/rac_dotfiles/.emacs.d/racinit.org"))
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac-org-babel-tangle-config)))
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
 
-(defun rac-org-mode-visual-fill ()
+(defun rac/org-mode-visual-fill ()
   (setq visual-fill-column-width 150
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
   :defer t
-  :hook (org-mode . rac-org-mode-visual-fill)
+  :hook (org-mode . rac/org-mode-visual-fill)
   :diminish)
 
 (use-package org-roam
