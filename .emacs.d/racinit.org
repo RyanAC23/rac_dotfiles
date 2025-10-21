@@ -565,10 +565,9 @@ The size column is not human readable by default. [[https://www.emacswiki.org/em
   ;; reveal.js presentations
   (use-package ox-reveal
     :config
-    ;; We need to tell ox-reveal where to find the js file.
-    (dolist (setq '(
-                    (org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-                    (org-reveal-mathjax t)))))
+    ;; We need to tell ox-reveal where to find the js file
+    (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+    (setq org-reveal-mathjax t))
 
 #+END_SRC
 ** Org Links Mode
@@ -672,8 +671,6 @@ Do not be confused between the quote and the [[https://www.gnu.org/software/emac
 #+BEGIN_SRC emacs-lisp
   (use-package org-roam
     :ensure t
-    :init
-    (setq org-roam-v2-ack t)
     :custom
     (org-roam-directory "~/Dropbox/emacs/Roam/db")
     (org-roam-completion-everywhere t)
@@ -874,26 +871,27 @@ Find a way to auto-lint Emacs-Lisp code blocks in Org files. The rules should be
 Uses the function keys to hide indentation.
 
 #+BEGIN_SRC emacs-lisp
-  (defun indent-show-all ()
+  (defun rac/indent-show-all ()
     (interactive)
     (set-selective-display nil)
     (condition-case nil (hs-show-all) (error nil))
     (show-all))
-  (defun python-remap-fs ()
-    (global-set-key [f1] 'indent-show-all)
-    (global-set-key [f2] (lambda () (interactive) (set-selective-display
+
+  (defun rac/python-remap-fs ()
+    (define-key python-mode-map [f1] 'rac/indent-show-all)
+    (define-key python-mode-map [f2] (lambda () (interactive) (set-selective-display
                                                    standard-indent)))
-    (global-set-key [f3] (lambda () (interactive) (set-selective-display
+    (define-key python-mode-map [f3] (lambda () (interactive) (set-selective-display
                                                    (* 2 standard-indent))))
-    (global-set-key [f4] (lambda () (interactive) (set-selective-display
+    (define-key python-mode-map [f4] (lambda () (interactive) (set-selective-display
                                                    (* 3 standard-indent))))
-    (global-set-key [f5] (lambda () (interactive) (set-selective-display
+    (define-key python-mode-map [f5] (lambda () (interactive) (set-selective-display
                                                    (* 4 standard-indent))))
-    (global-set-key [f6] (lambda () (interactive) (set-selective-display
+    (define-key python-mode-map [f6] (lambda () (interactive) (set-selective-display
                                                    (* 5 standard-indent))))
-    (global-set-key [f7] (lambda () (interactive) (set-selective-display
+    (define-key python-mode-map [f7] (lambda () (interactive) (set-selective-display
                                                    nil))))
-  (add-hook 'python-mode-hook 'python-remap-fs)
+  (add-hook 'python-mode-hook 'rac/python-remap-fs)
 #+END_SRC
 
 See here for the [[https://stackoverflow.com/questions/23654334/python-in-emacs-name-main-but-somehow-not][difference between]] sending the current Python buffer to an inferior shell (`C-c C-c`) and the universal command that also sends `__main__` for properly written scripts (`C-u C-c C-c`)

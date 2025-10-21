@@ -407,10 +407,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; reveal.js presentations
 (use-package ox-reveal
   :config
-  ;; We need to tell ox-reveal where to find the js file.
-  (dolist (setq '(
-                  (org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
-                  (org-reveal-mathjax t)))))
+  ;; We need to tell ox-reveal where to find the js file
+  (setq org-reveal-root "http://cdn.jsdelivr.net/npm/reveal.js")
+  (setq org-reveal-mathjax t))
 
 (global-set-key (kbd "C-c c")
                 'org-capture)
@@ -488,8 +487,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package org-roam
   :ensure t
-  :init
-  (setq org-roam-v2-ack t)
   :custom
   (org-roam-directory "~/Dropbox/emacs/Roam/db")
   (org-roam-completion-everywhere t)
@@ -605,26 +602,27 @@ Uses `current-date-time-format' for the formatting the date/time."
   :config
   (setq-default format-all-formatters '(("C++" clang-format))))
 
-(defun indent-show-all ()
+(defun rac/indent-show-all ()
   (interactive)
   (set-selective-display nil)
   (condition-case nil (hs-show-all) (error nil))
   (show-all))
-(defun python-remap-fs ()
-  (global-set-key [f1] 'indent-show-all)
-  (global-set-key [f2] (lambda () (interactive) (set-selective-display
+
+(defun rac/python-remap-fs ()
+  (define-key python-mode-map [f1] 'rac/indent-show-all)
+  (define-key python-mode-map [f2] (lambda () (interactive) (set-selective-display
                                                  standard-indent)))
-  (global-set-key [f3] (lambda () (interactive) (set-selective-display
+  (define-key python-mode-map [f3] (lambda () (interactive) (set-selective-display
                                                  (* 2 standard-indent))))
-  (global-set-key [f4] (lambda () (interactive) (set-selective-display
+  (define-key python-mode-map [f4] (lambda () (interactive) (set-selective-display
                                                  (* 3 standard-indent))))
-  (global-set-key [f5] (lambda () (interactive) (set-selective-display
+  (define-key python-mode-map [f5] (lambda () (interactive) (set-selective-display
                                                  (* 4 standard-indent))))
-  (global-set-key [f6] (lambda () (interactive) (set-selective-display
+  (define-key python-mode-map [f6] (lambda () (interactive) (set-selective-display
                                                  (* 5 standard-indent))))
-  (global-set-key [f7] (lambda () (interactive) (set-selective-display
+  (define-key python-mode-map [f7] (lambda () (interactive) (set-selective-display
                                                  nil))))
-(add-hook 'python-mode-hook 'python-remap-fs)
+(add-hook 'python-mode-hook 'rac/python-remap-fs)
 
 (use-package python
   :ensure t

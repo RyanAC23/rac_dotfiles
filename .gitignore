@@ -33,3 +33,5 @@ bin/stepmania
 # big files
 *.jpg
 *.png
+/.emacs.d/.emacs.desktop1
+/.emacs.d/.cache/lsp/
