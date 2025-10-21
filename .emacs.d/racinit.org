@@ -66,7 +66,12 @@ Enable common lisp syntax.
   (require 'cl-lib)
 #+END_SRC
 ** UTF-8 Encoding
+
+
 #+BEGIN_SRC emacs-lisp
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+
   (dolist  (_sys '((lambda(x)
                    (setq locale-coding-system x))
                  set-terminal-coding-system
@@ -562,7 +567,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
     (require 'ox-md)   ;; Add markdown export support
     :bind
-    ("C-c a" . org-agenda)
     ("C-p"   . org-note-insert-page))
 
   (use-package org-bullets
@@ -684,15 +688,6 @@ Do not be confused between the quote and the [[https://www.gnu.org/software/emac
 #+END_SRC
 
 ** Org Roam
-
-#+BEGIN_SRC emacs-lisp
-  (defun org-roam-node-insert-immediate (arg &rest args)
-    (interactive "P")
-    (let ((args (push arg args))
-	      (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-							'(:immediate-finish t)))))
-      (apply #'org-roam-node-insert args)))
-#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
   (use-package org-roam
@@ -971,9 +966,22 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
 ** Set compile hook to C/++
 
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (local-set-key (kbd "C-<return>") 'compile)))
+    (use-package lsp-mode
+    :hook (c++-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-clients-clangd-executable "/usr/bin/clangd")
+    (setq lsp-headerline-breadcrumb-enable nil))
+
+  (use-package lsp-ui
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t
+          lsp-ui-doc-position 'at-point))
+
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (local-set-key (kbd "C-<return>") 'compile)))
 #+END_SRC
 
 * SSH / TRAMP

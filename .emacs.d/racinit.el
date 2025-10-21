@@ -35,13 +35,16 @@
 
 (require 'cl-lib)
 
-(dolist  (_sys '((lambda(x)
-                 (setq locale-coding-system x))
-               set-terminal-coding-system
-               set-keyboard-coding-system
-               set-selection-coding-system
-               prefer-coding-system))
-  (funcall _sys 'utf-8))
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+
+  (dolist  (_sys '((lambda(x)
+                   (setq locale-coding-system x))
+                 set-terminal-coding-system
+                 set-keyboard-coding-system
+                 set-selection-coding-system
+                 prefer-coding-system))
+    (funcall _sys 'utf-8))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -403,7 +406,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
   (require 'ox-md)   ;; Add markdown export support
   :bind
-  ("C-c a" . org-agenda)
   ("C-p"   . org-note-insert-page))
 
 (use-package org-bullets
@@ -500,13 +502,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   :defer t
   :hook (org-mode . rac-org-mode-visual-fill)
   :diminish)
-
-(defun org-roam-node-insert-immediate (arg &rest args)
-  (interactive "P")
-  (let ((args (push arg args))
-	    (org-roam-capture-templates (list (append (car org-roam-capture-templates)
-						      '(:immediate-finish t)))))
-    (apply #'org-roam-node-insert args)))
 
 (use-package org-roam
   :ensure t
@@ -681,9 +676,22 @@ Uses `current-date-time-format' for the formatting the date/time."
   ("C-<tab>" . yas-expand)
   )
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (local-set-key (kbd "C-<return>") 'compile)))
+(use-package lsp-mode
+  :hook (c++-mode . lsp)
+  :commands lsp
+  :config
+  (setq lsp-clients-clangd-executable "/usr/bin/clangd")
+  (setq lsp-headerline-breadcrumb-enable nil))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point))
+
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (local-set-key (kbd "C-<return>") 'compile)))
 
 (setq tramp-verbose 3)
 
