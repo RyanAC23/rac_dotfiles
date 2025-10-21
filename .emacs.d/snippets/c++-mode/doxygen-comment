@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: doxygen-comment
+# key: /**
+# --
+
+/**
+ * @brief $1
+ * @param
+ * @return
+ */
