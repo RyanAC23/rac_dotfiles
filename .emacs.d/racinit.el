@@ -412,28 +412,19 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq org-reveal-mathjax t))
 
 (global-set-key (kbd "C-c c")
-                'org-capture)
+                  'org-capture)
 
-(defadvice org-capture-finalize
-    (after delete-capture-frame activate)
-  "Advise capture-finalize to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
+(advice-add 'org-capture-finalize :after #'delete-capture-frame)
+(advice-add 'org-capture-destroy :after #'delete-capture-frame)
 
-(defadvice org-capture-destroy
-    (after delete-capture-frame activate)
-  "Advise capture-destroy to close the frame"
-  (if (equal "capture" (frame-parameter nil 'name))
-      (delete-frame)))
-
-(defun make-capture-frame ()
-  "Create a new frame and run org-capture."
-  (interactive)
-  (make-frame '((name . "capture")))
-  (select-frame-by-name "capture")
-  (delete-other-windows)
-  (cl-letf (((symbol-function 'switch-to-other-buffer-window) #'switch-to-buffer))
-    (org-capture)))
+  (defun make-capture-frame ()
+    "Create a new frame and run org-capture."
+    (interactive)
+    (make-frame '((name . "capture")))
+    (select-frame-by-name "capture")
+    (delete-other-windows)
+    (cl-letf (((symbol-function 'switch-to-other-buffer-window) #'switch-to-buffer))
+      (org-capture)))
 
 (with-eval-after-load 'org
   (org-babel-do-load-languages
