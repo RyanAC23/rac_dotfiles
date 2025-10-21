@@ -44,20 +44,26 @@ Palatino seems to need a slightly larger font to be comfortable.
   The default garbage collection threshold is 800 kilobytes. This means a ton of garbage collections will occur, slowing down startup. I raise the default threshold for startup and lower it again at the bottom of this file.
 
 #+BEGIN_SRC emacs-lisp
-  (setq gc-cons-threshold (* 50 1000 1000)) ; Roguhly 50MB
+    (defvar rac/bytes-per-KiB 1024
+      "Number of bytes in a kibibyte (KiB).")
 
-  (defun run-startup-diagnostics ()
-    "A short profile of emacs startup."
-    (add-hook 'emacs-startup-hook
-              (lambda ()
-                (message "*** Emacs loaded in %s with %d garbage collections."
-                         (format "%.2f seconds"
-                                 (float-time
-                                  (time-subtract after-init-time before-init-time)))
-                         gcs-done)))
-    (setq use-package-verbose t))
+    (defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
+      "Number of bytes in a mebibyte (MiB).")
 
-  (run-startup-diagnostics) ; TODO: just run function anonymously?
+      (setq gc-cons-threshold (* 100 rac/bytes-per-MiB))
+      ;"GC threshold during startup: 100 MiB."
+
+      (defun rac/run-startup-diagnostics ()
+        "A short profile of emacs startup."
+        (add-hook 'emacs-startup-hook
+                  (lambda ()
+                    (message "*** Emacs loaded in %s with %d garbage collections."
+                             (format "%.2f seconds"
+                                     (float-time
+                                      (time-subtract after-init-time before-init-time)))
+                             gcs-done))))
+  (setq use-package-verbose t)
+  (rac/run-startup-diagnostics)
 #+END_SRC
 * Behavior - Basic
 ** Common Lisp
@@ -69,16 +75,16 @@ Enable common lisp syntax.
 
 
 #+BEGIN_SRC emacs-lisp
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
 
-  (dolist  (_sys '((lambda(x)
-                   (setq locale-coding-system x))
-                 set-terminal-coding-system
-                 set-keyboard-coding-system
-                 set-selection-coding-system
-                 prefer-coding-system))
-    (funcall _sys 'utf-8))
+    ;; (dolist  (_sys '((lambda(x)
+    ;;                  (setq locale-coding-system x))
+    ;;                set-terminal-coding-system
+    ;;                set-keyboard-coding-system
+    ;;                set-selection-coding-system
+    ;;                prefer-coding-system))
+    ;;   (funcall _sys 'utf-8))
 #+END_SRC
 ** y/n instead of 'yes/no'
 Be able to type 'y' instead of 'yes'.
@@ -155,9 +161,10 @@ reroute backups and control history
 Start in server mode to open files in the server instance with the bash command
 
 #+BEGIN_SRC emacs-lisp
-  (require 'server)
+  (use-package server
+  :ensure nil
+  :config
   (unless (server-running-p)
-    (progn
       (server-start)
       (toggle-frame-maximized)))
 #+END_SRC
@@ -484,38 +491,42 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
 - Added dashboard config to [[https://githubmemory.com/repo/emacs-dashboard/emacs-dashboard/issues/297][close agenda buffers]] after reading them on startup.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package projectile
-    :diminish projectile-mode
-    :config (projectile-mode)
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :custom ((projectile-completion-system 'ivy))
-    :init
-    (when (file-directory-p "~/repos/")
-      (setq projectile-project-search-path '("~/repos/"))))
+    (use-package projectile
+      :diminish projectile-mode
+      :config (projectile-mode)
+      :bind-keymap
+      ("C-c p" . projectile-command-map)
+      :custom ((projectile-completion-system 'ivy))
+      :init
+      (when (file-directory-p "~/repos/")
+        (setq projectile-project-search-path '("~/repos/"))))
 
-  (use-package all-the-icons)
+    (use-package all-the-icons)
 
-  ;; install if not present
-  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-    (all-the-icons-install-fonts))
+    ;; install if not present
+    (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+      (all-the-icons-install-fonts))
 
-  (use-package dashboard
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-    (setq dashboard-items '((projects . 10)
-                            (agenda . 5)
-                            (recents . 15)
-                            (bookmarks . 5)
-                            (registers . 5)))
-    (setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-footer-messages nil)
-    (load-file "~/.emacs.d/dashboard_quotes.el")
-    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
-    (setq dashboard-agenda-release-buffers t))
+  (defun rac/load-if-exists (file)
+    "Load file if it exists."
+    ( when (file-exists-p file)
+      (load-file file)))
+
+    (use-package dashboard
+      :config
+      (dashboard-setup-startup-hook)
+      (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
+      (setq dashboard-items '((projects . 10)
+                              (recents . 15)
+                              (bookmarks . 5)
+                              (registers . 5)))
+      (setq dashboard-center-content t)
+      (setq dashboard-set-file-icons t)
+      (setq dashboard-set-heading-icons t)
+      (setq dashboard-footer-messages nil)
+      (rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
+      (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
+      )
 #+END_SRC
 
 * Org Mode
@@ -562,7 +573,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     :hook
     ((org-mode . org-mode-setup)
      (org-mode . org-winmove-setup))
-    :commands (org-capture org-agenda)
     :config
     (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
     (require 'ox-md)   ;; Add markdown export support
@@ -573,11 +583,6 @@ The three packages here are ~ivy~, ~counsel~, and ~swiper~. Together they give r
     :hook (org-mode . org-bullets-mode)
     :custom
     (org-bullets-bullet-list '("あ" "い" "う" "え" "お")))
-
-  ;; org agenda
-  (setq org-agenda-files
-        '("~/Dropbox/emacs/rac-agenda.org"
-          "~/Dropbox/emacs/Birthdays.org"))
   (setq org-log-done 'time)
 
   ;; reveal.js presentations
@@ -641,8 +646,6 @@ Do not be confused between the quote and the [[https://www.gnu.org/software/emac
 
   (setq org-capture-templates
         `(
-          ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-           "* TODO %?\n %U\n %a\n %i \n%T" :empty-lines 1 :prepend t :kill-buffer t)
           ("1" "Links : Geofront" table-line (file+headline
                                               "~/Dropbox/website/org/capture/links-general.org" "Links")
            ,link-capture-string :kill-buffer t)
@@ -670,7 +673,7 @@ Do not be confused between the quote and the [[https://www.gnu.org/software/emac
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
 
-  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+  (add-hook 'after-save-hook #'rac/org-babel-tangle-config)
 #+end_src
 
 ** Visual Fill Org Hook
@@ -793,40 +796,6 @@ This must be loaded after `org`!!!
 There are some detailed examples on LaTeX environments [[https://emacs.stackexchange.com/questions/34189/emacs-setup-for-latex-after-use-package-verse][here]]. Your hooks weren't working because you were in tex mode, not latex mode.
 
 * TODO LSP and IDE Core
-** Language Server Protocol
-This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
-
-#+BEGIN_SRC emacs-lisp :tangle no
-  (defun rac/lsp-mode-setup()
-    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-    (lsp-headerline-breadcrumb-mode))
-
-  (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :hook (lsp-mode . rac/lsp-mode-setup)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :config
-    (setq lsp-enable-which-key-integration t)
-    (setq lsp-signature-auto-activate nil)
-    (setq lsp-diagnostics-provider :none))
-
-  (use-package lsp-ui
-    :hook (lsp-mode . lsp-ui-mode)
-    :custom
-    (lsp-ui-doc-position 'bottom))
-
-  (use-package lsp-treemacs
-    :after lsp)
-
-  (use-package lsp-ivy
-    :after lsp)
-#+END_SRC
-
-Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] will be a pain. Avoid it if you can.
-
-- Thursday 07 March 2024
-  I'm not sure I like this at all. Disabling completely for now.
 ** Autocompletion
 ** Flycheck
 
@@ -865,6 +834,38 @@ Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp
     (company-tooltip
      ((t (:family "Terminus")))))
 #+END_SRC
+** Language Server Protocol
+This will take some fiddling. See [[https://emacs-lsp.github.io/lsp-mode/tutorials/how-to-turn-off/][this page]] for a list of the options that can be enabled/disabled in lsp-mode.
+
+#+BEGIN_SRC emacs-lisp :tangle no
+  (defun rac/lsp-mode-setup()
+    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    (lsp-headerline-breadcrumb-mode))
+
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :hook (lsp-mode . rac/lsp-mode-setup)
+    :config
+    (setq lsp-enable-which-key-integration t)
+    (setq lsp-signature-auto-activate nil)
+    (setq lsp-diagnostics-provider :none))
+
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode)
+    :custom
+    (lsp-ui-doc-position 'bottom))
+
+  (use-package lsp-treemacs
+    :after lsp)
+
+  (use-package lsp-ivy
+    :after lsp)
+#+END_SRC
+
+Getting the lsp server [[https://emacs-lsp.github.io/lsp-mode/page/remote/#tramp][working over Tramp]] will be a pain. Avoid it if you can.
+
+- Thursday 07 March 2024
+  I'm not sure I like this at all. Disabling completely for now.
 
 * Auto Linting
 ** Python
@@ -967,14 +968,19 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
 
 #+BEGIN_SRC emacs-lisp
     (use-package lsp-mode
-    :hook (c++-mode . lsp)
-    :commands lsp
+    :commands (lsp lsp-deferred)
+    :init (setq lsp-keymap-prefix "C-c l")
     :config
-    (setq lsp-clients-clangd-executable "/usr/bin/clangd")
-    (setq lsp-headerline-breadcrumb-enable nil))
+    (setq lsp-clients-clangd-executable "/usr/bin/clangd"
+          lsp-headerline-breadcrumb-enable nil
+          lsp-enable-which-key-integration t
+          lsp-signature-auto-activate nil
+          lsp-diagnostics-provider :flycheck
+    ))
 
   (use-package lsp-ui
     :commands lsp-ui-mode
+    :after lsp-mode
     :config
     (setq lsp-ui-doc-enable t
           lsp-ui-doc-position 'at-point))
@@ -996,8 +1002,9 @@ Check out this good [[http://www.howardism.org/Technical/Emacs/templates-tutoria
 This is for playing around only. In practice, I have found that doing this from the terminal is easier.
 
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :commands (magit-status magit-get-current-branch))
+    (use-package magit
+      :commands (magit-status magit-get-current-branch)
+      :bind ("C-c g" . magit-status))
 #+END_SRC
 
 * Website
@@ -1009,7 +1016,7 @@ The current way I deal with this is to keep the site elisp in a separate file, w
 At any rate, load `websites.el'.
 
 #+BEGIN_SRC emacs-lisp
-  (load-if-exists "~/.emacs.d/websites.el")
+  (rac/load-if-exists "~/.emacs.d/websites.el")
 #+END_SRC
 ** Rebuild Sites
  #+BEGIN_SRC emacs-lisp
@@ -1028,7 +1035,8 @@ For exporting an emacs buffer as an html file.
 Lower the garbage collection threshold from the higher value used at startup.
 
 #+BEGIN_SRC emacs-lisp
-(setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
+  (setq gc-cons-threshold (* 50 rac/bytes-per-MiB))
+    ;"GC threshold during runtime: 50 MiB."
 #+END_SRC
 
 

@@ -18,33 +18,39 @@
       (set-face-attribute 'variable-pitch nil :font "Cantarell" :height
 			    rac/default-variable-font-size :weight 'regular)
 
-(setq gc-cons-threshold (* 50 1000 1000)) ; Roguhly 50MB
+(defvar rac/bytes-per-KiB 1024
+    "Number of bytes in a kibibyte (KiB).")
 
-(defun run-startup-diagnostics ()
-  "A short profile of emacs startup."
-  (add-hook 'emacs-startup-hook
-            (lambda ()
-              (message "*** Emacs loaded in %s with %d garbage collections."
-                       (format "%.2f seconds"
-                               (float-time
-                                (time-subtract after-init-time before-init-time)))
-                       gcs-done)))
-  (setq use-package-verbose t))
+  (defvar rac/bytes-per-MiB (* rac/bytes-per-KiB 1024)
+    "Number of bytes in a mebibyte (MiB).")
 
-(run-startup-diagnostics) ; TODO: just run function anonymously?
+    (setq gc-cons-threshold (* 100 rac/bytes-per-MiB))
+    ;"GC threshold during startup: 100 MiB."
+
+    (defun rac/run-startup-diagnostics ()
+      "A short profile of emacs startup."
+      (add-hook 'emacs-startup-hook
+                (lambda ()
+                  (message "*** Emacs loaded in %s with %d garbage collections."
+                           (format "%.2f seconds"
+                                   (float-time
+                                    (time-subtract after-init-time before-init-time)))
+                           gcs-done))))
+(setq use-package-verbose t)
+(rac/run-startup-diagnostics)
 
 (require 'cl-lib)
 
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 
-  (dolist  (_sys '((lambda(x)
-                   (setq locale-coding-system x))
-                 set-terminal-coding-system
-                 set-keyboard-coding-system
-                 set-selection-coding-system
-                 prefer-coding-system))
-    (funcall _sys 'utf-8))
+  ;; (dolist  (_sys '((lambda(x)
+  ;;                  (setq locale-coding-system x))
+  ;;                set-terminal-coding-system
+  ;;                set-keyboard-coding-system
+  ;;                set-selection-coding-system
+  ;;                prefer-coding-system))
+  ;;   (funcall _sys 'utf-8))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -81,9 +87,10 @@
       auto-save-timeout 20         ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200)       ; number of keystrokes between auto-saves (default: 300)
 
-(require 'server)
+(use-package server
+:ensure nil
+:config
 (unless (server-running-p)
-  (progn
     (server-start)
     (toggle-frame-maximized)))
 
@@ -328,37 +335,41 @@ Uses `current-date-time-format' for the formatting the date/time."
               " " filename)))
 
 (use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :custom ((projectile-completion-system 'ivy))
-  :init
-  (when (file-directory-p "~/repos/")
-    (setq projectile-project-search-path '("~/repos/"))))
+    :diminish projectile-mode
+    :config (projectile-mode)
+    :bind-keymap
+    ("C-c p" . projectile-command-map)
+    :custom ((projectile-completion-system 'ivy))
+    :init
+    (when (file-directory-p "~/repos/")
+      (setq projectile-project-search-path '("~/repos/"))))
 
-(use-package all-the-icons)
+  (use-package all-the-icons)
 
-;; install if not present
-(unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-  (all-the-icons-install-fonts))
+  ;; install if not present
+  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
+    (all-the-icons-install-fonts))
 
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-  (setq dashboard-items '((projects . 10)
-                          (agenda . 5)
-                          (recents . 15)
-                          (bookmarks . 5)
-                          (registers . 5)))
-  (setq dashboard-center-content t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-footer-messages nil)
-  (load-file "~/.emacs.d/dashboard_quotes.el")
-  (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
-  (setq dashboard-agenda-release-buffers t))
+(defun rac/load-if-exists (file)
+  "Load file if it exists."
+  ( when (file-exists-p file)
+    (load-file file)))
+
+  (use-package dashboard
+    :config
+    (dashboard-setup-startup-hook)
+    (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
+    (setq dashboard-items '((projects . 10)
+                            (recents . 15)
+                            (bookmarks . 5)
+                            (registers . 5)))
+    (setq dashboard-center-content t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-footer-messages nil)
+    (rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
+    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
+    )
 
 ;; Org-mode ------------------------------------------------------------
 (defun org-mode-setup ()
@@ -401,7 +412,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   :hook
   ((org-mode . org-mode-setup)
    (org-mode . org-winmove-setup))
-  :commands (org-capture org-agenda)
   :config
   (setq org-ellipsis " ▾") ;; get rid of ugly orange underlining
   (require 'ox-md)   ;; Add markdown export support
@@ -412,11 +422,6 @@ Uses `current-date-time-format' for the formatting the date/time."
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("あ" "い" "う" "え" "お")))
-
-;; org agenda
-(setq org-agenda-files
-      '("~/Dropbox/emacs/rac-agenda.org"
-        "~/Dropbox/emacs/Birthdays.org"))
 (setq org-log-done 'time)
 
 ;; reveal.js presentations
@@ -465,8 +470,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq org-capture-templates
       `(
-        ("t" "Todo / Tasks" entry (file "~/Dropbox/emacs/rac-agenda.org")
-         "* TODO %?\n %U\n %a\n %i \n%T" :empty-lines 1 :prepend t :kill-buffer t)
         ("1" "Links : Geofront" table-line (file+headline
                                             "~/Dropbox/website/org/capture/links-general.org" "Links")
          ,link-capture-string :kill-buffer t)
@@ -491,7 +494,7 @@ Uses `current-date-time-format' for the formatting the date/time."
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'rac/org-babel-tangle-config)))
+(add-hook 'after-save-hook #'rac/org-babel-tangle-config)
 
 (defun rac/org-mode-visual-fill ()
   (setq visual-fill-column-width 150
@@ -677,14 +680,19 @@ Uses `current-date-time-format' for the formatting the date/time."
   )
 
 (use-package lsp-mode
-  :hook (c++-mode . lsp)
-  :commands lsp
+  :commands (lsp lsp-deferred)
+  :init (setq lsp-keymap-prefix "C-c l")
   :config
-  (setq lsp-clients-clangd-executable "/usr/bin/clangd")
-  (setq lsp-headerline-breadcrumb-enable nil))
+  (setq lsp-clients-clangd-executable "/usr/bin/clangd"
+        lsp-headerline-breadcrumb-enable nil
+        lsp-enable-which-key-integration t
+        lsp-signature-auto-activate nil
+        lsp-diagnostics-provider :flycheck
+  ))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :after lsp-mode
   :config
   (setq lsp-ui-doc-enable t
         lsp-ui-doc-position 'at-point))
@@ -696,16 +704,18 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq tramp-verbose 3)
 
 (use-package magit
-  :commands (magit-status magit-get-current-branch))
+  :commands (magit-status magit-get-current-branch)
+  :bind ("C-c g" . magit-status))
 
-(load-if-exists "~/.emacs.d/websites.el")
+(rac/load-if-exists "~/.emacs.d/websites.el")
 
 (global-set-key (kbd "C-c b") 'org-publish-project)
 
 (use-package htmlize
   :defer 0)
 
-(setq gc-cons-threshold (* 2 1000 1000)) ;;roughly 2MB
+(setq gc-cons-threshold (* 50 rac/bytes-per-MiB))
+  ;"GC threshold during runtime: 50 MiB."
 
 (desktop-save-mode t)
 
