@@ -1021,17 +1021,7 @@ Lower the garbage collection threshold from the higher value used at startup.
 
 #+BEGIN_SRC emacs-lisp
   (desktop-save-mode t)
-
-  (setq your-own-path default-directory)
-  (if (file-exists-p
-       (concat your-own-path ".emacs.desktop"))
-      (desktop-read your-own-path))
-
-  (add-hook 'kill-emacs-hook
-        `(lambda ()
-          (desktop-save ,your-own-path t)))
-
-   #+END_SRC
+#+END_SRC
 
 * Test Space
 For settings and Melpa packages I haven't committed myself to.

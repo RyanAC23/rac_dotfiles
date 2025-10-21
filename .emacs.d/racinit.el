@@ -697,12 +697,3 @@ Uses `current-date-time-format' for the formatting the date/time."
   ;"GC threshold during runtime: 50 MiB."
 
 (desktop-save-mode t)
-
-(setq your-own-path default-directory)
-(if (file-exists-p
-     (concat your-own-path ".emacs.desktop"))
-    (desktop-read your-own-path))
-
-(add-hook 'kill-emacs-hook
-      `(lambda ()
-        (desktop-save ,your-own-path t)))
