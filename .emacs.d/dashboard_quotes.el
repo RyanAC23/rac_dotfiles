@@ -1,5 +1,4 @@
-;; my quotes
-(setq dashboard-quote-list '(
+(setq rac/dashboard-quotes-list '(
 ;; Blood Meridian
      "\"If God meant to interfere in the degeneracy of mankind would he not have done so by now?\""
      "\"Ah priest. What can I ask of you that you've not already given?\""

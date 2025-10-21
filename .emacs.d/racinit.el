@@ -314,43 +314,6 @@ Uses `current-date-time-format' for the formatting the date/time."
                 (name 33 33)
                 " " filename))))
 
-(use-package projectile
-    :diminish projectile-mode
-    :config (projectile-mode)
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :custom ((projectile-completion-system 'ivy))
-    :init
-    (when (file-directory-p "~/repos/")
-      (setq projectile-project-search-path '("~/repos/"))))
-
-  (use-package all-the-icons)
-
-  ;; install if not present
-  (unless (file-exists-p "~/.local/share/fonts/all-the-icons.ttf")
-    (all-the-icons-install-fonts))
-
-(defun rac/load-if-exists (file)
-  "Load file if it exists."
-  ( when (file-exists-p file)
-    (load-file file)))
-
-  (use-package dashboard
-    :config
-    (dashboard-setup-startup-hook)
-    (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-    (setq dashboard-items '((projects . 10)
-                            (recents . 15)
-                            (bookmarks . 5)
-                            (registers . 5)))
-    (setq dashboard-center-content t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-footer-messages nil)
-    (rac/load-if-exists "~/.emacs.d/dashboard_quotes.el")
-    (setq dashboard-banner-logo-title (nth (random (length dashboard-quote-list)) dashboard-quote-list))
-    )
-
 ;; Org-mode ------------------------------------------------------------
 (defun org-mode-setup ()
   (org-indent-mode)
@@ -581,6 +544,38 @@ Uses `current-date-time-format' for the formatting the date/time."
   (company-tooltip
    ((t (:family "Terminus")))))
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init (setq lsp-keymap-prefix "C-c l")
+  :config
+  (setq lsp-clients-clangd-executable "/usr/bin/clangd"
+        lsp-headerline-breadcrumb-enable nil
+        lsp-enable-which-key-integration t
+        lsp-signature-auto-activate nil
+        lsp-diagnostics-provider :flycheck
+  ))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :after lsp-mode
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-position 'at-point ; 'bottom
+        lsp-ui-doc-use-childframe t))
+
+(defun rac/toggle-lsp ()
+"Toggle LSP in the current project/buffer."
+(interactive)
+(if (bound-and-true-p lsp-mode)
+    (progn (lsp-workspace-shutdown (lsp-session))
+           (lsp-disconnected-maybe)
+           (message "LSP stopped for %s" (buffer-name)))
+  (let ((project-root (or (projectile-project-root) default-directory)))
+    (lsp-deferred)
+    (message "LSP started for project at %s" project-root))))
+
+(global-set-key (kbd "C-c L") 'rac/toggle-lsp)
+
 (use-package blacken
   :hook (python-mode . blacken-mode))
 
@@ -645,27 +640,9 @@ Uses `current-date-time-format' for the formatting the date/time."
   ("C-<tab>" . yas-expand)
   )
 
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init (setq lsp-keymap-prefix "C-c l")
-  :config
-  (setq lsp-clients-clangd-executable "/usr/bin/clangd"
-        lsp-headerline-breadcrumb-enable nil
-        lsp-enable-which-key-integration t
-        lsp-signature-auto-activate nil
-        lsp-diagnostics-provider :flycheck
-  ))
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :after lsp-mode
-  :config
-  (setq lsp-ui-doc-enable t
-        lsp-ui-doc-position 'at-point))
-
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (local-set-key (kbd "C-<return>") 'compile)))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (local-set-key (kbd "C-<return>") 'compile)))
 
 (setq tramp-verbose 3)
 
