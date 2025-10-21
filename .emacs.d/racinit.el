@@ -342,25 +342,29 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (use-package dashboard
   :init
-  (message "Dashboard: Setting banner...")
-  (setq dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
-  (message "Dashboard: Setting projectile backend...")
-  (setq dashboard-projects-backend 'projectile)
-
-  (message "Dashboard: Setting items...")
-  (setq dashboard-items '((projects . 10)
+  (dashboard-setup-startup-hook)
+  :custom
+  (dashboard-startup-banner "~/.emacs.d/banner/Aoba.png")
+  (dashboard-projects-backend 'projectile)
+  (dashboard-items '((projects . 10)
                           (recents . 15)
                           (bookmarks . 5)
                           (registers . 5)))
-
-  (message "Dashboard: Setting display options...")
-  (setq dashboard-center-content t)
-  (setq dashboard-set-file-icons t)
-  (setq dashboard-set-heading-icons t)
-  (setq dashboard-footer-messages '(""))
-  (setq dashboard-banner-logo-title (rac/random-quote))
-  (message "Dashboard: Calling dashboard-setup-startup-hook...")
-  (dashboard-setup-startup-hook))
+  (dashboard-center-content t)
+  (dashboard-set-file-icons t)
+  (dashboard-set-heading-icons t)
+  (dashboard-footer-messages '(""))
+  (dashboard-banner-logo-title (rac/random-quote))
+  :config
+  (defun rac/dashboard-new-quote ()
+    "Select a new random quote and refresh the dashboard."
+    (interactive)
+    (setq dashboard-banner-logo-title (rac/random-quote))
+    (when (get-buffer "*dashboard*")
+      (with-current-buffer "*dashboard*"
+        (dashboard-refresh-buffer))))
+  :bind ("Q" . rac/dashboard-new-quote)
+  )
 
 ;; Org-mode ------------------------------------------------------------
 (defun org-mode-setup ()
